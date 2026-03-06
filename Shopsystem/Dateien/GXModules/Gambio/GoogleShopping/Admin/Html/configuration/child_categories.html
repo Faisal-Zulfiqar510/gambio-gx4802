@@ -1,0 +1,15 @@
+{block name="admin_google_shopping_child_categories"}
+	{foreach item=category from=$categories}
+		{block name="admin_google_shopping_child_categories_category"}
+			<li>
+				<span class="category-checkbox {$category.state}_checked"></span>
+				<span class="category-folder folded" data-category-id="{$category.categories_id}">
+					<i class="fa fa-folder fa-lg"></i> {$category.categories_name}
+				</span>
+				<input type="hidden" class="category-state" name="categories[{$category.categories_id}]" value="{$category.state}"/>
+				<input type="hidden" class="bequeathing-state" name="bequeathing_categories[{$category.categories_id}]" value=""/>
+				<ul class="subtree"></ul>
+			</li>
+		{/block}
+	{/foreach}
+{/block}

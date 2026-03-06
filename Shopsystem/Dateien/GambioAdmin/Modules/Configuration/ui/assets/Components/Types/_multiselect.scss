@@ -1,0 +1,111 @@
+@import "../../styles/variables";
+
+$multi-select-bg-color: #ffffff;
+
+$input-padding: 0.25rem 0.5rem;
+$input-height: 2rem;
+
+.multiselect {
+	width: 100%;
+	color: $text-color-light;
+	
+	&:focus {
+		outline: none;
+	}
+	
+	.input-wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		flex-basis: auto;
+		min-height: $input-height;
+		
+		input {
+			min-height: $input-height;
+			padding: $input-padding;
+			border: none;
+			background-color: $multi-select-bg-color;
+			width: 100%;
+			
+			&:focus {
+				outline: none;
+			}
+		}
+		
+		.selections {
+			padding: $input-padding;
+			border: 1px solid $border-color;
+			position: absolute;
+			left: 0;
+			
+			min-height: $input-height;
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			
+			.selected {
+				height: $input-height * 0.75;
+				background-color: $gambio-success;
+				color: #ffffff;
+				border: 1px solid $border-color;
+				border-radius: 3px;
+				padding: .075rem .5rem;
+				
+				&:not(:last-of-type) {
+					margin-right: .25rem;
+				}
+			}
+		}
+		
+		.select-icon {
+			align-self: center;
+			position: absolute;
+			right: 0;
+			margin-right: .5rem;
+		}
+	}
+	
+	.multi-select-options-wrapper {
+		position: relative;
+		display: flex;
+		
+		.multi-select-options {
+			background-color: $multi-select-bg-color;
+			position: absolute;
+            z-index: 10;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			border-top: 1px solid $border-color;
+			border-left: 1px solid $border-color;
+			border-right: 1px solid $border-color;
+			
+			.multi-select-option {
+				height: $input-height;
+				padding: $input-padding;
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+				border-bottom: 1px solid $border-color;
+				
+				&.selected {
+					background-color: darken(#ffffff, 5);
+					
+					&:hover {
+						background-color: $gambio-danger;
+					}
+				}
+				
+				&:hover {
+					background-color: $gambio-success;
+					color: #ffffff;
+				}
+				
+				.selected-label {
+					margin-left: auto;
+				}
+			}
+		}
+	}
+}

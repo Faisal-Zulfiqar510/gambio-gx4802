@@ -1,0 +1,85 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="head"}
+	{include file="get_usermod:layouts/main/partial/order_status_styles.html"}
+{/block}
+
+{block name="content"}
+	{load_language_text section="admin_orders" name="admin_orders"}
+	{load_language_text section="orders" name="orders"}
+	{load_language_text section="gm_order_menu" name="gm_order_menu"}
+	
+	{block name="admin_orders_overview"}
+		<div class="orders overview">
+			{block name="admin_orders_overview_toolbar"}
+				<div class="toolbar">
+					<i class="fa fa-cogs fa-lg" data-toggle="modal" data-target=".settings.modal"></i>
+				</div>
+			{/block}
+	
+			{block name="admin_orders_overview_table"}
+				<table class="table table-main table-striped table-row-{$content.active_row_height}"
+					   data-gx-widget="single_checkbox multi_select"
+					   data-gx-controller="orders/overview/init orders/overview/events orders/overview/filter
+					                        orders/overview/actions orders/overview/state 
+					                        {if $content.display_tooltips === 'true'}orders/overview/tooltips{/if}"
+					   data-gx-extension="datatable_checkbox_mapping datatable_fixed_header datatable_custom_sorting
+										  datatable_fixed_row_actions datatable_loading_spinner datatable_responsive_columns
+										  datatable_custom_pagination datatable_normalize_overflow datatable_default_actions"
+					   data-init-active-columns="{$content.active_columns}"
+					   data-init-page-length="{$content.page_length}"
+					   data-datatable_default_actions-row="{$content.default_row_action}"
+					   data-actions-is-pdf-creator-installed="{$content.is_pdf_creator_installed}"
+				       data-actions-has-invoices="{$content.invoices.exist}"
+				       data-actions-has-packing-slips="{$content.packing_slips.exist}"
+					   data-actions-invoices-granted="{$content.permissionsGranted.invoices}"
+					   data-actions-withdrawals-granted="{$content.permissionsGranted.withdrawals}"
+					   data-events-max-amount-invoices-bulk-pdf="{$content.max_amount_invoices_bulk_pdf}"
+					   data-events-max-amount-packing-slips-bulk-pdf="{$content.max_amount_packing_slips_bulk_pdf}"
+					   data-datatable_default_actions-bulk="{$content.default_bulk_action}"
+					   data-resize-layout="draw.dt">
+					{block name="admin_orders_overview_table_thead"}
+						<thead>
+							{block name="admin_orders_overview_table_thead_ths"}
+								{include file="get_usermod:layouts/main/partial/datatables_heading_row.html"}
+								{include file="get_usermod:layouts/main/partial/datatables_filtering_row.html"}
+							{/block}
+						</thead>
+					{/block}
+					{block name="admin_orders_overview_table_tbody"}
+						<tbody>
+							{* Content will be loaded dynamically (orders/overview/init.js) *}
+						</tbody>
+					{/block}
+				</table>
+			{/block}
+	
+			{* Button Dropdown *}
+				{block name="admin_orders_overview_dropdown"}
+				<div class="bulk-action btn-group dropdown">
+					<button type="button" class="btn btn-default disabled">{* Dynamic Content *}</button>
+					<button type="button" class="btn btn-default dropdown-toggle disabled" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+						<span class="caret"></span> <span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu">
+						{* Dynamic Content *}
+					</ul>
+				</div>
+			{/block}
+	
+			{* Include Modal Templates *}
+			{include file="get_usermod:orders/modals/add_tracking_number.html"}
+			{include file="get_usermod:orders/modals/bulk_email_invoice.html"}
+			{include file="get_usermod:orders/modals/bulk_email_order.html"}
+			{include file="get_usermod:orders/modals/bulk_error.html"}
+			{include file="get_usermod:orders/modals/bulk_pdf_encryption_error.html"}
+			{include file="get_usermod:orders/modals/cancel.html"}
+			{include file="get_usermod:orders/modals/change_status.html"}
+			{include file="get_usermod:orders/modals/create_missing_documents.html"}
+			{include file="get_usermod:orders/modals/email_invoice.html"}
+			{include file="get_usermod:orders/modals/email_order.html"}
+			{include file="get_usermod:orders/modals/settings.html"}
+		</div>
+	{/block}
+{/block}

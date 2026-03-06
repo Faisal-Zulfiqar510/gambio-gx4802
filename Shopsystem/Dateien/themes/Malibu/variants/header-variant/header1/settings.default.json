@@ -1,0 +1,2012 @@
+[
+    {
+        "name": "gx-brand-height",
+        "value": "84px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-brand-height-sticky",
+        "value": "84px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-brand-width-mobile",
+        "value": "120px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-col-lg",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-col-md",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-col-sm",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-height",
+        "value": "70px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-height-sticky",
+        "value": "70px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-icon-color",
+        "value": "$gx-brand-secondary",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-margin-vertical",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-margin-vertical-sticky",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-mobile-icon-color",
+        "value": "$gx-brand-secondary",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-padding-vertical",
+        "value": "13px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-padding-vertical-sticky",
+        "value": "13px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-sticky-icon-color",
+        "value": "$gx-brand-secondary",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-sticky-text-color",
+        "value": "#333333",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cart-text-color",
+        "value": "#333333",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-active-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-color",
+        "value": "$brand-primary",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-active-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-color",
+        "value": "#eee",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-hover-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-color",
+        "value": "#eee",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-bg-open-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-color",
+        "value": "$text-color",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-hover-color",
+        "value": "$text-color",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-left-open-color",
+        "value": "$text-color",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-color",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-cat-navbar-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-bg",
+        "value": "#eee",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-col-height",
+        "value": "70px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-col-height-sticky",
+        "value": "70px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-headline-size",
+        "value": "15px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-height",
+        "value": "$navbar-height",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-height-sticky",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-margin-vertical",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-margin-vertical-sticky",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-mobile-height",
+        "value": "50px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-mobile-icons",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-background-color",
+        "value": "rgba(0, 0, 0, .9)",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-close-icon-color",
+        "value": "#ffffff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-close-icon-color-active",
+        "value": "#ffffff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-items-color",
+        "value": "#eeeeee",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-items-color-active",
+        "value": "#ffffff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-items-background-color",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-items-background-color-active",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-menu-borders-color",
+        "value": "#ffffff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-search-rounded",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-search-text-color",
+        "value": "#555555",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-search-text-color-active",
+        "value": "#ffffff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-search-background-color",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-search-background-color-active",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-search-borders-color",
+        "value": "#ffffff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-search-borders-color-active",
+        "value": "#ffffff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-mobile-menu-overlay-search-icon-color",
+        "value": "#ffffff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-mobile-padding-vertical",
+        "value": "17px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-padding-vertical",
+        "value": "10px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-padding-vertical-sticky",
+        "value": "10px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-tab-padding",
+        "value": "2px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-text-transformation",
+        "value": "uppercase",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-transitions",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-custom-1-col-height",
+        "value": "80px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-custom-1-col-height-sticky",
+        "value": "60px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-custom-bg-color",
+        "value": "$gx-brand-secondary",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-custom-bg-color-active",
+        "value": "lighten($gx-custom-bg-color, 10%)",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-custom-bg-color-hover",
+        "value": "lighten($gx-custom-bg-color, 10%)",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-custom-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-custom-color-active",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-custom-color-hover",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-color",
+        "value": "$gray-lighter",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-enter-category-color",
+        "value": "$text-color",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-mobile-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-bg-sticky-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-categories-col-lg",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-categories-col-md",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-categories-col-sm",
+        "value": "0",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-col-lg",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-col-md",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-col-sm",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-custom-col-lg",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-custom-col-md",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-custom-col-sm",
+        "value": "0",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-height",
+        "value": "164px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-height-mobile",
+        "value": "60px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-height-sticky",
+        "value": "84px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-secondary-col-lg",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-secondary-col-md",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-header-secondary-col-sm",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-hide-cart-col",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-hide-categories-col",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-hide-custom-1-col",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-hide-logo-col",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-hide-search-col",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-hide-secondary-col",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-hide-topbar",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-block-count",
+        "value": "3",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-block-width",
+        "value": "225px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-color",
+        "value": "$text-color",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-heading-border-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-megadropdown-heading-font-size",
+        "value": "18px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-menu-mobile-icon-color",
+        "value": "$gx-brand-secondary",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-color",
+        "value": "#eee",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-active-color",
+        "value": "#999",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-color",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-color",
+        "value": "#ccc",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-color",
+        "value": "#ddd",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-link-hover-color",
+        "value": "#999",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-navbar-topbar-show-icons",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-col-lg",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-col-md",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-col-sm",
+        "value": "4",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-height",
+        "value": "70px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-height-sticky",
+        "value": "70px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-margin-vertical",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-margin-vertical-sticky",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-mobile-icon-color",
+        "value": "#333333",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-padding-vertical",
+        "value": "25px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-search-padding-vertical-sticky",
+        "value": "25px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-font-size",
+        "value": "$font-size-small",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-height",
+        "value": "84px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-height-sticky",
+        "value": "84px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-color",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-active-color",
+        "value": "#000",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-color",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-color",
+        "value": "#000",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-color",
+        "value": "#eee",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-hover-color",
+        "value": "#000",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-link-padding",
+        "value": "25px 10px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-margin-vertical",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-margin-vertical-sticky",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-padding-vertical",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-secondary-padding-vertical-sticky",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-show-search-top-nav",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-topbar-font-size",
+        "value": "$font-size-small",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-topbar-height",
+        "value": "40px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-topbar-height-sticky",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-topbar-link-padding",
+        "value": "11px 15px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "navbar-collapse-max-height",
+        "value": "340px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "navbar-default-link-active-bg",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "bootstrap"
+    },
+    {
+        "name": "navbar-default-link-active-color",
+        "value": "#000",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "navbar-default-link-color",
+        "value": "#000",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "navbar-default-link-hover-bg",
+        "value": "#fff",
+        "type": "colorpicker",
+        "group": "bootstrap"
+    },
+    {
+        "name": "navbar-default-link-hover-color",
+        "value": "$brand-primary",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "navbar-height",
+        "value": "40px",
+        "type": "textbox",
+        "group": "bootstrap"
+    },
+    {
+        "name": "navbar-margin-bottom",
+        "value": "$line-height-computed",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "navbar-padding-horizontal",
+        "value": "floor(($grid-gutter-width\/2))",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "navbar-padding-vertical",
+        "value": "12px",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-categories-mobile-dropdown-colors",
+        "value": false,
+        "type": "checkbox",
+        "group": "bootstrap"
+    }
+]

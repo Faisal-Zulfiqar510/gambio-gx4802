@@ -1,0 +1,26 @@
+{block name="admin_layouts_main_header"}
+	<header id="main-header">
+		{* Logo *}
+		{block name="admin_layouts_main_header_logo"}
+			<div class="logo">
+				<a href="{$baseUrl}/admin/">
+					<img src="html/assets/images/gx-admin/gambio-admin-white-logo.svg" />
+				</a>
+			</div>
+		{/block}
+	
+		{* Search *}
+		{block name="admin_layouts_main_header_search_dpl"}
+			<div class="search">
+				{include file="get_usermod:layouts/main/header/search.html"}
+			</div>
+		{/block}
+	
+		{* Actions *}
+		{block name="admin_layouts_main_header_actions_dpl"}
+			<div class="actions">
+				{include file="get_usermod:layouts/main/header/actions.html"}
+			</div>
+		{/block}
+	</header>
+{/block}

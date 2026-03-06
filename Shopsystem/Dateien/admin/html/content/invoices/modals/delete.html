@@ -1,0 +1,59 @@
+{* Orders Delete Modal *}
+
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_invoices_modals_delete"}
+	<div class="delete modal fade" tabindex="-1" role="dialog" data-gx-controller="invoices/modals/delete">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_invoices_modals_delete_header"}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_ClOSE}">
+							<span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">{$admin_invoices.TEXT_INFO_HEADING_MULTI_DELETE_INVOICE}</h4>
+					</div>
+				{/block}
+	
+				{block name="admin_invoices_modals_delete_body"}
+					<div class="modal-body">
+						{block name="admin_invoices_modals_delete_body_text"}
+							<p>{$admin_invoices.TEXT_INFO_MULTI_DELETE_INTRO}</p>
+						{/block}
+						
+						<br>
+		
+						{block name="admin_invoices_modals_delete_body_form"}
+							<form class="form-horizontal">
+								<fieldset>
+									{* Selected Order IDs *}
+									{block name="admin_invoices_modals_delete_body_form_selected_order_ids"}
+										<div class="form-group">
+											<label class="col-md-7">{$admin_invoices.TEXT_SELECTED_INVOICES}</label>
+											<div class="col-md-5 selected-invoice-numbers">
+												{* Dynamic Content *}
+											</div>
+											<input type="hidden" class="selected-invoice-ids" />
+										</div>
+									{/block}
+								</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_invoices_modals_delete_footer"}
+					<div class="modal-footer">
+						{block name="admin_invoices_modals_delete_footer_cancle"}
+							<button type="button"
+									class="btn btn-default"
+									data-dismiss="modal">{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_invoices_modals_delete_footer_delete"}
+							<button type="button" class="btn btn-danger delete">{$admin_buttons.BUTTON_DELETE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

@@ -1,0 +1,32 @@
+{extends file="get_usermod:layouts/main/partial/tooltip.html"}
+
+{block name="content"}
+	{block name="admin_invocies_tooltips_sum_block"}
+		<div class="order-sum-block">
+			{block name="admin_invocies_tooltips_sum_block_table"}
+				<table>
+					{block name="admin_invocies_tooltips_sum_block_table_tbody"}
+						<tbody>
+							{foreach $sum_block as $block}
+								{foreach $block as $title => $value}
+									{block name="admin_invocies_tooltips_sum_block_table_row"}
+										<tr>
+											{block name="admin_invocies_tooltips_sum_block_table_row_tds"}
+												<td>
+													{$title nofilter}
+												</td>
+												<td>
+													{$value nofilter}
+												</td>
+											{/block}
+										</tr>
+									{/block}
+								{/foreach}
+							{/foreach}
+						</tbody>
+					{/block}
+				</table>
+			{/block}
+		</div>
+	{/block}
+{/block}

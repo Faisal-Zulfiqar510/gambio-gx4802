@@ -1,0 +1,87 @@
+@import "mixins";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+span.match {
+	color: #FDF0E1;
+	background-color: #F5A623;
+}
+
+.filter {
+	display: flex;
+	flex-direction: column;
+	
+	
+	.categories, .tags {
+		
+		.title {
+			@include config-title();
+			padding: 1.75rem $padding-filter;
+		}
+		
+		.list {
+			display: flex;
+		}
+	}
+	
+	.categories {
+		.list {
+			color: $brand-primary;
+			cursor: pointer;
+			font-size: 16px;
+			flex-direction: column;
+			
+			.item {
+				padding: 1rem $padding-filter;
+				
+				&:not(:last-of-type) {
+					border-bottom: 1px solid $border-color;
+				}
+				
+				&.selected {
+					background-color: lighten($bg-active-item, 5);
+					font-weight: 600;
+				}
+			}
+		}
+	}
+	
+	.tags {
+		.list {
+			font-size: 12px;
+			color: $text-color-light;
+			cursor: pointer;
+			flex-wrap: wrap;
+			padding: 0 $padding-filter;
+			align-content: space-around;
+			
+			.item {
+				border: 1px solid $border-color;
+				border-radius: 50px;
+				
+				padding: 0.05rem 0.9rem;
+				margin: 0 0.5rem 0.5rem 0;
+				
+				&:hover {
+					background-color: $bg-hover-item;
+				}
+				
+				&.active {
+					background-color: $bg-active-item;
+					
+					&:hover {
+						background-color: darken($bg-hover-item, 3);
+					}
+				}
+			}
+		}
+	}
+}

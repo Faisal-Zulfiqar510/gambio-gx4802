@@ -1,0 +1,190 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	<style>
+		table.hermeshsi-shipmentorders {
+			width: 100%;
+			margin-bottom: 2em;
+		}
+
+		.hermeshsi-preparelabel input:required {
+			border-right-color: red;
+		}
+	</style>
+
+    {function hsiTextInput label='' fieldname='' id='' value='' maxlength=20 minlength=0 shortenedFrom='' tooltip='' required='false'}
+		{if $required === 'true' && $tooltip === ''}{$tooltip = $txt.hermeshsi_required_input}{/if}
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="{$id}">{$label}</label>
+			<div class="{if $tooltip}col-sm-7{else}col-sm-8{/if}">
+				<input maxlength="{$maxlength}" {if $minlength}minlength="{$minlength}"{/if} type="text" class="form-control" name="{$fieldname}" id="{$id}" value="{$value}" {if $required === 'true'}required{/if}>
+				{if $shortenedFrom}<div class="note-alteredvalue">{$txt.hermeshsi_original_value}: <span class="shortened-original">{$shortenedFrom}</span></div>{/if}
+			</div>
+			{if $tooltip}
+				<div class="col-sm-1">
+					<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$tooltip}</span>
+				</div>
+			{/if}
+		</div>
+    {/function}
+
+    {function hsiNumberInput label='' fieldname='' id='' value='' minvalue=0 maxvalue=1000 step=1}
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="{$id}">{$label}</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="{$fieldname}" id="{$id}" value="{$value}" min="{$minvalue}" max="{$maxvalue}" step="{$step}">
+			</div>
+		</div>
+    {/function}
+
+    {function hsiSelectInput label='' fieldname='' id='' value='' options=[]}
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="{$id}">{$label}</label>
+			<div class="col-sm-8">
+				<select id="{$id}" name="{$fieldname}" class="form-control">
+					{foreach $options as $option}
+						<option value="{$option.value}" {if $option.value == $value}selected{/if}>{$option.label}</option>
+					{/foreach}
+				</select>
+			</div>
+		</div>
+    {/function}
+
+	{function hsiPresetButtons}
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="">{$txt.hermeshsi_parcel_presets}</label>
+			<div class="col-sm-8">
+				<button class="btn btn-default hsi-preset" id="hsi-preset-1"
+						data-height="{$content.parcelPresets.preset1.height}"
+						data-width="{$content.parcelPresets.preset1.width}"
+						data-depth="{$content.parcelPresets.preset1.depth}"
+				>{$txt.hermeshsi_preset} 1</button>
+				<button class="btn btn-default hsi-preset" id="hsi-preset-2"
+						data-height="{$content.parcelPresets.preset2.height}"
+						data-width="{$content.parcelPresets.preset2.width}"
+						data-depth="{$content.parcelPresets.preset2.depth}"
+				>{$txt.hermeshsi_preset} 2</button>
+				<button class="btn btn-default hsi-preset" id="hsi-preset-3"
+						data-height="{$content.parcelPresets.preset3.height}"
+						data-width="{$content.parcelPresets.preset3.width}"
+						data-depth="{$content.parcelPresets.preset3.depth}"
+				>{$txt.hermeshsi_preset} 3</button>
+				<button class="btn btn-default hsi-preset" id="hsi-preset-4"
+						data-height="{$content.parcelPresets.preset4.height}"
+						data-width="{$content.parcelPresets.preset4.width}"
+						data-depth="{$content.parcelPresets.preset4.depth}"
+				>{$txt.hermeshsi_preset} 4</button>
+				<button class="btn btn-default hsi-preset" id="hsi-preset-5"
+						data-height="{$content.parcelPresets.preset5.height}"
+						data-width="{$content.parcelPresets.preset5.width}"
+						data-depth="{$content.parcelPresets.preset5.depth}"
+				>{$txt.hermeshsi_preset} 5</button>
+			</div>
+		</div>
+	{/function}
+
+    {load_language_text section="module_center_module"}
+	<div class="breakpoint-small hermeshsi-preparelabel">
+		<form action="{$content.saveOrderFormActionUrl}" method="POST">
+			<input type="hidden" name="pageToken" value="{$content.pageToken}">
+			<input type="hidden" name="ordersId" value="{$content.formData.ordersId}">
+			{if $content.shipmentOrders}
+				<fieldset>
+					<legend>{$txt.hermeshsi_existing_shipmentorders}</legend>
+				</fieldset>
+				<table class="hermeshsi-shipmentorders">
+					<thead>
+					<tr>
+						<th>{$txt.hermeshsi_shipment_order_number}</th>
+						<th>{$txt.hermeshsi_shipment_id}</th>
+						<th>{$txt.hermeshsi_shipment_create_date}</th>
+						<th>{$txt.hermeshsi_shipment_actual_order_state}</th>
+						<th>{$txt.hermeshsi_label}</th>
+					</tr>
+					</thead>
+					<tbody>
+					{foreach $content.shipmentOrders as $shipmentOrder}
+						<tr>
+							<td>{$shipmentOrder.shipment_id}{* shipmentOrderID *}</td>
+                        	{if $shipmentOrder.status}
+								<td>
+									<a class="hsi-tracking-link" target="_blank" href="https://www.myhermes.de/empfangen/sendungsverfolgung/suchen/sendungsinformation#{$shipmentOrder.status.shipmentID}">
+										{$shipmentOrder.status.shipmentID}{* shipmentID *}
+									</a>
+								</td>
+								<td>{$shipmentOrder.status.createDate}</td>
+								{assign "statuskey" "hermeshsi_status_{$shipmentOrder.status.actualOrderState}"}
+								<td>{if $txt.$statuskey}{$txt.$statuskey}{else}{$shipmentOrder.status.actualOrderState}{/if}</td>
+							{else}
+								<td colspan="3">{$txt.hermeshsi_shipmentorder_status_unknown}</td>
+                        	{/if}
+							<td>
+								<a class="btn btn-default" href="{$shipmentOrder.labelUrl}"{if $content.labelDownloadMethod === 'inline'} target="_blank"{/if}>{$txt.hermeshsi_labelbutton}</a>
+							</td>
+						</tr>
+					{/foreach}
+					</tbody>
+				</table>
+			{/if}
+			<div class="form-horizontal">
+				<fieldset>
+					<legend>{$txt.hermeshsi_receiver}</legend>
+                    {hsiSelectInput label=$txt.hermeshsi_receiver_gender fieldname='receiverNameGender' id='hsi-receiver-gender' value=$content.formData.receiverNameGender options=$content.genderOptions}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_receiver_title fieldname='receiverNameTitle' id='hsi-receiver-title' value=$content.formdata.receiverNameTitle shortenedFrom=$content.shortenedValues.receiverNameTitle}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_receiver_firstname fieldname='receiverNameFirstname' id='hsi-receiver-firstname' value=$content.formData.receiverNameFirstname shortenedFrom=$content.shortenedValues.receiverNameFirstname}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_receiver_middlename fieldname='receiverNameMiddlename' id='hsi-receiver-middlename' value=$content.formData.receiverNameMiddlename shortenedFrom=$content.shortenedValues.receiverNameMiddlename}
+                    {hsiTextInput maxlength=30 label=$txt.hermeshsi_receiver_lastname fieldname='receiverNameLastname' id='hsi-receiver-lastname' value=$content.formData.receiverNameLastname shortenedFrom=$content.shortenedValues.receiverNameLastname required='true'}
+                    {hsiTextInput maxlength=27 label=$txt.hermeshsi_receiver_street fieldname='receiverAddressStreet' id='hsi-receiver-street' value=$content.formData.receiverAddressStreet shortenedFrom=$content.shortenedValues.receiverAddressStreet required='true'}
+                    {hsiTextInput maxlength=5 label=$txt.hermeshsi_receiver_housenumber fieldname='receiverAddressHouseNumber' id='hsi-receiver-housenumber' value=$content.formData.receiverAddressHouseNumber shortenedFrom=$content.shortenedValues.receiverAddressHouseNumber tooltip=$txt.hermeshsi_receiver_housenumber_tooltip}
+                    {hsiTextInput maxlength=8 label=$txt.hermeshsi_receiver_zipcode fieldname='receiverAddressZipCode' id='hsi-receiver-zipcode' value=$content.formData.receiverAddressZipCode shortenedFrom=$content.shortenedValues.receiverAddressZipCode required='true'}
+                    {hsiTextInput maxlength=30 label=$txt.hermeshsi_receiver_town fieldname='receiverAddressTown' id='hsi-receiver-town' value=$content.formData.receiverAddressTown shortenedFrom=$content.shortenedValues.receiverAddressTown required='true'}
+                    {hsiSelectInput label=$txt.hermeshsi_receiver_countrycode fieldname='receiverAddressCountryCode' id='hsi-receiver-countrycode' value=$content.formData.receiverAddressCountryCode options=$content.countries}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_receiver_addressaddition  fieldname='receiverAddressAddressAddition'  id='hsi-receiver-addressaddition'  value=$content.formData.receiverAddressAddressAddition shortenedFrom=$content.shortenedValues.receiverAddressAddressAddition}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_receiver_addressaddition2 fieldname='receiverAddressAddressAddition2' id='hsi-receiver-addressaddition2' value=$content.formData.receiverAddressAddressAddition2 shortenedFrom=$content.shortenedValues.receiverAddressAddressAddition2}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_receiver_addressaddition3 fieldname='receiverAddressAddressAddition3' id='hsi-receiver-addressaddition3' value=$content.formData.receiverAddressAddressAddition3 shortenedFrom=$content.shortenedValues.receiverAddressAddressAddition3}
+					{hsiTextInput maxlength=200 tooltip=$txt.hermeshsi_receiver_contact_tooltip label=$txt.hermeshsi_receiver_contactmail fieldname='receiverContactMail' id='hsi-receiver-contactmail' value=$content.formData.receiverContactMail}
+                    {hsiTextInput maxlength=20  tooltip=$txt.hermeshsi_receiver_contact_tooltip label=$txt.hermeshsi_receiver_contactmobile fieldname='receiverContactMobile' id='hsi-receiver-contactmobile' value=$content.formData.receiverContactMobile}
+                    {hsiTextInput maxlength=20  tooltip=$txt.hermeshsi_receiver_contact_tooltip label=$txt.hermeshsi_receiver_contactphone fieldname='receiverContactPhone' id='hsi-receiver-contactphone' value=$content.formData.receiverContactPhone}
+				</fieldset>
+				<fieldset>
+					<legend>{$txt.hermeshsi_parcel}</legend>
+					{hsiSelectInput label=$txt.hermeshsi_parcel_class fieldname='parcelClass' id='hsi-parcel-class' value=$content.formData.parcelClass options=$content.parcelClasses}
+					{hsiPresetButtons}
+					{hsiNumberInput label=$txt.hermeshsi_parcel_height fieldname='parcelHeight' id='hsi-parcel-height' value=$content.formData.parcelHeight minvalue=0 maxvalue=10000 step=1}
+                    {hsiNumberInput label=$txt.hermeshsi_parcel_width fieldname='parcelWidth' id='hsi-parcel-width' value=$content.formData.parcelWidth minvalue=0 maxvalue=10000 step=1}
+                    {hsiNumberInput label=$txt.hermeshsi_parcel_depth fieldname='parcelDepth' id='hsi-parcel-depth' value=$content.formData.parcelDepth minvalue=0 maxvalue=10000 step=1}
+                    {hsiNumberInput label=$txt.hermeshsi_parcel_weight fieldname='parcelWeight' id='hsi-parcel-weight' value=$content.formData.parcelWeight minvalue=0 maxvalue=32000 step=1}
+				</fieldset>
+				<fieldset>
+					<legend>{$txt.hermeshsi_services}</legend>
+                    {hsiNumberInput label="{$txt.hermeshsi_cod_amount} ({$content.orderCurrency})" fieldname='serviceCodAmount' id='hsi-service-codamount' value=$content.formData.codAmount minvalue=0 maxvalue=10000 step=0.01}
+					<input name="serviceCodCurrency" type="hidden" value="{$content.orderCurrency}">
+					{hsiTextInput maxlength=70 label=$txt.hermeshsi_notification_email fieldname="notificationEmail" id="hsi-notification-email" value=$content.formData.notificationEmail}
+				</fieldset>
+				<fieldset>
+					<legend>{$txt.hermeshsi_sender}</legend>
+                    {hsiSelectInput label=$txt.hermeshsi_sender_gender fieldname='senderNameGender' id='hsi-sender-gender' value=$content.formData.senderNameGender options=$content.genderOptions}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_sender_title fieldname='senderNameTitle' id='hsi-sender-title' value=$content.formData.senderNameTitle}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_sender_firstname fieldname='senderNameFirstname' id='hsi-sender-firstname' value=$content.formData.senderNameFirstname}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_sender_middlename fieldname='senderNameMiddlename' id='hsi-sender-middlename' value=$content.formData.senderNameMiddlename}
+                    {hsiTextInput maxlength=30 label=$txt.hermeshsi_sender_lastname fieldname='senderNameLastname' id='hsi-sender-lastname' value=$content.formData.senderNameLastname required='true'}
+                    {hsiTextInput maxlength=27 label=$txt.hermeshsi_sender_street fieldname='senderAddressStreet' id='hsi-sender-street' value=$content.formData.senderAddressStreet required='true'}
+                    {hsiTextInput maxlength=5 label=$txt.hermeshsi_sender_housenumber fieldname='senderAddressHouseNumber' id='hsi-sender-housenumber' value=$content.formData.senderAddressHouseNumber required='true'}
+                    {hsiTextInput maxlength=8 label=$txt.hermeshsi_sender_zipcode fieldname='senderAddressZipCode' id='hsi-sender-zipcode' value=$content.formData.senderAddressZipCode required='true'}
+                    {hsiTextInput maxlength=30 label=$txt.hermeshsi_sender_town fieldname='senderAddressTown' id='hsi-sender-town' value=$content.formData.senderAddressTown required='true'}
+                    {hsiSelectInput label=$txt.hermeshsi_sender_countrycode fieldname='senderAddressCountryCode' id='hsi-sender-countrycode' value=$content.formData.senderAddressCountryCode options=$content.countries}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_sender_addressaddition  fieldname='senderAddressAddressAddition'  id='hsi-sender-addressaddition'  value=$content.formData.senderAddressAddressAddition}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_sender_addressaddition2 fieldname='senderAddressAddressAddition2' id='hsi-sender-addressaddition2' value=$content.formData.senderAddressAddressAddition2}
+                    {hsiTextInput maxlength=20 label=$txt.hermeshsi_sender_addressaddition3 fieldname='senderAddressAddressAddition3' id='hsi-sender-addressaddition3' value=$content.formData.senderAddressAddressAddition3}
+				</fieldset>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<button type="submit" class="btn btn-primary pull-right">{$txt.hermeshsi_save_order}</button>
+				</div>
+			</div>
+
+		</form>
+	</div>
+{/block}

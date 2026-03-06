@@ -1,0 +1,16 @@
+{literal}
+	<script type="text/x-template" id="config-select">
+		<div class="form-group visibility_switcher">
+			<label class="col-sm-7 control-label" v-text="getPhrase(label)" />
+			<div class="col-sm-4">
+				<select class="form-control" v-model="input">
+					<option v-for="(option, i) in values"
+							:key="i"
+							:value="option.value"
+							:selected="option.value === input"
+							v-text="getPhrase(option.text)" />
+				</select>
+			</div>
+		</div>
+	</script>
+{/literal}

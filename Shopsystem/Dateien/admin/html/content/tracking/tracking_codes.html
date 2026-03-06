@@ -1,0 +1,54 @@
+{load_language_text section="parcel_services"}
+
+
+{block name="admin_tracking_codes"}
+	<table>
+		{block name="admin_tracking_codes_thead"}
+			<thead>
+				<tr>
+					{block name="admin_tracking_codes_thead_th"}
+						<th>{$txt.TXT_PARCEL_TRACKING_TABHEAD_TRACKINGCODES|escape}</th>
+						<th>{$txt.TXT_PARCEL_TRACKING_TABHEAD_SERVICES|escape}</th>
+						<th>{$txt.TXT_PARCEL_TRACKING_SHIPMENT_TYPE|escape}</th>
+						<th width="5%">{$txt.TXT_PARCEL_TRACKING_RETURN_DELIVERY|escape}</th>
+						<th width="5%">{$txt.TXT_DATE|escape}</th>
+						<th width="5%">&nbsp;</th>
+					{/block}
+				</tr>
+			</thead>
+		{/block}
+		{block name="admin_tracking_codes_tbody"}
+			<tbody>
+				{foreach item=trackingCode from=$content_data.parcel_tracking_codes_array}
+					{block name="admin_tracking_codes_row"}
+						<tr>
+							{block name="admin_tracking_codes_row_tds"}
+								<td><a href="{$trackingCode->parcelServiceUrl()|escape}" target="_blank">{$trackingCode->code()|escape}</a></td>
+								<td>{$trackingCode->parcelServiceName()|escape}</td>
+								<td>{$trackingCode->parcelServiceShipmentType()|escape}</td>
+								<td align="center">
+                                    {if $trackingCode->isReturnDelivery()}
+                                        <i class="fa fa-check fa-lg"></i>
+                                    {else}
+                                        <i class="fa fa-times fa-lg"></i>
+                                    {/if}
+                                </td>
+								<td align="center">{$trackingCode->createdOn(PHP_DATE_TIME_FORMAT)}</td>
+								<td align="center">
+									<span class="btn-delete cursor-pointer"
+									      data-orders_modal_layer-action="delete_tracking_code"
+									      data-orders_modal_layer-order_id="{$trackingCode->orderId()}"
+									      data-orders_modal_layer-tracking_code="{$trackingCode->code()}"
+									      data-orders_modal_layer-tracking_code_id="{$trackingCode->id()}"
+									      data-orders_modal_layer-page_token="{$content_data.page_token}">
+										<i class="fa fa-trash-o"></i>
+									</span>
+								</td>
+							{/block}
+						</tr>
+					{/block}
+				{/foreach}
+			</tbody>
+		{/block}
+	</table>
+{/block}

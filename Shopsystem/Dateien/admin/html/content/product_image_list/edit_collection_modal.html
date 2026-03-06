@@ -1,0 +1,32 @@
+<div class="edit-collection-panel edit-panel-overlay" style="display: none;">
+    <div class="edit-modal modal-wrapper">
+        <div class="modal-header clearfix">
+            <h3 class="modal-title pull-left">{$product_image_list.MODAL_EDIT_COLLECTION_TITLE}</h3>
+            <a class="close-btn pull-right" href="javascript:;">
+                <i class="fa fa-close"></i>
+            </a>
+        </div>
+        <div class="modal-content">
+            <table>
+                <tbody>
+                <tr style="background: transparent;">
+                    <td style="vertical-align: top; padding: 0;">
+                        <form id="edit-collection-form">
+                            <input name="id" type="hidden" value="">
+                            <div class="form-group">
+                                <label for="name">{$product_image_list.MODAL_EDIT_COLLECTION_NAME_LABEL}:</label>
+                                <input class="form-control required" id="name" name="name" type="text"
+                                       value="">
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer clearfix">
+            <a class="btn btn-default pull-left edit-collection-modal-cancel" href="javascript:;">{$product_image_list.MODAL_CANCEL_BUTTON}</a>
+            <a class="btn btn-primary pull-right edit-collection-modal-save" href="javascript:;">{$product_image_list.MODAL_SAVE_BUTTON}</a>
+        </div>
+    </div>
+</div>

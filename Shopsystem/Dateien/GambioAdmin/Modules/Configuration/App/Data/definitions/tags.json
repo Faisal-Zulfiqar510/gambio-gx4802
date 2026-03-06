@@ -1,0 +1,39 @@
+{
+	"tags": [
+		{
+			"id": "payment",
+			"label": {
+				"section": "configuration_tags",
+				"phrase": "payment"
+			}
+		},
+		{
+			"id": "law-security",
+			"label": {
+				"section": "configuration_tags",
+				"phrase": "law_security"
+			}
+		},
+		{
+			"id": "products",
+			"label": {
+				"section": "configuration_tags",
+				"phrase": "products"
+			}
+		},
+		{
+			"id": "navigation",
+			"label": {
+				"section": "configuration_tags",
+				"phrase": "navigation"
+			}
+		},
+		{
+			"id": "prices",
+			"label": {
+				"section": "configuration_tags",
+				"phrase": "prices"
+			}
+		}
+	]
+}

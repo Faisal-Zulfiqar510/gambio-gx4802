@@ -1,0 +1,20 @@
+{*
+    Page representing an account connector form.
+*}
+
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	<div>
+		<div data-gx_google_oauth-namespace="../GXModules/Gambio/GoogleOAuth/Build/Admin/Javascript"
+			 data-gx_google_oauth-widget="google_connection_iframe"
+			 data-google_connection_iframe-url="{$content.iFrameUrl}"
+			 data-google_connection_iframe-origin="{$content.origin}"
+			 data-google_connection_iframe-language="{$content.language}"
+			 data-google_connection_iframe-error="{$content.error}"
+			 data-google_connection_iframe-from="GoogleOAuth"
+			 data-google_connection_iframe-version="{$content.version}"
+			 data-google_connection_iframe-connected="{$content.connected}"
+		></div>
+	</div>
+{/block}

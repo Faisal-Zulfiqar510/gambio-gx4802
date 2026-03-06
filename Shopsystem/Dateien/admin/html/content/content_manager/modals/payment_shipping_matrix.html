@@ -1,0 +1,36 @@
+{if $content.contentManager.contentGroup == "3889891"}
+	{load_language_text section="shipping_and_payment_matrix"}
+	
+	{block name="admin_content_manager_modals_payment_shipping_matrix"}
+		<div data-gx-controller="content_manager/payment_shipping_matrix"
+			 class="modal fade payment-shipping-matrix-modal"
+			 tabindex="-1"
+			 role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					{block name="admin_content_manager_modals_payment_shipping_matrix_header"}
+						<div class="modal-header">
+							{block name="admin_content_manager_modals_payment_shipping_matrix_header_close_button"}
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span></button>
+							{/block}
+							{block name="admin_content_manager_modals_payment_shipping_matrix_header_title"}
+								<h4 class="modal-title">{$txt.shipping_and_payment_matrix_title}</h4>
+							{/block}
+						</div>
+					{/block}
+					{block name="admin_content_manager_modals_payment_shipping_matrix_body"}
+						<div class="modal-body" data-gx-widget="switcher">
+							{* Provided by payment_shipping_matrix.js *}
+						</div>
+					{/block}
+					{block name="admin_content_manager_modals_payment_shipping_matrix_footer"}
+						<div class="modal-footer">
+							{* Provided by payment_shipping_matrix.js *}
+						</div>
+					{/block}
+				</div>
+			</div>
+		</div>
+	{/block}
+{/if}

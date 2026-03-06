@@ -1,0 +1,279 @@
+{load_language_text section="notifications"}
+{load_language_text section="shop_offline" name="shop_offline"}
+
+{block name="admin_shop_offline_notifications"}
+	<div class="breakpoint-small add-margin bottom double">
+		{block name="admin_shop_offline_notifications_form"}
+			<form class="gx-container" name="img_upload" action="gm_offline.php" method="post" enctype="multipart/form-data"
+				data-gx-widget="checkbox"
+				data-gx-extension="language_switcher"
+			    data-gx-controller="shop_offline/shop_offline"
+			>
+		
+				<div class="ui-tabs" data-gx-widget="tabs editor" data-editor-selector=".wysiwyg">
+					<!-- Header -->
+					{block name="admin_shop_offline_notifications_form_header"}
+						<div class="tab-headline-wrapper">
+							<a href="#status">{$shop_offline.status}</a>
+							<a href="#topbar">{$shop_offline.topbar}</a>
+							<a href="#popup">{$shop_offline.popup}</a>
+			
+							<div class="pull-right languages buttonbar">
+								{foreach item=language from=$content_data.languages_array name=languagesArrayIterator1}
+									<a href="#{$language.languages_id}" class="language-selector language_switcher_{$language.code}">
+										<span class="flag-icon flag-icon-{$language.code|lower}" title="{$language.name}"></span>
+									</a>
+								{/foreach}
+							</div>
+						</div>
+					{/block}
+		
+					<!-- Contents -->
+					{block name="admin_shop_offline_notifications_form_content"}
+						<div class="tab-content-wrapper">
+							<!-- Shop Status -->
+							{block name="admin_shop_offline_notifications_form_content_shop_status"}
+								<div class="gx-category-details">
+									{block name="admin_shop_offline_notifications_form_content_shop_status_state"}
+										<div class="grid control-group">
+											<div class="span6">
+												{block name="admin_shop_offline_notifications_form_content_shop_status_state_label"}
+													<label>{$txt.actual_shop_state}:</label>
+												{/block}
+											</div>
+											<div class="span6 text-right">
+												{block name="admin_shop_offline_notifications_form_content_shop_status_state_input"}
+													<input type="checkbox" name="shop_offline" value="checked"
+														data-checkbox-on_text="{$shop_offline.on}"
+														data-checkbox-off_text="{$shop_offline.off}"
+														data-checkbox-class-name="twisted"
+														{if $content_data.shop_offline_mode !== "checked"}
+															checked
+														{/if}
+													/>
+												{/block}
+											</div>
+										</div>
+									{/block}
+				
+									{block name="admin_shop_offline_notifications_form_content_shop_status_offline_message"}
+										<div style="margin-top: 48px; width: 625px">
+											{block name="admin_shop_offline_notifications_form_content_shop_status_offline_message_label"}
+												<label class="key-title">{$txt.offline_message_label}:</label>
+											{/block}
+											
+											{block name="admin_shop_offline_notifications_form_content_shop_status_offline_message_text"}
+												{$content_data.offline_message}
+											{/block}
+												
+											{foreach item=language from=$content_data.languages_array name=languagesArrayIterator1}
+												<input type="hidden" value="{$content_data.topbar_message_content[$language.languages_id]|escape:'html'}"
+													   class="language_switcher_content_{$language.code}" name="topbar_msg_plain[0][{$language.languages_id}]" />
+											{/foreach}
+										</div>
+									{/block}
+				
+									{block name="admin_shop_offline_notifications_form_content_shop_status_buttons"}
+										<div class="text-right" style="margin-top: 24px;">
+											{block name="admin_shop_offline_notifications_form_content_shop_status_buttons_save"}
+												<button
+													class="btn btn-primary"
+													style="margin-bottom: 0;"
+													type="button"
+													data-gx-widget="event_mapper"
+													data-event_mapper-target-element="input[name='go']"
+													data-event_mapper-event-name="click"
+												>
+													{$txt.button_save}
+												</button>
+											{/block}
+										</div>
+									{/block}
+								</div>
+							{/block}
+			
+							<!-- TopBar -->
+							{block name="admin_shop_offline_notifications_form_content_topbar"}
+								<div class="gx-category-details">
+									{block name="admin_shop_offline_notifications_form_content_topbar_label"}
+										<div class="grid control-group">
+											<div class="span6">
+												{block name="admin_shop_offline_notifications_form_content_topbar_label_label"}
+													<label for="topbar_enabled">{$txt.topbar_label}:</label>
+												{/block}
+											</div>
+											<div class="span6 text-right">
+												{block name="admin_shop_offline_notifications_form_content_topbar_label_input"}
+													<input type="checkbox" name="topbar_enabled" value="checked"
+														{if $content_data.topbar_checked === "checked"}
+															checked
+														{/if}
+													/>
+												{/block}
+											</div>
+										</div>
+									{/block}
+									{block name="admin_shop_offline_notifications_form_content_topbar_colorpicker"}
+										<div class="grid control-group">
+											<div class="span6">
+												{block name="admin_shop_offline_notifications_form_content_topbar_colorpicker_label"}
+													<label for="colorpicker">{$txt.colorpicker_label}:</label>
+												{/block}
+											</div>
+											<div class="span6 text-right" data-gx-widget="colorpicker">
+												<div class="grid" style="margin-bottom: 0;">
+													{block name="admin_shop_offline_notifications_form_content_topbar_colorpicker_input"}
+														<div class="span8">
+															<div class="picker color-preview" style="float:none; width: 30px; height: 30px;"></div>
+														</div>
+														<div class="span4" style="padding: 0;">
+															<input type="hidden" name="colorValueTopBar" value="{$content_data.topbar_color}" />
+															<input type="button" name="colorpicker" value="{$txt.colorpicker}" class="picker" style="margin: 0;"/>
+														</div>
+													{/block}
+												</div>
+											</div>
+										</div>
+									{/block}
+									
+									{* Only show topbar mode on EyeCandy based templates *}
+									{if $content_data.hide_topbar_mode !== true}
+										{block name="admin_shop_offline_notifications_form_content_topbar_display_mode"}
+											<div class="grid control-group">
+												<div class="span6">
+													{block name="admin_shop_offline_notifications_form_content_topbar_display_mode_label"}
+														<label for="topbar_mode[]">{$txt.display_mode}:</label>
+													{/block}
+												</div>
+												<div class="span6 text-right">
+													{block name="admin_shop_offline_notifications_form_content_topbar_display_mode_input"}
+														<select name="topbar_mode[]" class="pull-right">
+															<option value="hideable" >
+																{$txt.hideable}
+															</option>
+															<option value="permanent"
+																	{if $content_data.topbar_mode === "permanent"}
+																		selected
+																	{/if}
+															>
+																{$txt.permanent}
+															</option>
+														</select>
+													{/block}
+												</div>
+											</div>
+										{/block}
+									{else}
+										<input type="hidden" name="topbar_mode[]" value="hideable">
+									{/if}
+				
+									{block name="admin_shop_offline_notifications_form_content_topbar_message_label"}
+										<div style="margin-top: 48px; margin-bottom: 0;">
+											<span class="key-title">{$txt.topbar_message_label}:</span>
+										</div>
+									{/block}
+				
+									{block name="admin_shop_offline_notifications_form_content_topbar_message_input"}
+										<div style="width: 625px">
+											{$content_data.topbar_message}
+											{foreach item=language from=$content_data.languages_array name=languagesArrayIterator1}
+												<input type="hidden" value="{$content_data.topbar_message_content[$language.languages_id]|escape:'html'}"
+													class="language_switcher_content_{$language.code}" name="topbar_msg_plain[0][{$language.languages_id}]" />
+											{/foreach}
+										</div>
+									{/block}
+				
+									{block name="admin_shop_offline_notifications_form_content_topbar_buttons"}
+										<div class="text-right" style="margin-top: 24px;">
+											{block name="admin_shop_offline_notifications_form_content_topbar_buttons_save"}
+												<button
+													class="btn btn-primary"
+													style="margin-bottom: 0;"
+													type="button"
+													data-gx-widget="event_mapper"
+													data-event_mapper-target-element="input[name='go']"
+													data-event_mapper-event-name="click"
+												>
+													{$txt.button_save}
+												</button>
+											{/block}
+										</div>
+									{/block}
+								</div>
+							{/block}
+			
+							<!-- Popup -->
+							{block name="admin_shop_offline_notifications_form_content_popup"}
+								<div class="gx-category-details">
+									{block name="admin_shop_offline_notifications_form_content_popup_label"}
+										<div class="grid control-group">
+											<div class="span6">
+												{block name="admin_shop_offline_notifications_form_content_popup_label_label"}
+													<label>{$txt.popup_label}:</label>
+												{/block}
+											</div>
+											<div class="span6 text-right">
+												{block name="admin_shop_offline_notifications_form_content_popup_label_input"}
+													<input type="checkbox" name="popup_enabled" value="checked"
+														{if $content_data.popup_checked === "checked"}
+															checked
+														{/if}
+													/>
+												{/block}
+											</div>
+										</div>
+									{/block}
+				
+									{block name="admin_shop_offline_notifications_form_content_popup_message_label"}
+										<div style="margin-top: 48px;">
+											<span class="key-title">{$txt.popup_message_label}:</span>
+										</div>
+									{/block}
+				
+									{block name="admin_shop_offline_notifications_form_content_popup_message_input"}
+										<div style="width: 625px">
+											{$content_data.popup_message}
+											{foreach item=language from=$content_data.languages_array name=languagesArrayIterator1}
+												<input type="hidden" value="{$content_data.popup_message_content[$language.languages_id]|escape:'html'}"
+													class="language_switcher_content_{$language.code}" name="popup_msg_plain[0][{$language.languages_id}]" />
+											{/foreach}
+										</div>
+									{/block}
+				
+									{block name="admin_shop_offline_notifications_form_content_popup_buttons"}
+										<div class="text-right" style="margin-top: 24px;">
+											{block name="admin_shop_offline_notifications_form_content_popup_buttons_save"}
+												<button
+													class="btn btn-primary"
+													style="margin-bottom: 0;"
+													type="button"
+													data-gx-widget="event_mapper"
+													data-event_mapper-target-element="input[name='go']"
+													data-event_mapper-event-name="click"
+												>
+													{$txt.button_save}
+												</button>
+											{/block}
+										</div>
+									{/block}
+								</div>
+							{/block}
+						</div>
+					{/block}
+				</div>
+		
+				<input type="hidden" value="{$content_data.page_token}" name="page_token">
+				{block name="admin_shop_offline_notifications_submit"}
+					<input
+						style="display: none;"
+						type="submit"
+						name="go"
+						class="button"
+						onClick="setTimeout(function() {literal}{$('[name=\'img_upload\']').submit()}{/literal}, 500); return false;"
+						value="{$txt.button_save}"
+					/>
+				{/block}
+			</form>
+		{/block}
+	</div>
+{/block}

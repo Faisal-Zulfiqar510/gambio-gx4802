@@ -1,0 +1,17 @@
+@import "variables";
+
+.logo {
+	display: flex;
+	width: $menu-width;
+	
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: inherit;
+		
+		img {
+			height: $header-height / 2;
+		}
+	}
+}

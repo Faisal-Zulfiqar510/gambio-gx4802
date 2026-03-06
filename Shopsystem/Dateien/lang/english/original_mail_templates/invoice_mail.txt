@@ -1,0 +1,9 @@
+{if $CUSTOMER_GENDER == 'f'}Dear Mrs.{elseif $CUSTOMER_GENDER == 'm'}Dear Mr.{else}Hello{/if} {$CUSTOMER},
+
+{if $INVOICE_NUMBERS && $INVOICE_NUMBERS|@count > 0}With this e-mail you receive the following invoices of your order no. {$ORDER_ID} from {$DATE}:
+
+{foreach from=$INVOICE_NUMBERS item=invoice_number}{$invoice_number.number} from {$invoice_number.date}
+{/foreach}
+{else}With this e-mail you receive your invoice no. {$INVOICE_ID} of order no. {$ORDER_ID} from {$DATE}.{/if}
+
+{$EMAIL_SIGNATURE}

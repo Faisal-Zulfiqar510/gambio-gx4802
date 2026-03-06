@@ -1,0 +1,36 @@
+<div class="modal fade create-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">{$units.TEXT_NEW_QUANTITYUNIT}</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<form class="form-horizontal">
+							<p class="quantity-units-modal-info">{$units.TEXT_INFO_INSERT_INTRO}</p>
+							{foreach item=lang from=$content.languages}
+								<div class="form-group">
+									<div class="col-sm-12">
+										<input type="text"
+											   data-gx-widget="icon_input"
+											   data-lang-id="{$lang.id}"
+											   name="name[{$lang.id}]"
+											   class="form-control">
+									</div>
+								</div>
+							{/foreach}
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">{$button.abort}</button>
+				<button id="create-quantity-units" type="button" class="btn btn-primary">{$button.add}</button>
+			</div>
+		</div>
+	</div>
+</div>

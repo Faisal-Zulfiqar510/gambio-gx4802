@@ -1,0 +1,11 @@
+<div data-gx-widget="multi_select" class="form-group visibility_switcher">
+	<label class="col-sm-7 control-label" for="{$field}">{$config.label}</label>
+	<div class="col-sm-4">
+		<select multiple data-multi_select-instance class="form-control" style="max-width: 340px" name="{$field}[]">
+			{foreach from=$config.values key=value item=description}
+				<option {if $config.selected.$value|is_numeric} selected{/if} value="{$value}">{$description}</option>
+			{/foreach}
+		</select>
+	</div>
+	<span class="col-sm-1 tooltip-icon" style="margin: 0px;" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+</div>

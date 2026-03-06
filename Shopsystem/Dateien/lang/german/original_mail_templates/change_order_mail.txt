@@ -1,0 +1,22 @@
+{if $GENDER == 'm'}Sehr geehrter Herr {elseif $GENDER == 'f'}Sehr geehrte Frau {else}Hallo {/if}{$NAME},
+
+Der Status Ihrer Bestellung vom {$ORDER_DATE} mit der Bestellnummer {$ORDER_NR} wurde geändert.
+{if $NOTIFY_COMMENTS}
+
+Anmerkungen und Kommentare zu Ihrer Bestellung: {$NOTIFY_COMMENTS}
+{/if}
+
+Neuer Status: {$ORDER_STATUS}
+
+
+{if $PARCEL_TRACKING_CODES_ARRAY && $PARCEL_TRACKING_CODES}
+Die Sendungsnummer(n) zu Ihrer Bestellung:
+
+{foreach name=aussen item=PARCEL_TRACKING_CODE from=$PARCEL_TRACKING_CODES_ARRAY}
+{$PARCEL_TRACKING_CODE->getTrackingCode()} ({$PARCEL_TRACKING_CODE->getServiceName()}): {$PARCEL_TRACKING_CODE->getServiceUrl()}
+{$PARCEL_TRACKING_CODE->getServiceComment()}
+
+{/foreach}
+{/if}
+
+Bei Fragen zu Ihrer Bestellung antworten Sie bitte auf diese E-Mail.

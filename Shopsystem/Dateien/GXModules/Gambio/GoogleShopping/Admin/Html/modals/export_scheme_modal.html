@@ -1,0 +1,36 @@
+{load_language_text section="google_shopping"}
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_google_shopping_schemes_modals_export_scheme"}
+	<div class="export-scheme modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_google_shopping_schemes_modals_export_scheme_header"}
+					<div class="modal-header">
+						{block name="admin_google_shopping_schemes_modals_export_scheme_header_title"}
+							<h4 class="modal-title">{$txt.export_scheme_modal_title}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_google_shopping_schemes_modals_export_scheme_body"}
+					<div class="modal-body">
+						<p class="modal-text">{$txt.EXPORT_SCHEME_MODAL_MESSAGE}</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" role="progressbar"
+							     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+								0%
+							</div>
+						</div>
+					</div>
+				{/block}
+				{block name="admin_google_shopping_schemes_modals_export_scheme_footer"}
+					<div class="modal-footer">
+						{block name="admin_google_shopping_schemes_modals_export_scheme_footer_cancel"}
+							<button type="button" class="btn btn-default cancel">{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

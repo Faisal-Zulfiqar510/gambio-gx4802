@@ -1,0 +1,102 @@
+{load_language_text section="buttons" name="btn"}
+{load_language_text section="parcel_services" name="parcel_services"}
+
+{block name="admin_orders_modals_add_tracking_number"}
+	<div class="add-tracking-number modal fade" tabindex="-1" role="dialog"
+		 data-gx-controller="orders/modals/add_tracking_number">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_orders_modals_add_tracking_number_header"}
+					<div class="modal-header">
+						{block name="admin_orders_modals_add_tracking_number_header_close"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span></button>
+						{/block}
+						{block name="admin_orders_modals_add_tracking_number_header_title"}
+							<h4 class="modal-title">{$parcel_services.TXT_PARCEL_TRACKING_SENDBUTTON_TITLE}</h4>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_add_tracking_number_content"}
+					<div class="add-tracking-number modal-body">
+						<form class="form-horizontal">
+							<fieldset class="add-tracking-number-group">
+								<ul class="add-tracking-number">
+									<li class="tracking-number">
+										<div class="form-group">
+											{block name="admin_orders_modals_add_tracking_number_content_tracking_number_label"}
+												<label for="tracking-number" class="col-md-4">
+													{$parcel_services.TXT_PARCEL_TRACKING_FORMHEADING}:
+												</label>
+											{/block}
+											
+											{block name="admin_orders_modals_add_tracking_number_content_tracking_number_input"}
+												<div class="col-md-8">
+													<input type="text" name="tracking-number" id="tracking-number" class="form-control" />
+												</div>
+											{/block}
+		
+											{block name="admin_orders_modals_add_tracking_number_content_parcel_service_label"}
+												<label for="delivery-service" class="col-md-4">
+													{$parcel_services.parcel_services}:
+												</label>
+											{/block}
+											
+											{block name="admin_orders_modals_add_tracking_number_content_parcel_service_input"}
+												<div class="col-md-8">
+													<select id="delivery-service" class="form-control">
+														{foreach $content.parcel_services as $parcel_service}
+															<option value="{$parcel_service.id}" {if $parcel_service.isDefault} selected{/if} data-shipment-type="{$parcel_service.shipmentType}">
+																{$parcel_service.name}
+															</option>
+														{/foreach}
+													</select>
+												</div>
+											{/block}
+
+                                            {block name="admin_orders_modals_add_tracking_number_content_return_delivery_label"}
+                                            <label for="isReturnDelivery" class="col-md-4">
+                                                {$parcel_services.label_is_return_delivery}
+                                            </label>
+                                            {/block}
+
+                                            {block name="admin_orders_modals_add_tracking_number_content_return_delivery_input"}
+                                            <div class="col-md-8" data-gx-widget="switcher" style="margin: 0 0 4px 0;">
+                                                <input type="checkbox" name="isReturnDelivery" id="isReturnDelivery" class="form-control" />
+                                            </div>
+                                            {/block}
+
+                                            {block name="admin_orders_modals_add_tracking_number_content_shipment_type_label"}
+                                            <label for="shipmentType" class="col-md-4">
+                                                {$parcel_services.label_shipment_type}:
+                                            </label>
+                                            {/block}
+
+                                            {block name="admin_orders_modals_add_tracking_number_content_shipment_type_input"}
+                                            <div class="col-md-8">
+                                                <input type="text" name="shipmentType" id="shipmentType" class="form-control" />
+                                            </div>
+                                            {/block}
+										</div>
+									</li>
+								</ul>
+							</fieldset>
+						</form>
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_add_tracking_number_footer"}
+					<div class="modal-footer">
+						{block name="admin_orders_modals_add_tracking_number_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$btn.cancel}</button>
+						{/block}
+						{block name="admin_orders_modals_add_tracking_number_footer_save"}
+							<button type="button" class="btn btn-primary" id="store-tracking-number">{$btn.save}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

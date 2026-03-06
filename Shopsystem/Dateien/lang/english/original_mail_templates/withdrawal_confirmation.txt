@@ -1,0 +1,37 @@
+Dear customer,
+
+we have received the following cancellation, which we will process as quickly as possible:
+
+Withdraw to:
+
+{$smarty.const.COMPANY_NAME}
+{$smarty.const.TRADER_FIRSTNAME} {$smarty.const.TRADER_NAME}
+{$smarty.const.TRADER_STREET} {$smarty.const.TRADER_STREET_NUMBER}
+{$smarty.const.TRADER_ZIPCODE} {$smarty.const.TRADER_LOCATION}
+{$smarty.const.STORE_COUNTRY_NAME}
+
+{if $smarty.const.TRADER_FAX != ''}Fax: {$smarty.const.TRADER_FAX}{/if}
+
+{if $smarty.const.STORE_OWNER_EMAIL_ADDRESS != ''}E-Mail: {$smarty.const.STORE_OWNER_EMAIL_ADDRESS}{/if}
+
+
+
+Your data:
+
+{if $CUSTOMER_GENDER === 'm'}Mr.<br />
+{elseif $CUSTOMER_GENDER === 'f'}Ms.<br />
+{/if}{$CUSTOMER_NAME}
+{$CUSTOMER_STREET_ADDRESS}
+{$CUSTOMER_POSTCODE} {$CUSTOMER_CITY}
+{$CUSTOMER_COUNTRY}
+
+{if $ORDER_DATE}Order date: {$ORDER_DATE}{/if}
+{if $DELIVERY_DATE}Delivery date: {$DELIVERY_DATE}{/if}
+
+Withdrawal date: {$WITHDRAWAL_DATE}
+
+Withdrawal:
+{$WITHDRAWAL_CONTENT}
+
+
+{$EMAIL_SIGNATURE_TEXT}

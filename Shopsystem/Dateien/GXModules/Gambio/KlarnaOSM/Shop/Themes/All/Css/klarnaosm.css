@@ -1,0 +1,23 @@
+.klarnaosm {
+    text-align: center;
+}
+
+.klarnaosm.klarnaosm_product_top {
+    margin-top: 20px;
+}
+
+.klarnaosm.klarnaosm_top {
+}
+
+.klarnaosm.klarnaosm_cart {
+    text-align: center;
+}
+
+.klarnaosm.klarnaosm_cart_top {
+    margin-bottom: 2em;
+}
+
+#footer .klarnaosm.klarnaosm_footer_bottom {
+    min-height: auto;
+    border: none;
+}

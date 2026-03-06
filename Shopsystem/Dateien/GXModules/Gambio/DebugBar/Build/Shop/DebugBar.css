@@ -1,0 +1,84 @@
+/* --------------------------------------------------------------
+ DebugBar.css 2018-02-23
+ Gambio GmbH
+ http://www.gambio.de
+ Copyright (c) 2018 Gambio GmbH
+ Released under the GNU General Public License (Version 2)
+ [http://www.gnu.org/licenses/gpl-2.0.html]
+ --------------------------------------------------------------
+ */
+
+div.phpdebugbar {
+    font-size: 12px;
+}
+
+div.phpdebugbar .phpdebugbar-header {
+    background-color: #3C96F3;
+    background-position-y: 6px;
+    border-bottom: 2px solid #0F7FF0;
+    box-shadow: 0 1px 3px #5E5E5E;
+}
+
+div.phpdebugbar .phpdebugbar-header span.phpdebugbar-text {
+    color: white !important;
+}
+
+div.phpdebugbar .phpdebugbar-header .phpdebugbar-fa {
+    color: white !important;
+}
+
+div.phpdebugbar span.phpdebugbar-indicator,
+div.phpdebugbar a.phpdebugbar-indicator,
+div.phpdebugbar a.phpdebugbar-close-btn {
+    border-right-color: #0F7FF0;
+}
+
+div.phpdebugbar a.phpdebugbar-tab.phpdebugbar-active {
+    background-color: #0F7FF0;
+    background-image: none;
+    color: white;
+}
+
+div.phpdebugbar div.phpdebugbar-resize-handle {
+    border-bottom-color: #0F7FF0;
+    height: 6px;
+    margin-top: -6px;
+    cursor: ns-resize;
+}
+
+div.phpdebugbar div.phpdebugbar-drag-capture {
+    cursor: ns-resize;
+}
+
+div.phpdebugbar div.phpdebugbar-header > div > * {
+    padding: 7px;
+}
+
+div.phpdebugbar.phpdebugbar-closed,
+div.phpdebugbar.phpdebugbar-minimized {
+    border-top: 1px solid #0F7FF0;
+}
+
+div.phpdebugbar div.phpdebugbar-header,
+div.phpdebugbar a.phpdebugbar-restore-btn {
+    background-color: #3C96F3;
+}
+
+div.phpdebugbar a.phpdebugbar-restore-btn {
+    border-right-color: #0F7FF0;
+}
+
+div.phpdebugbar-mini-design a.phpdebugbar-tab {
+    border-right-color: #0F7FF0;
+}
+
+div.phpdebugbar .phpdebugbar-indicator span.phpdebugbar-tooltip {
+    background: #3C96F3;
+    border-color: #3A7FF0;
+    color: #FFFFFF;
+}
+
+div.phpdebugbar div.phpdebugbar-widgets-messages div.phpdebugbar-widgets-toolbar a.phpdebugbar-widgets-filter {
+    background: #3C96F3;
+    border-radius: 0;
+}

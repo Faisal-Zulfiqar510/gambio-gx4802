@@ -1,0 +1,1349 @@
+{
+	"groups": [
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ SHOP",
+			"categoryId": "shop",
+			"id": "shop_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SHOP_GENERAL"
+			},
+			"configurationKeys": [
+				"configuration\/STORE_NAME",
+				"configuration\/COMPANY_NAME",
+				"configuration\/STORE_NAME_ADDRESS",
+				"configuration\/DATE_TIMEZONE"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ SHOP",
+			"categoryId": "shop",
+			"id": "shop_owner",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SHOP_OWNER"
+			},
+			"configurationKeys": [
+				"configuration\/STORE_OWNER",
+				"configuration\/TRADER_FIRSTNAME",
+				"configuration\/TRADER_NAME",
+				"configuration\/TRADER_STREET",
+				"configuration\/TRADER_STREET_NUMBER",
+				"configuration\/TRADER_ZIPCODE",
+				"configuration\/TRADER_LOCATION",
+				"configuration\/STORE_COUNTRY",
+				"configuration\/STORE_ZONE",
+				"configuration\/STORE_OWNER_EMAIL_ADDRESS",
+				"configuration\/TRADER_TEL",
+				"configuration\/TRADER_FAX"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ CUSTOMERS",
+			"categoryId": "customers",
+			"id": "customers_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "CUSTOMERS_GENERAL"
+			},
+			"configurationKeys": [
+				"configuration\/ACCOUNT_TYPE_DEFAULT",
+				"configuration\/DELETE_GUEST_ACCOUNT",
+				"configuration\/MAX_ADDRESS_BOOK_ENTRIES",
+				"configuration\/MAX_DISPLAY_ORDER_HISTORY",
+				"configuration\/ACCOUNT_DEFAULT_B2B_STATUS",
+				"configuration\/MAX_DISPLAY_PRODUCTS_IN_ORDER_HISTORY_BOX",
+				"configuration\/GROUP_CHECK",
+				"configuration\/DEFAULT_CUSTOMERS_STATUS_ID",
+				"configuration\/ACCOUNT_OPTIONS"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ CUSTOMERS",
+			"categoryId": "customers",
+			"id": "customers_account",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "CUSTOMERS_ACCOUNT"
+			},
+			"configurationKeys": [
+				"configuration\/GENDER_MANDATORY",
+				"configuration\/ACCOUNT_CONFIRMATION_EMAIL",
+				"configuration\/ACCOUNT_ADDITIONAL_INFO",
+				"configuration\/ACCOUNT_B2B_STATUS",
+				"configuration\/ACCOUNT_COMPANY",
+				"configuration\/ACCOUNT_DOB",
+				"configuration\/ACCOUNT_FAX",
+				"configuration\/ACCOUNT_GENDER",
+				"configuration\/ACCOUNT_NAMES_OPTIONAL",
+				"configuration\/ACCOUNT_SPLIT_STREET_INFORMATION",
+				"configuration\/ACCOUNT_STATE",
+				"configuration\/ACCOUNT_SUBURB",
+				"configuration\/ACCOUNT_TELEPHONE"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ CUSTOMER",
+			"categoryId": "customers",
+			"id": "minumum_fields",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "MINUMUM_FIELDS"
+			},
+			"configurationKeys": [
+				"configuration\/ENTRY_CITY_MIN_LENGTH",
+				"configuration\/ENTRY_COMPANY_MIN_LENGTH",
+				"configuration\/ENTRY_DOB_MIN_LENGTH",
+				"configuration\/ENTRY_EMAIL_ADDRESS_MIN_LENGTH",
+				"configuration\/ENTRY_FIRST_NAME_MIN_LENGTH",
+				"configuration\/ENTRY_HOUSENUMBER_MIN_LENGTH",
+				"configuration\/ENTRY_LAST_NAME_MIN_LENGTH",
+				"configuration\/ENTRY_PASSWORD_MIN_LENGTH",
+				"configuration\/ENTRY_POSTCODE_MIN_LENGTH",
+				"configuration\/ENTRY_STATE_MIN_LENGTH",
+				"configuration\/ENTRY_STREET_ADDRESS_MIN_LENGTH",
+				"configuration\/ENTRY_TELEPHONE_MIN_LENGTH"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ EMAIL",
+			"categoryId": "system",
+			"id": "email_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "EMAIL_GENERAL"
+			},
+			"configurationKeys": [
+				"configuration\/SEND_EMAILS",
+				"gm_configuration\/GM_LOGO_MAIL_USE",
+				"configuration\/EMAIL_FROM",
+				"configuration\/SEND_EMAIL_BY_BILLING_ADRESS",
+				"configuration\/SENDMAIL_PATH",
+				"configuration\/EMAIL_TRANSPORT",
+				"configuration\/EMAIL_LINEFEED",
+				"configuration\/EMAIL_USE_HTML",
+				"configuration\/ENTRY_EMAIL_ADDRESS_CHECK",
+				"configuration\/EMAIL_MAX_LIMIT",
+				"configuration\/EMAIL_SIGNATURE",
+                "configuration\/EMAIL_HTML_SIGNATURE",
+				"configuration\/SMTP_USERNAME",
+				"configuration\/SMTP_PORT",
+				"configuration\/SMTP_PASSWORD",
+				"configuration\/SMTP_MAIN_SERVER",
+				"configuration\/SMTP_Backup_Server",
+				"configuration\/SMTP_ENCRYPTION",
+				"configuration\/SMTP_AUTH"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ EMAIL",
+			"categoryId": "system",
+			"id": "email_contact",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "EMAIL_CONTACT"
+			},
+			"configurationKeys": [
+				"configuration\/CONTACT_US_EMAIL_ADDRESS",
+				"configuration\/CONTACT_US_FORWARDING_STRING",
+				"configuration\/CONTACT_US_NAME",
+				"configuration\/CONTACT_US_REPLY_ADDRESS",
+				"configuration\/CONTACT_US_REPLY_ADDRESS_NAME"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ EMAIL",
+			"categoryId": "system",
+			"id": "email_billing",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "EMAIL_BILLING"
+			},
+			"configurationKeys": [
+				"configuration\/EMAIL_BILLING_ADDRESS",
+				"configuration\/EMAIL_BILLING_FORWARDING_STRING",
+				"configuration\/EMAIL_BILLING_NAME",
+				"configuration\/EMAIL_BILLING_REPLY_ADDRESS",
+				"configuration\/EMAIL_BILLING_REPLY_ADDRESS_NAME",
+				"configuration\/EMAIL_BILLING_SUBJECT",
+				"gm_configuration\/EMAIL_BILLING_SUBJECT_ORDER"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ EMAIL",
+			"categoryId": "system",
+			"id": "email_support",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "EMAIL_SUPPORT"
+			},
+			"configurationKeys": [
+				"configuration\/EMAIL_SUPPORT_ADDRESS",
+				"configuration\/EMAIL_SUPPORT_FORWARDING_STRING",
+				"configuration\/EMAIL_SUPPORT_NAME",
+				"configuration\/EMAIL_SUPPORT_REPLY_ADDRESS",
+				"configuration\/EMAIL_SUPPORT_REPLY_ADDRESS_NAME",
+				"configuration\/EMAIL_SUPPORT_SUBJECT"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ PRODUCTS",
+			"categoryId": "products",
+			"id": "products_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PRODUCTS_GENERAL"
+			},
+			"configurationKeys": [
+				"configuration\/APPEND_PROPERTIES_MODEL",
+				"gm_configuration\/TRUNCATE_PRODUCTS_HISTORY",
+				"gm_configuration\/SHOW_OLD_SPECIAL_PRICE",
+				"gm_configuration\/SHOW_OLD_DISCOUNT_PRICE",
+				"gm_configuration\/SHOW_OLD_GROUP_PRICE",
+				"gm_configuration\/SHOW_NORMAL_PRICE_ONLY_FOR_NATIONAL_SHIPPING",
+				"gm_configuration\/GRADUATED_ASSIGN",
+				"configuration\/MAX_DISPLAY_BESTSELLERS",
+				"configuration\/MAX_DISPLAY_PRODUCTS_NEW",
+				"configuration\/MIN_DISPLAY_BESTSELLERS"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ SEARCH",
+			"categoryId": "products",
+			"id": "search",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SEARCH"
+			},
+			"configurationKeys": [
+				"gm_configuration\/ENABLE_LIVE_SEARCH",
+				"configuration\/ADVANCED_SEARCH_DEFAULT_OPERATOR",
+				"configuration\/SEARCH_IN_ATTR",
+				"configuration\/SEARCH_IN_DESC"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ GX_CUSTOMIZER",
+			"categoryId": "products",
+			"id": "gx_customizer",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "GX_CUSTOMIZER"
+			},
+			"configurationKeys": [
+				"gm_configuration\/CUSTOMIZER_POSITION",
+				"gm_configuration\/GM_GPRINT_AUTO_WIDTH",
+				"gm_configuration\/GM_GPRINT_CHARACTER_LENGTH",
+				"gm_configuration\/GM_GPRINT_EXCLUDE_SPACES",
+				"gm_configuration\/GM_GPRINT_SHOW_TABS",
+				"gm_configuration\/GM_GPRINT_UPLOADS_PER_IP",
+				"gm_configuration\/GM_GPRINT_UPLOADS_PER_IP_INTERVAL"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ LAYOUT",
+			"categoryId": "design",
+			"id": "design_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "DESIGN_GENERAL"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_LOGO_SHOP_USE",
+				"gm_configuration\/ENABLE_JS_HYPHENATION",
+				"gm_configuration\/SHOW_PRODUCT_RIBBONS"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ LAYOUT",
+			"categoryId": "design",
+			"id": "design_lightbox",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "DESIGN_LIGHTBOX"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_LIGHTBOX_CHECKOUT",
+				"gm_configuration\/GM_LIGHTBOX_CART",
+				"gm_configuration\/GM_LIGHTBOX_CREATE_ACCOUNT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "design",
+			"id": "logo",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "LOGO"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_LOGO_MANAGER"
+					},
+					"link": "admin\/gm_logo.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "design",
+			"id": "startpage",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "STARTPAGE"
+			},
+			"configurationKeys": [
+				"gm_configuration\/USE_UPCOMING_PRODUCT_SWIPER_ON_INDEX",
+				"gm_configuration\/USE_TOP_PRODUCT_SWIPER_ON_INDEX",
+				"gm_configuration\/USE_SPECIAL_PRODUCT_SWIPER_ON_INDEX",
+				"gm_configuration\/USE_NEW_PRODUCT_SWIPER_ON_INDEX",
+				"configuration\/MAX_DISPLAY_NEW_PRODUCTS_DAYS",
+				"configuration\/MAX_DISPLAY_SPECIAL_PRODUCTS",
+				"configuration\/MAX_DISPLAY_UPCOMING_PRODUCTS",
+				"configuration\/MAX_RANDOM_SELECT_NEW",
+				"configuration\/MAX_RANDOM_SELECT_SPECIALS",
+				"gm_configuration\/TRUNCATE_PRODUCTS_NAME",
+				"gm_configuration\/GM_SPECIALS_STARTPAGE",
+				"gm_configuration\/GM_NEW_PRODUCTS_STARTPAGE",
+				"gm_configuration\/GM_RECOMMENDED_PRODUCTS_STARTPAGE",
+				"configuration\/EXPECTED_PRODUCTS_SORT",
+				"configuration\/EXPECTED_PRODUCTS_FIELD",
+				"gm_configuration\/TRUNCATE_FLYOVER",
+				"gm_configuration\/TRUNCATE_FLYOVER_TEXT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "design",
+			"id": "product_details",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PRODUCT_DETAILS"
+			},
+			"configurationKeys": [
+				"gm_configuration\/SHOW_MANUFACTURER_IMAGE_PRODUCT_DETAILS",
+				"gm_configuration\/SHOW_ADDITIONAL_FIELDS_PRODUCT_DETAILS",
+				"gm_configuration\/DISPLAY_OF_PROPERTY_COMBINATION_SELECTION",
+				"gm_configuration\/SHOW_ZOOM",
+				"gm_configuration\/GM_SHOW_WISHLIST",
+				"gm_configuration\/GM_TELL_A_FRIEND",
+				"gm_configuration\/SHOW_FACEBOOK",
+				"gm_configuration\/SHOW_WHATSAPP",
+				"gm_configuration\/SHOW_TWITTER",
+				"gm_configuration\/SHOW_PINTEREST",
+				"gm_configuration\/GALLERY_LIGHTBOX",
+				"gm_configuration\/SHOW_GALLERY",
+				"gm_configuration\/SHOW_PRODUCTS_MODEL_IN_PRODUCT_DETAILS",
+				"configuration\/MAX_DISPLAY_ALSO_PURCHASED",
+				"configuration\/MAX_DISPLAY_ALSO_PURCHASED_DAYS",
+				"configuration\/MAX_DISPLAY_CROSSSELLING",
+				"configuration\/MIN_DISPLAY_ALSO_PURCHASED",
+				"gm_configuration\/GM_TELL_A_FRIEND_USE_CUSTOMER_EMAIL",
+				"configuration\/ACTIVATE_REVERSE_CROSS_SELLING"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "design",
+			"id": "product_listing",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PRODUCT_LISTING"
+			},
+			"configurationKeys": [
+				"gm_configuration\/MAIN_SHOW_QTY_INFO",
+				"gm_configuration\/MAIN_SHOW_ATTRIBUTES",
+				"gm_configuration\/MAIN_SHOW_GRADUATED_PRICES",
+				"gm_configuration\/MAIN_SHOW_QTY",
+				"gm_configuration\/MAIN_VIEW_MODE_TILED",
+				"gm_configuration\/SHOW_MANUFACTURER_IMAGE_LISTING",
+				"gm_configuration\/SHOW_PRODUCTS_MODEL_IN_PRODUCT_LISTS",
+				"configuration\/MAX_DISPLAY_MANUFACTURER_NAME_LEN",
+				"configuration\/MAX_DISPLAY_MANUFACTURERS_IN_A_LIST",
+				"configuration\/MAX_DISPLAY_PAGE_LINKS",
+				"configuration\/MAX_DISPLAY_SEARCH_RESULTS",
+				"configuration\/MAX_MANUFACTURERS_LIST",
+				"configuration\/PRODUCT_LIST_FILTER"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "design",
+			"id": "categories",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "CATEGORIES"
+			},
+			"configurationKeys": [
+				"configuration\/SHOW_COUNTS",
+				"gm_configuration\/CAT_MENU_TOP",
+				"gm_configuration\/CATEGORY_TOP_SHOW_LEVEL",
+				"gm_configuration\/CAT_MENU_LEFT",
+				"gm_configuration\/SHOW_SUBCATEGORIES",
+				"gm_configuration\/SHOW_SUBCATEGORIES_PARENT",
+				"gm_configuration\/CATEGORY_ACCORDION_EFFECT",
+				"gm_configuration\/CATEGORY_UNFOLD_LEVEL",
+				"gm_configuration\/CATEGORY_UNFOLD_DEFAULT_LEVEL",
+				"gm_configuration\/CAT_MENU_CLASSIC",
+				"gm_configuration\/GM_LOGO_CAT_USE",
+				"gm_configuration\/GM_SHOW_CAT",
+				"configuration\/MAX_DISPLAY_CATEGORIES_PER_ROW"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "design",
+			"id": "topmenu",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "TOPMENU"
+			},
+			"configurationKeys": [
+				"gm_configuration\/SHOW_TOP_CURRENCY_SELECTION",
+				"gm_configuration\/SHOW_TOP_COUNTRY_SELECTION"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "design",
+			"id": "shopping_cart",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SHOPPING_CART"
+			},
+			"configurationKeys": [
+				"gm_configuration\/SHOW_PRODUCTS_MODEL_IN_SHOPPING_CART_AND_WISHLIST",
+				"gm_configuration\/ALWAYS_SHOW_CONTINUE_SHOPPING_BUTTON",
+				"gm_configuration\/SHOW_PRODUCTS_COUNT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "design",
+			"id": "product_ratings",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PRODUCT_RATINGS"
+			},
+			"configurationKeys": [
+				"gm_configuration\/ENABLE_RATING",
+				"gm_configuration\/PRODUCT_REVIEW_NAME",
+				"gm_configuration\/SHOW_RATING_IN_GRID_AND_LISTING",
+				"gm_configuration\/SHOW_RATING_AS_TAB",
+				"configuration\/PRODUCT_REVIEWS_VIEW",
+				"configuration\/REVIEW_TEXT_MIN_LENGTH",
+				"configuration\/MAX_DISPLAY_NEW_REVIEWS",
+				"configuration\/MAX_RANDOM_SELECT_REVIEWS"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ IMAGES",
+			"categoryId": "design",
+			"id": "images_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "IMAGES_GENERAL"
+			},
+			"configurationKeys": [
+				"gm_configuration\/USE_SMALLER_IMAGES_FOR_PRODUCTS",
+				"configuration\/CONFIG_CALCULATE_IMAGE_SIZE",
+				"configuration\/IMAGE_QUALITY",
+				"configuration\/PRODUCT_IMAGE_THUMBNAIL_WIDTH",
+				"configuration\/PRODUCT_IMAGE_THUMBNAIL_HEIGHT",
+				"configuration\/PRODUCT_IMAGE_INFO_WIDTH",
+				"configuration\/PRODUCT_IMAGE_INFO_HEIGHT",
+				"configuration\/PRODUCT_IMAGE_POPUP_WIDTH",
+				"configuration\/PRODUCT_IMAGE_POPUP_HEIGHT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "design",
+			"id": "image_processing",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "IMAGE_PROCESSING"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_IMAGEPROCESSING"
+					},
+					"link": "admin\/admin.php?do=ImageProcessing",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ LAWS",
+			"categoryId": "laws",
+			"id": "privacy_show_link",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PRIVACY_SHOW_LINK"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_SHOW_PRIVACY_REGISTRATION",
+				"gm_configuration\/GM_CHECK_PRIVACY_CALLBACK",
+				"gm_configuration\/GM_CHECK_PRIVACY_CONTACT",
+				"gm_configuration\/GM_CHECK_PRIVACY_TELL_A_FRIEND",
+				"gm_configuration\/GM_CHECK_PRIVACY_FOUND_CHEAPER",
+				"gm_configuration\/GM_CHECK_PRIVACY_REVIEWS",
+				"gm_configuration\/GM_CHECK_PRIVACY_ACCOUNT_CONTACT",
+				"gm_configuration\/GM_CHECK_PRIVACY_ACCOUNT_ADDRESS_BOOK",
+				"gm_configuration\/GM_CHECK_PRIVACY_ACCOUNT_NEWSLETTER",
+				"gm_configuration\/GM_CHECK_PRIVACY_CHECKOUT_SHIPPING",
+				"gm_configuration\/GM_CHECK_PRIVACY_CHECKOUT_PAYMENT",
+				"gm_configuration\/GM_SHOW_PRIVACY_WITHDRAWAL_WEB_FORM",
+				"gm_configuration\/GM_SHOW_PRIVACY_GV_SEND",
+				"gm_configuration\/GM_SHOW_IP"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "laws",
+			"id": "privacy_checkbox_enabled",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PRIVACY_CHECKBOX_ENABLED"
+			},
+			"configurationKeys": [
+				"gm_configuration\/PRIVACY_CHECKBOX_REGISTRATION",
+				"gm_configuration\/PRIVACY_CHECKBOX_CALLBACK",
+				"gm_configuration\/PRIVACY_CHECKBOX_CONTACT",
+				"gm_configuration\/PRIVACY_CHECKBOX_ASK_PRODUCT_QUESTION",
+				"gm_configuration\/PRIVACY_CHECKBOX_FOUND_CHEAPER",
+				"gm_configuration\/PRIVACY_CHECKBOX_REVIEWS",
+				"gm_configuration\/PRIVACY_CHECKBOX_ACCOUNT_EDIT",
+				"gm_configuration\/PRIVACY_CHECKBOX_ADDRESS_BOOK",
+				"gm_configuration\/PRIVACY_CHECKBOX_NEWSLETTER",
+				"gm_configuration\/PRIVACY_CHECKBOX_CHECKOUT_SHIPPING",
+				"gm_configuration\/PRIVACY_CHECKBOX_CHECKOUT_PAYMENT",
+				"gm_configuration\/PRIVACY_CHECKBOX_WITHDRAWAL_WEB_FORM",
+				"gm_configuration\/PRIVACY_CHECKBOX_GV_SEND"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "laws",
+			"id": "terms_and_conditions",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "TERMS_AND_CONDITIONS"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_SHOW_CONDITIONS",
+				"gm_configuration\/GM_CHECK_CONDITIONS",
+				"gm_configuration\/ATTACH_CONDITIONS_OF_USE_IN_ORDER_CONFIRMATION"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "laws",
+			"id": "withdrawal",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "WITHDRAWAL"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_SHOW_WITHDRAWAL",
+				"gm_configuration\/GM_CHECK_WITHDRAWAL",
+				"gm_configuration\/WITHDRAWAL_WEBFORM_ACTIVE",
+				"gm_configuration\/WITHDRAWAL_PDF_ACTIVE",
+				"gm_configuration\/SHOW_ACCOUNT_WITHDRAWAL_LINK",
+				"gm_configuration\/ATTACH_PRIVACY_NOTICE_IN_ORDER_CONFIRMATION",
+				"gm_configuration\/ATTACH_WITHDRAWAL_INFO_IN_ORDER_CONFIRMATION",
+				"gm_configuration\/ATTACH_WITHDRAWAL_FORM_IN_ORDER_CONFIRMATION",
+				"gm_configuration\/DOWNLOAD_DELAY_FOR_ABANDONMENT_OF_WITHDRAWL_RIGHT",
+				"gm_configuration\/DOWNLOAD_DELAY_WITHOUT_ABANDONMENT_OF_WITHDRAWL_RIGHT",
+				"gm_configuration\/SHOW_ABANDONMENT_OF_WITHDRAWL_DOWNLOAD",
+				"gm_configuration\/SHOW_ABANDONMENT_OF_WITHDRAWL_SERVICE",
+				"gm_configuration\/CHECK_ABANDONMENT_OF_WITHDRAWL_DOWNLOAD",
+				"gm_configuration\/CHECK_ABANDONMENT_OF_WITHDRAWL_SERVICE"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "laws",
+			"id": "data_transfer_to_carriers",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "DATA_TRANSFER_TO_CARRIERS"
+			},
+			"configurationKeys": [
+				"gm_configuration\/DATA_TRANSFER_TO_TRANSPORT_COMPANIES_STATUS",
+				"gm_configuration\/DATA_TRANSFER_TO_TRANSPORT_COMPANIES_REQUIRED",
+				"gm_configuration\/DATA_TRANSFER_TO_TRANSPORT_COMPANIES_SETTINGS"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "laws",
+			"id": "checkout_confirmation_page",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "CHECKOUT_CONFIRMATION_PAGE"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_SHOW_PRIVACY_CONFIRMATION",
+				"gm_configuration\/GM_SHOW_CONDITIONS_CONFIRMATION",
+				"gm_configuration\/GM_SHOW_WITHDRAWAL_CONFIRMATION"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "laws",
+			"id": "ip_logging",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "IP_LOGGING"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_LOG_IP_LOGIN",
+				"gm_configuration\/GM_LOG_IP",
+				"gm_configuration\/GM_CONFIRM_IP",
+				"gm_configuration\/LOG_IP_CALLBACK",
+				"gm_configuration\/LOG_IP_CONTACT",
+				"gm_configuration\/LOG_IP_TELL_A_FRIEND",
+				"gm_configuration\/LOG_IP_FOUND_CHEAPER",
+				"gm_configuration\/LOG_IP_REVIEWS",
+				"gm_configuration\/LOG_IP_ACCOUNT_CONTACT",
+				"gm_configuration\/LOG_IP_ACCOUNT_ADDRESS_BOOK",
+				"gm_configuration\/LOG_IP_ACCOUNT_NEWSLETTER",
+				"gm_configuration\/LOG_IP_ORDER_SHIPPING_ADDRESS",
+				"gm_configuration\/LOG_IP_ORDER_PAYMENT_ADDRESS",
+				"gm_configuration\/LOG_IP_WITHDRAWAL_WEB_FORM",
+				"gm_configuration\/LOG_IP_GV_SEND",
+				"gm_configuration\/LOG_IP_SHIPPING"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "laws",
+			"id": "vat_display",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "VAT_DISPLAY"
+			},
+			"configurationKeys": [
+				"gm_configuration\/DISPLAY_TAX",
+				"gm_configuration\/DISPLAY_0_PROCENT_TAX",
+				"gm_configuration\/TAX_INFO_TAX_FREE"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "laws",
+			"id": "export_legal_text_agreements",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "EXPORT_LEGAL_TEXT_AGREEMENTS"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_EXPORT_CONSENT_PROTOCOL"
+					},
+					"link": "admin\/admin.php?do=Laws/ExportAgreements",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "laws",
+			"id": "cookie_consent",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "COOKIE_CONSENT"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_COOKIE_CONSENT"
+					},
+					"link": "admin/admin.php?do=ModuleCenter#GambioCookieConsentPanel",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ CAMPAIGNS",
+			"categoryId": "seo",
+			"id": "campaigns_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "CAMPAIGNS_GENERAL"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_CAMPAIGNS"
+					},
+					"link": "admin\/campaigns.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ DELIVERY",
+			"categoryId": "delivery",
+			"id": "shipping_status",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SHIPPING_STATUS"
+			},
+			"configurationKeys": [
+				"configuration\/ACTIVATE_SHIPPING_STATUS",
+				"gm_configuration\/GM_AUTO_SHIPPING_STATUS",
+				"configuration\/SHOW_SHIPPING",
+				"gm_configuration\/SHOW_FULL_SHIPPING_COUNTRY_NAME",
+				"configuration\/SHOW_CART_SHIPPING_WEIGHT",
+				"configuration\/SHOW_CART_SHIPPING_COSTS",
+                "gm_configuration\/SERVICE_WITHOUT_SHIPPING",
+				"configuration\/SHIPPING_ORIGIN_ZIP",
+				"configuration\/SHIPPING_ORIGIN_COUNTRY",
+				"configuration\/SHIPPING_MAX_WEIGHT",
+				"configuration\/SHIPPING_INFOS",
+				"configuration\/SHIPPING_BOX_WEIGHT",
+				"configuration\/SHIPPING_BOX_PADDING"
+			],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_SHIPPING_STATUS"
+					},
+					"link": "admin\/shipping_status.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "delivery",
+			"id": "parcel_services",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PARCEL_SERVICES"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_PARCEL_SERVICES"
+					},
+					"link": "admin\/parcel-services",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ INVOICE",
+			"categoryId": "system",
+			"id": "invoice_packing_slip",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "INVOICE_PACKING_SLIP"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_INVOICE_PACKING_SLIP"
+					},
+					"link": "admin\/gm_pdf.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "system",
+			"id": "orders_and_customers_range",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "ORDERS_AND_CUSTOMERS_RANGE"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_ORDERS_AND_CUSTOMERS_RANGE"
+					},
+					"link": "admin\/gm_id_starts.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ STOCK",
+			"categoryId": "products",
+			"id": "stock_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "STOCK_GENERAL"
+			},
+			"configurationKeys": [
+				"configuration\/STOCK_CHECK",
+				"configuration\/DISPLAY_CART",
+				"configuration\/GM_SET_OUT_OF_STOCK_PRODUCTS",
+				"configuration\/GM_SET_OUT_OF_STOCK_ATTRIBUTES",
+				"configuration\/GM_SET_OUT_OF_STOCK_ATTRIBUTES_SHOW",
+				"configuration\/ATTRIBUTE_STOCK_CHECK",
+				"configuration\/DOWNLOAD_STOCK_CHECK",
+				"configuration\/STOCK_LIMITED",
+				"configuration\/STOCK_ALLOW_CHECKOUT",
+				"configuration\/STOCK_MARK_PRODUCT_OUT_OF_STOCK",
+				"configuration\/STOCK_REORDER_LEVEL",
+				"configuration\/CHECK_STOCK_BEFORE_SHOPPING_CART",
+				"configuration\/MAX_PRODUCTS_QTY"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ DOWNLOAD",
+			"categoryId": "products",
+			"id": "downloads_general",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "DOWNLOADS_GENERAL"
+			},
+			"configurationKeys": [
+				"configuration\/DOWNLOAD_ENABLED",
+				"configuration\/DOWNLOAD_BY_REDIRECT",
+				"configuration\/DOWNLOAD_UNALLOWED_PAYMENT",
+				"configuration\/DOWNLOAD_MIN_ORDERS_STATUS"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ SEO",
+			"categoryId": "seo",
+			"id": "seo_urls",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SEO_URLS"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_SEO_BOOST_PRODUCTS",
+				"gm_configuration\/GM_SEO_BOOST_SHORT_URLS",
+				"gm_configuration\/GM_SEO_BOOST_CATEGORIES",
+				"gm_configuration\/GM_SEO_BOOST_CONTENT",
+				"gm_configuration\/USE_SEO_BOOST_LANGUAGE_CODE",
+				"gm_configuration\/SUPPRESS_INDEX_IN_URL"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "seo",
+			"id": "seo_meta",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SEO_META"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_TITLE_SHOW_STANDARD_META_TITLE",
+				"gm_configuration\/GM_TITLE_USE_STANDARD_META_TITLE"
+			],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_SEO_META"
+					},
+					"link": "admin\/gm_meta.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "seo",
+			"id": "seo_robots",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SEO_ROBOTS"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_SEO_ROBOTS"
+					},
+					"link": "admin\/robots_download.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "seo",
+			"id": "seo_sitemap",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SEO_SITEMAP"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_SITEMAP_GOOGLE_CHANGEFREQ",
+				"gm_configuration\/GM_SITEMAP_GOOGLE_PRIORITY"
+			],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_SEO_SITEMAP"
+					},
+					"link": "admin\/gm_sitemap.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "seo",
+			"id": "seo_static_pages",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SEO_STATIC_PAGES"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_SEO_STATIC_PAGES"
+					},
+					"link": "admin\/admin.php?do=StaticSeoUrl",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "seo",
+			"id": "seo_tracking_codes",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SEO_TRACKING_CODES"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_TRACKING_CODES"
+					},
+					"link": "admin\/admin.php?do=TrackingCodes",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ TAX",
+			"categoryId": "countries",
+			"id": "tax_classes",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "TAX_CLASSES"
+			},
+			"configurationKeys": [
+				"gm_configuration\/DEFAULT_TAX_CLASS_ID"
+			],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_TAX_CLASSES"
+					},
+					"link": "admin\/tax_classes.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "countries",
+			"id": "tax_rates",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "TAX_RATES"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_TAX_RATES"
+					},
+					"link": "admin\/tax_rates.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "countries",
+			"id": "tax_vat",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "TAX_VAT"
+			},
+			"configurationKeys": [
+				"configuration\/STORE_OWNER_VAT_ID",
+				"configuration\/ACCOUNT_COMPANY_VAT_CHECK",
+				"configuration\/ACCOUNT_COMPANY_VAT_LIVE_CHECK",
+				"configuration\/ACCOUNT_COMPANY_VAT_GROUP",
+				"configuration\/ACCOUNT_VAT_BLOCK_ERROR",
+				"configuration\/MOVE_ONLY_IF_NO_GUEST",
+				"configuration\/CALCULATE_TAX_BASED_ON_VAT_ID",
+				"configuration\/DEFAULT_CUSTOMERS_VAT_STATUS_ID",
+				"configuration\/DEFAULT_CUSTOMERS_VAT_STATUS_ID_LOCAL"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "countries",
+			"id": "tax_geo_zones",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "TAX_GEO_ZONES"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_TAX_GEO_ZONES"
+					},
+					"link": "admin\/geo_zones.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "countries",
+			"id": "countries_countries",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "COUNTRIES_COUNTRIES"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_COUNTRIES_COUNTRIES"
+					},
+					"link": "admin\/countries.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "countries",
+			"id": "countries_currencies",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "COUNTRIES_CURRENCIES"
+			},
+			"configurationKeys": [
+				"configuration\/USE_DEFAULT_LANGUAGE_CURRENCY"
+			],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_COUNTRIES_CURRENCIES"
+					},
+					"link": "admin\/currencies.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ COUNTRIES",
+			"categoryId": "countries",
+			"id": "countries_zones",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "COUNTRIES_ZONES"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_COUNTRIES_ZONES"
+					},
+					"link": "admin\/zones.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "countries",
+			"id": "countries_languages",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "COUNTRIES_LANGUAGES"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_COUNTRIES_LANGUAGES"
+					},
+					"link": "admin\/languages.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "countries",
+			"id": "countries_currencies",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "COUNTRIES_CURRENCIES"
+			},
+            "configurationKeys": [
+                "gm_configuration\/APILAYER_API_KEY"
+            ],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_COUNTRIES_CURRENCIES"
+					},
+					"link": "admin\/currencies.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ SECURITY",
+			"categoryId": "system",
+			"id": "password_encryption",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PASSWORD_ENCRYPTION"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_PASSWORD_ENCRYPTION_TYPE",
+				"gm_configuration\/GM_PASSWORD_REENCRYPT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "system",
+			"id": "login_tracker",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "LOGIN_TRACKER"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_LOGIN_TRYOUT",
+				"gm_configuration\/GM_LOGIN_TIMELINE",
+				"gm_configuration\/GM_LOGIN_TIMEOUT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "system",
+			"id": "search_tracker",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SEARCH_TRACKER"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_SEARCH_TRYOUT",
+				"gm_configuration\/GM_SEARCH_TIMELINE",
+				"gm_configuration\/GM_SEARCH_TIMEOUT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "system",
+			"id": "security_question",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SECURITY_QUESTION"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_CAPTCHA_TYPE",
+				"gm_configuration\/GM_RECAPTCHA_PUBLIC_KEY",
+				"gm_configuration\/GM_RECAPTCHA_PRIVATE_KEY"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "system",
+			"id": "security_question_places",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SECURITY_QUESTION_PLACES"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_PRICE_OFFER_VVCODE",
+				"gm_configuration\/GM_TELL_A_FRIEND_VVCODE",
+				"gm_configuration\/GM_REVIEWS_VVCODE",
+				"gm_configuration\/GM_CALLBACK_SERVICE_VVCODE",
+				"gm_configuration\/GM_CONTACT_VVCODE",
+				"gm_configuration\/GM_FORGOT_PASSWORD_VVCODE",
+				"gm_configuration\/GM_NEWSLETTER_VVCODE",
+				"gm_configuration\/GM_CREATE_ACCOUNT_VVCODE"
+			],
+			"links": []
+		},
+		{
+			"comment": "                        \/\/\/\/\/\/\/\/\/\/ SYSTEM",
+			"categoryId": "system",
+			"id": "maintenance_mode",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "MAINTENANCE_MODE"
+			},
+			"configurationKeys": [
+				"gm_configuration\/GM_SHOP_OFFLINE"
+			],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_MAINTENANCE_MODE"
+					},
+					"link": "admin\/gm_offline.php",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "system",
+			"id": "admin",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "ADMIN"
+			},
+			"configurationKeys": [
+				"configuration\/USE_WYSIWYG",
+				"gm_configuration\/NUMBER_OF_CUSTOMERS_PER_PAGE",
+				"gm_configuration\/NUMBER_OF_ORDERS_PER_PAGE",
+				"gm_configuration\/NUMBER_OF_PRODUCTS_PER_PAGE",
+				"configuration\/SHOW_UNTRANSLATED_MENUITEMS",
+				"configuration\/UNFOLD_FAVS_BOX",
+				"configuration\/ACTIVATE_PAGE_TOKEN",
+				"configuration\/ACTIVATE_NAVIGATOR",
+				"configuration\/QUICKLINK_ACTIVATED",
+				"configuration\/PRICE_IS_BRUTTO",
+				"configuration\/PRICE_PRECISION",
+				"gm_configuration\/MANUAL_ORDER_PAYMENT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "system",
+			"id": "shop_key",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SHOP_KEY"
+			},
+			"configurationKeys": [],
+			"links": [
+				{
+					"label": {
+						"section": "configuration_links",
+						"phrase": "LINK_SHOP_KEY"
+					},
+					"link": "admin\/admin.php?do=ShopKey",
+					"newWindow": false
+				}
+			]
+		},
+		{
+			"categoryId": "system",
+			"id": "sessions",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "SESSIONS"
+			},
+			"configurationKeys": [
+				"configuration\/SESSION_CHECK_USER_AGENT",
+				"configuration\/SESSION_CHECK_IP_ADDRESS",
+				"configuration\/SESSION_RECREATE",
+				"configuration\/CHECK_CLIENT_AGENT",
+				"configuration\/SESSION_KEEP_ALIVE"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "system",
+			"id": "performance",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "PERFORMANCE"
+			},
+			"configurationKeys": [
+				"configuration\/HTTP_CACHING",
+				"configuration\/GZIP_COMPRESSION",
+				"configuration\/GZIP_LEVEL",
+				"configuration\/HTML_COMPRESSION",
+				"configuration\/USE_BUSTFILES",
+				"configuration\/CSS_INLINE_OUTPUT"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "system",
+			"id": "logging",
+			"label": {
+				"section": "configuration_groups",
+				"phrase": "LOGGING"
+			},
+			"configurationKeys": [
+				"configuration\/LOGGING_ENABLED",
+				"configuration\/STORE_PAGE_PARSE_TIME",
+				"configuration\/STORE_PAGE_PARSE_TIME_LOG",
+				"configuration\/DISPLAY_PAGE_PARSE_TIME",
+				"configuration\/LOG_SQL_FRONTEND",
+				"configuration\/LOG_SQL_BACKEND",
+				"configuration\/SQL_LOG_MAX_FILESIZE",
+				"configuration\/STORE_DB_TRANSACTIONS",
+				"configuration\/ERROR_REPORT_EMAIL"
+			],
+			"links": []
+		},
+		{
+			"categoryId": "system",
+			"id": "social-media",
+			"label": {
+				"section": "dashboard",
+				"phrase": "CONFIGURATION_GROUP_DASHBOARD"
+			},
+			"configurationKeys": [
+				"configuration/dashboard/EMBED_SOCIAL_MEDIA"
+			],
+			"links": []
+		}
+	]
+}

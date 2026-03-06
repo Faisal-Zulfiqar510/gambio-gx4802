@@ -1,0 +1,131 @@
+/* Alerts
+   ========================================================================== */
+
+.alert {
+	margin-bottom: ($line-height-computed * 2);
+
+	&.checkbox {
+		padding: 5px 0;
+
+		label {
+			display: block;
+			padding: 5px floor($grid-gutter-width / 2) 5px floor(($grid-gutter-width / 2) + 20);
+		}
+
+		color: $gx-checkbox-color;
+		border-color: $gx-checkbox-border;
+
+		@include background($gx-checkbox-bg-color,
+				$gx-checkbox-bg-image-url,
+				$gx-checkbox-bg-image-position,
+				$gx-checkbox-bg-image-repeat,
+				$gx-checkbox-bg-image-size,
+				$gx-checkbox-bg-image-attachment,
+				$gx-checkbox-bg-image-enabled,   
+				$gx-checkbox-bg-gradient-enabled,
+				$gx-checkbox-bg-gradient-color1, 
+				$gx-checkbox-bg-gradient-color2, 
+				$gx-checkbox-bg-gradient-type,   
+				$gx-checkbox-bg-gradient-angle); 
+
+		&.active {
+			color: $gx-checkbox-active-color;
+			border-color: $gx-checkbox-active-border;
+
+			@include background($gx-checkbox-active-bg-color,
+					$gx-checkbox-active-bg-image-url,
+					$gx-checkbox-active-bg-image-position,
+					$gx-checkbox-active-bg-image-repeat,
+					$gx-checkbox-active-bg-image-size,
+					$gx-checkbox-active-bg-image-attachment,
+					$gx-checkbox-active-bg-image-enabled,   
+					$gx-checkbox-active-bg-gradient-enabled,
+					$gx-checkbox-active-bg-gradient-color1, 
+					$gx-checkbox-active-bg-gradient-color2, 
+					$gx-checkbox-active-bg-gradient-type,   
+					$gx-checkbox-active-bg-gradient-angle); 
+		}
+	}
+
+	&.alert-danger {
+		color: $gx-alert-danger-color;
+		border-color: $gx-alert-danger-border;
+
+		@include background($gx-alert-danger-bg-color,
+				$gx-alert-danger-bg-image-url,
+				$gx-alert-danger-bg-image-position,
+				$gx-alert-danger-bg-image-repeat,
+				$gx-alert-danger-bg-image-size,
+				$gx-alert-danger-bg-image-attachment,
+				$gx-alert-danger-bg-image-enabled,   
+				$gx-alert-danger-bg-gradient-enabled,
+				$gx-alert-danger-bg-gradient-color1, 
+				$gx-alert-danger-bg-gradient-color2, 
+				$gx-alert-danger-bg-gradient-type,   
+				$gx-alert-danger-bg-gradient-angle); 
+	}
+
+	&.alert-success {
+		background-color: $gx-alert-success-bg-color;
+		color: $gx-alert-success-color;
+		border-color: $gx-alert-success-border;
+
+		@include background($gx-alert-success-bg-color,
+				$gx-alert-success-bg-image-url,
+				$gx-alert-success-bg-image-position,
+				$gx-alert-success-bg-image-repeat,
+				$gx-alert-success-bg-image-size,
+				$gx-alert-success-bg-image-attachment,
+				$gx-alert-success-bg-image-enabled,   
+				$gx-alert-success-bg-gradient-enabled,
+				$gx-alert-success-bg-gradient-color1, 
+				$gx-alert-success-bg-gradient-color2, 
+				$gx-alert-success-bg-gradient-type,   
+				$gx-alert-success-bg-gradient-angle); 
+	}
+
+	&.alert-info {
+		color: $gx-alert-info-color;
+		border-color: $gx-alert-info-border;
+
+		@include background($gx-alert-info-bg-color,
+				$gx-alert-info-bg-image-url,
+				$gx-alert-info-bg-image-position,
+				$gx-alert-info-bg-image-repeat,
+				$gx-alert-info-bg-image-size,
+				$gx-alert-info-bg-image-attachment,
+				$gx-alert-info-bg-image-enabled,   
+				$gx-alert-info-bg-gradient-enabled,
+				$gx-alert-info-bg-gradient-color1, 
+				$gx-alert-info-bg-gradient-color2, 
+				$gx-alert-info-bg-gradient-type,   
+				$gx-alert-info-bg-gradient-angle); 
+	}
+
+	&.alert-warning {
+		color: $gx-alert-warning-color;
+		border-color: $gx-alert-warning-border;
+
+		@include background($gx-alert-warning-bg-color,
+				$gx-alert-warning-bg-image-url,
+				$gx-alert-warning-bg-image-position,
+				$gx-alert-warning-bg-image-repeat,
+				$gx-alert-warning-bg-image-size,
+				$gx-alert-warning-bg-image-attachment,
+				$gx-alert-warning-bg-image-enabled,   
+				$gx-alert-warning-bg-gradient-enabled,
+				$gx-alert-warning-bg-gradient-color1, 
+				$gx-alert-warning-bg-gradient-color2, 
+				$gx-alert-warning-bg-gradient-type,   
+				$gx-alert-warning-bg-gradient-angle); 
+	}
+
+	a {
+		color: #FFFFFF;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

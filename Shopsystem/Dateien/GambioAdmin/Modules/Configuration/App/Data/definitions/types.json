@@ -1,0 +1,236 @@
+{
+	"types": [
+		{
+			"id": "switcher",
+			"defaultParams": {
+				"required": false,
+				"onValue": "true",
+				"offValue": "false"
+			}
+		},
+		{
+			"id": "text",
+			"defaultParams": {
+				"required": false,
+				"readonly": false,
+				"regex": null
+			}
+		},
+		{
+			"id": "lang",
+			"defaultParams": {
+				"required": false,
+				"readonly": false,
+				"regex": null
+			}
+		},
+		{
+			"id": "password",
+			"defaultParams": {
+				"required": false
+			    
+			}
+		},
+		{
+			"id": "email",
+			"defaultParams": {
+				"required": false,
+				"readonly": false,
+				"regex": null,
+				"multiple": false
+			}
+		},
+		{
+			"id": "number",
+			"defaultParams": {
+				"required": false,
+				"readonly": false,
+				"regex": null,
+				"min": null,
+				"max": null,
+				"step": 1
+			}
+		},
+		{
+			"id": "slider",
+			"defaultParams": {
+				"min": 1,
+				"max": 100,
+				"step": 1
+			}
+		},
+		{
+			"id": "color",
+			"defaultParams": {
+				"required": false
+			    
+			}
+		},
+		{
+			"id": "date",
+			"defaultParams": {
+				"required": false,
+				"readonly": false
+			}
+		},
+		{
+			"id": "datetime",
+			"defaultParams": {
+				"required": false,
+				"readonly": false
+			}
+		},
+		{
+			"id": "textarea",
+			"defaultParams": {
+				"required": false,
+				"readonly": false
+			}
+		},
+		{
+			"id": "dropdown",
+			"defaultParams": {
+				"items": [
+					{
+						"value": "",
+						"text": {
+							"section": "",
+							"phrase": ""
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "multi-select",
+			"defaultParams": {
+				"delimiter": ",",
+				"items": [
+					{
+						"value": "",
+						"text": {
+							"section": "",
+							"phrase": ""
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "customer-group",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "currency",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "package-unit",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "shipping-status",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "order-status",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "country",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "language",
+			"defaultParams": {
+				"useCodeAsValue": false,
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "tax-class",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "geo-zone",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "payment-method",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "country-zone",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "shipping-method",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		},
+		{
+			"id": "seconds",
+			"defaultParams": {
+				"interval": "days"
+			}
+		},
+		{
+			"id": "cod-fee",
+			"defaultParams": {
+			
+			}
+		},
+		{
+			"id": "tax-calculation-mode",
+			"defaultParams": {
+				
+			}
+		},
+		{
+			"id": "shipping-destination",
+			"defaultParams": {
+				
+			}
+		},
+		{
+			"id": "weight-or-price",
+			"defaultParams": {
+				"delimiter": ",",
+				"multiSelect": false
+			}
+		}
+	]
+}

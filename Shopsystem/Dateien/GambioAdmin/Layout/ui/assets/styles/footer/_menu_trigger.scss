@@ -1,0 +1,27 @@
+.menu-trigger {
+	justify-content: center;
+	flex-basis: 60px;
+	flex-grow: 0;
+	margin: 0;
+	
+	.menu-trigger-container {
+		cursor: pointer;
+		display: none;
+	}
+	
+	&.expand .menu-expand-all.menu-trigger-container {
+		display: block;
+	}
+	
+	&.expand-all .menu-collapse.menu-trigger-container {
+		display: block;
+	}
+	
+	&.collapse .menu-expand.menu-trigger-container {
+		display: block;
+	}
+	
+	.fa-bars {
+		margin-left: 3px;
+	}
+}

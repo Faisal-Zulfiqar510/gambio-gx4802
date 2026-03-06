@@ -1,0 +1,775 @@
+{
+	"$id": "http://gambio.shop.com/admin/page/configuration",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"description": "JSON Schema for gambio configuration page",
+	"type": "object",
+	"properties": {
+		"categories": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/category"
+			}
+		},
+		"tags": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/tag"
+			}
+		},
+		"data": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/listingCategory"
+			}
+		}
+	},
+	"required": [
+		"categories",
+		"tags",
+		"data"
+	],
+	"definitions": {
+		"category": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"id",
+				"label"
+			]
+		},
+		"listingCategory": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				},
+				"groups": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/group"
+					}
+				},
+				"tags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"required": [
+				"id",
+				"label",
+				"groups",
+				"tags"
+			]
+		},
+		"group": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				},
+				"configurations": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/configuration"
+					}
+				},
+				"tags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"links": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/link"
+					}
+				}
+			},
+			"required": [
+				"id",
+				"label",
+				"configurations",
+				"tags",
+				"links"
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"properties": {
+				"key": {
+					"type": "string"
+				},
+				"value": {
+					"oneOf": [
+						{
+							"type": "boolean"
+						},
+						{
+							"type": "string"
+						},
+						{
+							"$ref": "#/definitions/configurationLangValue"
+						}
+					]
+				},
+				"label": {
+					"type": "string"
+				},
+				"tooltip": {
+					"type": "string"
+				},
+				"type": {
+					"oneOf": [
+						{
+							"$ref": "#/definitions/configurationSwitcherType"
+						},
+						{
+							"$ref": "#/definitions/configurationTextType"
+						},
+						{
+							"$ref": "#/definitions/configurationLangType"
+						},
+						{
+							"$ref": "#/definitions/configurationTextAreaType"
+						},
+						{
+							"$ref": "#/definitions/configurationPasswordType"
+						},
+						{
+							"$ref": "#/definitions/configurationEmailType"
+						},
+						{
+							"$ref": "#/definitions/configurationNumberType"
+						},
+						{
+							"$ref": "#/definitions/configurationColorType"
+						},
+						{
+							"$ref": "#/definitions/configurationDateType"
+						},
+						{
+							"$ref": "#/definitions/configurationDateTimeType"
+						},
+						{
+							"$ref": "#/definitions/configurationDropdownType"
+						},
+						{
+							"$ref": "#/definitions/configurationMultiSelectType"
+						},
+						{
+							"$ref": "#/definitions/configurationSliderType"
+						},
+						{
+							"$ref": "#/definitions/configurationSecondsType"
+						}
+					]
+				},
+				"tags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"required": [
+				"key",
+				"value",
+				"label",
+				"tooltip",
+				"type",
+				"tags"
+			]
+		},
+		"link": {
+			"type": "object",
+			"properties": {
+				"label": {
+					"type": "string"
+				},
+				"link": {
+					"type": "string",
+					"examples": [
+						"admin/parcel-services",
+						"admin/admin.php?do=OrderOverview"
+					],
+					"$comment": "Base URL should be the shop root"
+				},
+				"buttonText": {
+					"type": "string"
+				},
+				"newWindow": {
+					"type": "boolean",
+					"default": false
+				}
+			},
+			"required": [
+				"label",
+				"link"
+			]
+		},
+		"tag": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"id",
+				"label"
+			]
+		},
+		"configurationSwitcherType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^switcher$",
+					"examples": [
+						"switcher"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"onValue": {
+							"type": "string"
+						},
+						"offValue": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"onValue",
+						"offValue"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationTextType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^text$",
+					"examples": [
+						"text"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						},
+						"readonly": {
+							"type": "boolean"
+						},
+						"regex": {
+							"oneOf": [
+								{
+									"type": "string"
+								},
+								{
+									"type": "null"
+								}
+							]
+						}
+					},
+					"required": [
+						"required",
+						"readonly",
+						"regex"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationLangType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^lang$",
+					"examples": [
+						"lang"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						},
+						"readonly": {
+							"type": "boolean"
+						},
+						"regex": {
+							"oneOf": [
+								{
+									"type": "string"
+								},
+								{
+									"type": "null"
+								}
+							]
+						}
+					}
+				}
+			},
+			"required": ["id"]
+		},
+		"configurationLangValue": {
+			"type": "object",
+			"patternProperties": {
+				"^[a-z]{2}$": {
+					"type": "string"
+				}
+			}
+		},
+		"configurationTextAreaType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^textarea$",
+					"examples": [
+						"textarea"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						},
+						"readonly": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"required",
+						"readonly"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationPasswordType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^password$",
+					"examples": [
+						"password"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"required"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationEmailType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^email$",
+					"examples": [
+						"email"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						},
+						"readonly": {
+							"type": "boolean"
+						},
+						"multiple": {
+							"type": "boolean"
+						},
+						"regex": {
+							"oneOf": [
+								{
+									"type": "string"
+								},
+								{
+									"type": "null"
+								}
+							]
+						}
+					},
+					"required": [
+						"required",
+						"readonly",
+						"multiple",
+						"regex"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationNumberType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^number$",
+					"examples": [
+						"number"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						},
+						"readonly": {
+							"type": "boolean"
+						},
+						"regex": {
+							"oneOf": [
+								{
+									"type": "string"
+								},
+								{
+									"type": "null"
+								}
+							]
+						},
+						"min": {
+							"oneOf": [
+								{
+									"type": "number"
+								},
+								{
+									"type": "null"
+								}
+							]
+						},
+						"max": {
+							"oneOf": [
+								{
+									"type": "number"
+								},
+								{
+									"type": "null"
+								}
+							]
+						},
+						"step": {
+							"type": "number"
+						}
+					},
+					"required": [
+						"readonly",
+						"regex",
+						"min",
+						"max",
+						"step"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationColorType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^color$",
+					"examples": [
+						"color"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"readonly"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationDateType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^date$",
+					"examples": [
+						"date"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						},
+						"readonly": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"required",
+						"readonly"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationDateTimeType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^datetime$",
+					"examples": [
+						"datetime"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"required": {
+							"type": "boolean"
+						},
+						"readonly": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"required",
+						"readonly"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationDropdownType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^dropdown$",
+					"examples": [
+						"dropdown"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"items": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"value": {
+										"type": "string"
+									},
+									"text": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"value",
+									"text"
+								]
+							}
+						}
+					},
+					"required": [
+						"items"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationMultiSelectType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^multi-select$",
+					"examples": [
+						"multi-select"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"delimiter": {
+							"type": "string"
+						},
+						"items": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"value": {
+										"type": "string"
+									},
+									"text": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"value",
+									"text"
+								]
+							}
+						}
+					},
+					"required": [
+						"delimiter",
+						"items"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationSliderType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^slider$",
+					"examples": [
+						"slider"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"min": {
+							"type": "number"
+						},
+						"max": {
+							"type": "number"
+						},
+						"steps": {
+							"type": "number"
+						}
+					},
+					"required": [
+						"min",
+						"max",
+						"steps"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		},
+		"configurationSecondsType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^seconds$",
+					"examples": [
+						"seconds"
+					]
+				},
+				"params": {
+					"type": "object",
+					"properties": {
+						"type": {
+							"type": "string",
+							"enum": [
+								"days",
+								"hours",
+								"minutes",
+								"seconds"
+							]
+						}
+					},
+					"required": [
+						"daysInput",
+						"hoursInput",
+						"minutesInput"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"params"
+			]
+		}
+	}
+}

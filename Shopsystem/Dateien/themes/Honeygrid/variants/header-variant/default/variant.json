@@ -1,0 +1,526 @@
+{
+	"type": "category",
+	"title": "honeygrid.areas.header.variants.headerVariant.options.default",
+	"id": "header-default-cat",
+	"basic": true,
+	"categories": [
+		{
+			"type": "category",
+			"id": "general",
+			"title": "honeygrid.areas.header.general.title",
+			"fieldsets": [
+				{
+					"title": "honeygrid.areas.header.general.title",
+					"options": [
+						{
+							"id": "gx-header-bg",
+							"type": "background",
+							"label": "honeygrid.areas.header.general.options.gx-header-bg",
+							"default": {
+								"color": "#FFFFFF"
+							}
+						},
+						{
+							"id": "gx-header-bg-mobile",
+							"type": "background",
+							"label": "honeygrid.areas.header.general.options.gx-header-bg-mobile",
+							"default": {
+								"color": "#FFFFFF"
+							}
+						},
+						{
+							"id": "gx-header-bg-sticky",
+							"type": "background",
+							"label": "honeygrid.areas.header.general.options.gx-header-bg-sticky",
+							"default": {
+								"color": "#FFFFFF"
+							}
+						},
+						{
+							"id": "gx-header-height",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.general.options.gx-header-height",
+							"default": "150px"
+						},
+						{
+							"id": "gx-header-height-mobile",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.general.options.gx-header-height-mobile",
+							"default": "50px"
+						},
+						{
+							"id": "gx-header-height-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.general.options.gx-header-height-sticky",
+							"default": "60px"
+						},
+						{
+							"id": "gx-menu-mobile-icon-color",
+							"type": "colorpicker",
+							"label": "honeygrid.areas.header.general.options.gx-menu-mobile-icon-color",
+							"default": "#333333"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "colors",
+			"title": "honeygrid.areas.header.logo.title",
+			"fieldsets": [
+				{
+					"title": "honeygrid.areas.header.logo.title",
+					"options": [
+						{
+							"id": "gx-hide-logo-col",
+							"type": "checkbox",
+							"label": "honeygrid.areas.header.logo.options.gx-hide-logo-col",
+							"default": false
+						},
+						{
+							"id": "gx-header-col-sm",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.logo.options.gx-header-col-sm",
+							"default": "3",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-header-col-md",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.logo.options.gx-header-col-md",
+							"default": "3",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-header-col-lg",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.logo.options.gx-header-col-lg",
+							"default": "3",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-brand-height",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.logo.options.gx-brand-height",
+							"default": "80px"
+						},
+						{
+							"id": "gx-brand-width-mobile",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.logo.options.gx-brand-width-mobile",
+							"default": "80px"
+						},
+						{
+							"id": "gx-brand-height-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.logo.options.gx-brand-height-sticky",
+							"default": "60px"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "search",
+			"title": "honeygrid.areas.header.search.title",
+			"fieldsets": [
+				{
+					"title": "honeygrid.areas.header.search.title",
+					"options": [
+						{
+							"id": "gx-show-search-top-nav",
+							"type": "checkbox",
+							"requiresReload": true,
+							"label": "honeygrid.areas.header.search.options.gx-show-search-top-nav",
+							"default": false
+						},
+						{
+							"id": "gx-hide-search-col",
+							"type": "checkbox",
+							"requiresReload": true,
+							"label": "honeygrid.areas.header.search.options.gx-hide-search-col",
+							"default": false
+						},
+						{
+							"id": "gx-search-mobile-icon-color",
+							"type": "colorpicker",
+							"label": "honeygrid.areas.header.search.options.gx-search-mobile-icon-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-search-height",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.search.options.gx-search-height",
+							"default": "80px"
+						},
+						{
+							"id": "gx-search-height-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.search.options.gx-search-height-sticky",
+							"default": "60px"
+						},
+						{
+							"id": "gx-search-padding-vertical",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.search.options.gx-search-padding-vertical",
+							"default": "22px"
+						},
+						{
+							"id": "gx-search-padding-vertical-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.search.options.gx-search-padding-vertical-sticky",
+							"default": "12px"
+						},
+						{
+							"id": "gx-search-margin-vertical",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.search.options.gx-search-margin-vertical",
+							"default": "0"
+						},
+						{
+							"id": "gx-search-margin-vertical-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.search.options.gx-search-margin-vertical-sticky",
+							"default": "0"
+						},
+						{
+							"id": "gx-search-col-sm",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.search.options.gx-search-col-sm",
+							"default": "5",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-search-col-md",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.search.options.gx-search-col-md",
+							"default": "4",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-search-col-lg",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.search.options.gx-search-col-lg",
+							"default": "4",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "customContent",
+			"title": "honeygrid.areas.header.customContent.title",
+			"fieldsets": [
+				{
+					"title": "honeygrid.areas.header.customContent.title",
+					"options": [
+						{
+							"id": "gx-hide-custom-1-col",
+							"type": "checkbox",
+							"label": "honeygrid.areas.header.customContent.options.gx-hide-custom-1-col",
+							"default": false
+						},
+						{
+							"id": "gx-custom-1-col-height",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.customContent.options.gx-custom-1-col-height",
+							"default": "80px"
+						},
+						{
+							"id": "gx-custom-1-col-height-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.customContent.options.gx-custom-1-col-height-sticky",
+							"default": "60px"
+						},
+						{
+							"id": "gx-header-custom-col-sm",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.customContent.options.gx-header-custom-col-sm",
+							"default": "0",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-header-custom-col-md",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.customContent.options.gx-header-custom-col-md",
+							"default": "2",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-header-custom-col-lg",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.customContent.options.gx-header-custom-col-lg",
+							"default": "3",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "smallShoppingCart",
+			"title": "honeygrid.areas.header.smallShoppingCart.title",
+			"fieldsets": [
+				{
+					"title": "honeygrid.areas.header.smallShoppingCart.title",
+					"options": [
+						{
+							"id": "gx-hide-cart-col",
+							"type": "checkbox",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-hide-cart-col",
+							"default": false
+						},
+						{
+							"id": "gx-cart-icon-color",
+							"type": "colorpicker",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-icon-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-cart-sticky-icon-color",
+							"type": "colorpicker",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-sticky-icon-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-cart-mobile-icon-color",
+							"type": "colorpicker",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-mobile-icon-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-cart-text-color",
+							"type": "colorpicker",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-text-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-cart-sticky-text-color",
+							"type": "colorpicker",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-sticky-text-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-cart-height",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-height",
+							"default": "60px"
+						},
+						{
+							"id": "gx-cart-height-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-height-sticky",
+							"default": "60px"
+						},
+						{
+							"id": "gx-cart-padding-vertical",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-padding-vertical",
+							"default": "13px"
+						},
+						{
+							"id": "gx-cart-padding-vertical-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-padding-vertical-sticky",
+							"default": "10px"
+						},
+						{
+							"id": "gx-cart-margin-vertical",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-margin-vertical",
+							"default": "10px"
+						},
+						{
+							"id": "gx-cart-margin-vertical-sticky",
+							"type": "textbox",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-margin-vertical-sticky",
+							"default": "0"
+						},
+						{
+							"id": "gx-cart-col-sm",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-col-sm",
+							"default": "4",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-cart-col-md",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-col-md",
+							"default": "3",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-cart-col-lg",
+							"type": "dropdownselect",
+							"label": "honeygrid.areas.header.smallShoppingCart.options.gx-cart-col-lg",
+							"default": "2",
+							"options": [
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

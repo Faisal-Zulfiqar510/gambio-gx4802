@@ -1,0 +1,53 @@
+@import "menu_variables";
+@import "menu_mixins";
+
+&.expand .menu-group-list {
+	display: flex;
+	flex-direction: column;
+	
+	.menu-group-item {
+		display: flex;
+		flex-direction: column;
+		
+		border-bottom: 1px solid $border-color;
+		
+		> .menu-group-link {
+			@include menu-group-link();
+		}
+	}
+	
+	.menu-group-item:not(.active) {
+		.menu-entry-list {
+			display: none;
+		}
+	}
+	
+	.menu-group-item:hover:not(.active) {
+		background-color: $bg-hover-item;
+		
+		.menu-entry-list {
+			display: flex;
+			
+			position: absolute;
+			left: 200px;
+			width: 200px;
+			z-index: 99;
+			border: 1px solid $border-color;
+			margin-left: -5px;
+			
+			.menu-entry-item {
+				@include menu-entry-item();
+			}
+			
+			// hides left border of entry list to archive "overflow" effect
+			&:before {
+				content: '';
+				width: 1px;
+				height: $menu-group-item-height;
+				position: absolute;
+				left: -1px;
+				background: #f9f9f9;
+			}
+		}
+	}
+}

@@ -1,0 +1,499 @@
+[
+	{
+		"id": "BOX_HEADING_FAVORITES",
+		"sort": 10,
+		"class": "fa fa-heart",
+		"title": "admin_menu.BOX_HEADING_FAVS",
+		"items": []
+	},
+	{
+		"id": "BOX_HEADING_ORDERS",
+		"sort": 20,
+		"class": "fa fa-shopping-cart",
+		"title": "admin_menu.BOX_ORDERS",
+		"items": [
+			{
+				"sort": 10,
+				"link": "admin.php",
+				"link_param": "do=OrdersOverview",
+				"title": "admin_menu.BOX_ORDERS"
+			},
+			{
+				"sort": 20,
+				"link": "admin.php",
+				"link_param": "do=Withdrawals",
+				"title": "admin_menu.BOX_WITHDRAWALS"
+			},
+			{
+				"sort": 30,
+				"link": "admin.php",
+				"link_param": "do=InvoicesOverview",
+				"title": "admin_menu.BOX_INVOICES"
+			}
+		]
+	},
+	{
+		"id": "BOX_HEADING_CUSTOMERS",
+		"sort": 30,
+		"class": "fa fa-group",
+		"title": "admin_menu.BOX_HEADING_CUSTOMERS",
+		"items": [
+			{
+				"sort": 10,
+				"link": "customers",
+				"title": "admin_menu.BOX_CUSTOMERS"
+			},
+			{
+				"sort": 20,
+				"link": "admin.php",
+				"link_param": "do=CustomerGroup",
+				"title": "admin_menu.BOX_CUSTOMERS_STATUS"
+			},
+			{
+				"sort": 30,
+				"link": "admin.php",
+				"link_param": "do=Emails",
+				"title": "admin_menu.BOX_EMAILS"
+			},
+			{
+				"sort": 40,
+				"link": "admin.php",
+				"link_param": "do=AdminAccess",
+				"title": "admin_menu.BOX_ADMIN_ACCESS"
+			}
+		]
+	},
+	{
+		"id": "BOX_HEADING_PRODUCTS",
+		"sort": 40,
+		"class": "fa fa-sitemap",
+		"title": "admin_menu.BOX_HEADING_PRODUCTS",
+		"items": [
+			{
+				"sort": 10,
+				"link": "categories.php",
+				"title": "admin_menu.BOX_CATEGORIES"
+			},
+			{
+				"sort": 11,
+				"link": "admin.php",
+				"link_param": "do=QuickEditOverview",
+				"title": "admin_menu.BOX_QUICK_EDIT"
+			},
+			{
+				"sort": 20,
+				"link": "products_attributes.php",
+				"title": "admin_menu.BOX_PRODUCTS_ATTRIBUTES",
+				"if": {
+					"filter": "configActive",
+					"args": [
+						"MODULE_CENTER_PRODUCTATTRIBUTES_INSTALLED"
+					]
+				}
+			},
+			{
+				"sort": 30,
+				"link": "specials.php",
+				"title": "admin_menu.BOX_SPECIALS"
+			},
+			{
+				"sort": 40,
+				"link": "options",
+				"title": "admin_menu.BOX_OPTIONS"
+			},
+			{
+				"sort": 60,
+				"link": "admin.php",
+				"link_param": "do=Manufacturer",
+				"title": "admin_menu.BOX_MANUFACTURERS"
+			},
+			{
+				"sort": 70,
+				"link": "gm_feature_control.php",
+				"title": "admin_menu.BOX_GM_FEATURE_CONTROL"
+			},
+			{
+				"sort": 80,
+				"link": "admin.php",
+				"link_param": "do=VPE",
+				"title": "admin_menu.BOX_PRODUCTS_VPE"
+			},
+			{
+				"sort": 90,
+				"link": "admin.php",
+				"link_param": "do=QuantityUnit",
+				"title": "admin_menu.BOX_QUANTITYUNITS"
+			},
+			{
+				"sort": 100,
+				"link": "gm_gprint.php",
+				"title": "admin_menu.BOX_GM_GPRINT"
+			},
+			{
+				"sort": 110,
+				"link": "cross_sell_groups.php",
+				"title": "admin_menu.BOX_ORDERS_XSELL_GROUP"
+			},
+			{
+				"sort": 120,
+				"link": "reviews.php",
+				"title": "admin_menu.BOX_REVIEWS"
+			},
+			{
+				"sort": 130,
+				"link": "csv.php",
+				"title": "admin_menu.BOX_IMPORT"
+			}
+		]
+	},
+	{
+		"id": "BOX_HEADING_HERMES",
+		"sort": 45,
+		"class": "fa fa-truck",
+		"title": "module_center_module.box_heading_hermes",
+		"items": [
+			{
+				"sort": 10,
+				"link": "hermes_list.php",
+				"title": "module_center_module.box_hermes_shipping_orders"
+			},
+			{
+				"sort": 20,
+				"link": "hermes_collection.php",
+				"title": "module_center_module.box_hermes_pick_up_requests"
+			},
+			{
+				"sort": 30,
+				"link": "hermes_info.php",
+				"title": "module_center_module.box_hermes_account_infos"
+			},
+			{
+				"sort": 40,
+				"link": "hermes_config.php",
+				"title": "module_center_module.box_hermes_configuration"
+			}
+		],
+		"if": {
+			"filter": "configActive",
+			"args": [
+				"MODULE_CENTER_HERMES_INSTALLED"
+			]
+		}
+	},
+	{
+		"id": "BOX_HEADING_GAMBIO",
+		"sort": 50,
+		"class": "fa fa-magic",
+		"title": "admin_menu.BOX_HEADING_LAYOUT_DESIGN",
+		"items": [
+			{
+				"sort": 10,
+				"link": "admin.php",
+				"link_param": "do=StyleEdit4Authentication",
+				"title": "admin_menu.BOX_GM_STYLE_EDIT"
+			},
+			{
+				"sort": 20,
+				"link": "admin.php",
+				"link_param": "do=SlidersOverview",
+				"title": "admin_menu.BOX_GM_SLIDER",
+				"if": {
+					"filter": "templateVersion",
+					"args": [
+						">=",
+						3
+					]
+				}
+			},
+			{
+				"sort": 30,
+				"link": "admin.php",
+				"link_param": "do=ContentManagerPages",
+				"title": "admin_menu.BOX_CONTENT"
+			},
+			{
+				"sort": 40,
+				"link": "gm_offline.php",
+				"title": "admin_menu.BOX_GM_OFFLINE"
+			},
+			{
+				"sort": 50,
+				"link": "admin.php",
+				"link_param": "do=AdminErrorPage",
+				"title": "admin_menu.BOX_ERROR_PAGES"
+			},
+			{
+				"sort": 60,
+				"link": "banner_manager.php",
+				"title": "admin_menu.BOX_BANNER_MANAGER"
+			},
+			{
+				"sort": 70,
+				"link": "gm_lang_edit.php",
+				"title": "admin_menu.BOX_GM_LANG_EDIT"
+			}
+		]
+	},
+	{
+		"id": "BOX_HEADING_TOOLS",
+		"sort": 60,
+		"class": "fa fa-wrench",
+		"title": "admin_menu.BOX_HEADING_TOOLS",
+		"items": [
+			{
+				"sort": 10,
+				"link": "clear_cache.php",
+				"title": "admin_menu.BOX_CACHE"
+			},
+			{
+				"sort": 20,
+				"link": "gm_miscellaneous.php?content=delete_images",
+				"title": "admin_menu.BOX_DELETE_IMAGES"
+			},
+			{
+				"sort": 30,
+				"link": "timer.php",
+				"title": "admin_menu.BOX_TIMER"
+			},
+			{
+				"sort": 40,
+				"link": "module_newsletter.php",
+				"title": "admin_menu.BOX_MODULE_NEWSLETTER"
+			},
+			{
+				"sort": 50,
+				"link": "backup.php",
+				"title": "admin_menu.BOX_BACKUP"
+			},
+			{
+				"sort": 60,
+				"link": "gm_backup_files_zip.php",
+				"title": "admin_menu.BOX_GM_BACKUP_FILES_ZIP"
+			},
+			{
+				"sort": 70,
+				"link": "admin.php",
+				"link_param": "do=Logging",
+				"title": "admin_menu.BOX_SHOW_LOGS"
+			},
+			{
+				"sort": 80,
+				"link": "server_info.php",
+				"title": "admin_menu.BOX_SERVER_INFO"
+			},
+			{
+				"sort": 90,
+				"link": "admin.php",
+				"link_param": "do=EmbeddedModule\/minisql",
+				"title": "admin_menu.BOX_GM_SQL"
+			},
+			{
+				"sort": 100,
+				"link": "admin.php",
+				"link_param": "do=ResponsiveFilemanager",
+				"title": "admin_menu.BOX_FILEMANAGER",
+				"if": {
+					"filter": "configActive",
+					"args": [
+						"MODULE_CENTER_RESPONSIVEFILEMANAGER_INSTALLED"
+					]
+				}
+			},
+			{
+				"sort": 110,
+				"link": "admin.php",
+				"link_param": "do=CronjobsOverview",
+				"title": "admin_menu.BOX_CRONJOBS"
+			},
+			{
+				"sort": 120,
+				"link": "redirect-rules",
+				"title": "admin_menu.BOX_REDIRECT_RULES"
+			}
+		]
+	},
+	{
+		"id": "BOX_HEADING_MODULES",
+		"sort": 70,
+		"class": "fa fa-puzzle-piece",
+		"title": "admin_menu.BOX_HEADING_MODULES",
+		"items": [
+			{
+				"sort": 10,
+				"link": "admin.php",
+				"link_param": "do=ModuleCenter",
+				"title": "admin_menu.BOX_MODULE_EXPORT"
+			},
+			{
+				"sort": 15,
+				"link": "module_export.php",
+				"title": "admin_menu.BOX_MODULE_EXPORT",
+				"if": {
+					"filter": "displayOldModuleCenter",
+					"args": []
+				}
+			},
+			{
+				"sort": 20,
+				"link": "modules.php",
+				"link_param": "set=shipping",
+				"title": "admin_menu.BOX_SHIPPING"
+			},
+			{
+				"sort": 30,
+				"link": "admin.php",
+				"link_param": "do=HubConfiguration/PaymentMethods",
+				"title": "admin_menu.BOX_PAYMENT"
+			},
+			{
+				"sort": 40,
+				"link": "modules.php",
+				"link_param": "set=ordertotal",
+				"title": "admin_menu.BOX_ORDER_TOTAL"
+			}
+		]
+	},
+    {
+        "id": "BOX_HEADING_MAILBEEZ",
+        "sort": 75,
+        "class": "fa fa-envelope",
+        "title": "MailBeez",
+        "items": [
+            {
+                "sort": 10,
+                "link": "mailbeez.php",
+                "link_param": "",
+                "title": "admin_menu.BOX_MAILBEEZ",
+                "if": [
+                    {
+                        "filter": "configActive",
+                        "args": [
+                            "MODULE_CENTER_MAILBEEZ_INSTALLED"
+                        ]
+                    }
+                ]
+            },
+            {
+                "sort": 20,
+                "link": "mailbeez.php",
+                "link_param": "module=config_shopvoting",
+                "title": "admin_menu.BOX_MAILBEEZ_SHOPVOTING",
+                "if": [
+                    {
+                        "filter": "configActive",
+                        "args": [
+                            "MODULE_CENTER_MAILBEEZ_INSTALLED"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+	{
+		"id": "BOX_HEADING_STATISTICS",
+		"sort": 80,
+		"class": "fa fa-area-chart",
+		"title": "admin_menu.BOX_HEADING_STATISTICS",
+		"items": [
+			{
+				"sort": 10,
+				"link": "statistics/overview",
+				"title": "admin_menu.BOX_STATISTICS_OVERVIEW"
+			},
+			{
+				"sort": 20,
+				"link": "whos_online.php",
+				"title": "admin_menu.BOX_WHOS_ONLINE"
+			},
+			{
+				"sort": 30,
+				"link": "stats_sales_report.php",
+				"title": "admin_menu.BOX_SALES_REPORT"
+			},
+			{
+				"sort": 40,
+				"link": "stats_products_purchased.php",
+				"title": "admin_menu.BOX_PRODUCTS_PURCHASED"
+			},
+			{
+				"sort": 50,
+				"link": "gm_counter.php",
+				"title": "admin_menu.BOX_GM_COUNTER"
+			},
+			{
+				"sort": 60,
+				"link": "stats_customers.php",
+				"title": "admin_menu.BOX_STATS_CUSTOMERS"
+			},
+			{
+				"sort": 70,
+				"link": "gm_miscellaneous.php?content=delete_stats",
+				"title": "admin_menu.BOX_DELETE_STATS"
+			}
+		]
+	},
+	{
+		"id": "BOX_HEADING_GV_ADMIN",
+		"sort": 100,
+		"class": "fa fa-gift",
+		"title": "admin_menu.BOX_HEADING_GV_ADMIN",
+		"items": [
+			{
+				"sort": 10,
+				"link": "coupon_admin.php",
+				"title": "admin_menu.BOX_COUPON_ADMIN"
+			},
+			{
+				"sort": 20,
+				"link": "gv_queue.php",
+				"title": "admin_menu.BOX_GV_ADMIN_QUEUE"
+			},
+			{
+				"sort": 30,
+				"link": "gv_sent.php",
+				"title": "admin_menu.BOX_GV_ADMIN_SENT"
+			},
+			{
+				"sort": 40,
+				"link": "gv_mail.php",
+				"title": "admin_menu.BOX_GV_ADMIN_MAIL"
+			}
+		],
+		"if": {
+			"filter": "configActive",
+			"args": [
+				"ACTIVATE_GIFT_SYSTEM"
+			]
+		}
+	},
+	{
+		"id": "BOX_HEADING_SHOP_SETTINGS",
+		"sort": 230,
+		"class": "fa fa-cogs",
+		"type": "standalone",
+		"title": "admin_menu.BOX_SHOP_SETTINGS",
+		"items": [
+			{
+				"sort": 10,
+				"link": "configurations",
+				"title": "admin_menu.BOX_CONFIGURATION_1"
+			}
+		]
+	},
+	{
+		"id": "BOX_HEADING_APP_STORE",
+		"sort": 260,
+		"class": "fa fa-cloud-download",
+		"title": "admin_menu.BOX_GAMBIO_STORE",
+		"type": "standalone",
+		"brand": "alt",
+		"items": [
+			{
+				"sort": 10,
+				"link": "admin.php",
+				"link_param": "do=GambioStore",
+				"title": "admin_menu.BOX_GAMBIO_STORE"
+			}
+		]
+	}
+]

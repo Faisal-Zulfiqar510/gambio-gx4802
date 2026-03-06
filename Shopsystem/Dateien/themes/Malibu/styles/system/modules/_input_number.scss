@@ -1,0 +1,52 @@
+/* Input Number-Spinner
+   ========================================================================== */
+
+.input-number {
+
+	@extend .input-group;
+	padding-left: ($grid-gutter-width / 2) !important;
+	padding-right: ($grid-gutter-width / 2) !important;
+	padding-bottom: ($grid-gutter-width / 2) !important;
+
+	.input-group {
+		width: 100%;
+	}
+
+	.btn-plus,
+	.btn-minus {
+		@extend .input-group-btn;
+		font-size: $font-size-large;
+		width: 60px;
+	}
+
+	.btn-minus {
+		@include border-right-radius(0);
+		border-right: none;
+		
+		span.fa {
+			color: $gx-minus-color;
+		}
+	}
+
+	.btn-plus {
+		@include border-left-radius(0);
+		border-left: none;
+		
+		
+		span.fa {
+			color: $gx-plus-color;
+		}
+	}
+
+	.form-control {
+		text-align: center;
+		padding-left: 0;
+	}
+
+	.input-group-addon {
+		border-left: none;
+		border-right: none;
+		color: #CCCCCC;
+		line-height: $line-height-large;
+	}
+}

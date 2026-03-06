@@ -1,0 +1,30 @@
+<div class="modal fade" id="{$field}" tabindex="-1" role="dialog" {if $config.content} data-content="{$config.content}" {/if}>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">{$config.title}</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<p>{$config.description}</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				{foreach from=$config.buttons key=key item=button}
+					<button type="button" class="btn {if isset( $button.action) && $button.action.method !='close'}GXModuleConfigButton{/if} {if $button.color}btn-{$button.color}{else}btn-default{/if}"
+					        data-dismiss="modal"
+					        {if $button.action.method !='close'}
+						        data-message="{$button.action.message|htmlspecialchars}"
+						        data-controller="{$button.action.controller}"
+						        data-action="{$button.action.method}"
+					        {/if}>{$button.text}</button>
+				{/foreach}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+{
+	"type": "category",
+	"title": "malibu.areas.layout.variants.boxed.title",
+	"id": "layout-boxed-variant",
+	"basic": true,
+	"hidden": true,
+	"fieldsets": [
+		{
+			"title": "gx-body-wrap",
+			"options": [
+				{
+					"id": "gx-body-wrap",
+					"type": "checkbox",
+					"label": "malibu.areas.general.layout.options.gx-body-wrap",
+					"default": true
+				}
+			]
+		},
+		{
+			"title": "gx-stage-below-header",
+			"options": [
+				{
+					"id": "gx-stage-below-header",
+					"type": "checkbox",
+					"label": "malibu.areas.header.general.options.gx-header-bg",
+					"default": false
+				}
+			]
+		}
+	]
+}

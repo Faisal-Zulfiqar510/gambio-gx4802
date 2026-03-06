@@ -1,0 +1,52 @@
+@import "menu_variables";
+
+$favorites-drop-zone-bg-color: #ffffff;
+$favorites-drop-zone-size: 95px;
+$favorites-drop-zone-font-size: 95px;
+
+.menu-group-item.favorites {
+	.favorites-drop-zone {
+		color: $text-color-danger-alert;
+		
+		&.hover {
+			color: darken($text-color-danger-alert, 5)
+		}
+		
+		// replacing font awesome icon for removing favorites (fa-trash-alt icon)
+		i.fa.fa-heart:before {
+			content: '\f2ed';
+		}
+	}
+}
+
+.favorites-drop-zone {
+	color: $gambio-blue;
+	display: none;
+	width: $favorites-drop-zone-size;
+	height: $favorites-drop-zone-size;
+	font-size: $default-font-size * 6;
+	background-color: $favorites-drop-zone-bg-color;
+	border: 1px solid $border-color;
+	border-radius: 2px;
+	
+	&.active {
+		display: flex;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 20;
+	}
+	
+	&.hover {
+		background-color: darken($favorites-drop-zone-bg-color, 1);
+		color: darken($gambio-blue, 5)
+	}
+	
+	i {
+		width: inherit;
+		height: inherit;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

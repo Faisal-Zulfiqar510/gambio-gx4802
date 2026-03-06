@@ -1,0 +1,102 @@
+.subcategories-listing-container {
+	overflow: hidden;
+	margin-top: 15px;
+
+	.subcategories-listing,
+	.subcategories-listing li {
+		@include reset-list();
+		display: inline-block;
+
+		> li {
+			padding: 0 15px 15px;
+		}
+	}
+
+	.subcategories-listing {
+		margin: 0 -15px 15px;
+		display: block;
+
+		.subcategory-item {
+			@include make-xs-column($gx-sub-cat-col-sm);
+			@include make-sm-column($gx-sub-cat-col-md);
+			@include make-lg-column($gx-sub-cat-col-lg);
+
+			&:hover {
+				a {
+					text-decoration: none;
+				}
+
+				.cat-name {
+					background-color: darken($gx-sub-cat-bg, 10%);
+					border-color: darken($gx-sub-cat-border-color, 12%);
+				}
+
+				.cat-image-container {
+					border-color: darken($gx-sub-cat-border-color, 12%);
+				}
+			}
+
+			.cat-image-container {
+				align-items: center;
+				border: 1px solid $gx-sub-cat-border-color;
+				display: flex;
+				height: $gx-sub-cat-image-height-mobile;
+				justify-content: center;
+				width: 100%;
+				overflow: hidden;
+
+				@media (min-width: $screen-sm-min) {
+					height: $gx-sub-cat-image-height;
+				}
+
+				div.fa-picture-o {
+					color: $text-color;
+					font-size: 80px;
+				}
+			}
+
+			.cat-image {
+				max-height: $gx-sub-cat-image-height-mobile;
+				padding: $gx-sub-cat-image-padding;
+
+				@media (min-width: $screen-sm-min) {
+					max-height: $gx-sub-cat-image-height;
+				}
+			}
+
+			.cat-name {
+				align-items: center;
+				border: 1px solid $gx-sub-cat-border-color;
+				border-top-width: 0;
+				color: $gx-sub-cat-name-color;
+				display: flex;
+				height: $gx-sub-cat-name-height;
+				justify-content: center;
+				text-align: center;
+
+				@include background(
+								$gx-sub-cat-bg,
+								$gx-sub-cat-bg-image-url,
+								$gx-sub-cat-bg-image-position,
+								$gx-sub-cat-bg-image-repeat,
+								$gx-sub-cat-bg-image-size,
+								$gx-sub-cat-bg-image-attachment,
+								$gx-sub-cat-bg-image-enabled,   
+								$gx-sub-cat-bg-gradient-enabled,
+								$gx-sub-cat-bg-gradient-color1, 
+								$gx-sub-cat-bg-gradient-color2, 
+								$gx-sub-cat-bg-gradient-type,   
+								$gx-sub-cat-bg-gradient-angle); 
+				
+
+				&.no-image {
+					border-top-width: 1px;
+				}
+			}
+
+			.cat-image, .cat-name, .cat-image-container {
+				@include transition(all 500ms ease);
+			}
+		}
+	}
+}

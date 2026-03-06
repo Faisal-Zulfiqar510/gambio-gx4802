@@ -1,0 +1,102 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="error_pages"}
+    {load_language_text section="admin_buttons" name="admin_buttons"}
+	<form action="admin.php?do=AdminErrorPage/SaveConfiguration" method="POST"
+		  class="form-configuration breakpoint-small error_pages_configuration" id="gxmodule-configuration-form">
+		<div class="gx-container form-horizontal gx_module_configuration">
+
+			<fieldset data-gx-widget="editor" data-editor-selector=".wysiwyg"
+					  data-editor-event-type="submit" data-editor-event-target="#gxmodule-configuration-form">
+				<legend>{$txt.not_found_section_title}</legend>
+
+				<div class="form-group">
+					<label class="col-sm-10 control-label"
+						   for="userFriendlyErrorHandling">{$txt.custom_page_not_found}</label>
+					<div class="col-sm-2 text-right">
+						<div class="wrapper" data-gx-widget="switcher">
+							<input type="checkbox" name="customPageNotFound" id="customPageNotFound"
+                                   {if $content.customPageNotFound}checked{/if} />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<ul class="lang-select" style="float: left" role="tablist">
+                        {foreach item=language name=tabs from=$languages} {assign var=languageCode value=$language.code|lower}
+							<li role="presentation" {if $smarty.foreach.tabs.first} class="active" {/if}>
+								<a href="#tab-content-notFoundHtml-{$languageCode}" data-language="{$languageCode}"
+								   aria-controls="home" role="tab" data-toggle="tab">
+									<span class="flag-icon flag-icon-{$languageCode}"></span>
+								</a>
+							</li>
+                        {/foreach}
+					</ul>
+
+					<div class="tab-content">
+                        {foreach item=language name=panel from=$languages} {assign var=languageCode value=$language.code|lower}
+							<div role="tabpanel" class="tab-pane fade {if $smarty.foreach.panel.first}active in{/if}"
+								 id="tab-content-notFoundHtml-{$languageCode}" data-language="{$languageCode}">
+								<textarea name="notFoundHtml[{$languageCode|upper}]"
+										  data-editor-identifier="editor-error_pages-notFoundHtml-{$languageCode}"
+										  class="wysiwyg">{$content.notFoundHtml.{$languageCode|upper}}</textarea>
+							</div>
+                        {/foreach}
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset data-gx-widget="editor" data-editor-selector=".wysiwyg"
+					  data-editor-event-type="submit" data-editor-event-target="#gxmodule-configuration-form">
+				<legend>
+                    {$txt.error_section_title}
+					<span data-gx-widget="tooltip_icon">{$txt.error_editor_tooltip}</span>
+				</legend>
+
+				<div class="form-group">
+					<label class="col-sm-10 control-label"
+						   for="userFriendlyErrorHandling">{$txt.user_friendly_error_handling}</label>
+					<div class="col-sm-2 text-right">
+						<div class="wrapper" data-gx-widget="switcher">
+							<input type="checkbox" name="userFriendlyErrorHandling" id="userFriendlyErrorHandling"
+                                   {if $content.userFriendlyErrorHandling}checked{/if} />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<ul class="lang-select" style="float: left" role="tablist">
+                        {foreach item=language name=tabs from=$languages} {assign var=languageCode value=$language.code|lower}
+							<li role="presentation" {if $smarty.foreach.tabs.first} class="active" {/if}>
+								<a href="#tab-content-errorHtml-{$languageCode}" data-language="{$languageCode}"
+								   aria-controls="home" role="tab" data-toggle="tab">
+									<span class="flag-icon flag-icon-{$languageCode}"></span>
+								</a>
+							</li>
+                        {/foreach}
+					</ul>
+
+					<div class="tab-content">
+                        {foreach item=language name=panel from=$languages} {assign var=languageCode value=$language.code|lower}
+							<div role="tabpanel" class="tab-pane fade {if $smarty.foreach.panel.first}active in{/if}"
+								 id="tab-content-errorHtml-{$languageCode}" data-language="{$languageCode}">
+								<textarea name="errorHtml[{$languageCode|upper}]"
+										  data-editor-identifier="editor-error_pages-errorHtml-{$languageCode}"
+										  class="wysiwyg">{$content.errorHtml.{$languageCode|upper}}</textarea>
+							</div>
+                        {/foreach}
+					</div>
+				</div>
+			</fieldset>
+
+
+		</div>
+	</form>
+{/block}
+
+
+{block name="bottom_save_bar"}
+	<button type="submit" class="btn btn-primary"
+			form="gxmodule-configuration-form">{$admin_buttons.BUTTON_SAVE}</button>
+{/block}

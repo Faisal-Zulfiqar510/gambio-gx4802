@@ -1,0 +1,45 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="shared_shopping_cart_configuration"}
+    {load_language_text section="buttons" name="button"}
+
+    {block name="admin_module_center_shared_shopping_cart_configuration"}
+		<form id="shared-shopping-cart-configuration"
+			  method="post"
+			  action="admin.php?do=SharedShoppingCartConfiguration/Store"
+			  class="gx-container">
+            {block name="admin_module_center_shared_shopping_cart_configuration_table"}
+				<table class="gx-configuration gx-configuration-table breakpoint-small"
+					   data-gx-extension="visibility_switcher">
+					<tr class="visibility_switcher">
+                        {block name="admin_module_center_shared_shopping_cart_configuration_life_periode"}
+							<td class="dataTableContent_gm"
+								style="width: 200px !important;">{$txt.shared_shopping_cart_life_period}
+							</td>
+                        {/block}
+                        {block name="admin_module_center_shared_shopping_cart_configuration_life_periode_info"}
+							<td class="dataTableContent_gm">
+								<input class="input-default"
+									   type="number"
+									   name="life_period"
+									   value="{$content.life_period}"
+									   min="0"/>
+								<span class="fa-pull-right tooltip-icon" data-gx-widget="tooltip_icon"
+									  data-tooltip_icon-type="info">
+                                    {$txt.shared_shopping_cart_life_period_info}
+                                </span>
+							</td>
+                        {/block}
+					</tr>
+				</table>
+            {/block}
+		</form>
+    {/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	<button type="submit" onclick="this.blur();"
+			form="shared-shopping-cart-configuration"
+			class="btn btn-primary pull-right">{$button.save}</button>
+{/block}

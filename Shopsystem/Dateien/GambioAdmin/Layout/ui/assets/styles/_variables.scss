@@ -1,0 +1,64 @@
+@import "colors";
+
+// layout sizing
+$header-height: 46px;
+$footer-height: 46px;
+
+// menu variables
+$menu-width: 200px;
+$menu-collapsed-width: 45px;
+$menu-group-item-height: 40px;
+$menu-item-padding: 15px;
+$menu-item-margin: 20px;
+$menu-entry-item-height: 28px;
+
+// layout colors
+$bg-active-item: #ededed;
+$bg-hover-item: #f9f9f9;
+
+// main colors
+$primary-color: $gambio-blue;
+$accent-color: $gambio-yellow;
+
+// text
+$text-color: #212121;
+$text-color-light: #737373;
+$text-color-dark: #000000;
+$text-color-inverse: #FFFFFF;
+$text-color-info-alert: #3A87AD;
+$text-color-warning-alert: #AF8640;
+$text-color-danger-alert: #B94A48;
+$text-color-success-alert: #468847;
+
+$default-font-size: 12px;
+$default-line-height: 1.6em;
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+
+$table-hover-bg: rgba(#ccc, 0.1);
+
+// link
+$link-color: $gambio-blue;
+$link-admin-infobox: #FBF289;
+
+// border
+$border-color: #E4E4E4;
+
+// Padding
+$padding-small: 12px;
+$padding-large: 2 * $padding-small;
+
+// Margin
+$margin-small: 12px;
+$margin-large: 2 * $margin-small;
+
+// Widths
+$breakpoint-width-small: 675px;
+$breakpoint-width-large: 1350px;
+
+// z-indexes
+$zindex-modal-background: 1040;
+$zindex-main-header: 10;
+$zindex-content-header: $zindex-main-header - 2;
+$zindex-main-menu: $zindex-modal-background - 6;
+$zindex-main-footer: $zindex-modal-background - 5;

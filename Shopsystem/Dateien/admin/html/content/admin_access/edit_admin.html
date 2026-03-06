@@ -1,0 +1,79 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{* Replacing a block from partial/overview_list.html*}
+	{block name="admin_admin_access_partial_overview_list_container_list_foreach" prepend}
+		<li class="col-md-12 list-headline">
+			<span class="list-element-text col-md-7">
+				{$txt.headline_edit_admin_name}
+			</span>
+			<span class="list-element-text col-md-4 text-center">
+				{$txt.headline_edit_admin_assign_role}
+			</span>
+			<span class="col-md-1">
+				&nbsp;
+			</span>
+		</li>
+	{/block}
+	
+	{block name="admin_admin_access_partial_overview_list_container_list_element_title"}
+		<span class="list-element-text col-md-7">
+			{$element.title}
+		</span>
+		<span class="list-element-switcher col-md-4 text-center" data-gx-widget="switcher">
+			<input type="checkbox"
+			       name="assignedRole[{$element.id}]"
+			       value="{$element.id}"
+			       class="role-assignment"
+			       data-role-id="{$element.id}"
+			       {if $element.status}checked{/if}
+			/>
+		</span>
+	{/block}
+	
+	{block name="admin_admin_access_partial_overview_list_container_list_element_actions"}
+		<span class="list-element-tooltip list-element-actions col-md-1" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+			{$element.description}
+		</span>
+	{/block}
+	
+	{block name="admin_admin_access_partial_overview_list_container_empty_list_item"}
+		<li class="col-md-12 list-headline">
+			<span class="list-element-text col-md-7">
+				{$txt.headline_edit_admin_name}
+			</span>
+			<span class="list-element-text col-md-4 text-center">
+				{$txt.headline_edit_admin_assign_role}
+			</span>
+			<span class="col-md-1">
+				&nbsp;
+			</span>
+		</li>
+		<li class="col-md-12 list-element">
+			<span class="title">{$txt.text_empty_edit_admin_overview_list nofilter}</span>
+		</li>
+	{/block}
+{* *}
+
+{block name="content"}
+	{load_language_text section="admin_access"}
+	
+	{block name="admin_admin_access_edit_admin"}
+		<div class="admin_access_container breakpoint-small">
+			<form id="admin-access-assign-roles" method="POST" action="admin.php?do=AdminAccess/assignRoles">
+				<input type="hidden" value="{$content.admin.customers_id}" name="adminId">
+				{include file="get_usermod:admin_access/partial/overview_list.html"
+				         title=$content.list.title
+					     action=$content.list.action
+					     list_elements=$content.list.elements
+					     element_actions=$content.list.elementActions}
+			</form>
+		</div>
+	{/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+	
+	<button type="submit" class="btn btn-primary pull-right" form="admin-access-assign-roles">{$admin_buttons.BUTTON_SAVE}</button>
+	<a href="admin.php?do=AdminAccess/manageAdmins" class="btn btn-default pull-right">{$admin_buttons.BUTTON_BACK}</a>
+{/block}

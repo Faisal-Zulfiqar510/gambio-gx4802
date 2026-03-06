@@ -1,0 +1,17 @@
+{extends file="get_usermod:layouts/main/partial/tooltip.html"}
+
+{block name="content"}
+	{block name="admin_orders_modal_tooltips_invoices"}
+		{load_language_text section="content_manager" name="content_manager"}
+		
+		{foreach $invoices as $invoice}
+			{block name="admin_orders_modal_tooltips_invoices_invoice"}
+				<div>
+					<a href="request_port.php?module=OrderAdmin&action=showPdf&type=invoice&file={$invoice.filename}" target="_blank">
+						{$invoice.number} ({$invoice.date})
+					</a>
+				</div>
+			{/block}
+		{/foreach}
+	{/block}
+{/block}

@@ -1,0 +1,56 @@
+<div class="edit-panel edit-panel-overlay" style="display: none;">
+    <div class="edit-modal modal-wrapper">
+        <div class="modal-header clearfix">
+            <h3 class="modal-title pull-left">{$product_image_list.MODAL_EDIT_IMAGE_TITLE}</h3>
+            <a class="close-btn pull-right" href="javascript:;">
+                <i class="fa fa-close"></i>
+            </a>
+        </div>
+        <div class="modal-content">
+            <table>
+                <tbody>
+                <tr style="background: transparent;">
+                    <td style="vertical-align: top; padding-top: 0; padding-left: 0;" width="100">
+                        <img alt="alt img" class="responsive-img" id="collection-image-src"
+                             src="//placehold.it/100x100">
+                    </td>
+                    <td style="vertical-align: top; padding: 0;">
+                        <form id="edit-image-form">
+                            <input name="id" type="hidden" value="0">
+                            <input name="localPath" type="hidden" value="">
+                            <input name="listId" type="hidden" value="">
+                            <div data-gx-widget="tabs">
+                                <div class="tab-headline-wrapper">
+                                    {foreach from=$languages key=index item=$lang}
+                                        <a href="#tab{$index}"><span class="flag-icon flag-icon-{$lang.code|lower}"></span></a>
+                                    {/foreach}
+                                </div>
+                                <div class="tab-content-wrapper">
+                                    {foreach from=$languages key=index item=$lang}
+                                        <div>
+                                            <div class="form-group">
+                                                <label for="image-title-{$lang.code|lower}">{$product_image_list.MODAL_EDIT_IMAGE_TITLE_LABEL}:</label>
+                                                <input class="form-control required" id="image-title-{$lang.code|lower}" name="titles[{$lang.code|lower}]" type="text"
+                                                       value="" data-lang="{$lang.code|lower}" data-type="title">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="image-alt-{$lang.code|lower}">{$product_image_list.MODAL_EDIT_IMAGE_ALT_TITLE_LABEL}:</label>
+                                                <input class="form-control" id="image-alt-{$lang.code|lower}" name="altTitles[{$lang.code|lower}]" type="text"
+                                                       value="" data-lang="{$lang.code|lower}" data-type="alt">
+                                            </div>
+                                        </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer clearfix">
+            <a class="btn btn-default pull-left edit-modal-cancel" href="javascript:;">{$product_image_list.MODAL_CANCEL_BUTTON}</a>
+            <a class="btn btn-primary pull-right edit-modal-save" href="javascript:;">{$product_image_list.MODAL_SAVE_BUTTON}</a>
+        </div>
+    </div>
+</div>

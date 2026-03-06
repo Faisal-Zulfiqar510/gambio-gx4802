@@ -1,0 +1,305 @@
+.modifier-group {
+	margin-bottom: 30px;
+	.modifier {
+		&-label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+			color: $gray-light;
+
+			white-space: nowrap;
+			.selected-value {
+				display: inline-block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 60%;
+				position: absolute;
+				padding-left: 4px;
+
+				font-weight: normal;
+				color: #6a6a6a;
+			}
+			.selected-value-price {
+				float: right;
+				color: black;
+				&.temporary-value {
+					opacity: 0.5;
+				}
+			}
+		}
+		&-content {
+			.modifiers-list {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		}
+	}
+	&.modifier-type {
+		&__image {
+			.modifiers-list {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+				grid-gap: 16px;
+				align-items: center;
+				li {
+					a {
+						display: inline-block;
+						box-shadow: 0 0 0 3px white;
+					}
+					.img-responsive {
+						width: 40px;
+						height: 40px;
+						object-fit: cover;
+					}
+					&.un-selectable {
+						cursor: not-allowed;
+						a {
+							pointer-events: none;
+							background: lighten(#dddddd, 5%);
+							border: 3px solid white;
+							outline: 2px dashed lighten(#dddddd, 5%);
+							color: lighten(#666666, 30%);
+						}
+					}
+					&.active {
+						a {
+							box-shadow: 0 0 0 3px white, 0 0 0 6px $brand-primary;
+						}
+					}
+				}
+			}
+		}
+		&__radio {
+			.radio {
+				&:first-child {
+					padding-top: 0;
+				}
+				&.radio-inline {
+					margin-left: 0;
+					margin-right: 10px;
+					padding-left: 0;
+					label {
+						margin-bottom: 0;
+						padding-right: 0;
+					}
+				}
+				.radio-wrapper {
+					display: block;
+					position: relative;
+					padding-left: 25px;
+					margin-bottom: 10px;
+					cursor: pointer;
+					-webkit-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					user-select: none;
+                    
+                    .modifier-label-text {
+                        display: inline-block;
+                    }
+
+					.checkmark {
+						position: absolute;
+						top: 50%;
+						left: 0;
+						transform: translateY(-50%);
+						z-index: 3;
+						height: 10px;
+						width: 10px;
+						background-color: #ddd;
+						border-radius: 50%;
+						box-shadow: 0 0 0 3px white;
+						&:after {
+							content: "";
+							display: none;
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							width: 4px;
+							height: 4px;
+							background: white;
+							border-radius: 50%;
+						}
+					}
+
+					&:hover {
+						input {
+							& ~ .checkmark {
+								background-color: #ccc;
+							}
+						}
+					}
+
+					input {
+						position: absolute;
+						top: 50%;
+						left: 0;
+						transform: translateY(-50%);
+						z-index: 1;
+						margin: 0;
+						height: 5px;
+						width: 5px;
+						opacity: 0;
+						cursor: pointer;
+
+						&:checked {
+							& ~ .checkmark {
+								background-color: $brand-primary;
+								box-shadow: 0 0 0 3px white, 0 0 0 6px $brand-primary;
+								&:after {
+									// display: block;
+								}
+							}
+						}
+					}
+				}
+				&.modifier-item {
+					&.un-selectable {
+						cursor: not-allowed;
+						.radio-wrapper {
+							pointer-events: none;
+							color: lighten(#666666, 30%);
+						}
+					}
+				}
+			}
+		}
+		&__boxed-text {
+			.modifiers-list {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+				grid-gap: 16px;
+				align-items: center;
+				li {
+					a {
+						display: inline-block;
+						background: #dddddd;
+						box-shadow: 0 0 0 3px white;
+						color: #666666;
+						&:hover {
+							text-decoration: none;
+							background: rgba($brand-primary, 0.9);
+							color: white;
+						}
+						span {
+							display: inline-block;
+							width: 40px;
+							height: 40px;
+							line-height: 40px;
+							text-align: center;
+							text-transform: uppercase;
+						}
+					}
+					&.un-selectable {
+						cursor: not-allowed;
+						a {
+							pointer-events: none;
+							background: lighten(#dddddd, 5%);
+							border: 3px solid white;
+							outline: 2px dashed lighten(#dddddd, 5%);
+							color: lighten(#666666, 30%);
+						}
+					}
+					&.active {
+						a {
+							background-color: $brand-primary;
+							box-shadow: 0 0 0 3px white, 0 0 0 6px $brand-primary;
+							color: white;
+						}
+					}
+				}
+			}
+		}
+		&__text {
+			.modifiers-list {
+				li {
+					display: inline-block;
+					margin: 0 10px 13px 0;
+                    max-width: 100%;
+					&:last-child {
+						margin-right: 0;
+					}
+					a {
+						display: inline-block;
+						padding: 5px 20px;
+						background: #dddddd;
+						box-shadow: 0 0 0 3px white;
+						color: #666666;
+						&:hover {
+							text-decoration: none;
+							background: rgba($brand-primary, 0.9);
+							color: white;
+						}
+					}
+					&.un-selectable {
+						cursor: not-allowed;
+						a {
+							pointer-events: none;
+							background: lighten(#dddddd, 5%);
+							border: 1px dashed lighten(#666666, 30%);
+							outline: 5px solid white;
+							color: lighten(#666666, 30%);
+						}
+					}
+					&.active {
+						a {
+							background: $brand-primary;
+							box-shadow: 0 0 0 3px white, 0 0 0 6px $brand-primary;
+							color: white;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Fix long label text overflow
+.modifier-label-text {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/*
+
+.modifier-group .option-content .options-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(39px, 1fr));
+	grid-gap: 16px;
+}
+.modifier-group .option-content .options-list li {
+	width: 40px;
+}
+.modifier-group .option-content .options-list li span {
+	display: block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #333;
+}
+.modifier-group .option-content .options-list a {
+	position: relative;
+	display: block;
+	box-shadow: 0 0 0 3px white;
+	background-color: #ccc;
+}
+.modifier-group .option-content .options-list a.active {
+	box-shadow: 0 0 0 3px white, 0 0 0 6px #80ba49;
+}
+.modifier-group .option-content .options-list a:after {
+	content:"";
+	border: 1px dashed transparent;
+	display: block;
+	position: absolute;
+	top: -3px;
+	right: -3px;
+	bottom: -3px;
+	left: -3px;
+}*/

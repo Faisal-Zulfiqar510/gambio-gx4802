@@ -1,0 +1,65 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+{load_language_text section="module_center" name="other"}
+{load_language_text section="buttons"}
+<div class="loading-spinner" style="display:none; width:100%; height:100%; background-color: #666; opacity: 0.8; position: fixed; left: 0px; top: 0px; z-index: 99999" >
+	<div style="text-align: center; margin: 0 auto; opacity: 1; width: 100px; border-radius: 4px; height: 100px; position: relative; top: 50%; box-sizing: border-box; background: rgb(255, 255, 255); font-size: 80px; color: #002337;"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<form action="{$content.form_action}"
+      method="POST"
+      enctype="multipart/form-data"
+      class="form-configuration gxmodules_module_configuration breakpoint-small"
+      id="gxmodule-configuration-form"
+      data-gx-controller="module_center/gxmodule_configuration"
+      data-gx-widget="switcher tabs editor"
+      data-editor-selector="textarea.wysiwyg"
+      data-editor-event-type="submit"
+      data-editor-event-target="form"
+      data-gx-extension="visibility_switcher">
+
+	<div class="gx-container form-horizontal gx_module_configuration">
+		{if !$content.tab}
+		<fieldset>
+			<legend>{$other.tab_main}</legend>
+			<div class="form-group">
+				<label class="col-sm-7 control-label" for="active">{$other.module_status}</label>
+				<div class="col-sm-4">
+					<input type="hidden" name="active" value="0" />
+					<input type="checkbox"
+					       id="active"
+					       name="active"
+					       class="form-control"
+					       value="1"
+					       {($content.active==
+					       true) ?
+					'checked="checked"' : ''} />
+				</div>
+			</div>
+		</fieldset>
+		{/if}
+		{foreach from=$content.configuration key=section item=fields}
+			<fieldset>
+				{if $content.sections.{$section}}
+				<legend>{$content.sections.{$section}}</legend>
+				{/if}
+					{foreach from=$fields key=$field item=$config}
+						{if $config.languageDependent === true && "html/content/module_center/gx_modules/snippets/language_dependent/{$config.type}.html"|file_exists}
+							{include file="get_usermod:module_center/gx_modules/snippets/language_dependent/{$config.type}.html" config=$config}
+						{elseif "html/content/module_center/gx_modules/snippets/{$config.type}.html"|file_exists}
+							{include file="get_usermod:module_center/gx_modules/snippets/{$config.type}.html" config=$config}
+						{else}
+							{include file="get_usermod:module_center/gx_modules/snippets/text.html" config=$config}
+						{/if}
+					{/foreach}
+				</fieldset>
+			{/foreach}
+		</fieldset>
+	</div>
+</form>
+{/block}
+
+{block name="bottom_save_bar"}
+	<button type="submit" class="btn btn-primary pull-right" form="gxmodule-configuration-form">{$txt.save}</button>
+	<a href="admin.php?do=ModuleCenter" class="btn pull-right">{$txt.back}</a>
+{/block}

@@ -1,0 +1,71 @@
+{block name="admin_content_manager_partial_form_data_download_file"}
+	<div class="form-group">
+		{block name="admin_content_manager_partial_form_data_download_file_label"}
+			<label class="col-md-2">
+				{$txt.DOWNLOAD_FILE_LABEL}:
+			</label>
+		{/block}
+		{block name="admin_content_manager_partial_form_data_download_file_container"}
+			<div class="col-md-4">
+				{if $content_manager.filemanager_available}
+					{block name="admin_content_manager_partial_form_data_download_file_input_filemanager"}
+						<div data-gx-widget="filemanager"
+							 data-filemanager-name="content_manager[{$type}][download_file][{$languageCode}]"
+							 data-filemanager-type="all"
+							 data-filemanager-content-directory="media/content"
+							 data-filemanager-previous-file="{$content_manager.$type.download_file.$languageCode}"
+							 data-filemanager-page="content_manager_pages"
+							 data-filemanager-page-active="{$content_manager.filemanager_available}">
+						</div>
+					{/block}
+				{else}
+					{block name="admin_content_manager_partial_form_data_download_file_input_no_filemanager"}
+						<select class="form-control"
+								name="content_manager[{$type}][download_file][{$languageCode}]">
+							{foreach $content_manager.scriptpage.filelist as $file => $text}
+								<option value="{$file}" {if $content_manager.$type.download_file.$languageCode == $file}selected{/if}>{$text}</option>
+							{/foreach}
+						</select>
+					{/block}
+				{/if}
+			</div>
+		{/block}
+	</div>
+{/block}
+
+{if $content_manager.infopage.content_group.$languageCode == "3889895"}
+	{block name="admin_content_manager_partial_form_data_withdrawal_form_file"}
+		<div class="form-group">
+			{block name="admin_content_manager_partial_form_data_withdrawal_form_file_label"}
+				<label class="col-md-2">
+					{$txt.WITHDRAWAL_FORM_FILE_LABEL}:
+				</label>
+			{/block}
+			{block name="admin_content_manager_partial_form_data_withdrawal_form_file_container"}
+				<div class="col-md-4">
+					{if $content_manager.filemanager_available}
+						{block name="admin_content_manager_partial_form_data_withdrawal_form_file_input_filemanager"}
+							<div data-gx-widget="filemanager"
+								 data-filemanager-name="content_manager[{$type}][withdrawal_form_file][{$languageCode}]"
+								 data-filemanager-type="all"
+								 data-filemanager-content-directory="media/content"
+								 data-filemanager-previous-file="{$content_manager.$type.withdrawal_form_file.$languageCode}"
+								 data-filemanager-page="content_manager_pages"
+								 data-filemanager-page-active="{$content_manager.filemanager_available}">
+							</div>
+						{/block}
+					{else}
+						{block name="admin_content_manager_partial_form_data_withdrawal_form_file_input_no_filemanager"}
+							<select class="form-control"
+									name="content_manager[infopage][withdrawal_form_file][{$languageCode}]">
+								{foreach $content_manager.scriptpage.filelist as $file => $text}
+									<option value="{$file}" {if $content_manager.$type.withdrawal_form_file.$languageCode == $file}selected{/if}>{$text}</option>
+								{/foreach}
+							</select>
+						{/block}
+					{/if}
+				</div>
+			{/block}
+		</div>
+	{/block}
+{/if}

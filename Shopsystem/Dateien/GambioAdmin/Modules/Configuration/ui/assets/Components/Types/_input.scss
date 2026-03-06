@@ -1,0 +1,40 @@
+@import "../../styles/variables";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+input, textarea, select {
+	background-color: #ffffff;
+	border: 1px solid darken($border-color, 10);
+	padding: 0.25rem 0.5rem;
+	width: 100%;
+	height: 2rem;
+	color: $text-color-light;
+	border-radius: 2px;
+	transition: 0.25s ease border-color;
+	
+	&:focus {
+		border-color: $gambio-blue;
+		outline: none;
+	}
+    
+    &:invalid {
+        border-color: hsl(0, 76%, 50%);
+        outline: none;
+    }
+}
+
+textarea {
+	height: 4rem;
+}
+
+select {
+	width: 100%;
+	height: 2rem;
+
+	appearance: none;
+	
+	background: url(../../../../../../Layout/ui/assets/images/logos/icon-caret-down.png) no-repeat right 6px center #ffffff;
+}

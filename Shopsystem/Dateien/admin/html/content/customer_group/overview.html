@@ -1,0 +1,168 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+{block name="content"}
+	{load_language_text section="buttons" name="button"}
+	{load_language_text section="admin_labels" name="label"}
+	{load_language_text section="admin_general" name="general"}
+	{load_language_text section="customers_status" name="customers_status"}
+
+	{block name="admin_customer_group_overview"}
+		<div class="gx-container breakpoint-large" data-gx-controller="customer_group/overview">
+			{block name="admin_customer_group_overview_create_button_container"}
+				<div class="row">
+					<div class="col-md-12">
+						{block name="admin_customer_group_overview_create_button"}
+							<a class="btn btn-success btn-create pull-right"
+							   data-toggle="modal"
+							   data-target=".creation-modal"> <i class="fa fa-plus"></i> {$button.create}
+							</a>
+						{/block}
+					</div>
+				</div>
+			{/block}
+
+			{block name="admin_customer_group_overview_table"}
+				<table class="customer-group-table table table-striped">
+					{block name="admin_customer_group_overview_table_head"}
+						<thead>
+							<tr>
+								<th><i class="fa fa-group"></i></th>
+								<th>{$customers_status.TABLE_HEADING_CUSTOMERS_STATUS}</th>
+								<th>{$customers_status.TABLE_HEADING_TAX_PRICE}</th>
+								<th>{$customers_status.TABLE_HEADING_TAX_BILL nofilter}</th>
+								<th>{$customers_status.TABLE_HEADING_DISCOUNT_ATTRIBUTES nofilter}</th>
+								<th>{$customers_status.TABLE_HEADING_DISCOUNT}</th>
+								<th>{$customers_status.TABLE_HEADING_CUSTOMERS_GRADUATED nofilter}</th>
+								<th>{$customers_status.TABLE_HEADING_FSK18_DISPLAY_BUY nofilter}</th>
+								<th>{$customers_status.TABLE_HEADING_REVIEWS_READ_WRITE nofilter}</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+					{/block}
+
+					{block name="admin_customer_group_overview_table_body"}
+						<tbody>
+							{foreach $content.customerGroups as $customerGroup}
+								{block name="admin_customer_group_overview_table_body_row"}
+									<tr>
+										{block name="admin_customer_group_overview_table_body_members_column"}
+											<td>{$customerGroup->getMembers()}</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_name_column"}
+											<td title="ID : {$customerGroup->getId()}">
+												{if $customerGroup->isDefault()}
+													<b>{$customerGroup->getName($content.languageCode)}</b>
+												{else}
+													{$customerGroup->getName($content.languageCode)}
+												{/if}
+											</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_show_price_Tax_column"}
+											<td>
+												{if $customerGroup->getSettings()->isShowPriceTax()}
+													{$customers_status.TAX_YES}
+												{else}
+													{$customers_status.TAX_NO}
+												{/if}
+											</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_add_Tax_ot_column"}
+											<td>
+												{if $customerGroup->getSettings()->isAddTaxOt()}
+													<i class="fa fa-check" aria-hidden="true"></i>
+												{else}
+													<i class="fa fa-times" aria-hidden="true"></i>
+												{/if}
+											</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_discount_column"}
+											<td>{$customerGroup->getConfigurations()->getDiscount()}%</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_ot_discount_column"}
+											<td>{$customerGroup->getConfigurations()->getOtDiscount()}%</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_graduated_column"}
+											<td>
+												{if $customerGroup->getId() === 0}
+													<i class="fa fa-times" aria-hidden="true"></i>
+												{else}
+													{if $customerGroup->getSettings()->isGraduatedPrices()}
+														<i class="fa fa-check" aria-hidden="true"></i>
+													{else}
+														<i class="fa fa-times" aria-hidden="true"></i>
+													{/if}
+												{/if}
+											</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_fsk_18_display_and_buy_column"}
+											<td class="icons-column">
+												{if $customerGroup->getSettings()->isFsk18Display()}
+													<i class="fa fa-check" aria-hidden="true"></i>
+												{else}
+													<i class="fa fa-times" aria-hidden="true"></i>
+												{/if}
+												| {*the separation pipe between to settings*}
+												{if $customerGroup->getSettings()->isFsk18Purchasable()}
+													<i class="fa fa-check" aria-hidden="true"></i>
+												{else}
+													<i class="fa fa-times" aria-hidden="true"></i>
+												{/if}
+											</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_read_and_write_reviews_column"}
+											<td class="icons-column">
+												{if $customerGroup->getSettings()->isReadReviews()}
+													<i class="fa fa-check" aria-hidden="true"></i>
+												{else}
+													<i class="fa fa-times" aria-hidden="true"></i>
+												{/if}
+												| {*the separation pipe between to settings*}
+												{if $customerGroup->getSettings()->isWriteReviews()}
+													<i class="fa fa-check" aria-hidden="true"></i>
+												{else}
+													<i class="fa fa-times" aria-hidden="true"></i>
+												{/if}
+											</td>
+										{/block}
+
+										{block name="admin_customer_group_overview_table_body_actions_column"}
+											<td class="actions">
+												{block name="admin_customer_group_overview_table_body_actions_column_actions"}
+													<div class="pull-right action-list visible-on-hover">
+														<i data-id="{$customerGroup->getId()}"
+														   class="fa fa-pencil edit"
+														   data-toggle="modal"> </i>
+														{if !$customerGroup->isDefault()}
+															{if $customerGroup->getId() > 3}
+																<i data-id="{$customerGroup->getId()}"
+																   class="fa fa-trash-o delete"
+																   data-toggle="modal"> </i>
+															{/if}
+														{/if}
+													</div>
+												{/block}
+											</td>
+										{/block}
+									</tr>
+								{/block}
+							{/foreach}
+						</tbody>
+					{/block}
+				</table>
+			{/block}
+
+			{block name="admin_customer_groups_overviw_modal_includes"}
+				{include file="get_usermod:customer_group/modals/creation_modal.html"}
+				{include file="get_usermod:customer_group/modals/remove_confirmation_modal.html"}
+				{include file="get_usermod:customer_group/modals/edit_modal.html"}
+			{/block}
+		</div>
+	{/block}
+{/block}

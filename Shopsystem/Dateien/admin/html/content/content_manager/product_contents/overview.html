@@ -1,0 +1,99 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="content_manager"}
+	{load_language_text section="admin_general" name="admin_general"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+	
+	{block name="admin_content_manager_product_contents_overview"}
+		<div class="breakpoint-small" data-gx-controller="content_manager/product_content/overview"
+		     {if isset($smarty.get.expert)}data-product_content-expert="&expert"{/if}
+		>
+			<div class="product-content-overview-container">
+				{block name="admin_content_manager_product_contents_overview_table"}
+					<table class="table table-main data-table"
+					       data-gx-extension="visibility_switcher"
+					       data-visibility_switcher-rows=".content-manager-element"
+					       data-visibility_switcher-selections=".content-action-icons"
+					>
+						{block name="admin_content_manager_product_contents_overview_table_thead"}
+							<thead>
+								<tr class="hidden">
+									<th class="col-md-12"></th>
+								</tr>
+							</thead>
+						{/block}
+						{block name="admin_content_manager_product_contents_overview_table_tbody"}
+							<tbody>
+								{foreach item=element from=$content.product_contents}
+									{block name="admin_content_manager_product_contents_overview_table_tr"}
+										<tr class="content-manager-element">
+											{block name="admin_content_manager_product_contents_overview_table_td"}
+												<td class="col-md-12">
+													{block name="admin_content_manager_product_contents_overview_table_td_icon"}
+														<span class="col-md-1 content-type-icon" title="{$element.description}">
+															{if $element.type == 'link'}
+																<i class="fa fa-link fa-flip-horizontal"></i>
+															{elseif $element.type == 'pdf'}
+																<i class="fa fa-file-pdf-o"></i>
+															{elseif $element.type == 'code'}
+																<i class="fa fa-file-code-o"></i>
+															{elseif $element.type == 'text'}
+																<i class="fa fa-file-text-o"></i>
+															{elseif $element.type == 'image'}
+																<i class="fa fa-file-image-o"></i>
+															{else}
+																<i class="fa fa-file-o"></i>
+															{/if}
+														</span>
+													{/block}
+												
+													{block name="admin_content_manager_product_contents_overview_table_td_name"}
+														<span class="col-md-5 content-name">
+															{$element.internal_name}
+														</span>
+													{/block}
+												
+													{block name="admin_content_manager_product_contents_overview_table_td_usage_count"}
+														<span class="col-md-4 usage-badge">
+															<span>{$element.usage_count} {$txt.TEXT_PRODUCT}</span>
+														</span>
+													{/block}
+												
+													{block name="admin_content_manager_product_contents_overview_table_td_actions"}
+														<span class="col-md-2 content-action-icons text-right">
+															<a href="admin.php?do=ContentManagerProductContents/edit&id={$element.group_id}{if isset($smarty.get.expert)}&expert{/if}"><i class="fa fa-pencil"></i></a>
+															{*{if $element.type == 'link'}*}
+																{*<a href="admin.php?do=ContentManagerProductContents/editLink&id={$element.group_id}{if isset($smarty.get.expert)}&expert{/if}"><i class="fa fa-pencil"></i></a>*}
+															{*{else}*}
+																{*<a href="admin.php?do=ContentManagerProductContents/editFile&id={$element.group_id}{if isset($smarty.get.expert)}&expert{/if}"><i class="fa fa-pencil"></i></a>*}
+															{*{/if}*}
+															<a class="delete-content {if $element.type == 'link'}link{else}file{/if}"
+															   data-group-id="{$element.group_id}"><i class="fa fa-trash-o"></i></a>
+														</span>
+													{/block}
+												</td>
+											{/block}
+										</tr>
+									{/block}
+								{/foreach}
+							</tbody>
+						{/block}
+					</table>
+				{/block}
+			</div>
+		</div>
+		
+		{include file="get_usermod:content_manager/modals/delete.html"}
+		
+		{block name="admin_content_manager_product_contents_overview_empty_list"}
+			<script id="empty-list" type="text/template">
+				<div class="row element-container empty">
+					<ul class="content-manager-elements-list">
+						<li class="col-md-12 content-manager-element">{$txt.TEXT_NO_CONTENT}</li>
+					</ul>
+				</div>
+			</script>
+		{/block}
+	{/block}
+{/block}

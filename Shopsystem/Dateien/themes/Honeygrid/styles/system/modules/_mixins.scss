@@ -1,0 +1,130 @@
+/* Mixins
+   ========================================================================== */
+
+/**
+ * Match the end of a string with specific value
+ * note: used to match if a variable is ends with $theme-base-path only
+ */
+@function ends-with($string, $find) {
+	@return str-slice($string, (str-length($string) - str-length($find) + 1)) == $find;
+}
+
+/**
+ * Makes a value negative by multiplying with -1 and returns "auto", in case the parameter is "auto".
+ */
+@function makeNegative($param) {
+	@if $param != auto {
+		@return $param * -1;
+	}
+	@return auto;
+}
+
+// Cross browser implementation of border radius for rounded corners without compatibility issues
+
+@mixin border-radius($radius: 5px, $corner: "all") {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+	@if $corner == "top" {
+		-webkit-border-bottom-right-radius: 0;
+		-moz-border-radius-bottomright: 0;
+		border-bottom-right-radius: 0;
+		-webkit-border-bottom-left-radius: 0;
+		-moz-border-radius-bottomleft: 0;
+		border-bottom-left-radius: 0;
+	} @else if $corner == "bottom" {
+		-webkit-border-top-right-radius: 0;
+		-moz-border-radius-topright: 0;
+		border-top-right-radius: 0;
+		-webkit-border-top-left-radius: 0;
+		-moz-border-radius-topleft: 0;
+		border-top-left-radius: 0;
+	}
+}
+
+
+// Reset list styling
+
+@mixin reset-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	> li {
+		padding: 0;
+	}
+}
+
+
+// Remove background images
+
+@mixin no-image-bg() {
+	background: #F9F9F9 none no-repeat;
+	border: 1px solid #DDDDDD;
+}
+
+
+// Transform normal Text to Headline
+
+@mixin thick-heading() {
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: inherit;
+	color: inherit;
+}
+
+
+// Style backgrounds which should be accessible by StyleEdit3
+
+@mixin background($bg-color,
+				  $bg-img-url,
+				  $bg-img-position,
+				  $bg-img-repeat,
+				  $bg-img-size,
+				  $bg-img-attachment,
+				  $bg-img-enabled: false,
+                  $bg-gradient-enabled: false,
+                  $bg-gradient-color1 : #ffffff,
+                  $bg-gradient-color2 : #ffffff,
+                  $bg-gradient-type: "radial",
+                  $bg-gradient-angle: false) {
+	background-color: $bg-color;
+	@if ($bg-img-url and not (ends-with($bg-img-url, "/public/theme/"))) {
+		@include background-image($bg-img-enabled, $bg-img-url, $bg-gradient-enabled, $bg-gradient-color1, $bg-gradient-color2, $bg-gradient-type, $bg-gradient-angle);
+
+		@if ($bg-img-position) {
+			background-position: $bg-img-position;
+		}
+		@if ($bg-img-repeat) {
+			background-repeat: $bg-img-repeat;
+		}
+		@if ($bg-img-size) {
+			background-size: $bg-img-size;
+		}
+		@if ($bg-img-attachment) {
+			background-attachment: $bg-img-attachment;
+		}
+	}
+}
+
+@mixin background-image($bg-img-enabled, $bg-img-url, $bg-gr-enabled,$bg-gr-color1, $bg-gr-color2, $bg-gr-type, $bg-gr-angle) {
+	$have-image: ($bg-img-enabled and $bg-img-url and $bg-img-url != "" and not (ends-with($bg-img-url, "/public/theme/")));
+	$image: url($bg-img-url);
+
+	@if ($bg-gr-enabled and $bg-gr-color1) {
+		//configurar gradient aqui
+		$gradient: "";
+		@if ($bg-gr-type == 'radial') {
+			$gradient: radial-gradient($bg-gr-color1, $bg-gr-color2);
+		} @else {
+			$gradient: linear-gradient($bg-gr-angle, $bg-gr-color1, $bg-gr-color2);
+		}
+
+		@if ($have-image) {
+			background-image: $image, $gradient;
+		} @else {
+			background-image: $gradient;
+		}
+	} @else if ($have-image) {
+		background-image: $image;
+	}
+}

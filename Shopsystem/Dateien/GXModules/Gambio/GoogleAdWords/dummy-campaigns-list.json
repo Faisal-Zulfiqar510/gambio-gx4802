@@ -1,0 +1,45 @@
+{
+	"campaigns": [
+		{
+			"id": 1,
+			"status": true,
+			"name": "Kleidung",
+			"dailyBudget": 9.95,
+			"clicks": 10,
+			"impressions": 443,
+			"clickTroughRate": 49.7,
+			"costPerClick": 0.09,
+			"costs": 0.09
+		},
+		{
+			"id": 2,
+			"status": true,
+			"name": "Sportartikel",
+			"dailyBudget": 14,
+			"clicks": 65,
+			"impressions": 1003,
+			"clickTroughRate": 38,
+			"costPerClick": 0.12,
+			"costs": 0.12
+		},
+		{
+			"id": 3,
+			"status": false,
+			"name": "Reisezubehör",
+			"dailyBudget": 21.25,
+			"clicks": 10,
+			"impressions": 466,
+			"clickTroughRate": 23.87,
+			"costPerClick": 0.08,
+			"costs": 0.08
+		}
+	],
+	"total": {
+		"dailyBudget": 390,
+		"clicks": 14059,
+		"impressions": 951636,
+		"clickThroughRate": 1.48,
+		"costPerClick": 0.31,
+		"costs": 4419.85
+	}
+}

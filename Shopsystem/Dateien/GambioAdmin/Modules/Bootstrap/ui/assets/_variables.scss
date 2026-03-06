@@ -1,0 +1,10 @@
+@import "../../../../Layout/ui/assets/styles/variables";
+
+$theme-colors: (
+	"primary": $brand-primary,
+	"secondary": $brand-secondary,
+	"success": $brand-success,
+	"info": $brand-info,
+	"warning": $brand-warning,
+	"danger": $brand-danger
+);

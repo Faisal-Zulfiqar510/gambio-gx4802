@@ -1,0 +1,86 @@
+.box-filter {
+	position: relative;
+	border-width: 0;
+	@include box-shadow(none);
+
+	.panel-heading {
+		display: none;
+	}
+
+	fieldset {
+		overflow: hidden;
+		position: relative;
+		margin: 0 0 20px;
+		border-top: 1px solid #eee;
+		padding-top: 30px;
+
+		&.collapsed {
+			max-height: none;
+		}
+
+		.option-heading {
+			text-transform: uppercase;
+			font-size: 16px;
+			font-weight: 600;
+			letter-spacing: .5px;
+			margin-bottom: 15px;
+		}
+
+		.checkbox {
+			margin-top: 0;
+		}
+
+		.show-more {
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+			@include box-shadow(inset 0px -48px 12px -12px #EEEEEE);
+			height: 48px;
+			padding-top: 32px;
+			text-align: center;
+			color: #999999;
+			font-weight: bold;
+			cursor: pointer;
+			display: none;
+		}
+
+		&.form-horizontal {
+			label {
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+	.preloader {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.preloader-message {
+		display: none;
+
+		span {
+			display: none;
+		}
+
+		&.error {
+			span {
+				display: inline;
+			}
+		}
+	}
+}
+
+.mfp-content .box-filter fieldset .show-more {
+	@include box-shadow(inset 0px -48px 12px -12px #FFFFFF);
+}
+
+.gx-shevron-down {
+	height: $gx-chevron-down-size;
+	width: $gx-chevron-down-size;
+	fill: $gx-chevron-down-color;
+}

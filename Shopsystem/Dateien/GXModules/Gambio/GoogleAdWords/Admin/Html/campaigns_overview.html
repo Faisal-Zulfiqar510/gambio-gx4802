@@ -1,0 +1,145 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="google_adwords"}
+
+	{block name="admin_campaigns_overview"}
+		<div class="campaigns-overview"
+			 data-gxmodules-namespace="{$base_url}/GXModules/Gambio/GoogleAdWords/Build/Admin/Javascript"
+			 data-gxmodules-controller="init campaigns_overview"
+			 data-campaigns_overview-show-account-form="{$content.show_account_form}"
+			 data-init-show-account-form="{$content.show_account_form}"
+			 data-init-active-columns="[&quot;status&quot;,&quot;name&quot;,&quot;dailyBudget&quot;,&quot;clicks&quot;,&quot;impressions&quot;,&quot;clickThroughRate&quot;,&quot;costPerClick&quot;,&quot;costs&quot;]"
+		>
+
+			{if $content.authSuccess}
+				<div class="alert alert-success alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+								aria-hidden="true">&times;</span></button>
+					{$txt.authorization_success}
+				</div>
+			{/if}
+
+			{block name="adwords-date-range-container"}
+				<div class="adwords-date-range-container">
+					<select name="campaigns_date_range" class="form-control" id="adwords-date-range">
+						{foreach $content.campaignsDateRanges as $key => $campaignDateRange}
+							<option value="{$key}" {if $campaignDateRange['selected']} selected{/if}>{$campaignDateRange['value']}</option>
+						{/foreach}
+					</select>
+				</div>
+			{/block}
+
+			{block name="admin_campaigns_overview_table"}
+				<table class="table table-main table-striped campaigns-overview-table"
+					   data-gx-extension="datatable_fixed_header datatable_custom_sorting
+									  datatable_fixed_row_actions datatable_loading_spinner datatable_responsive_columns
+									  datatable_normalize_overflow">
+					{block name="admin_campaigns_overview_table_thead"}
+						<thead>
+							{block name="admin_orders_overview_table_thead_ths"}
+								<tr>
+									{block name="admin_orders_overview_table_thead_th_status"}
+										<th data-column-name="status"
+											class="campaign-status">{$txt.table_head_status}</th>
+									{/block}
+
+									{block name="admin_orders_overview_table_thead_th_campaign_name"}
+										<th data-column-name="name"
+											class="campaign-name">{$txt.table_head_campaign_name}</th>
+									{/block}
+
+									{block name="admin_orders_overview_table_thead_th_budget"}
+										<th data-column-name="dailyBudget"
+											class="campaign-budget">{$txt.table_head_budget}</th>
+									{/block}
+
+									{block name="admin_orders_overview_table_thead_th_clicks"}
+										<th data-column-name="clicks"
+											class="campaign-clicks">{$txt.table_head_clicks}</th>
+									{/block}
+
+									{block name="admin_orders_overview_table_thead_th_impressions"}
+										<th data-column-name="impressions"
+											class="campaign-impressions">{$txt.table_head_impressions}</th>
+									{/block}
+
+									{block name="admin_orders_overview_table_thead_th_ctr"}
+										<th data-column-name="clickThroughRate"
+											class="campaign-ctr">{$txt.table_head_ctr}</th>
+									{/block}
+
+									{block name="admin_orders_overview_table_thead_th_average_cpc"}
+										<th data-column-name="costPerClick"
+											class="campaign-average-cpc">{$txt.table_head_average_cpc}</th>
+									{/block}
+
+									{block name="admin_orders_overview_table_thead_th_costs"}
+										<th data-column-name="costs" class="campaign-costs">{$txt.table_head_costs}</th>
+									{/block}
+
+									{block name="admin_orders_overview_table_thead_th_actions"}
+										<th data-column-name="actions" class="campaign-actions">
+										</th>
+									{/block}
+								</tr>
+							{/block}
+						</thead>
+					{/block}
+
+					{block name="admin_campaigns_overview_table_tbody"}
+						<tbody>
+							{* Content will be loaded dynamically *}
+						</tbody>
+					{/block}
+
+					{block name="admin_campaigns_overview_table_tfoot"}
+						<tfoot>
+							{block name="admin_campaigns_overview_table_tfoot_tds"}
+								<tr class="total-row">
+									{block name="admin_campaigns_overview_table_tfoot_td_total"}
+										<td>{$txt.table_foot_total}</td>
+									{/block}
+
+									{block name="admin_campaigns_overview_table_tfoot_td_total_budget"}
+										<td class="total-budget" colspan="2">{$content.total_budget}</td>
+									{/block}
+
+									{block name="admin_campaigns_overview_table_tfoot_td_total_clicks"}
+										<td class="total-clicks">{$content.total_clicks}</td>
+									{/block}
+
+									{block name="admin_campaigns_overview_table_tfoot_td_total_impressions"}
+										<td class="total-impressions">{$content.total_impressions}</td>
+									{/block}
+
+									{block name="admin_campaigns_overview_table_tfoot_td_total_ctr"}
+										<td class="total-ctr">{$content.total_ctr}</td>
+									{/block}
+
+									{block name="admin_campaigns_overview_table_tfoot_td_total_average_cpc"}
+										<td class="total-average-cpc">{$content.total_average_cpc}</td>
+									{/block}
+
+									{block name="admin_campaigns_overview_table_tfoot_td_total_costs"}
+										<td class="total-costs">{$content.total_costs}</td>
+									{/block}
+
+									{block name="admin_campaigns_overview_table_tfoot_td_total_empty_col"}
+										<td>&nbsp;</td>
+									{/block}
+								</tr>
+							{/block}
+						</tfoot>
+					{/block}
+				</table>
+				<input type="hidden" name="page_token" value="{$content.pageToken}">
+			{/block}
+		</div>
+	{/block}
+	<div data-gx_google_oauth-namespace="../GXModules/Gambio/GoogleOAuth/Build/Admin/Javascript"
+		 data-gx_google_oauth-widget="google_connection_modal"
+		 data-google_connection_modal-from="GoogleAdWords"
+		 data-google_connection_modal-error="{$content.error}"
+	></div>
+{/block}

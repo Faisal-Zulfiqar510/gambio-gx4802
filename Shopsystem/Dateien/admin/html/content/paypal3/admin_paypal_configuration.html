@@ -1,0 +1,578 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="paypal3"}
+
+	{block name="admin_paypal3_admin_paypal_configuration"}
+		{block name="admin_paypal3_admin_paypal_configuration_styles"}
+			<link rel="stylesheet" type="text/css" href="css/admin.css">
+			{literal}
+				<style>
+					p.message { border: 1px solid #faa; background: #ffa; padding: 1ex 1em; }
+					p.message_info { margin: 1px 0; border: 1px solid #E69138; background: #FFF2CC; color: #E69138; padding: 1ex 1em; }
+					p.message_success { margin: 1px 0; border: 1px solid #6AA84F; background: #D9EAD3; color: #6AA84F; padding: 1ex 1em; }
+					p.message_error { margin: 1px 0; border: 1px solid #A61C00; background: #F4CCCC; color: #A61C00; padding: 1ex 1em; }
+
+					table.exp_profiles form { width: auto; }
+					#pp3config fieldset.fold, #pp3config div.fold { display: none; }
+					#pp3config h2.section-header { cursor: pointer; background: rgba(0,0,0,0.05); clear: left; padding: .1ex .2ex;}
+					#pp3config h2.section-header:hover { background: rgba(0,0,0,0.1); }
+					#pp3config form.grid { margin: 0; padding: 0; display: block; }
+					#connectcheck { display: none; }
+					div.right_btn { text-align: right; }
+					div.control-group-warning { display: table-cell; }
+
+					div.accordion-block { border: 1px solid #E2E2E2; margin: 5px 0; padding: 0 2em; background: #fff; }
+					div.accordion-block-open { background: #F0F0F0; }
+					div.accordion-block-open div.accordion-block-open { background: #fff; }
+					div.accordion-head { font-size: 1.2em; font-weight: bold; cursor: pointer; padding: 2ex 0; }
+					div.accordion-plus { float: right; margin-top: 2ex; background-image: url('html/assets/images/legacy/plus_icon.png'); background-repeat: no-repeat; width: 20px; height: 20px; }
+					div.accordion-body { display: none; margin: 1em 0;}
+					div.accordion-block-open > div.accordion-body { display: block; }
+					div.accordion-block-open > div.accordion-plus { display: none; }
+					div.accordion-block-open > div.accordion-head { font-weight: bold !important; }
+					div.accordion-block label { font-weight: normal !important; }
+					div.accordion-block div.accordion-block div.accordion-head { font-size: 1.1em; font-weight: normal; }
+
+					div.accordion-body fieldset { width: 99%; }
+
+					div.ibubble { display: table-cell; width: 2em; padding-left: 1ex; vertical-align: baseline; position: relative; overflow: visible; }
+					div.ibubble-right { float: right; }
+					div.ibubble div.i { cursor: pointer; position: absolute; top: .3ex; background-image: url('html/assets/images/legacy/info_icon.png'); background-repeat: no-repeat; width: 20px; height: 20px; }
+					div.ibubble div.itip { display: none; position: absolute; right: 2.2em; top: 1ex; width: 30em; height: auto; background: #9DC2E0; border: 1px solid #000; border-radius: 1em; padding: 1em; border-top-right-radius: 0; }
+
+					.gx-container .control-group input[type="checkbox"].checkmark {display: none; }
+					.gx-container .control-group input[type="checkbox"].checkmark + label {background-image: url('html/assets/images/legacy/OnOffSprite.png'); background-position: 0px 0px; background-repeat: no-repeat; height: 22px; min-width: 50px; margin: 0; padding: 0; font-weight: normal; }
+					.gx-container .control-group input[type="checkbox"].checkmark:checked + label {background-position: 0px -23px; }
+					.gx-container .control-group input[type="checkbox"].checkmark + label span {margin-left: 50px; line-height: 20px; }
+					.gx-container .control-group input[type="checkbox"].checkmark + label span.off { display: inline; }
+					.gx-container .control-group input[type="checkbox"].checkmark + label span.on { display: none; }
+					.gx-container .control-group input[type="checkbox"].checkmark:checked + label span.off { display: none; }
+					.gx-container .control-group input[type="checkbox"].checkmark:checked + label span.on { display: inline; }
+
+					table.exp_profiles td form { padding: 0 !important; }
+					table.exp_profiles td input.btn { margin: 4px 0px; }
+					span.pep_flag img { padding: 2px; margin: 0; }
+					table.exp_profiles tr.oldpep td { background-color: #FFB9B9; }
+
+					.ecs_not_allowed_note { vertical-align: middle; margin-left: 1em; }
+				</style>
+			{/literal}
+		{/block}
+
+		{block name="admin_paypal3_admin_paypal_configuration_wrapper"}
+			<div class="gx-container" id="pp3config">
+				{block name="admin_paypal3_admin_paypal_configuration_general"}
+					<div class="accordion-block {if !$content.edit_profile}accordion-block-open{/if}">
+						<div class="accordion-plus">&nbsp;</div>
+						{block name="admin_paypal3_admin_paypal_configuration_title"}
+							<div class="accordion-head">{$txt.cfg_general}</div>
+						{/block}
+						<div class="accordion-body">
+							{block name="admin_paypal3_admin_paypal_configuration_general_form"}
+								<form action="./admin.php?do={$content.do}/SaveConfiguration" method="POST" class="">
+									<input type="hidden" name="pageToken" value="{$content.page_token}">
+									<fieldset class="">
+										{block name="admin_paypal3_admin_paypal_configuration_general_form_client_id_live"}
+											<div class="control-group">
+												<label for="restapi-credentials-live-client_id">{$txt.cfg_client_id_live}</label>
+												<input type="text" name="restapi-credentials-live-client_id" id="restapi-credentials-live-client_id"
+													value="{$content.clientid_live}">
+												<div class="ibubble" title="{$txt.tooltip_credentials}">&nbsp;</div>
+											</div>
+										{/block}
+										{block name="admin_paypal3_admin_paypal_configuration_general_form_secret_live"}
+											<div class="control-group">
+												<label for="restapi-credentials-live-secret">{$txt.cfg_secret_live}</label>
+												<input type="text" name="restapi-credentials-live-secret" id="restapi-credentials-live-secret"
+													value="{$content.secret_live}">
+												<div class="ibubble" title="{$txt.tooltip_credentials}">&nbsp;</div>
+											</div>
+										{/block}
+										{block name="admin_paypal3_admin_paypal_configuration_general_form_use_paypal_plus"}
+											<div class="control-group">
+												<label>{$txt.cfg_use_paypal_plus}</label>
+												<input type="hidden" value="0" name="use_paypal_plus">
+												<input type="checkbox" value="1" name="use_paypal_plus" id="use_paypal_plus" class="checkmark" {if $content.use_paypal_plus == '1'}checked="checked"{/if}>
+												<label for="use_paypal_plus"><span class="on">{$txt.do_use_paypal_plus}</span><span class="off">{$txt.do_not_use_paypal_plus}</span></label>
+												<div class="ibubble" title="{$txt.tooltip_paypal_plus}">&nbsp;</div>
+											</div>
+										{/block}
+										{block name="admin_paypal3_admin_paypal_configuration_general_form_submit"}
+											<div class="right_btn">
+												<input class="btn" type="submit" value="{$txt.cfg_save}">
+											</div>
+										{/block}
+									</fieldset>
+								</form>
+							{/block}
+						</div>
+					</div>
+				{/block}
+
+
+				{block name="admin_paypal3_admin_paypal_configuration_expert"}
+					<div class="accordion-block {if $content.edit_profile}accordion-block-open{/if}">
+						<div class="accordion-plus">&nbsp;</div>
+						{block name="admin_paypal3_admin_paypal_configuration_expert_title"}
+							<div class="accordion-head">{$txt.cfg_expert}</div>
+						{/block}
+						<div class="accordion-body">
+							{block name="admin_paypal3_admin_paypal_configuration_expert_form"}
+								<form action="./admin.php?do={$content.do}/SaveConfiguration" method="POST" class="grid">
+									<input type="hidden" name="pageToken" value="{$content.page_token}">
+									{block name="admin_paypal3_admin_paypal_configuration_expert_form_orders_statuses"}
+										<div class="accordion-block">
+											<div class="accordion-plus">&nbsp;</div>
+											{block name="admin_paypal3_admin_paypal_configuration_expert_form_orders_statuses_title"}
+												<div class="accordion-head">{$txt.cfg_orders_statuses}</div>
+											{/block}
+											<div class="accordion-body">
+												<fieldset class="">
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_orders_statuses_orderstatus_completed"}
+														<div class="control-group">
+															<label for="orderstatus_completed">{$txt.cfg_orderstatus_completed}</label>
+															<select name="orderstatus_completed" id="orderstatus_completed">
+																{foreach from=$content.orders_status_list item=orders_status}
+																	<option value="{$orders_status.id}" {if $orders_status.id == $content.orderstatus_completed}selected="selected"{/if}>
+																		{$orders_status.text}
+																	</option>
+																{/foreach}
+															</select>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_orders_statuses_orderstatus_pending"}
+														<div class="control-group">
+															<label for="orderstatus_pending">{$txt.cfg_orderstatus_pending}</label>
+															<select name="orderstatus_pending" id="orderstatus_pending">
+																{foreach from=$content.orders_status_list item=orders_status}
+																	<option value="{$orders_status.id}" {if $orders_status.id == $content.orderstatus_pending}selected="selected"{/if}>
+																		{$orders_status.text}
+																	</option>
+																{/foreach}
+															</select>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_orders_statuses_orderstatus_error"}
+														<div class="control-group">
+															<label for="orderstatus_error">{$txt.cfg_orderstatus_error}</label>
+															<select name="orderstatus_error" id="orderstatus_error">
+																{foreach from=$content.orders_status_list item=orders_status}
+																	<option value="{$orders_status.id}" {if $orders_status.id == $content.orderstatus_error}selected="selected"{/if}>
+																		{$orders_status.text}
+																	</option>
+																{/foreach}
+															</select>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_orders_statuses_submit"}
+														<div class="right_btn">
+															<input class="btn" type="submit" value="{$txt.cfg_save}">
+													</div>
+												{/block}
+											</fieldset>
+										</div>
+									</div>
+								{/block}
+
+									{block name="admin_paypal3_admin_paypal_configuration_expert_form_advanced_options"}
+										<div class="accordion-block">
+											<div class="accordion-plus">&nbsp;</div>
+											{block name="admin_paypal3_admin_paypal_configuration_expert_form_advanced_options_title"}
+												<div class="accordion-head">{$txt.cfg_advanced_options}</div>
+											{/block}
+											<div class="accordion-body">
+												<fieldset class="" id="advanced_options">
+
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_advanced_options_use_ecs_title"}
+														<p><strong>{$txt.cfg_use_ecs_heading}</strong></p>
+													{/block}
+
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_advanced_options_use_ecs_products"}
+														<div class="control-group">
+															<label>{$txt.cfg_use_ecs_products}</label>
+															<input type="hidden" name="use_ecs_products" value="0">
+															<input type="checkbox" name="use_ecs_products" id="use_ecs_products" class="checkmark" {if $content.use_ecs_products == '1'}checked="checked"{/if}>
+															<label for="use_ecs_products"><span class="on">{$txt.cfg_on}</span><span class="off">{$txt.cfg_off}</span></label>
+															{if !$content.ecs_allowed}<span class="ecs_not_allowed_note">{$txt.ecs_not_allowed}</span>{/if}
+															<div class="ibubble" title="{$txt.tooltip_ecs_button}">&nbsp;</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_advanced_options_use_ecs_cart"}
+														<div class="control-group">
+															<label>{$txt.cfg_use_ecs_cart}</label>
+															<input type="hidden" name="use_ecs_cart" value="0">
+															<input type="checkbox" value="1" name="use_ecs_cart" id="use_ecs_cart" class="checkmark" {if $content.use_ecs_cart == '1'}checked="checked"{/if}>
+															<label for="use_ecs_cart"><span class="on">{$txt.cfg_on}</span><span class="off">{$txt.cfg_off}</span></label>
+                                                            {if !$content.ecs_allowed}<span class="ecs_not_allowed_note">{$txt.ecs_not_allowed}</span>{/if}
+															<div class="ibubble" title="{$txt.tooltip_ecs_button}">&nbsp;</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_advanced_options_use_ecs_button_style"}
+														<div class="control-group">
+															<label for="ecs_button_style">{$txt.cfg_ecs_button_style}</label>
+															<select name="ecs_button_style">
+																<option value="Silver" {if $content.ecs_button_style == 'Silver'}selected="selected"{/if}>{$txt.ecs_button_style_silver}</option>
+																<option value="Sunrise" {if $content.ecs_button_style == 'Sunrise'}selected="selected"{/if}>{$txt.ecs_button_style_sunrise}</option>
+															</select>
+															<div class="ibubble" title="{$txt.tooltip_ecs_button_style}">&nbsp;</div>
+														</div>
+													{/block}
+
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_advanced_options_installments_submit"}
+														<div class="right_btn">
+															<input class="btn" type="submit" value="{$txt.cfg_save}">
+														</div>
+													{/block}
+												</fieldset>
+											</div>
+										</div>
+									{/block}
+
+									{block name="admin_paypal3_admin_paypal_configuration_expert_form_miscellaneous"}
+										<div class="accordion-block">
+											<div class="accordion-plus">&nbsp;</div>
+											{block name="admin_paypal3_admin_paypal_configuration_expert_form_miscellaneous_title"}
+												<div class="accordion-head">{$txt.cfg_miscellaneous}</div>
+											{/block}
+											<div class="accordion-body">
+												<fieldset class="" id="miscellaneous">
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_miscellaneous_intent_for_ecmecs"}
+														<div class="control-group">
+															<label for="intent">{$txt.cfg_intent_for_ecmecs}</label>
+															<select name="intent">
+																<option value="sale" {if $content.intent == 'sale'}selected="selected"{/if}>{$txt.intent_sale}</option>
+																<option value="authorize" {if $content.intent == 'authorize'}selected="selected"{/if}>{$txt.intent_authorize}</option>
+																<option value="order" {if $content.intent == 'order'}selected="selected"{/if}>{$txt.intent_order}</option>
+															</select>
+															<div class="ibubble" title="{$txt.tooltip_intent}">&nbsp;</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_miscellaneous_allow_ecs_login"}
+														<div class="control-group">
+															<label>{$txt.cfg_allow_ecs_login}</label>
+															<input type="hidden" name="allow_ecs_login" value="0">
+															<input type="checkbox" name="allow_ecs_login" id="allow_ecs_login" class="checkmark" {if $content.allow_ecs_login == '1'}checked="checked"{/if}>
+															<label for="allow_ecs_login"><span class="on">{$txt.do_allow_ecs_login}</span><span class="off">{$txt.do_not_allow_ecs_login}</span></label>
+															<div class="ibubble" title="{$txt.tooltip_ecs_login}">&nbsp;</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_miscellaneous_require_instant_funding"}
+														<div class="control-group">
+															<label>{$txt.cfg_require_instant_funding}</label>
+															<select name="require_instant_funding">
+																<option value="nonphysical"{if $content.require_instant_funding === 'nonphysical'} selected{/if}>
+																	{$txt.require_instant_funding_nonphysical}
+																</option>
+																<option value="b2b"{if $content.require_instant_funding === 'b2b'} selected{/if}>
+																	{$txt.require_instant_funding_b2b}
+																</option>
+																<option value="always"{if $content.require_instant_funding === 'always'} selected{/if}>
+																	{$txt.require_instant_funding_always}
+																</option>
+															</select>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_miscellaneous_selfpickup"}
+														<div class="control-group">
+															<label for="allow_selfpickup">{$txt.cfg_allow_selfpickup}</label>
+															<select name="allow_selfpickup" id="allow_selfpickup">
+																<option value="0" {if $content.allow_selfpickup == '0'}selected="selected"{/if}>{$txt.allow_selfpickup_off}</option>
+																<option value="1" {if $content.allow_selfpickup == '1'}selected="selected"{/if}>{$txt.allow_selfpickup_on}</option>
+															</select>
+															<div class="ibubble" title="{$txt.tooltip_allow_selfpickup}">&nbsp;</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_miscellaneous_save"}
+														<div class="right_btn">
+															<input class="btn" type="submit" value="{$txt.cfg_save}">
+														</div>
+													{/block}
+												</fieldset>
+											</div>
+										</div>
+									{/block}
+
+									{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools"}
+										<div class="accordion-block">
+											<div class="accordion-plus">&nbsp;</div>
+											{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools_title"}
+												<div class="accordion-head">{$txt.cfg_devtools}</div>
+											{/block}
+											<div class="accordion-body">
+												<fieldset class="" id="sandbox">
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools_mode"}
+														<div class="control-group">
+															<label>{$txt.cfg_mode}</label>
+															<input type="hidden" name="mode" value="live">
+															<input type="checkbox" name="mode" id="mode" class="checkmark" value="sandbox" {if $content.mode == 'sandbox'}checked="checked"{/if}>
+															<label for="mode"><span class="on">{$txt.cfg_mode_sandbox}</span><span class="off">{$txt.cfg_mode_live}</span></label>
+															<div class="ibubble" title="{$txt.tooltip_sandbox}">&nbsp;</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools_note"}
+														<div class="control-group">
+															<label>{$txt.note}</label>
+															<div class="control-group-warning">{$txt.cfg_note_sandbox}</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools_client_id_sandbox"}
+														<div class="control-group">
+															<label for="restapi-credentials-sandbox-client_id">{$txt.cfg_client_id_sandbox}</label>
+															<input type="text" name="restapi-credentials-sandbox-client_id" id="restapi-credentials-sandbox-client_id"
+																value="{$content.clientid_sandbox}">
+															<div class="ibubble" title="{$txt.tooltip_sandbox}">&nbsp;</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools_secret_sandbox"}
+														<div class="control-group">
+															<label for="restapi-credentials-sandbox-secret">{$txt.cfg_secret_sandbox}</label>
+															<input type="text" name="restapi-credentials-sandbox-secret" id="restapi-credentials-sandbox-secret"
+																value="{$content.secret_sandbox}">
+															<div class="ibubble" title="{$txt.tooltip_sandbox}">&nbsp;</div>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools_debug_logging"}
+														<div class="control-group">
+															<label>{$txt.cfg_debug_logging}</label>
+															<input type="hidden" name="debug_logging" value="0">
+															<input type="checkbox" name="debug_logging" id="debug_logging" class="checkmark" value="1" {if $content.debug_logging == '1'}checked="checked"{/if}>
+															<label for="debug_logging"><span class="on">{$txt.debug_logging_on}</span><span class="off">{$txt.debug_logging_off}</span></label>
+														</div>
+													{/block}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools_submit"}
+														<div class="right_btn">
+															<input class="btn" type="submit" value="{$txt.cfg_save}">
+														</div>
+													{/block}
+
+													{block name="admin_paypal3_admin_paypal_configuration_expert_form_devtools_connection_check"}
+														<div id="connection_check" class="">
+															<button id="start_connectcheck">{$txt.check_connection}</button>
+															<table id="connectcheck" class="grid">
+																<tr>
+																	<th class="span6">{$txt.connect_check_url}</th>
+																	<th class="span6">{$txt.connect_check_result}</th>
+																</tr>
+																{foreach from=$content.connect_check_urls item=url}
+																<tr class="check">
+																	<td class="span6 host">{$url}</td>
+																	<td class="span6 result">{$txt.checking_connectivity}</td>
+																</tr>
+																{/foreach}
+															</table>
+														</div>
+													{/block}
+												</fieldset>
+
+											</div>
+										</div>
+									{/block}
+								</form>
+							{/block}
+
+							{if $content.login_valid == true}
+								{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration"}
+									<div class="accordion-block">
+										<div class="accordion-plus">&nbsp;</div>
+										{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_title"}
+											<div class="accordion-head">{$txt.webhook_configuration}</div>
+										{/block}
+										{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body"}
+											<div class="accordion-body">
+												{if !$content.ssl_enabled}
+													{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_ssl_enabled"}
+														<p>{$txt.note_ssl_disabled}</p>
+														<p>{$txt.note_check_url_accessibility}</p>
+														<pre><a href="{$content.webhook_test_url}" target="_blank">{$content.webhook_test_url}</a></pre>
+													{/block}
+												{/if}
+												{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_explanation"}
+													<p class="webhooks_note"><strong>{$txt.note_webhooks_explanation}</strong></p>
+												{/block}
+												{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_table"}
+													<table>
+														<tbody>
+															{if $content.webhook_id}
+																<tr>
+																	<td>{$txt.active_webhook_id}</td>
+																	<td>{$content.webhook_id}</td>
+																</tr>
+																<tr>
+																	<td>{$txt.webhook_status}</td>
+																	<td>{if $content.webhook_id_is_valid}{$txt.webhook_status_ok}{else}{$txt.webhook_status_invalid}{/if}</td>
+																</tr>
+															{else}
+																<tr>
+																	<td>{$txt.webhook_status}</td>
+																	<td>{$txt.webhook_not_registered}</td>
+																</tr>
+															{/if}
+														</tbody>
+													</table>
+												{/block}
+												{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_submit"}
+													<form action="{$content.form_get_target}?do={$content.do}/RenewWebhook" method="POST" class="">
+														<div class="ibubble ibubble-right" title="{$txt.tooltip_renew_webhook}">&nbsp;</div>
+														<input type="hidden" name="pageToken" value="{$content.page_token}">
+														<input type="submit" value="{$txt.renew_webhook}">
+													</form>
+												{/block}
+
+												{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_active_title"}
+													<p><strong>{$txt.webhooks_active}</strong></p>
+												{/block}
+												{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_active_table"}
+													<table>
+														{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_active_table_thead"}
+															<thead>
+																<tr>
+																	{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_active_table_thead_ths"}
+																		<th>{$txt.webhook_id}</th><th>{$txt.webhook_url}</th><th>{$txt.webhook_events}</th>
+																	{/block}
+																</tr>
+															</thead>
+														{/block}
+														{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_active_table_tbody"}
+															<tbody>
+																{foreach from=$content.webhooks->webhooks item=hook}
+																	{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_active_table_row"}
+																	<tr>
+																		{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_active_table_row_tds"}
+																			<td>
+																				{$hook->id}
+																				<form action="{$content.form_get_target}?do={$content.do}/DeleteWebhook" method="POST" class="">
+																					<input type="hidden" name="pageToken" value="{$content.page_token}">
+																					<input type="hidden" name="webhook_id" value="{$hook->id}">
+																					<input type="submit" value="{$txt.delete_webhook}">
+																				</form>
+																			</td>
+																			<td>{$hook->url}</td>
+																			<td>
+																				{foreach from=$hook->event_types item=etype}
+																					{$etype->name}
+																				{/foreach}
+																			</td>
+																		{/block}
+																	</tr>
+																	{/block}
+																{/foreach}
+															</tbody>
+														{/block}
+													</table>
+												{/block}
+
+												{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_status_update_title"}
+													<p>{$txt.note_status_update}</p>
+												{/block}
+												{block name="admin_paypal3_admin_paypal_configuration_expert_webhook_configuration_body_status_update_pre"}
+													<pre><a href="{$content.status_update_url}" target="_blank">{$content.status_update_url}</a></pre>
+												{/block}
+											</div>
+										{/block}
+									</div>
+								{/block}
+
+								<!-- PEX START -->
+								{if $content.pex_block}{$content.pex_block nofilter}{/if}
+								<!-- PEX END -->
+
+							{/if}
+
+						</div>
+					</div> {* accordion-block cfg_expert *}
+				{/block}
+
+				{if $content.debug_output}
+				<!--
+				{$content.debug_output}
+				-->
+				{/if}
+			</div>
+		{/block}
+
+		{block name="admin_paypal3_admin_paypal_configuration_scripts"}
+			{literal}
+			<script>
+				window.onload = function() {
+					var select_ppplus = function(e) {
+						$('.plus-only').toggle($(this).val() == 1);
+					};
+
+					var click_sectionheader = function(e)
+					{
+						$('fieldset.fold').not($(this).next('fieldset.fold')).hide('fast');
+						$('div.fold').not($(this).next('div.fold')).hide('fast');
+						$(this).next('fieldset.fold, div.fold').show('fast');
+					}
+
+					var connectcheck_handler = function(e) {
+						e.preventDefault();
+						$(this).hide();
+						$('#connectcheck').show();
+						$('#connectcheck tr.check').each(function() {
+							var url = $('td.host', this).text();
+							var post_url = $('td.post_host', this).text();
+							if(url) {
+								$('td.result', this).load(connect_check_url + url);
+							}
+							if(post_url) {
+								$('td.result', this).load(connect_check_url + url);
+							}
+						});
+					};
+
+					var savebutton_handler = function(e)
+					{
+						$('#pp3cfg_shade').show();
+						return true;
+					}
+
+					var accordion_handler = function(e)
+					{
+						$(this).parent().siblings('div.accordion-block').removeClass('accordion-block-open');
+						if($(this).parent().parent().closest('div.accordion-block').length > 0)
+						{
+							$('div.accordion-block', $(this).parent().parent().closest('div.accordion-block')).removeClass('accordion-block-open');
+						}
+						$(this).parent().addClass('accordion-block-open');
+					}
+
+					$('div.ibubble').prepend($('<div class="i">&nbsp;</div>'));
+
+					{/literal}
+					var connect_check_url = '{$content.connect_check_url nofilter}';
+					{literal}
+
+					if($('body').on)
+					{
+						$('select[name="use_paypal_plus"]').on('change', select_ppplus);
+						$('h2.section-header').on('click', click_sectionheader);
+						$('#start_connectcheck').on('click', connectcheck_handler);
+						$('input.btn[type="submit"]').on('click', savebutton_handler);
+						$('div.accordion-head, div.accordion-plus').on('click', accordion_handler);
+					}
+					else
+					{
+						$('body').delegate('select[name="use_paypal_plus"]', 'change', select_ppplus);
+						$('body').delegate('h2.section-header', 'click', click_sectionheader);
+						$('body').delegate('#start_connectcheck', 'click', connectcheck_handler);
+						$('body').delegate('input.btn[type="submit"]', 'click', savebutton_handler);
+						$('body').delegate('div.accordion-head, div.accordion-plus', 'click', accordion_handler);
+					}
+
+					$('select[name="use_paypal_plus"]').trigger('change');
+
+					{/literal}
+					var smsg_text = '<img src="html/assets/images/legacy/ajax-loader.gif" alt="{$txt.saving_please_wait}">';
+					{literal}
+					var pp3cfg_smsg_style = 'position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto; background: #FFF none repeat scroll 0% 0%; width: 31px; height: 31px; font: 2em sans-serif; text-align: center; border-radius: .5em; border: 2px solid rgba(0,0,0,0.5); box-shadow: 0 0 35px #fff; padding: 5px;'
+					var pp3cfg_shade_style = 'display: none; position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 9999; background: rgba(0, 0, 0, 0.7) none repeat scroll 0% 0%;'
+					var shade = $('<div id="pp3cfg_shade" style="'+pp3cfg_shade_style+'"><div id="pp3cfg_smsg" style="'+pp3cfg_smsg_style+'">'+smsg_text+'</div></div>');
+					$('body').prepend(shade);
+				};
+			</script>
+			{/literal}
+		{/block}
+	{/block}
+{/block}

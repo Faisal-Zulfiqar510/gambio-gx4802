@@ -1,0 +1,90 @@
+{*
+	Google Analytics add to cart hook
+
+	This template has to be included in the desired page
+	to perform the Google Analytics hit while
+	adding a product to the cart
+*}
+
+{block name="google_analytics_partials_add_to_cart_hook"}
+    {if cookie_consent_panel_is_installed()}
+		<script
+			data-managed="as-oil"
+			data-type="text/javascript"
+			data-purposes="4"
+			type="as-oil"
+		>
+	{else}
+		<script>
+	{/if}
+		(function() {
+			document.addEventListener('JSENGINE_INIT_FINISHED', function() {
+				const endpointUrl = `${ jse.core.config.get('appUrl') }/shop.php?do=GoogleAnalyticsShop/addToCart`
+				const hooks = {
+					add: jse.libs.hooks.add,
+					key: jse.libs.hooks.keys.shop.cart.add,
+					callback: function(data) {
+						return new Promise(handlePromise.bind(undefined, data));
+					},
+				};
+
+				function handlePromise(data, resolve) {
+					const parameters = {
+						quantity: data.products_qty,
+						id: data.products_id,
+						attributes: [],
+						properties: [],
+					};
+
+					function onSuccess(response) {
+						if (!response.enabled) {
+							resolve();
+							return;
+						}
+
+						gtag('event', 'add_to_cart', {
+							"items": [JSON.parse(response.item)]
+						});
+
+						resolve();
+					}
+
+					function onFail() {
+						resolve();
+					}
+
+					if (data.properties_values_ids) {
+						Object
+							.entries(data.properties_values_ids)
+							.forEach(function(entry) {
+								parameters.properties.push({
+									optionId: entry[0],
+									valueId: entry[1],
+								});
+							});
+					}
+
+					if (data.id) {
+						Object
+							.entries(data.id)
+							.forEach(function(entry) {
+								parameters.attributes.push({
+									optionId: entry[0],
+									valueId: entry[1],
+								});
+							});
+					}
+
+					jse.libs.xhr.post({
+						url: endpointUrl,
+						data: parameters,
+					})
+						.then(onSuccess)
+						.fail(onFail)
+				}
+
+				hooks.add(hooks.key, hooks.callback);
+			})
+		})();
+	</script>
+{/block}

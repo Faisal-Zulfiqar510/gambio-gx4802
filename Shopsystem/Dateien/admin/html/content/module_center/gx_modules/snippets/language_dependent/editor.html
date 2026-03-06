@@ -1,0 +1,51 @@
+<style>
+    .quickselect-headline-wrapper {
+        float: left !important;
+    }
+</style>
+<div class="form-group visibility_switcher">
+	<div>
+        <label style="float: left" class="col-sm-11 control-label" for="{$field}">{$config.label}</label>
+        <span class="col-sm-1 tooltip-icon" style="margin: 0px;" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+    </div>
+
+    <div class="tab-content">
+        <ul class="lang-select" style="float: right" role="tablist">
+            {foreach item=language name=tabs from=$adminLanguages}
+                {assign var=languageCode value=$language.code|lower}
+                <li role="presentation" {if $smarty.foreach.tabs.first} class="active" {/if}>
+                    <a href="#tab-content-{$field}-{$languageCode}" data-language="{$languageCode}"
+                       aria-controls="home" role="tab" data-toggle="tab">
+                        <span class="flag-icon flag-icon-{$languageCode}"></span>
+                    </a>
+                </li>
+            {/foreach}
+        </ul>
+        {foreach item=language name=panel from=$adminLanguages}
+            {assign var=languageCode value=$language.code|lower}
+            <div role="tabpanel" class="tab-pane {if $smarty.foreach.panel.first}active in{/if}"
+                 id="tab-content-{$field}-{$languageCode}" data-language="{$languageCode}">
+                <div>
+                    <textarea style="max-width: inherit" rows="10" id="{$field}[{$languageCode}]" name="{$field}[{$languageCode}]"
+                        {if $config.readonly == true}readonly="readonly"{/if}
+                        {if $content.USE_WYSIWYG === 'true'}
+                            class="form-control wysiwyg"
+                            data-editor-identifier="{$field}[{$languageCode}]"
+                            data-editor-type="{$config.editor_type}"
+                        {else}
+                            class="form-control"
+                        {/if}
+                    >
+                        {if isset($config.default_value->{$languageCode})}
+                            {$config.default_value->{$languageCode}}
+                        {elseif isset($config.default_value.{$languageCode})}
+                            {$config.default_value.{$languageCode}}
+                        {elseif $config.default_value}
+                            {$config.default_value}
+                        {/if}
+                    </textarea>
+                </div>
+            </div>
+        {/foreach}
+    </div>
+</div>

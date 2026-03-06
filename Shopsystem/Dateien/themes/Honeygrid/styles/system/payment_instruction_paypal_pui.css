@@ -1,0 +1,44 @@
+div.payment_instruction_paypal_pui {
+    width: 80%;
+    background: #fff;
+    border: 1px solid #888;
+    margin: auto;
+    padding: 2em;
+}
+
+div.payment_instruction_paypal_pui div.pui_arrow {
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+div.payment_instruction_paypal_pui div.pui_arrow .value {
+    font-size: 1.5em;
+}
+
+div.payment_instruction_paypal_pui .payment_note {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    margin: 2em 0;
+}
+
+div.payment_instruction_paypal_pui .additional_note {
+    margin-top: 2em;
+}
+
+@media (min-width: 768px) {
+    div.payment_instruction_paypal_pui div.bottomborder > div {
+        border-bottom: 1px solid #000000;
+    }
+
+    div.payment_instruction_paypal_pui div.topborder > div {
+        border-top: 1px solid #000000;
+    }
+}
+
+@media (max-width: 768px) {
+    div.payment_instruction_paypal_pui div.row {
+        margin-bottom: 1ex;
+    }
+}

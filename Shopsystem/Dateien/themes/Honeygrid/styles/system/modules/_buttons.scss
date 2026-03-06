@@ -1,0 +1,93 @@
+/* Buttons
+   ========================================================================== */
+
+.btn {
+	@include border-radius($gx-btn-border-radius);
+	text-transform: $gx-btn-text-transform;
+
+	// primary
+
+	&.btn-primary {
+		@include button-variant($gx-btn-primary-color, $gx-btn-primary-bg-color, $gx-btn-primary-border);
+		@include background($gx-btn-primary-bg-color,
+				$gx-btn-primary-bg-image-url,
+				$gx-btn-primary-bg-image-position,
+				$gx-btn-primary-bg-image-repeat,
+				$gx-btn-primary-bg-image-size,
+				$gx-btn-primary-bg-image-attachment,
+				$gx-btn-primary-bg-image-enabled,   
+				$gx-btn-primary-bg-gradient-enabled,
+				$gx-btn-primary-bg-gradient-color1, 
+				$gx-btn-primary-bg-gradient-color2, 
+				$gx-btn-primary-bg-gradient-type,   
+				$gx-btn-primary-bg-gradient-angle); 
+	}
+
+	// default
+
+	&.btn-default {
+		@include button-variant($gx-btn-default-color, $gx-btn-default-bg-color, $gx-btn-default-border);
+		@include background($gx-btn-default-bg-color,
+				$gx-btn-default-bg-image-url,
+				$gx-btn-default-bg-image-position,
+				$gx-btn-default-bg-image-repeat,
+				$gx-btn-default-bg-image-size,
+				$gx-btn-default-bg-image-attachment,
+				$gx-btn-default-bg-image-enabled,   
+				$gx-btn-default-bg-gradient-enabled,
+				$gx-btn-default-bg-gradient-color1, 
+				$gx-btn-default-bg-gradient-color2, 
+				$gx-btn-default-bg-gradient-type,   
+				$gx-btn-default-bg-gradient-angle); 
+	}
+
+	// buy / call to action
+
+	&.btn-buy {
+		@include button-variant($gx-btn-calltoaction-color, $gx-btn-calltoaction-bg-color, $gx-btn-calltoaction-border);
+		@include background($gx-btn-calltoaction-bg-color,
+				$gx-btn-calltoaction-bg-image-url,
+				$gx-btn-calltoaction-bg-image-position,
+				$gx-btn-calltoaction-bg-image-repeat,
+				$gx-btn-calltoaction-bg-image-size,
+				$gx-btn-calltoaction-bg-image-attachment,
+				$gx-btn-calltoaction-bg-image-enabled,   
+				$gx-btn-calltoaction-bg-gradient-enabled,
+				$gx-btn-calltoaction-bg-gradient-color1, 
+				$gx-btn-calltoaction-bg-gradient-color2, 
+				$gx-btn-calltoaction-bg-gradient-type,   
+				$gx-btn-calltoaction-bg-gradient-angle); 
+
+		&:focus {
+			outline: none;
+		}
+
+		&.inactive {
+			opacity: 0.5;
+		}
+	}
+
+	&.btn-price-on-request {
+		@include button-variant($gx-btn-price-on-request-color, $gx-btn-price-on-request-bg, $gx-btn-price-on-request-border);
+		@include background($gx-btn-price-on-request-bg,
+				$gx-btn-price-on-request-bg-image-url,
+				$gx-btn-price-on-request-bg-image-position,
+				$gx-btn-price-on-request-bg-image-repeat,
+				$gx-btn-price-on-request-bg-image-size,
+				$gx-btn-price-on-request-bg-image-attachment,
+				$gx-btn-price-on-request-bg-image-enabled,   
+				$gx-btn-price-on-request-bg-gradient-enabled,
+				$gx-btn-price-on-request-bg-gradient-color1, 
+				$gx-btn-price-on-request-bg-gradient-color2, 
+				$gx-btn-price-on-request-bg-gradient-type,   
+				$gx-btn-price-on-request-bg-gradient-angle); 
+
+		&:focus {
+			outline: none;
+		}
+
+		&.inactive {
+			opacity: 0.5;
+		}
+	}
+}

@@ -1,0 +1,42 @@
+DROP TABLE IF EXISTS `mf_config`;
+CREATE TABLE `mf_config` (
+	`config_key` varchar(255) NOT NULL DEFAULT '',
+	`config_value` varchar(255) NOT NULL DEFAULT '',
+	KEY `config_name` (`config_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `mf_config` (`config_key`, `config_value`) VALUES
+	('person.active', '1'),
+	('company.active', '1'),
+	('sandbox', '1'),
+	('applicationLicence', 'ff24b9634bb8e0b24a15a7cbbddc5fe6'),
+	('clientLicence', ''),
+	('clientId', ''),
+	('recheckSuspect', '30'),
+	('buergel.score', '2.3'),
+	('paymentModules', 'invoice,banktransfer'),
+	('orderTotal', '100'),
+	('allowPaymentWithNoResult', '0'),
+	('daysUntilClaimStart', '20'),
+	('orderStatusIdMarked', '1'),
+	('displayClaimsCount', '5'),
+	('overdueFees', '5.00'),
+	('lastStatusUpdate', '1207030153'),
+	('statusUpdateInterval', '3'),
+	('daysFromLastReminder', '10'),
+	('defaultType', '1'),
+	('requestType', 'always'),
+	('requestOnModules', 'invoice,banktransfer'),
+	('paymentErrorText', 'Leider ist die ausgewählte Zahlart zur Zeit nicht verfügbar. Bitte wählen Sie eine andere Zahlart aus.'),
+	('minAmountForRequest', '0'),
+	('maxAmountForRequest', '0'),
+	('allowPaymentUnderMinAmount', '0'),
+	('allowPaymentOverMaxAmount', '0'),
+	('defaultPersonScore', 'MF_Score_BuergelClient'),
+	('defaultCompanyScore', 'MF_Score_AccumioClient'),
+	('accumio.score', '2'),
+	('accumio.minSimilarity', '80'),
+	('version', '0.3.2'),
+	('applicationId', '317'),
+	('registrationKey', ''),
+	('serviceLicenceKey', '9c889dd2408ca44b1cd9e12ba40333fa');

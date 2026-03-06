@@ -1,0 +1,75 @@
+{load_language_text section="shop_offline"}
+{load_language_text section="notifications" name="notification"}
+
+{block name="admin_shop_offile_shop_topbar_edit_layer"}
+	<form class="topbar_content_layer" data-gx-_extension="language_switcher" {if $smarty.const.USE_WYSIWYG == 'true'}
+			data-gx-_widget="editor" data-editor-selector=".wysiwyg" data-editor-init-event-type="editor:initialize"{/if}>
+		<div class="formfields">
+			{block name="admin_shop_offile_shop_topbar_edit_layer_colorpicker"}
+				<div class="label_wrapper row{if $content_data.hide_topbar_mode} rowLeft{/if}" data-gx-_widget="colorpicker">
+					<div class="span_1_3">
+						{block name="admin_shop_offile_shop_topbar_edit_layer_colorpicker_label"}
+							<label for="colorpicker">{$txt.shop_offline_color_picker_label}</label>
+						{/block}
+					</div>
+					<div class="span_2_3">
+						{block name="admin_shop_offile_shop_topbar_edit_layer_colorpicker_input"}
+							<div class="color-preview picker"></div>
+							<input id="colorpicker" type="button" name="colorpicker" value="{$notification.colorpicker}" class="picker"/>
+							<input type="hidden" name="{$content_data.data_src}_color[{$content_data.data_id}]" value="" />
+						{/block}
+					</div>
+					<div style="clear: both;"><!-- --></div>
+				</div>
+			{/block}
+	
+			{* Only show topbar mode on EyeCandy based templates *}
+			{if $content_data.hide_topbar_mode !== true}
+				{block name="admin_shop_offile_shop_topbar_edit_layer_display_mode"}
+					<div class="label_wrapper row rowLeft">
+						<div class="span_1_3">
+							{block name="admin_shop_offile_shop_topbar_edit_layer_display_mode_label"}
+								<label for="topbar_mode[{$content_data.data_id}]">{$notification.display_mode}:</label>
+							{/block}
+						</div>
+						<div class="span_2_3">
+							{block name="admin_shop_offile_shop_topbar_edit_layer_display_mode_input"}
+								<select name="topbar_mode[{$content_data.data_id}]">
+									<option value="hideable">{$notification.hideable}</option>
+									<option value="permanent">{$notification.permanent}</option>
+								</select>
+							{/block}
+						</div>
+						<div style="clear: both;"><!-- --></div>
+					</div>
+				{/block}
+			{else}
+				<input type="hidden" name="topbar_mode[{$content_data.data_id}]" value="hideable" />
+			{/if}
+			
+			{block name="admin_shop_offile_shop_topbar_edit_layer_buttonbar"}
+				<div class="buttonbar rowRight">
+					{foreach item=language from=$content_data.languages_array name=languagesArrayIterator1}
+					<a href="#{$language.languages_id}" class="language_switcher_{$language.code}">
+						<img src="../lang/{$language.directory}/{$language.image}" alt="{$language.name}" title="{$language.name}" />
+					</a>
+					{/foreach}
+				</div>
+			{/block}
+			<div class="clear"><!--&nbsp;--></div>
+	
+			{foreach item=language from=$content_data.languages_array name=languagesArrayIterator1}
+				<input type="hidden" value="" class="language_switcher_content_{$language.code}" name="{$content_data.data_src}_msg[{$content_data.data_id}][{$language.languages_id}]" />
+			{/foreach}
+			{block name="admin_shop_offile_shop_topbar_edit_layer_label"}
+				<label for="{$content_data.data_src}_msg[{$content_data.data_id}]">{$notification.topbar_message_label}:</label>
+			{/block}
+			{block name="admin_shop_offile_shop_topbar_edit_layer_input"}
+				<textarea name="{$content_data.data_src}_msg[{$content_data.data_id}]"
+						  {if $smarty.const.USE_WYSIWYG == 'true'}class="wysiwyg"
+						  data-editor-identifier="{$content_data.layer_editor_identifier}"
+						  data-editor-type="{$content_data.layer_editor_type}"{/if}></textarea>
+			{/block}
+		</div>
+	</form>
+{/block}

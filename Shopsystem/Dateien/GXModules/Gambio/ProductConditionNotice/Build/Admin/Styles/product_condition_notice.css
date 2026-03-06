@@ -1,0 +1,34 @@
+/* --------------------------------------------------------------
+   product_condition_notice.css 2021-12-06
+   Gambio GmbH
+   http://www.gambio.de
+   Copyright (c) 2021 Gambio GmbH
+   Released under the GNU General Public License (Version 2)
+   [http://www.gnu.org/licenses/gpl-2.0.html]
+   --------------------------------------------------------------
+*/
+
+.product_condition_notice_configuration ul.lang-select {
+    list-style: none;
+    font-size:  16px;
+    padding:    0;
+    margin:     10px 0 0 0;
+    
+}
+
+.product_condition_notice_configuration ul.lang-select li {
+    display: inline;
+}
+
+.product_condition_notice_configuration ul.lang-select .active a {
+    background-color: #ECECEC;
+}
+
+.product_condition_notice_configuration ul.lang-select a {
+    padding:         5px 8px;
+    text-decoration: none;
+}
+
+.product_condition_notice_configuration .tooltip-icon {
+    margin-top: -9px;
+}

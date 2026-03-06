@@ -1,0 +1,140 @@
+{block name="admin_content_manager_partial_elements_form_data"}
+	<fieldset>
+		{block name="admin_content_manager_partial_elements_form_data_internal_name"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_elements_form_data_internal_name_label"}
+					<label for="internal-name" class="col-md-2">{$txt.INTERNAL_NAME}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_elements_form_data_internal_name_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_elements_form_data_internal_name_input"}
+							<input id="internal-name"
+								   class="form-control"
+								   type="text"
+								   name="content_manager[content_title][{$languageCode}]"
+								   value="{$content_manager.content_title[$languageCode]}"
+								   {if $content_manager.protected.$languageCode == '1' && !isset($smarty.get.expert)}readonly{/if}>
+
+						{/block}
+					</div>
+				{/block}
+                <div class="col-md-2" style="margin-top: 7px;">
+                    <span class="fieldRequired" style="color:red;">{$txt.TEXT_FIELD_REQUIRED}</span>
+                </div>
+			</div>
+		{/block}
+		{block name="admin_content_manager_partial_elements_form_data_heading"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_elements_form_data_heading_label"}
+					<label class="col-md-2">{$txt.TEXT_HEADING}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_elements_form_data_heading_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_elements_form_data_heading_input"}
+							<input class="form-control"
+							       type="text"
+							       name="content_manager[content_heading][{$languageCode}]"
+							       value="{$content_manager.content_heading.$languageCode}">
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		{block name="admin_content_manager_partial_elements_form_data_status"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_elements_form_data_status_label"}
+					<label class="col-md-2">{$txt.TEXT_STATUS}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_elements_form_data_status_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_elements_form_data_status_input"}
+							<div class="gx-container" data-gx-widget="checkbox">
+								<input type="checkbox"
+									   name="content_manager[content_status][{$languageCode}]"
+									   value="1" {if $content_manager.content_status.$languageCode == '1'}checked{/if}/>
+							</div>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+
+		{if $type == "elements-content"}
+			{block name="admin_content_manager_partial_elements_form_data_content"}
+				<div class="form-group">
+					{block name="admin_content_manager_partial_elements_form_data_content_label"}
+						<label for="content" class="col-md-12">{$txt.TEXT_CONTENT}:</label>
+					{/block}
+					{block name="admin_content_manager_partial_elements_form_data_content_container"}
+					<div class="col-md-12">
+						{block name="admin_content_manager_partial_elements_form_data_content_input"}
+							<textarea name="content_manager[content_text][{$languageCode}]"
+									  data-editor-type="{$content_manager.elements.ckeditor.type.$languageCode}"
+									  data-editor-identifier="{$content_manager.elements.ckeditor.identifier.$languageCode}"
+									  class="wysiwyg">{$content_manager.content_text[$languageCode]}</textarea>
+						{/block}
+					</div>
+					{/block}
+				</div>
+			{/block}
+			<input type="hidden" name="content_manager[content_type][{$languageCode}]" value="content">
+			<input type="hidden" name="content_type" value="content">
+		{else}
+			{if $content_manager.filemanager_available === false}
+				{block name="admin_content_manager_partial_elements_form_data_choose_file"}
+					<div class="form-group">
+						{block name="admin_content_manager_partial_elements_form_data_choose_file_label"}
+							<label class="col-md-2">{$txt.TEXT_CHOOSE_FILE}:</label>
+						{/block}
+						{block name="admin_content_manager_partial_elements_form_data_choose_file_container"}
+							<div class="col-md-4">
+								{block name="admin_content_manager_partial_elements_form_data_choose_file_input"}
+									<select class="form-control"
+											name="content_manager[content_file][{$languageCode}]">
+										{foreach $content_manager.filelist as $file => $text}
+											<option value="{$file}"  {if $content_manager.content_file.$languageCode == $file}selected{/if}>{$text}</option>
+										{/foreach}
+									</select>
+								{/block}
+							</div>
+						{/block}
+					</div>
+				{/block}
+			{/if}
+			{block name="admin_content_manager_partial_elements_form_data_upload_file"}
+				<div class="form-group">
+					{block name="admin_content_manager_partial_elements_form_data_upload_file_label"}
+						<label class="col-md-2">
+							{if $content_manager.filemanager_available === false}
+								{$txt.TEXT_UPLOAD_FILE}:
+							{else}
+								{$txt.TEXT_CHOOSE_FILE}:
+							{/if}
+						</label>
+					{/block}
+					{block name="admin_content_manager_partial_elements_form_data_upload_file_container"}
+						<div class="col-md-4 {if $content_manager.error =='upload_file'}error{/if}">
+							{block name="admin_content_manager_partial_elements_form_data_upload_file_input"}
+								<div data-gx-widget="filemanager"
+									 data-filemanager-name="content_manager[content_file][{$languageCode}]"
+									 data-filemanager-type="all"
+									 data-filemanager-content-directory="media/content"
+									 data-filemanager-previous-file="{$content_manager.content_file.$languageCode}"
+									 data-filemanager-page="content_manager_pages"
+									 data-filemanager-page-active="{$content_manager.filemanager_available}">
+								</div>
+							{/block}
+							{if $content_manager.error =='upload_file'}
+								{block name="admin_content_manager_partial_elements_form_data_upload_file_error"}
+									<span class="error-message">{$txt.ERROR_FILE}</span>
+								{/block}
+							{/if}
+						</div>
+					{/block}
+				</div>
+			{/block}
+			<input type="hidden" name="content_manager[content_type][{$languageCode}]" value="file">
+			<input type="hidden" name="content_type" value="file">
+		{/if}
+	</fieldset>
+{/block}

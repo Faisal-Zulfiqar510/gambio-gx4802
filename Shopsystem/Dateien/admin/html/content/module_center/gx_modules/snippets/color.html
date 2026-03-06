@@ -1,0 +1,10 @@
+<div class="form-group visibility_switcher">
+	<label class="col-sm-7 control-label" for="{$field}">{$config.label}</label>
+	<div class="col-sm-4">
+		<div data-gx-widget="colorpicker" data-colorpicker-color="{$config.default_value}">
+			<input class="color-preview picker form-control" id="{$field}" type="button" />
+			<input name="{$field}" value="{$config.default_value}" type="hidden" id="color-value" />
+		</div>
+	</div>
+	<span class="col-sm-1 tooltip-icon" style="margin: 0px;" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+</div>

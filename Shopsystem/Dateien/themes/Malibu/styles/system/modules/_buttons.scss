@@ -1,0 +1,212 @@
+/* Buttons
+   ========================================================================== */
+
+.btn {
+	@include border-radius($gx-btn-border-radius);
+	text-transform: $gx-btn-text-transform;
+
+	// primary
+
+	&.btn-primary {
+		@include button-variant($gx-btn-primary-color, $gx-btn-primary-bg-color, $gx-btn-primary-border);
+		@include background($gx-btn-primary-bg-color,
+				$gx-btn-primary-bg-image-url,
+				$gx-btn-primary-bg-image-position,
+				$gx-btn-primary-bg-image-repeat,
+				$gx-btn-primary-bg-image-size,
+				$gx-btn-primary-bg-image-attachment,
+				$gx-btn-primary-bg-image-enabled,   
+				$gx-btn-primary-bg-gradient-enabled,
+				$gx-btn-primary-bg-gradient-color1, 
+				$gx-btn-primary-bg-gradient-color2, 
+				$gx-btn-primary-bg-gradient-type,   
+				$gx-btn-primary-bg-gradient-angle); 
+	}
+
+	// secondary
+
+	&.btn-secondary {
+		@include button-variant(#fff, $gx-brand-secondary, $gx-brand-secondary);
+	}
+
+	// default
+
+	&.btn-default {
+		@include button-variant($gx-btn-default-color, $gx-btn-default-bg-color, $gx-btn-default-border);
+		@include background($gx-btn-default-bg-color,
+				$gx-btn-default-bg-image-url,
+				$gx-btn-default-bg-image-position,
+				$gx-btn-default-bg-image-repeat,
+				$gx-btn-default-bg-image-size,
+				$gx-btn-default-bg-image-attachment,
+				$gx-btn-default-bg-image-enabled,   
+				$gx-btn-default-bg-gradient-enabled,
+				$gx-btn-default-bg-gradient-color1, 
+				$gx-btn-default-bg-gradient-color2, 
+				$gx-btn-default-bg-gradient-type,   
+				$gx-btn-default-bg-gradient-angle); 
+	}
+
+	// buy / call to action
+
+	&.btn-buy {
+		@include button-variant($gx-btn-calltoaction-color, $gx-btn-calltoaction-bg-color, $gx-btn-calltoaction-border);
+		@include background($gx-btn-calltoaction-bg-color,
+				$gx-btn-calltoaction-bg-image-url,
+				$gx-btn-calltoaction-bg-image-position,
+				$gx-btn-calltoaction-bg-image-repeat,
+				$gx-btn-calltoaction-bg-image-size,
+				$gx-btn-calltoaction-bg-image-attachment,
+				$gx-btn-calltoaction-bg-image-enabled,   
+				$gx-btn-calltoaction-bg-gradient-enabled,
+				$gx-btn-calltoaction-bg-gradient-color1, 
+				$gx-btn-calltoaction-bg-gradient-color2, 
+				$gx-btn-calltoaction-bg-gradient-type,   
+				$gx-btn-calltoaction-bg-gradient-angle); 
+
+		&:focus {
+			outline: none;
+		}
+
+		&.inactive {
+			opacity: 0.5;
+		}
+	}
+
+	&.btn-price-on-request {
+		@include button-variant($gx-btn-price-on-request-color, $gx-btn-price-on-request-bg, $gx-btn-price-on-request-border);
+		@include background($gx-btn-price-on-request-bg,
+				$gx-btn-price-on-request-bg-image-url,
+				$gx-btn-price-on-request-bg-image-position,
+				$gx-btn-price-on-request-bg-image-repeat,
+				$gx-btn-price-on-request-bg-image-size,
+				$gx-btn-price-on-request-bg-image-attachment,
+				$gx-btn-price-on-request-bg-image-enabled,   
+				$gx-btn-price-on-request-bg-gradient-enabled,
+				$gx-btn-price-on-request-bg-gradient-color1, 
+				$gx-btn-price-on-request-bg-gradient-color2, 
+				$gx-btn-price-on-request-bg-gradient-type,   
+				$gx-btn-price-on-request-bg-gradient-angle); 
+
+		&:focus {
+			outline: none;
+		}
+
+		&.inactive {
+			opacity: 0.5;
+		}
+	}
+}
+
+
+// remove borders from all buttons
+// except outline buttons
+
+@if ($gx-btn-borderless) {
+	.btn {
+		border-width: 0 !important;
+	}
+}
+
+// apply rounded corners
+// to all buttons
+
+@if ($gx-btn-rounded) {
+	$btn-rounded-base-radius:   floor((($padding-base-vertical * 2) + $line-height-computed) / 2);
+	$btn-rounded-large-radius:  floor((($padding-large-vertical * 2) + ($line-height-large * $font-size-large)) / 2);
+	$btn-rounded-small-radius:  floor((($padding-small-vertical * 2) + ($line-height-small * $font-size-small)) / 2);
+	$btn-rounded-xs-radius:     floor((($padding-xs-vertical * 2) + ($line-height-small * $font-size-small)) / 2);
+	.btn {
+		@include border-top-radius($btn-rounded-base-radius);
+		@include border-bottom-radius($btn-rounded-base-radius);
+		&.btn-outline {
+			@include border-top-radius($btn-rounded-base-radius + 2);
+			@include border-bottom-radius($btn-rounded-base-radius + 2);
+		}
+	}
+	.btn-lg {
+		@include border-top-radius($btn-rounded-large-radius);
+		@include border-bottom-radius($btn-rounded-large-radius);
+		&.btn-outline {
+			@include border-top-radius($btn-rounded-large-radius + 2);
+			@include border-bottom-radius($btn-rounded-large-radius + 2);
+		}
+	}
+	.btn-sm {
+		@include border-top-radius($btn-rounded-small-radius);
+		@include border-bottom-radius($btn-rounded-small-radius);
+		&.btn-outline {
+			@include border-top-radius($btn-rounded-small-radius + 2);
+			@include border-bottom-radius($btn-rounded-small-radius + 2);
+		}
+	}
+	.btn-xs {
+		@include border-top-radius($btn-rounded-xs-radius);
+		@include border-bottom-radius($btn-rounded-xs-radius);
+		&.btn-outline {
+			@include border-top-radius($btn-rounded-xs-radius + 2);
+			@include border-bottom-radius($btn-rounded-xs-radius + 2);
+		}
+	}
+}
+
+
+// outline buttons
+// transparent backgrounds, 1px borders
+
+@mixin make-button-outline($color, $hover-color: #fff) {
+	color: $color;
+	background-color: transparent;
+	border-color: $color;
+
+	&:hover {
+		color: $hover-color;
+		background-color: $color;
+		border-color: $color;
+		@include box-shadow(none);
+	}
+	&:focus,
+	&.focus,
+	&:active,
+	&.active {
+		color: $hover-color;
+		background-color: darken($color, 15%);
+		border-color: darken($color, 15%);
+		@include box-shadow(none);
+	}
+}
+
+.btn-outline {
+	border-top-width: 1px !important;
+	border-right-width: 1px !important;
+	border-bottom-width: 1px !important;
+	border-left-width: 1px !important;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 17px;
+	&.btn-lg {
+		border-radius: 23px;
+	}
+	&.btn-sm {
+		border-radius: 15px;
+	}
+	&.btn-xs {
+		border-radius: 10px;
+	}
+
+	&.btn-default {
+		@include make-button-outline(#000);
+	}
+	&.btn-primary {
+		@include make-button-outline($brand-primary);
+	}
+	&.btn-white {
+		@include make-button-outline(#fff, #000);
+	}
+	&.btn-gray {
+		@include make-button-outline(#999);
+	}
+	&.btn-secondary {
+		@include make-button-outline($gx-brand-secondary);
+	}
+}

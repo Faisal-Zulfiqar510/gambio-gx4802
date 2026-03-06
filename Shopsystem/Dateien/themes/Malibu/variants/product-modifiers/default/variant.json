@@ -1,0 +1,12 @@
+{
+    "type": "category",
+    "title": "",
+    "id": "product-modifier-square",
+    "hidden": true,
+    "fieldsets": [
+        {
+            "title": "",
+            "options": []
+        }
+    ]
+}

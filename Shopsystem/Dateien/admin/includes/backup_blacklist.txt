@@ -1,0 +1,7 @@
+cache/
+admin/backups/
+images/
+logfiles/
+uploads/
+ResponsiveFilemanager/thumbs/
+admin/includes/magnalister/cache/

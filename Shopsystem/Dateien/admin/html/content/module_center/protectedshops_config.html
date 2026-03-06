@@ -1,0 +1,226 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="protectedshops"}
+	
+	{block name="admin_module_center_protectedshops_config"}
+		<!--
+		{$content.config|print_r:true}
+		-->
+
+		<div class="gx-compatibility">
+			{block name="admin_module_center_protectedshops_config_wrapper"}
+				<div class="gx-container breakpoint-small">
+					{block name="admin_module_center_protectedshops_config_form"}
+						<form action="{$content.save_config_action}" method="POST">
+							<input type="hidden" name="pageToken" value="{$content.page_token}">
+							{block name="admin_module_center_protectedshops_config_form_table1"}
+								<table class="gx-configuration gx-configuration-table breakpoint-small">
+									{block name="admin_module_center_protectedshops_config_form_credentials"}
+										<tr>
+											<th colspan="2">{$txt.credentials}</th>
+										</tr>
+									{/block}
+									{block name="admin_module_center_protectedshops_config_form_shop_id"}
+										<tr>
+											<td class="dataTableContent_gm">
+												<label for="shop_id">{$txt.shop_id}</label>
+											</td>
+											<td class="dataTableContent_gm">
+												<input id="shop_id"
+												       name="config[shop_id]"
+												       class="input-large"
+												       type="text"
+												       value="{$content.config['shop_id']}">
+												<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+													So erhalten Sie die ShopID:
+													<ol style="padding: 0 0 0 1.5em; margin: 1ex 0 0 0;">
+														<li>Loggen Sie sich in den Mitgliederbereich von protectedshops.de ein</li>
+														<li>Unter dem Menüpunkt “Schnittstellen” den Bereich “Übersicht Shop-IDs” auswählen.</li>
+														<li>Entsprechende ShopID kopieren und hier einfügen.</li>
+													</ol>
+												</span>
+											</td>
+										</tr>
+									{/block}
+								</table>
+							{/block}
+					
+							{if $content.config['shop_id']}
+								{if $content.docinfo}
+									{block name="admin_module_center_protectedshops_config_form_table2"}
+										<table class="gx-configuration gx-configuration-table breakpoint-small">
+											{block name="admin_module_center_protectedshops_config_form_use_of_documents"}
+												<tr>
+													<th colspan="2">{$txt.use_of_documents}</th>
+												</tr>
+											{/block}
+											{foreach from=$content.docinfo key=docname item=docdate}
+												{block name="admin_module_center_protectedshops_config_form_docname"}
+													<tr>
+														<td class="dataTableContent_gm">
+															{$docname}
+														</td>
+														<td class="dataTableContent_gm">
+															<select name="config[content_group_{$docname|strtolower}]">
+																<option value="-1">{$txt.do_not_use}</option>
+																{foreach from=$content.contentpages item=content_page}
+																	{$content_group_config="content_group_{$docname|strtolower}"}
+																	<option value="{$content_page['content_group']}" {if $content_page['content_group'] == $content.config[$content_group_config]}selected="selected"{/if}>
+																		{$content_page['content_title']}
+																	</option>
+																{/foreach}
+															</select>
+														</td>
+													</tr>
+												{/block}
+											{/foreach}
+										</table>
+									{/block}
+								{/if}
+					
+								{block name="admin_module_center_protectedshops_config_form_table3"}
+									<table class="gx-configuration gx-configuration-table breakpoint-small">
+										{block name="admin_module_center_protectedshops_config_form_use_in_pdf"}
+											<tr>
+												<th colspan="2">{$txt.use_in_pdf}</th>
+											</tr>
+										{/block}
+										{block name="admin_module_center_protectedshops_config_form_usr_for_pdf_conditions"}
+											<tr>
+												<td class="dataTableContent_gm">
+													{$txt.use_for_pdf_conditions}
+												</td>
+												<td class="dataTableContent_gm">
+													<input id="ufpc_no" type="radio" {if $content.config['use_for_pdf_conditions'] == 0}checked="checked"{/if} name="config[use_for_pdf_conditions]" value="0">
+													<label for="ufpc_no">{$txt.no}</label><br>
+													<input id="ufpc_yes" type="radio" {if $content.config['use_for_pdf_conditions'] == 1}checked="checked"{/if} name="config[use_for_pdf_conditions]" value="1">
+													<label for="ufpc_yes">{$txt.yes}</label>
+												</td>
+											</tr>
+										{/block}
+										{block name="admin_module_center_protectedshops_config_form_use_for_pdf_withdrawal"}
+											<tr>
+												<td class="dataTableContent_gm">
+													{$txt.use_for_pdf_withdrawal}
+												</td>
+												<td class="dataTableContent_gm">
+													<input id="ufpc_no"
+													       type="radio"
+													       {if $content.config['use_for_pdf_withdrawal'] == 0}checked="checked"{/if}
+													       name="config[use_for_pdf_withdrawal]"
+													       value="0">
+													<label for="ufpc_no">{$txt.no}</label><br>
+													<input id="ufpc_widerruf"
+													       type="radio"
+													       {if $content.config['use_for_pdf_withdrawal'] == 'widerruf'}checked="checked"{/if}
+													       name="config[use_for_pdf_withdrawal]"
+													       value="widerruf">
+													<label for="ufpc_widerruf">{$txt.widerruf}</label><br>
+													<input id="ufpc_rueckgabe"
+													       type="radio"
+													       {if $content.config['use_for_pdf_withdrawal'] == 'rueckgabe'}checked="checked"{/if}
+													       name="config[use_for_pdf_withdrawal]"
+													       value="rueckgabe">
+													<label for="ufpc_rueckgabe">{$txt.rueckgabe}</label>
+												</td>
+											</tr>
+										{/block}
+									</table>
+								{/block}
+					
+								{block name="admin_module_center_protectedshops_config_form_table4"}
+									<table class="gx-configuration gx-configuration-table breakpoint-small">
+										{block name="admin_module_center_protectedshops_config_form_update_configuration"}
+											<tr>
+												<th colspan="2">{$txt.update_configuration}</th>
+											</tr>
+										{/block}
+										{block name="admin_module_center_protectedshops_config_form_update_interval"}
+											<tr>
+												<td class="dataTableContent_gm">
+													{$txt.update_interval}
+												</td>
+												<td class="dataTableContent_gm">
+													<input name="config[update_interval]" value="{$content.config['update_interval']}">
+													{$txt.update_interval_info}
+												</td>
+											</tr>
+										{/block}
+									</table>
+								{/block}
+							{/if}
+					
+							<br><input class="btn btn-primary pull-right" type="submit" value="{$txt.save}">
+						</form>
+					{/block}
+				</div>
+			{/block}
+			
+			{block name="admin_module_center_protectedshops_config_documents_available"}
+				<div class="gx-container">
+					{if $content.docinfo}
+						{block name="admin_module_center_protectedshops_config_documents_available_title"}
+							<h2 class="clear-float">{$txt.documents_available}</h2>
+						{/block}
+				
+						{block name="admin_module_center_protectedshops_config_documents_available_table"}
+							<table class="breakpoint-large">
+								{block name="admin_module_center_protectedshops_config_documents_available_table_thead"}
+									<tr>
+										{block name="admin_module_center_protectedshops_config_documents_available_table_thead_ths"}
+										<th>{$txt.document}</th><th>{$txt.last_modified}</th>
+										{foreach from=$content.valid_formats item=format}
+											<th>{$txt.format}_{$format|strtolower}</th>
+										{/foreach}
+										<th>{$txt.update}</th>
+										<th>{$txt.use}</th>
+										{/block}
+									</tr>
+								{/block}
+								{foreach from=$content.docinfo key=docname item=docdate}
+									{block name="admin_module_center_protectedshops_config_documents_available_table_row"}
+										<tr>
+											{block name="admin_module_center_protectedshops_config_documents_available_table_row_tds"}
+												<td>{$docname}</td>
+												<td>{$docdate}</td>
+												{foreach from=$content.valid_formats item=format}
+													{if $content.localdocs[$docname][$format] == false}
+														<td>{$txt.not_available}</td>
+													{else}
+														<td>{$content.localdocs[$docname][$format]['document_date']}</td>
+													{/if}
+												{/foreach}
+												<td>
+													<form action="{$content.action_update}" method="POST">
+														<input type="hidden" name="pageToken" value="{$content.page_token}">
+														<input type="hidden" name="document_name" value="{$docname}">
+														<input type="submit" class="btn" value="{$txt.update}">
+													</form>
+												</td>
+												<td>
+													<form action="{$content.action_use}" method="POST">
+														<input type="hidden" name="pageToken" value="{$content.page_token}">
+														<input type="hidden" name="document_name" value="{$docname}">
+														<input type="submit" class="btn" value="{$txt.use}">
+													</form>
+												</td>
+											{/block}
+										</tr>
+									{/block}
+								{/foreach}
+							</table>
+						{/block}
+				
+						{block name="admin_module_center_protectedshops_config_documents_available_submit"}
+							<form action="{$content.action_use_all}" method="post">
+								<input type="hidden" name="pageToken" value="{$content.page_token}">
+								<input type="submit" class="btn" value="{$txt.update_and_use_all}">
+							</form>
+						{/block}
+					{/if}
+				</div>
+			{/block}
+		</div>
+	{/block}
+{/block}

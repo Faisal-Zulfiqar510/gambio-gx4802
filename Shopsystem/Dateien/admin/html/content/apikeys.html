@@ -1,0 +1,97 @@
+{extends file="./layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="apikeys"}
+
+	<div class="breakpoint-small apikeysconfig">
+		<form action="{$content.create_key_form_action}" method="post" class="form-configuration form-horizontal">
+			<input type="hidden" name="pageToken" value="{$content.pageToken}">
+			
+			<fieldset>
+				<legend>{$txt.new_api_token}</legend>
+				<div class="form-group">
+					<label class="col-sm-4">{$txt.permissions_user}</label>
+					<div class="col-sm-7">
+						<select name="customerId" class="form-control">
+							{foreach from=$content.admins item=admin}
+								<option value="{$admin->getId()}">{$admin->getFirstname()} {$admin->getLastname()}</option>
+							{/foreach}
+						</select>
+					</div>
+					<div class="col-sm-1">
+						<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+							{$txt.customer_note}
+						</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4">{$txt.expiration}</label>
+					<div class="col-sm-4">
+						<input class="form-control" name="expiration_number" type="number" step="1" min="1" value="1">
+					</div>
+					<div class="col-sm-4">
+						<select class="form-control" name="expiration_factor">
+							<option value="3600">{$txt.exp_hours}</option>
+							<option value="86400">{$txt.exp_days}</option>
+							<option value="2592000">{$txt.exp_months}</option>
+							<option value="31536000" selected="selected">{$txt.exp_years}</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+			
+			<div class="row button-container">
+				<div class="col-sm-12">
+					<button type="submit" class="btn btn-primary pull-right">{$txt.create_new_token}</button>
+				</div>
+			</div>
+		</form>
+		
+		
+		{if $content.tokens}
+			<form action="{$content.delete_expired_form_action}" method="post" class="form-configuration margin-top-extd form-horizontal">
+				<fieldset>
+					<legend>{$txt.api_keys_created}</legend>
+				</fieldset>
+				
+				<table class="apitoken table" id="apitokens" data-gx-controller="apikeys/apikeys_copy">
+					<thead>
+						<tr>
+							<th>{$txt.tokentable_iss}</th>
+							<th>{$txt.tokentable_iat}</th>
+							<th>{$txt.tokentable_exp}</th>
+							<th>{$txt.tokentable_customer}</th>
+							<th>{$txt.tokentable_customer_id}</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						{foreach from=$content.tokens item=token}
+							<tr class="{if $token.valid === false}invalid-token{/if}">
+								<td>{$token.iss}</td>
+								<td>{$token.iat_formatted}</td>
+								<td>{$token.exp_formatted}</td>
+								<td>{$token.customer_name}</td>
+								<td>{$token.customer_id}</td>
+							</tr>
+							<tr class="token {if $token.valid === false}invalid-token{/if}">
+								<td colspan="4">
+									<textarea readonly rows="4" id="token_{$token.api_tokens_id}" class="token">{$token.token}</textarea>
+								</td>
+								<td>
+									<button class="copytoken btn" data-tokenid="{$token.api_tokens_id}" title="{$txt.copybutton}"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+								</td>
+							</tr>
+						{/foreach}
+					</tbody>
+				</table>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary pull-right">{$txt.delete_expired_tokens}</button>
+					</div>
+				</div>
+			</form>
+		{/if}
+	</div>
+{/block}

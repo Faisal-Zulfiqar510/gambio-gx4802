@@ -1,0 +1,43 @@
+@import "../variables";
+
+.footer-badges {
+	display: flex;
+	margin: 0 2rem;
+	
+	.footer-badge {
+		&:not(:last-child) {
+			margin-right: 1rem;
+		}
+		
+		a {
+			font-size: 11px;
+			font-weight: 400;
+			line-height: 12px;
+			color: $text-color-inverse;
+			padding: 6px;
+			border-radius: .25em;
+			text-align: center;
+			transition: background-color 250ms;
+			
+			&:hover {
+				text-decoration: none;
+			}
+			
+			&.success {
+				background-color: $gambio-success;
+				
+				&:hover {
+					background-color: darken($gambio-success, 15);
+				}
+			}
+			
+			&.danger {
+				background-color: $gambio-danger;
+				
+				&:hover {
+					background-color: darken($gambio-danger, 15);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,151 @@
+{*
+	Slide Image Map Modal
+
+	It is triggered when the user clicks on the pencil image button in the image dropdown field.
+*}
+
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_sliders_details_modals_image_map"}
+	<div class="image-map modal fade" data-backdrop="static" tabindex="-1" role="dialog" data-gx-controller="sliders/details/modals/image_map">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_sliders_details_modals_image_map_header"}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						{block name="admin_sliders_details_modals_image_map_header_title"}
+							<h4 class="modal-title">{$txt.IMAGE_MAP_MODAL_TITLE}</h4>
+						{/block}
+					</div>
+				{/block}
+				
+				{block name="admin_sliders_details_modals_image_map_body"}
+					<div class="modal-body">
+						{block name="admin_sliders_details_modals_image_map_body_map_body"}
+							<div class="row form-group">
+								<div class="col-md-2">
+									{block name="admin_sliders_details_modals_image_map_body_map_body_label"}
+										<label for="image-map-area" class="control-label">{$txt.LINK_AREA}:</label>
+									{/block}
+								</div>
+								<div class="col-md-4">
+									{block name="admin_sliders_details_modals_image_map_body_map_body_input"}
+										<select class="form-control" name="area" id="image-map-area">
+											<option value="">--- {$txt.PLEASE_SELECT} ---</option>
+										</select>
+									{/block}
+								</div>
+								<div class="col-md-3">
+									{block name="admin_sliders_details_modals_image_map_body_map_body_create_button"}
+										<button type="button" class="btn action-create">{$txt.CREATE_LINK_AREA}</button>
+									{/block}
+								</div>
+							</div>
+						{/block}
+						{block name="admin_sliders_details_modals_image_map_body_link_title"}
+							<div class="row form-group">
+								<div class="col-md-2">
+									{block name="admin_sliders_details_modals_image_map_body_link_title_label"}
+										<label for="image-map-link-title" class="control-label">{$txt.LINK_TITLE}:</label>
+									{/block}
+								</div>
+								<div class="col-md-4">
+									{block name="admin_sliders_details_modals_image_map_body_link_title_input"}
+										<input class="form-control" type="text" name="link-title" id="image-map-link-title" disabled>
+									{/block}
+								</div>
+							</div>
+						{/block}
+						{block name="admin_sliders_details_modals_image_map_body_link_url"}
+							<div class="row form-group">
+								<div class="col-md-2">
+									{block name="admin_sliders_details_modals_image_map_body_link_url_label"}
+										<label for="image-map-link-url" class="control-label">{$txt.LINK_URL}:</label>
+									{/block}
+								</div>
+								<div class="col-md-4">
+									{block name="admin_sliders_details_modals_image_map_body_link_url_input"}
+										<input class="form-control" type="text" name="link-url" id="image-map-link-url" disabled>
+									{/block}
+								</div>
+								<div class="col-md-1">
+									{block name="admin_sliders_details_modals_image_map_body_link_url_tooltip"}
+										<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info" class="pull-left">{$txt.IMAGE_MAP_URL_INFO}</span>
+									{/block}
+								</div>
+							</div>
+						{/block}
+						{block name="admin_sliders_details_modals_image_map_body_link_target"}
+							<div class="row form-group link-target">
+								<div class="col-md-2">
+									{block name="admin_sliders_details_modals_image_map_body_link_target_label"}
+										<label for="image-map-link-target" class="control-label">{$txt.LINK_TARGET}:</label>
+									{/block}
+								</div>
+								<div class="col-md-4">
+									{block name="admin_sliders_details_modals_image_map_body_link_target_input"}
+										<select class="form-control" name="link-target" id="image-map-link-target" disabled>
+											<option value="_self">{$txt.LINK_TARGET_SELF}</option>
+											<option value="_blank">{$txt.LINK_TARGET_BLANK}</option>
+										</select>
+									{/block}
+								</div>
+							</div>
+						{/block}
+						{block name="admin_sliders_details_modals_image_map_body_alerts"}
+							<div class="row form-group info-text">
+								<div class="col-md-6">
+									<div class="alert alert-info hidden">
+										{$txt.IMAGE_MAP_USAGE_INFO_LEFT_CLICK}<br>
+										{$txt.IMAGE_MAP_USAGE_INFO_RIGHT_CLICK}
+									</div>
+								</div>
+							</div>
+						{/block}
+						{block name="admin_sliders_details_modals_image_map_body_buttons"}
+							<div class="row form-group actions hidden">
+								{block name="admin_sliders_details_modals_image_map_body_buttons_take"}
+									<button class="btn btn-primary pull-right action-apply" type="button">{$admin_buttons.BUTTON_TAKE}</button>
+								{/block}
+								{block name="admin_sliders_details_modals_image_map_body_buttons_cancle"}
+									<button class="btn pull-right action-abort" type="button">{$admin_buttons.BUTTON_CANCEL}</button>
+								{/block}
+								{block name="admin_sliders_details_modals_image_map_body_buttons_delete"}
+									<button class="btn pull-right action-delete" type="button">{$admin_buttons.BUTTON_DELETE}</button>
+								{/block}
+							</div>
+						{/block}
+						{block name="admin_sliders_details_modals_image_map_body_image"}
+							<div class="row form-group image"></div>
+						{/block}
+						{block name="admin_sliders_details_modals_image_map_body_draw_image_area"}
+							<div class="row form-group canvas hidden">
+								<p>
+									<strong>{$txt.DRAW_IMAGE_AREA}:</strong>
+								</p>
+								<div id="canvas"></div>
+							</div>
+						{/block}
+					</div>
+				{/block}
+				
+				{block name="admin_sliders_details_modals_image_map_footer"}
+					<div class="modal-footer">
+						{block name="admin_sliders_details_modals_image_map_footer_reset"}
+							<button type="button" class="btn btn-default action-reset pull-left hidden">
+								{$txt.RESET_PATH}
+							</button>
+						{/block}
+						{block name="admin_sliders_details_modals_image_map_footer_close"}
+							<button type="button" class="btn btn-default action-close" data-dismiss="modal">
+								{$admin_buttons.BUTTON_CLOSE}
+							</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

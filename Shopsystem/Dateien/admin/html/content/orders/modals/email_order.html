@@ -1,0 +1,89 @@
+{*	E-Mail Order Modal *}
+
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_orders_modals_email_order"}
+	<div class="email-order modal fade" tabindex="-1" role="dialog" data-gx-controller="orders/modals/email_order">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_orders_modals_email_order_header"}
+					<div class="modal-header">
+						{block name="admin_orders_modals_email_order_header_close"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_ClOSE}">
+								<span aria-hidden="true">&times;</span></button>
+						{/block}
+						{block name="admin_orders_modals_email_order_header_title"}
+							<h4 class="modal-title">{$gm_order_menu.TITLE_ORDER}</h4>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_email_order_body"}
+					<div class="modal-body">
+						{block name="admin_orders_modals_email_order_body_text"}
+							<p>
+								{$gm_order_menu.TITLE_ORDER_CONFIRM}
+								<span class="customer-info">{* Dynamic Content *}</span>
+								{$gm_order_menu.TITLE_ORDER_CONFIRMED}
+							</p>
+						{/block}
+		
+						<br>
+						
+						{block name="admin_orders_modals_email_order_body_form"}
+							<form class="form-horizontal">
+								<fieldset>
+									{* Subject Field*}
+									{block name="admin_orders_modals_email_order_body_form_subject"}
+										<div class="form-group">
+											{block name="admin_orders_modals_email_order_body_form_subject_label"}
+												<label for="order-subject" class="col-sm-3 control-label force-text-left">{$gm_order_menu.TITLE_SUBJECT}</label>
+											{/block}
+											{block name="admin_orders_modals_email_order_body_form_subject_input"}
+												<div class="col-sm-9 selected-orders">
+													<input id="order-subject"
+														   type="text"
+														   class="subject form-control"
+														   value="{$gm_order_menu.ORDER_SUBJECT}ORDER_ID {$gm_order_menu.ORDER_SUBJECT_FROM}ORDER_DATE" />
+												</div>
+											{/block}
+										</div>
+									{/block}
+			
+									{* E-Mail Address Field *}
+									{block name="admin_orders_modals_email_order_body_form_email_address"}
+										<div class="form-group">
+											{block name="admin_orders_modals_email_order_body_form_email_address_label"}
+												<label for="order-email-address" class="col-sm-3 control-label force-text-left">{$gm_order_menu.TITLE_MAIL}</label>
+											{/block}
+											{block name="admin_orders_modals_email_order_body_form_email_address_input"}
+												<div class="col-sm-9">
+													<input id="order-email-address"
+														   type="text"
+														   class="email-address form-control"
+														   value="CUSTOMER_EMAIL_ADDRESS" />
+												</div>
+											{/block}
+										</div>
+									{/block}
+								</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_email_order_footer"}
+					<div class="modal-footer">
+						{block name="admin_orders_modals_email_order_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_orders_modals_email_order_footer_send"}
+							<button type="button" class="btn btn-primary send">{$admin_buttons.BUTTON_SEND}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

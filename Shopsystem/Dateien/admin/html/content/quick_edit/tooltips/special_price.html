@@ -1,0 +1,60 @@
+{extends file="get_usermod:layouts/main/partial/tooltip.html"}
+
+{block name="content"}
+	{load_language_text section="admin_quick_edit" name="admin_quick_edit"}
+
+	{block name="admin_quick_edit_tooltips_special_price"}
+		<table class="products-specials">
+			{block name="admin_quick_edit_tooltips_special_price_thead"}
+				<thead>
+					<tr>
+						{block name="admin_quick_edit_tooltips_special_price_thead_th"}
+							<th>{$admin_quick_edit.TEXT_TITLE_SPECIAL_OFFER}</th>
+						{/block}
+					</tr>
+				</thead>
+			{/block}
+			{block name="admin_quick_edit_tooltips_special_price_tbody"}
+				<tbody>
+					{if $specials.special_price === false}
+						{block name="admin_quick_edit_tooltips_special_price_tbody_no_special_offer"}
+							<tr>
+								<td class="specials-no-config">{$admin_quick_edit.TEXT_NO_SPECIAL_OFFER}</td>
+							</tr>
+						{/block}
+					{else}
+						{block name="admin_quick_edit_tooltips_special_price_tbody_special_price"}
+							<tr>
+								{if $specials.products_price >= $specials.special_price}
+									<td class="specials-percentage">{$admin_quick_edit.TEXT_DISCOUNT} {$specials.special_price_percentage}%</td>
+								{else}
+									<td class="specials-percentage">{$admin_quick_edit.TEXT_SURCHARGE} {$specials.special_price_percentage}%</td>
+								{/if}
+							</tr>
+						{/block}
+						{block name="admin_quick_edit_tooltips_special_price_new_price"}
+							<tr>
+								<td class="specials-products-price">{$admin_quick_edit.TEXT_NEW_PRICE} {$specials.special_price} €</td>
+							</tr>
+						{/block}
+						{block name="admin_quick_edit_tooltips_special_price_quantity"}
+							<tr>
+								<td class="special_price_quantity">{$admin_quick_edit.TEXT_QUANTITY} {$specials.special_price_quantity}</td>
+							</tr>
+						{/block}
+						{block name="admin_quick_edit_tooltips_special_price_date_of_expiry"}
+							<tr>
+								<td class="special_price_expires_date">{$admin_quick_edit.TEXT_DATE_OF_EXPIRY} {$specials.special_price_expires_date}</td>
+							</tr>
+						{/block}
+						{block name="admin_quick_edit_tooltips_special_price_status"}
+							<tr>
+								<td class="special_price_status">{$admin_quick_edit.TEXT_STATUS} {$specials.special_price_status}</td>
+							</tr>
+						{/block}
+					{/if}
+				</tbody>
+			{/block}
+		</table>
+	{/block}
+{/block}

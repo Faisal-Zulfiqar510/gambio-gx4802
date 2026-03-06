@@ -1,0 +1,109 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	<div class="breakpoint-small vue-instance"
+	     data-logging-namespace="{$base_url}/admin/html/assets/javascript/engine"
+	     data-config-namespace="{$base_url}/admin/html/assets/javascript/engine"
+	     data-components-namespace="{$base_url}/admin/html/assets/javascript/engine"
+	     data-vue-instance-name="logging">
+		
+		<gx-logs-overview data-logging-controller="logging/logs-overview logging/logs-entry"
+		                  data-config-widget="vue/config/checkbox vue/config/number vue/config/select"
+		                  data-components-widget="vue/components/switcher vue/components/array-to-table" />
+	</div>
+	
+	{literal}
+		<script type="text/x-template" id="logs-overview">
+			<div class="logs-overview">
+				<div class="action-bar">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="row log-file">
+								<label class="col-md-1">{{ lang.labels.category }}:</label>
+								<div class="col-md-4">
+									<select class="form-control" v-model="selectedLogCategory" @change="changedLogCategory">
+										<option v-for="(i, category) in logfiles" :value="category">
+											{{ category }}
+										</option>
+									</select>
+								</div>
+								<label class="col-md-1">{{ lang.labels.file }}:</label>
+								<div class="col-md-4">
+									<select class="form-control" v-model="selectedLogFileIndex" @change="loadLogs">
+										<option v-for="(name, index) in logfiles[selectedLogCategory]" :value="index">
+											{{ name }}
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="row log-levels">
+								<label class="col-md-1">{{ lang.labels.logLevel }}:</label>
+								<div class="col-md-11 selection">
+									<div class="form-check">
+										<input id="log-level-DEBUG" type="checkbox" v-model="displayedLogLevels" value="DEBUG"
+										       @change="checkForNoLogsNotice"/>
+										<label for="log-level-DEBUG">{{ lang.labels.logLevels.debug }}</label>
+										<input id="log-level-INFO" type="checkbox" v-model="displayedLogLevels" value="INFO"
+										       @change="checkForNoLogsNotice"/>
+										<label for="log-level-INFO">{{ lang.labels.logLevels.info }}</label>
+										<input id="log-level-NOTICE" type="checkbox" v-model="displayedLogLevels" value="NOTICE"
+										       @change="checkForNoLogsNotice"/>
+										<label for="log-level-NOTICE">{{ lang.labels.logLevels.notice }}</label>
+										<input id="log-level-WARNING" type="checkbox" v-model="displayedLogLevels"
+										       value="WARNING" @change="checkForNoLogsNotice"/>
+										<label for="log-level-WARNING">{{ lang.labels.logLevels.warning }}</label>
+										<input id="log-level-ERROR" type="checkbox" v-model="displayedLogLevels" value="ERROR"
+										       @change="checkForNoLogsNotice"/>
+										<label for="log-level-ERROR">{{ lang.labels.logLevels.error }}</label>
+										<input id="log-level-CRITICAL" type="checkbox" v-model="displayedLogLevels"
+										       value="CRITICAL" @change="checkForNoLogsNotice"/>
+										<label for="log-level-CRITICAL">{{ lang.labels.logLevels.critical }}</label>
+										<input id="log-level-ALERT" type="checkbox" v-model="displayedLogLevels" value="ALERT"
+										       @change="checkForNoLogsNotice"/>
+										<label for="log-level-ALERT">{{ lang.labels.logLevels.alert }}</label>
+										<input id="log-level-EMERGENCY" type="checkbox" v-model="displayedLogLevels"
+										       value="EMERGENCY" @change="checkForNoLogsNotice"/>
+										<label for="log-level-EMERGENCY">{{ lang.labels.logLevels.emergency }}</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 actions text-right">
+							<a class="btn" @click="showDeleteSelectedLogfileModal">{{ lang.buttons.deleteSelectedCategory }}</a>
+							<a class="btn" @click="showDeleteAllLogfilesModal">{{ lang.buttons.deleteAllLogs }}</a>
+							<a class="btn" @click="showDeleteOldLogfilesModal">{{ lang.buttons.deleteOldLogs }}</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="logs">
+					<div v-if="logs.length > 0" v-for="log in logs">
+						<gx-log-entry :data="log" v-if="displayedLogLevels.includes(log.level_name)" />
+					</div>
+					<div class="no-logs-available" v-if="showNoLogsAvailable">{{ lang.labels.noLogsToShow }}</div>
+					<div class="show-next-log-file" v-if="selectedLogFileIndex < maxSelectableLogFiles">
+						<button class="btn btn-default" @click="showNextLogFile">{{ lang.buttons.showNextLogFile }}</button>
+					</div>
+				</div>
+				
+				{/literal}
+				{include file="get_usermod:logging/vue/delete-single-log-modal.html"}
+				{include file="get_usermod:logging/vue/delete-old-logs-modal.html"}
+				{include file="get_usermod:logging/vue/delete-all-logs-modal.html"}
+				{literal}
+			</div>
+		</script>
+	{/literal}
+	
+	{* logging vue templates *}
+	{include file="get_usermod:logging/vue/log-entry.html"}
+	
+	{* logging vue config templates *}
+	{include file="get_usermod:vue/config/checkbox.html"}
+	{include file="get_usermod:vue/config/number.html"}
+	{include file="get_usermod:vue/config/select.html"}
+	
+	{* General component templates *}
+	{include file="get_usermod:vue/components/switcher.html"}
+	{include file="get_usermod:vue/components/array-to-table.html"}
+{/block}

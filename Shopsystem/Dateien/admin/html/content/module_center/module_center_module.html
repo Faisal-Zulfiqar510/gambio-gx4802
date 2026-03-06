@@ -1,0 +1,9 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{block name="admin_module_center_module"}
+		{foreach item=button from=$content.buttons}
+			<a href="{$button.url}" class="btn">{$button.text}</a>
+		{/foreach}
+	{/block}
+{/block}

@@ -1,0 +1,10 @@
+{
+	"ftpMode": {
+		"title": "FTP Mode Activated!",
+		"message": "Your files will be uploaded to '<%= dest %>' of '<%= host %>'."
+	},
+	"localMode": {
+		"title": "Local Mode Activated!",
+		"message": "No 'ftp-config.json' file was found... Gulp will continue locally."
+	}
+}

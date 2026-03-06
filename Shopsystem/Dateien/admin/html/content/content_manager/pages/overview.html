@@ -1,0 +1,66 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="content_manager"}
+	{load_language_text section="admin_buttons" name="buttons"}
+
+	{block name="admin_content_manager_pages_overview"}
+		<div class="breakpoint-small" data-gx-controller="content_manager/overview/content_manager_preview content_manager/overview/content_manager_delete content_manager/sortable">
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_MAIN_CATEGORIES
+			list_elements=$content.mainCategoryData
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerPages/createMain"
+			page_type="pages"
+			custom_id="pages_main"}
+	
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_SECONDARY_NAVIGATION
+			list_elements=$content.secondaryNavigationData
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerPages/createSecondary"
+			page_type="pages"
+			custom_id="pages_secondary"}
+	
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_INFO_PAGES
+			list_elements=$content.other
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerPages/createInfo"
+			page_type="pages"
+			custom_id="pages_info"}
+	
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_INFO_BOX
+			list_elements=$content.infoBox
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerPages/createInfoBox"
+			page_type="pages"
+			custom_id="pages_info_box"}
+
+
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_ADDITIONAL
+			list_elements=$content.additional
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerPages/createAdditional"
+			page_type="pages"
+			custom_id="pages_additional"}
+
+		</div>
+		
+		{include file="get_usermod:content_manager/modals/preview.html"}
+		{include file="get_usermod:content_manager/modals/delete.html"}
+		{include file="get_usermod:content_manager/modals/sorting_failed.html"}
+
+		{block name="admin_content_manager_pages_overview_empty_list"}
+			<script id="empty-list" type="text/template">
+				<div class="row element-container empty">
+					<ul class="content-manager-elements-list">
+						<li class="col-md-12 content-manager-element">{$txt.TEXT_NO_CONTENT}</li>
+					</ul>
+				</div>
+			</script>
+		{/block}
+	{/block}
+{/block}

@@ -1,0 +1,21 @@
+// custom theming
+@import "variables";
+
+$theme-colors: (
+	"primary": $brand-primary,
+	"secondary": $brand-secondary,
+	"success": $brand-success,
+	"info": $brand-info,
+	"warning": $brand-warning,
+	"danger": $brand-danger,
+);
+
+// Bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/tooltip";
+
+// Bootstrap vue
+//@import "~bootstrap-vue/src/variables";
+//@import "~bootstrap-vue/src/components/tooltip";

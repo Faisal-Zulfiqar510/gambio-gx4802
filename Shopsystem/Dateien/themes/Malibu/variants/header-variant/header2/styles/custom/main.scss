@@ -1,0 +1,18 @@
+#header .navbar-search .search-input {
+	border: 2px solid #eee;
+}
+
+.navbar-search form {
+	max-width: 250px;
+}
+
+.navbar-brand img, .navbar-brand svg {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (min-width: $screen-sm-min) {
+	.navbar-brand {
+		padding: 20px 15px;
+	}
+}

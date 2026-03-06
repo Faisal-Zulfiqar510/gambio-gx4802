@@ -1,0 +1,31 @@
+{load_language_text section="shop_offline"}
+{load_language_text section="notifications" name="notification"}
+
+{block name="admin_shop_offile_shop_popup_edit_layer"}
+	<form class="popup_content_layer" data-gx-_extension="language_switcher" {if $smarty.const.USE_WYSIWYG == 'true'}
+		  data-gx-_widget="editor" data-editor-selector=".wysiwyg" data-editor-init-event-type="editor:initialize"{/if}>
+		{block name="admin_shop_offile_shop_popup_edit_layer_buttonbar"}
+			<div class="buttonbar">
+				{foreach item=language from=$content_data.languages_array name=languagesArrayIterator1}
+					<a href="#{$language.languages_id}" class="language_switcher_{$language.code}">
+						<img src="../lang/{$language.directory}/{$language.image}" alt="{$language.name}" title="{$language.name}" />
+					</a>
+				{/foreach}
+			</div>
+		{/block}
+		<div class="formfields">
+			{foreach item=language from=$content_data.languages_array name=languagesArrayIterator1}
+				<input type="hidden" value="" class="language_switcher_content_{$language.code}" name="{$content_data.data_src}_msg[{$content_data.data_id}][{$language.languages_id}]" />
+			{/foreach}
+			{block name="admin_shop_offile_shop_popup_edit_layer_label"}
+				<label for="{$content_data.data_src}_msg[{$content_data.data_id}]">{$notification.popup_message_label}:</label>
+			{/block}
+			{block name="admin_shop_offile_shop_popup_edit_layer_input"}
+				<textarea name="{$content_data.data_src}_msg[{$content_data.data_id}]"
+						  {if $smarty.const.USE_WYSIWYG == 'true'}class="wysiwyg"
+						  data-editor-identifier="{$content_data.layer_editor_identifier}"
+						  data-editor-type="{$content_data.layer_editor_type}"{/if}></textarea>
+			{/block}
+		</div>
+	</form>
+{/block}

@@ -1,0 +1,25 @@
+<div class="modal fade remove-confirmation-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">{$units.TEXT_QUANTITYUNIT_REMOVE}</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="quantity-units-modal text-danger">{$units.TEXT_INFO_DELETE_INTRO}</p>
+						<p class="quantity-units-modal-remove-info">{* Data is provided by quantity_units/overview.js *}</p>
+						<input type="hidden" class="quantity-units-remove-id">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+			 	<button type="button" class="btn btn-default" data-dismiss="modal">{$button.abort}</button>
+				<button id="remove-quantity-units" type="button" class="btn btn-danger">{$button.delete}</button>
+			</div>
+		</div>
+	</div>
+</div>

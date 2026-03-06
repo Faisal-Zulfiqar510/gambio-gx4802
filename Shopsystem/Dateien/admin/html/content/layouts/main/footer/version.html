@@ -1,0 +1,10 @@
+{block name="admin_layouts_main_footer_version"}
+	<span>Gambio Version: {$shopVersion}</span>
+	<a href="admin.php?do=ShopKey">
+		{if $shopKeyState == true}
+			<i class="fa fa-check fa-lg shop-key-valid"></i>
+		{else}
+			<i class="fa fa-exclamation-triangle fa-lg shop-key-invalid"></i>
+		{/if}
+	</a>
+{/block}

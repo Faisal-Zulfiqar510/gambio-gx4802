@@ -1,0 +1,70 @@
+{literal}
+	<script type="text/x-template" id="cronjobs-list-elements">
+		<div class="cronjob-list-elements cronjob-container">
+			<div class="row headline">
+				<div class="col-md-12">
+					<h3 class="title" v-text="lang.sub_title_tasks" />
+				</div>
+			</div>
+
+			<div class="row element-container">
+				<ul class="cronjob-elements-list"
+					data-gx-widget="tooltip"
+					data-tooltip-style='{"classes": "gx-qtip info"}'
+					data-gx-extension="visibility_switcher"
+					data-visibility_switcher-rows=".cronjob-element"
+					data-visibility_switcher-selections=".job-action-icons"
+				>
+					<li v-for="(cronjob, i) in cronjobs"
+						:key="i"
+						class="col-md-12 cronjob-element"
+						:data-task="cronjob.name">
+						<span class="col-md-1 job-icon"
+							  :title="getInterval(cronjob.title, cronjob.interval)">
+							<i class="fa fa-clock-o"></i>
+						</span>
+
+						<span class="col-md-7 job-name">
+							{{ getPhrase(cronjob.title) }}
+
+							<span v-if="cronjob.status === 'inactive'"
+								  class="status-badge inactive pull-right"
+								  :title="lang.status_inactive_description">
+								<span>{{ lang.status_inactive }}</span>
+							</span>
+
+
+							<span v-else-if="cronjob.status === 'active'"
+								  class="status-badge active pull-right"
+								  :title="lang.status_active_description">
+								<span>{{ lang.status_active }}</span>
+							</span>
+
+
+							<span v-else-if="cronjob.status === 'error'"
+								  class="status-badge active error pull-right"
+								  :title="lang.status_error_description">
+								<span>{{ lang.status_active }}</span>
+							</span>
+
+
+							<span v-else class="status-badge not-executed pull-right" :title="lang.status_not_executed_description">
+								<span>{{ lang.status_active }}</span>
+							</span>
+						</span>
+
+						<span class="col-md-4 job-action-icons">
+							<a class="open-logs" href="#" @click.prevent="openLogsModal(cronjob)">
+								<i class="fa fa-eye"></i>
+							</a>
+
+							<a class="open-configuration" href="#" @click.prevent="openConfigurationModal(cronjob)">
+								<i class="fa fa-pencil"></i>
+							</a>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</script>
+{/literal}

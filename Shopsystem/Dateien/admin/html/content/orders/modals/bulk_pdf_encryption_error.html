@@ -1,0 +1,39 @@
+{load_language_text section="buttons" name="btn"}
+
+{block name="admin_orders_modals_bulk_pdf_encryption_error"}
+	<div class="bulk-pdf-encryption-error modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+                {block name="admin_orders_modals_bulk_pdf_encryption_error_header"}
+					<div class="modal-header">
+                        {block name="admin_orders_modals_bulk_pdf_encryption_error_header_close"}
+							<button type="button" class="close" data-dismiss="modal"
+									aria-label="{$admin_buttons.BUTTON_ClOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+                        {/block}
+                        {block name="admin_orders_modals_bulk_pdf_encryption_error_header_title"}
+							<h4 class="modal-title">{$orders.HEADING_BULK_PDF_ENCRYPTION_ERROR}</h4>
+                        {/block}
+					</div>
+                {/block}
+
+                {block name="admin_orders_modals_bulk_pdf_encryption_error_body"}
+					<div class="modal-body">
+                        {block name="admin_orders_modals_bulk_pdf_encryption_error_body_message"}
+							{$orders.TEXT_BULK_PDF_ENCRYPTION_ERROR nofilter}
+                        {/block}
+					</div>
+                {/block}
+
+                {block name="admin_orders_modals_bulk_pdf_encryption_error_footer"}
+					<div class="modal-footer">
+                        {block name="admin_orders_modals_bulk_pdf_encryption_error_footer_close"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$btn.close}</button>
+                        {/block}
+					</div>
+                {/block}
+			</div>
+		</div>
+	</div>
+{/block}

@@ -1,0 +1,57 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="google_analytics"}
+	<div class="gx-container breakpoint-small">
+		<div class="alert alert-warning">
+			{$txt.gx_ga_cookie_consent_warning}
+		</div>
+		{if $content.error}
+			<div class="alert alert-danger">
+				<span>{$content.error}</span>
+			</div>
+		{/if}
+
+		<div class="col-md-12">
+			<form id="analytics-configuration-form"
+				  class="form-horizontal"
+				  action="./admin.php?do=GoogleAnalyticsAdmin/updateSettings"
+				  method="post">
+
+				{foreach $content.configurations as $configurationData}
+					<fieldset>
+						<legend>{$configurationData.legend}</legend>
+
+						{foreach $configurationData.group as $configuration}
+							<div class="form-group">
+								<label class="control-label col-sm-4">{$configuration.label}</label>
+								<div class="col-sm-8" data-gx-widget="switcher">
+									<input type="{$configuration.type}"
+										   class="form-control"
+										   name="{$configuration.name}"
+										   {if $configuration.type === 'checkbox' && $configuration.value}checked{/if}
+										   placeholder="{$configuration.label}"
+										   {if isset($configuration.readyOnly)}readonly{/if}
+										   value="{$configuration.value}">
+								</div>
+							</div>
+						{/foreach}
+
+					</fieldset>
+				{/foreach}
+
+		</div>
+	</div>
+	<div data-gx_google_oauth-namespace="../GXModules/Gambio/GoogleOAuth/Build/Admin/Javascript"
+		 data-gx_google_oauth-widget="google_connection_modal"
+		 data-google_connection_modal-error="{$content.oauthError}"
+		 data-google_connection_modal-from="GoogleAnalyticsAdmin"></div>
+{/block}
+
+
+{block name="bottom_save_bar"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+	<button class="btn btn-primary"
+			onclick="document.getElementById('analytics-configuration-form').submit()">{$admin_buttons.BUTTON_SAVE}
+	</button>
+{/block}

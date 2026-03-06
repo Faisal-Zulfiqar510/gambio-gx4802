@@ -1,0 +1,149 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="janolaw_configuration"}
+	{load_language_text section="buttons" name="button"}
+	
+	{block name="admin_module_center_janolaw_configuration"}
+		<div class="gx-compatibility">
+			{block name="admin_module_center_janolaw_configuration_form"}
+				<form method="post"
+				      action="admin.php?do=JanolawModuleCenterModule/Store"
+				      name="modules"
+				      class="janolaw-configuration gx-container"
+				      data-gx-extension="visibility_switcher" >
+					{block name="admin_module_center_janolaw_configuration_form_table1"}
+						<table class="gx-configuration" data-gx-widget="checkbox">
+							{block name="admin_module_center_janolaw_configuration_form_module_status"}
+								<tr>
+									<th colspan="2">{$txt.module_status}</th>
+								</tr>
+							{/block}
+							{block name="admin_module_center_janolaw_configuration_form_status_label"}
+								<tr>
+									<td class="configuration-label">{$txt.status_label}</td>
+									<td>
+										<input type="radio" {if $content.configuration.MODULE_GAMBIO_JANOLAW_STATUS == "True"}checked="checked"{/if} value="True" name="MODULE_GAMBIO_JANOLAW_STATUS" />
+										<input type="radio" {if $content.configuration.MODULE_GAMBIO_JANOLAW_STATUS == "False"}checked="checked"{/if} value="False" name="MODULE_GAMBIO_JANOLAW_STATUS" />
+									</td>
+								</tr>
+							{/block}
+						</table>
+					{/block}
+				
+					{block name="admin_module_center_janolaw_configuration_form_table2"}
+						<table class="gx-configuration">
+							{block name="admin_module_center_janolaw_configuration_form_credentials"}
+								<tr>
+									<th colspan="2">{$txt.credentials}</th>
+								</tr>
+							{/block}
+							{block name="admin_module_center_janolaw_configuration_form_user_id"}
+								<tr class="visibility_switcher">
+									<td class="configuration-label">
+										<label for="MODULE_GAMBIO_JANOLAW_USER_ID" class="section-description">
+											{$txt.user_id}
+										</label>
+									</td>
+									<td>
+										<input id="MODULE_GAMBIO_JANOLAW_USER_ID" type="text" value="{$content.configuration.MODULE_GAMBIO_JANOLAW_USER_ID}" name="MODULE_GAMBIO_JANOLAW_USER_ID" />
+										<span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+											{$txt.user_id_info}
+										</span>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_janolaw_configuration_form_shop_id"}
+								<tr class="visibility_switcher">
+									<td class="configuration-label">
+										<label for="MODULE_GAMBIO_JANOLAW_SHOP_ID" class="section-description">
+											{$txt.shop_id}
+										</label>
+									</td>
+									<td>
+										<input id="MODULE_GAMBIO_JANOLAW_SHOP_ID" type="text" value="{$content.configuration.MODULE_GAMBIO_JANOLAW_SHOP_ID}" name="MODULE_GAMBIO_JANOLAW_SHOP_ID" />
+										<span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+											{$txt.shop_id_info}
+										</span>
+									</td>
+								</tr>
+							{/block}
+							{if $content.version_info.version > 0}
+								{block name="admin_module_center_janolaw_configuration_form_information"}
+									<tr class="visibility_switcher">
+										<td class="configuration-label">
+											<label class="section-description">{$txt.information}</label>
+										</td>
+										<td>
+											{$txt.version}: {$content.version_info.version}<br>
+											{$txt.multilang_subscription}: {if $content.version_info.multilang}{$txt.multilang_available}{else}{$txt.multilang_unavailable}{/if}
+										</td>
+									</tr>
+								{/block}
+								{if $content.version_info.multilang == false}
+									{block name="admin_module_center_janolaw_configuration_form_note_multilang"}
+										<tr class="visibility_switcher">
+											<td class="section-description">
+												&nbsp;
+											</td>
+											<td>
+												{if $content.version_info.version < 3}{$txt.note_old_version}{else}{$txt.note_multilang_option}{/if}
+											</td>
+										</tr>
+									{/block}
+								{/if}
+							{else}
+								{block name="admin_module_center_janolaw_configuration_form_credentials_invalid"}
+									<tr>
+										<td class="visibility_switcher">
+											&nbsp;
+										</td>
+										<td>
+											{$txt.note_credentials_invalid}
+										</td>
+									</tr>
+								{/block}
+							{/if}
+						</table>
+					{/block}
+				
+					{block name="admin_module_center_janolaw_configuration_form_table3"}
+						<table class="gx-configuration visibility_switcher" data-gx-widget="checkbox">
+							{block name="admin_module_center_janolaw_configuration_form_pdf_contents"}
+								<tr>
+									<th colspan="2">{$txt.pdf_contents}</th>
+								</tr>
+							{/block}
+							{block name="admin_module_center_janolaw_configuration_form_pdf_contents_label"}
+								<tr>
+									<td class="configuration-label">{$txt.pdf_contents_label}</td>
+									<td>
+										<input {if $content.configuration.MODULE_GAMBIO_JANOLAW_USE_IN_PDF == "True"}checked="checked"{/if} type="radio" value="True" name="MODULE_GAMBIO_JANOLAW_USE_IN_PDF" />
+										<input {if $content.configuration.MODULE_GAMBIO_JANOLAW_USE_IN_PDF == "False"}checked="checked"{/if} type="radio" value="False" name="MODULE_GAMBIO_JANOLAW_USE_IN_PDF" />
+										<span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+											{$txt.pdf_contents_info}
+										</span>
+									</td>
+								</tr>
+							{/block}
+						</table>
+					{/block}
+				
+					{block name="admin_module_center_janolaw_configuration_form_buttons"}
+						<div class="button-container">
+							{block name="admin_module_center_janolaw_configuration_form_buttons_save"}
+								<input type="submit" class="btn btn-primary pull-right" value="{$button.save}">
+							{/block}
+							{block name="admin_module_center_janolaw_configuration_form_buttons_back"}
+								<a class="btn btn-default pull-right" href="#" onclick="history.go(-1)">{$button.back}</a>
+							{/block}
+							{block name="admin_module_center_janolaw_configuration_form_buttons_configure_contents"}
+								<input type="submit" name="configure_contents" class="btn pull-right" value="{$txt.configure_contents}">
+							{/block}
+						</div>
+					{/block}
+				</form>
+			{/block}
+		</div>
+	{/block}
+{/block}

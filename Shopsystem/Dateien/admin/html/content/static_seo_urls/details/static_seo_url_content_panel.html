@@ -1,0 +1,75 @@
+{*
+	Static Seo Url Content Settings Panel
+
+	Contains settings for one static seo url content and language.
+
+	Parameters:
+		- $staticSeoUrlContent {Array} Static seo url content data
+		- $breakpoints {Array} Available breakpoints
+*}
+
+{block name="admin_static_seo_urls_details_static_seo_url_content_panel"}
+	<div class="panel panel-default"
+	     data-gx-extension="visibility_switcher"
+	     data-visibility_switcher-selections="div.action-list"
+	     data-id="{$staticSeoUrlContent.id}">
+			
+		{block name="admin_static_seo_urls_details_static_seo_url_content_panel_heading"}
+			<div class="panel-heading">
+				{block name="admin_static_seo_urls_details_static_seo_url_content_panel_heading_title"}
+					<strong>{$txt.SEO_DATA}</strong>
+				{/block}
+			</div>
+		{/block}
+			
+		{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body"}
+			<div class="panel-body">
+		
+				{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_title"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_title_label"}
+								<label class="control-label">{$txt.TITLE}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_title_input"}
+								<input class="form-control" type="text" name="title" value="{$staticSeoUrlContent.title}" placeholder="{$txt.PLACEHOLDER_TITLE}">
+							{/block}
+						</div>
+					</div>
+				{/block}
+			
+				{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_description"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_description_label"}
+								<label class="control-label">{$txt.DESCRIPTION}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_description_input"}
+								<textarea class="form-control" name="description" placeholder="{$txt.PLACEHOLDER_DESCRIPTION}">{$staticSeoUrlContent.description}</textarea>
+							{/block}
+						</div>
+					</div>
+				{/block}
+			
+				{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_keywords"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_keywords_label"}
+								<label class="control-label">{$txt.KEYWORDS}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_static_seo_url_content_panel_body_keywords_input"}
+								<textarea class="form-control" name="keywords" placeholder="{$txt.PLACEHOLDER_KEYWORDS}">{$staticSeoUrlContent.keywords}</textarea>
+							{/block}
+						</div>
+					</div>
+				{/block}
+			</div>
+		{/block}
+	</div>
+{/block}

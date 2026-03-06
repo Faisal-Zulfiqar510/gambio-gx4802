@@ -1,0 +1,317 @@
+/* --------------------------------------------------------------
+   singleSignOn.css 2018-10-12
+   Gambio GmbH
+   http://www.gambio.de
+   Copyright (c) 2017 Gambio GmbH
+   Released under the GNU General Public License (Version 2)
+   [http://www.gnu.org/licenses/gpl-2.0.html]
+   --------------------------------------------------------------
+*/
+
+.page-login .main-inside .ssoicon {
+    font-size: 27px;
+    vertical-align: middle;
+    padding: 7px 0;
+    width: 45px;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    float: left;
+}
+
+.page-login .main-inside .ssolabel {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    width: 8em;
+}
+
+p.sso-note {
+    margin: 2em auto;
+    max-width: 30em;
+}
+
+.page-login .main-inside .sso-logins {
+    text-align: center;
+    margin: 3em auto;
+}
+
+
+.page-login .main-inside .sso-logins h4 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: inherit;
+    color: inherit;
+}
+
+.page-login .main-inside a.sso-link {
+    display: inline-block;
+    margin: 5px 5px;
+    text-align: left;
+    height: 41px;
+    line-height: 40px;
+}
+
+.dropdown-sso,
+.box-sso {
+    margin: 30px 0 0;
+}
+
+.dropdown-sso > .separator,
+.box-sso > .separator {
+    position: relative;
+    border-top: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.dropdown-sso > .separator > span,
+.box-sso > .separator > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 12px;
+    color: #999;
+    white-space: nowrap;
+    padding: 0 10px;
+}
+
+.box-sso > .separator > span {
+    background-color: #fff;
+}
+
+.dropdown-sso > .row,
+.box-sso > .row {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.dropdown-sso > .row > [class^="col"],
+.box-sso > .row > [class^="col"] {
+    padding: 0 5px;
+}
+
+.dropdown-sso a.sso-link,
+.box-sso a.sso-link {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    padding: 2px 0;
+}
+
+.box-sso a.sso-link:first-of-type,
+.dropdown-sso a.sso-link:first-of-type {
+    margin-left: 0;
+}
+
+.box-sso a.sso-link:last-of-type,
+.dropdown-sso a.sso-link:last-of-type {
+    margin-right: 0;
+}
+
+.dropdown-sso a.sso-link-facebook,
+.box-sso a.sso-link-facebook,
+.page-login .main-inside a.sso-link-facebook,
+.sso-connection a.sso-link-facebook {
+    background-color: #3B5998;
+    color: #FFFFFF;
+}
+
+.dropdown-sso a:hover.sso-link-facebook,
+.box-sso a:hover.sso-link-facebook,
+.page-login .main-inside a:hover.sso-link-facebook,
+.sso-connection a:hover.sso-link-facebook,
+.dropdown-sso a:active.sso-link-facebook,
+.box-sso a:active.sso-link-facebook,
+.page-login .main-inside a:active.sso-link-facebook,
+.sso-connection a:active.sso-link-facebook,
+.dropdown-sso a:focus.sso-link-facebook,
+.box-sso a:focus.sso-link-facebook,
+.page-login .main-inside a:focus.sso-link-facebook,
+.sso-connection a:focus.sso-link-facebook {
+    background-color: #2D4373;
+}
+
+.dropdown-sso a.sso-link-google,
+.box-sso a.sso-link-google,
+.page-login .main-inside a.sso-link-google,
+.sso-connection a.sso-link-google {
+    background-color: #DD5044;
+    color: #FFFFFF;
+}
+
+.dropdown-sso a:hover.sso-link-google,
+.box-sso a:hover.sso-link-google,
+.page-login .main-inside a:hover.sso-link-google,
+.sso-connection a:hover.sso-link-google,
+.dropdown-sso a:active.sso-link-google,
+.box-sso a:active.sso-link-google,
+.page-login .main-inside a:active.sso-link-google,
+.sso-connection a:active.sso-link-google,
+.dropdown-sso a:focus.sso-link-google,
+.box-sso a:focus.sso-link-google,
+.page-login .main-inside a:focus.sso-link-google,
+.sso-connection a:focus.sso-link-google {
+    background-color: #C93225;
+}
+
+.dropdown-sso a.sso-link-paypal,
+.box-sso a.sso-link-paypal,
+.page-login .main-inside a.sso-link-paypal,
+.sso-connection a.sso-link-paypal {
+    background-color: #00A1FF;
+    color: #FFFFFF;
+}
+
+.dropdown-sso a:hover.sso-link-paypal,
+.box-sso a:hover.sso-link-paypal,
+.page-login .main-inside a:hover.sso-link-paypal,
+.sso-connection a:hover.sso-link-paypal,
+.dropdown-sso a:active.sso-link-paypal,
+.box-sso a:active.sso-link-paypal,
+.page-login .main-inside a:active.sso-link-paypal,
+.sso-connection a:active.sso-link-paypal,
+.dropdown-sso a:focus.sso-link-paypal,
+.box-sso a:focus.sso-link-paypal,
+.page-login .main-inside a:focus.sso-link-paypal,
+.sso-connection a:focus.sso-link-paypal {
+    background-color: #0081CC;
+}
+
+.dropdown-sso a.sso-link-amazon,
+.box-sso a.sso-link-amazon,
+.page-login .main-inside a.sso-link-amazon,
+.sso-connection a.sso-link-amazon {
+    background-color: #FF9900;
+    color: #FFFFFF;
+}
+
+.dropdown-sso a:hover.sso-link-amazon,
+.box-sso a:hover.sso-link-amazon,
+.page-login .main-inside a:hover.sso-link-amazon,
+.sso-connection a:hover.sso-link-amazon,
+.dropdown-sso a:active.sso-link-amazon,
+.box-sso a:active.sso-link-amazon,
+.page-login .main-inside a:active.sso-link-amazon,
+.sso-connection a:active.sso-link-amazon,
+.dropdown-sso a:focus.sso-link-amazon,
+.box-sso a:focus.sso-link-amazon,
+.page-login .main-inside a:focus.sso-link-amazon,
+.sso-connection a:focus.sso-link-amazon {
+    background-color: #CC7A00;
+}
+
+form.sso-disconnect {
+    display: inline;
+}
+
+p.account-connection a.sso-link {
+    font-weight: normal;
+    margin: 2px 15px;
+}
+
+.sso-connection {
+    padding: 1px 0 3px;
+    margin: 2px 0;
+    border-bottom: 1px solid #EEEEEE;
+    border-top: 1px transparent;
+}
+
+.sso-connection:first-of-type {
+    border-top: 1px solid #EEEEEE;
+    padding-top: 3px;
+}
+
+.sso-connection-status {
+    font-size: 1.7em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sso-connection a.sso-link {
+    display: inline-block;
+    width: 12em;
+    margin-right: 1em;
+    text-align: center;
+    height: 37px;
+    line-height: 38px;
+}
+
+@media (min-width: 992px) {
+    .sso-connection a.sso-link {
+        margin-right: 3px;
+    }
+}
+
+.sso-connection.disconnected a.sso-link {
+    background-color: #E7E7E7;
+    color: #a8a8a8;
+}
+
+.sso-connection.disconnected a.sso-link .ssoicon {
+    color: #ffffff;
+}
+
+.sso-connection a.sso-link .ssoicon {
+    font-size: 23px;
+    vertical-align: middle;
+    padding: 7px 0;
+    width: 45px;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    float: left;
+}
+
+.sso-connection a.sso-link .ssolabel {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    width: 8em;
+}
+
+.btn-disconnect {
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 2px;
+    color: #878787;
+    height: 2em;
+    margin: 2px 0;
+    padding: 0;
+    text-align: left;
+    width: 15em;
+}
+
+.btn-disconnect i {
+    font-size: 1.2em;
+}
+
+#amzInvalidCountry {
+    display: none;
+    background: #D50000;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+    padding: 1em;
+}
+
+#addressBookWidgetDiv {
+    height: 25em;
+}
+
+div.mandatory-unselected label {
+    font-weight: bold;
+}
+
+.page-shopping-cart .sso-link.sso-link-amazon {
+    margin: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .sso-link.sso-link-amazon {
+        display: block;
+    }
+}

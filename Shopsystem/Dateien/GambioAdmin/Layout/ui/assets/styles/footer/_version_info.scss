@@ -1,0 +1,15 @@
+@import "../variables";
+
+.version-info {
+	i {
+		margin-left: $margin-small / 2;
+		
+		&.shop-key-valid {
+			color: $gambio-success;
+		}
+		
+		&.shop-key-invalid {
+			color: $gambio-danger;
+		}
+	}
+}

@@ -1,0 +1,72 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="content_manager"}
+	{load_language_text section="admin_buttons" name="buttons"}
+	
+	{block name="admin_content_manager_elements_overview"}
+		<div class="breakpoint-small" data-gx-controller="content_manager/overview/content_manager_preview content_manager/overview/content_manager_delete">
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_HOME_PAGE
+			list_elements=$content.home
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerElements/createHome"
+			page_type="elements"}
+	
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_HEADER
+			list_elements=$content.header
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerElements/createHeader"
+			page_type="elements"}
+	
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_FOOTER
+			list_elements=$content.footer
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerElements/createFooter"
+			page_type="elements"}
+	
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_BOXES
+			list_elements=$content.boxes
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerElements/createBoxes"
+			page_type="elements"}
+	
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_WITHDRAWAL
+			list_elements=$content.withdrawal
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerElements/createWithdrawal"
+			page_type="elements"}
+
+            {include file="get_usermod:content_manager/partial/overview_list_element.html"
+            title=$txt.HEADING_STYLEEDIT
+            list_elements=$content.styleEdit
+            content_status=$content.contentStatus
+            create=false
+            page_type="elements"}
+	
+			{include file="get_usermod:content_manager/partial/overview_list_element.html"
+			title=$txt.HEADING_OTHERS
+			list_elements=$content.others
+			content_status=$content.contentStatus
+			create="admin.php?do=ContentManagerElements/createOthers"
+			page_type="elements"}
+		</div>
+	
+		{include file="get_usermod:content_manager/modals/preview.html"}
+		{include file="get_usermod:content_manager/modals/delete.html"}
+	
+		{block name="admin_content_manager_elements_overview_empty_list"}
+			<script id="empty-list" type="text/template">
+				<div class="row element-container empty">
+					<ul class="content-manager-elements-list">
+						<li class="col-md-12 content-manager-element">{$txt.TEXT_NO_CONTENT}</li>
+					</ul>
+				</div>
+			</script>
+		{/block}
+	{/block}
+{/block}

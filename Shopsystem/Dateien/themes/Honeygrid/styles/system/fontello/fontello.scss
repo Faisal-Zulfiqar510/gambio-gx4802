@@ -1,0 +1,12 @@
+// Dynamically load Fontello font files.
+
+@font-face {
+	font-family: 'gm';
+	src: url($theme-base-path + '/styles/system/fontello/font/gm.eot?51482360');
+	src: url($theme-base-path + '/styles/system/fontello/font/gm.eot?51482360#iefix') format('embedded-opentype'),
+	url($theme-base-path + '/styles/system/fontello/font/gm.woff?51482360') format('woff'),
+	url($theme-base-path + '/styles/system/fontello/font/gm.ttf?51482360') format('truetype'),
+	url($theme-base-path + '/styles/system/fontello/font/gm.svg?51482360#gm') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

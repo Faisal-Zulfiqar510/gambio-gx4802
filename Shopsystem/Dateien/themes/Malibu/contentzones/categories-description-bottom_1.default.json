@@ -1,0 +1,192 @@
+{
+    "id": "categories-description-bottom_1",
+    "type": "content-zone",
+    "rows": [
+        {
+            "columnsLayout": {
+                "id": "radioimage-zssd02rrj",
+                "type": "radioimage",
+                "from": "contentzone",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "fullwidth"
+            },
+            "contentAlign": {
+                "id": "checkbox-rmohmsulc",
+                "type": "checkbox",
+                "label": "Inhalt zentrieren (.container)",
+                "value": false,
+                "labelId": "StyleEdit.contentZone.row.alignment.label"
+            },
+            "responsive": {
+                "id": "responsive-fb8v1f2f2",
+                "type": "responsive",
+                "from": true,
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-9xh144ehy",
+                "type": "background",
+                "label": "Hintergrund",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "labelId": "StyleEdit.contentZone.background.label",
+                "value": null
+            },
+            "border": {
+                "id": "border-k0904za72",
+                "type": "border",
+                "label": "Rahmen",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "labelId": "StyleEdit.contentZone.border.label",
+                "value": null
+            },
+            "class": {
+                "id": "textbox-5hgy8i1m8",
+                "type": "textbox",
+                "label": "Klasse",
+                "value": "textbox-rltg6dp4o",
+                "labelId": "StyleEdit.contentZone.class.label"
+            },
+            "id": {
+                "id": "textbox-jda4bhmbt",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-dec323oj0"
+            },
+            "cols": [
+                {
+                    "widgets": [],
+                    "background": {
+                        "id": "background-9njgxacpt",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-sqndjlwnc",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-teh69xwbx",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        }
+                    },
+                    "class": {
+                        "id": "class-hzawuwjj5",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "value": "",
+                        "labelId": "StyleEdit.contentZone.class.label"
+                    },
+                    "id": {
+                        "id": "textbox-8ng05ujbv",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-0p9kdxbp7"
+                    }
+                }
+            ]
+        }
+    ],
+    "value": null,
+    "shopVersion": "4.0_develop"
+}

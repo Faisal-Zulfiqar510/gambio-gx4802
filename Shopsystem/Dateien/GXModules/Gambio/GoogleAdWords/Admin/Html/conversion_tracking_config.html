@@ -1,0 +1,99 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="google_adwords"}
+	<div class="gx-container breakpoint-small"
+		 data-gxmodules-namespace="{$base_url}/GXModules/Gambio/GoogleAdWords/Build/Admin/Javascript"
+		 data-gxmodules-controller="conversion_tracking_config">
+
+		{if $content.error}
+			<div class="alert alert-danger text-center">
+				<span>{$content.error}</span>
+			</div>
+		{else}
+			<form class="form-horizontal"
+				  id="ads-conversions-form"
+				  action="./admin.php?do=GoogleAdWords/updateConfiguration"
+				  method="post"
+				  data-gx-widget="switcher">
+
+				<fieldset>
+					<legend>{$txt.label_conversion_tracking}</legend>
+
+					<div class="form-group">
+						<label for="conversion-tracking-enabled"
+							   class="control-label col-sm-5">{$txt.gx_ads_enabled_label}</label>
+						<div class="col-sm-7">
+							<input class="form-control"
+								   id="conversion-tracking-enabled"
+								   type="checkbox"
+								   name="conversion-tracking-enabled"
+								   {if $content.enabled}checked{/if}
+								   placeholder="{$txt.gx_ads_enabled_label}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="conversion-name"
+							   class="control-label col-sm-5">{$txt.gx_ads_conversion_tracker_name_label}</label>
+
+						<div class="col-sm-7">
+							<select class="form-control" name="conversion-name" id="conversion-name"
+									{if count($content.conversionTrackers) === 1}readonly{/if}>
+								{foreach $content.conversionTrackers as $conversionTracker}
+									<option data-conversion-id="{$conversionTracker.conversionId}"
+											data-conversion-action-id="{$conversionTracker.conversionActionId}"
+											value="{$conversionTracker.name}"
+											{if $content.conversionName === $conversionTracker.name}selected{/if}
+											title="{$conversionTracker.conversionActionId}">{$conversionTracker.name}</option>
+								{/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="conversion-id"
+							   class="control-label col-sm-5">{$txt.gx_ads_conversion_id_label}</label>
+
+						<div class="col-sm-7">
+							<input type="text"
+								   id="conversion-id"
+								   name="conversion-id"
+								   class="form-control disabled"
+								   readonly
+								   value="{$content.conversionId}">
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="conversion-action-id"
+							   class="control-label col-sm-5">{$txt.gx_ads_conversion_action_id_label}</label>
+
+						<div class="col-sm-7">
+							<input type="text"
+								   id="conversion-action-id"
+								   name="conversion-action-id"
+								   class="form-control disabled"
+								   readonly
+								   value="{$content.conversionActionId}">
+
+						</div>
+					</div>
+				</fieldset>
+
+			</form>
+		{/if}
+
+	</div>
+	<div data-gx_google_oauth-namespace="../GXModules/Gambio/GoogleOAuth/Build/Admin/Javascript"
+		 data-gx_google_oauth-widget="google_connection_modal"
+		 data-google_connection_modal-from="GoogleAdWords"
+		 data-google_connection_modal-error="{$content.error}"
+	></div>
+{/block}
+
+{block name="bottom_save_bar"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+	<button class="btn btn-primary"
+			onclick="document.getElementById('ads-conversions-form').submit()">{$admin_buttons.BUTTON_SAVE}
+	</button>
+{/block}

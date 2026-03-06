@@ -1,0 +1,39 @@
+{load_language_text section="admin_quick_edit" name="admin_quick_edit"}
+
+{block name="admin_quick_edit_modals_downloads"}
+	<div class="downloads modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_quick_edit_modals_downloads_header"}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="{$btn.close}">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						{block name="admin_quick_edit_modals_downloads_header_title"}
+							<h4 class="modal-title">{$admin_quick_edit.MODAL_TITLE_DOCUMENT_CREATE}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_quick_edit_modals_downloads_body"}
+					<div class="modal-body">
+						{* Content will be loaded dynamically (quick_edit/overview/event.js) *}
+					</div>
+				{/block}
+				{block name="admin_quick_edit_modals_downloads_footer"}
+					<div class="modal-footer">
+						{block name="admin_quick_edit_modals_downloads_footer_cancle"}
+							<button type="button"
+									class="btn btn-default"
+									data-dismiss="modal">{$admin_quick_edit.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_quick_edit_modals_downloads_footer_download"}
+							<button type="button"
+									class="btn btn-primary download-button"
+									disabled>{$admin_quick_edit.BUTTON_DOWNLOAD}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

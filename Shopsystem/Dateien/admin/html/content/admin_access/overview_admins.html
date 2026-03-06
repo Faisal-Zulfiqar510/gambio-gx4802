@@ -1,0 +1,92 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{* Replacing a block from partial/overview_list.html*}
+	{block name="admin_admin_access_partial_overview_list_container_list_foreach" prepend}
+		<li class="col-md-12 list-headline">
+			<span class="list-element-text col-md-4">
+				{$txt.headline_admins_overview_name}
+			</span>
+			<span class="list-element-text col-md-7">
+				{$txt.headline_admins_overview_assigned_roles}
+			</span>
+			<span class="col-md-1">
+				&nbsp;
+			</span>
+		</li>
+		<li class="col-md-12 list-element">
+			<span class="list-element-text list-element-title col-md-4">
+				{$content.mainAdmin.customers_firstname} {$content.mainAdmin.customers_lastname}
+			</span>
+			<span class="list-element-text col-md-7">
+				&nbsp;
+			</span>
+			<span class="col-md-1 list-element-actions text-right">
+				<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+					{$txt.tooltip_admins_overview}
+				</span>
+			</span>
+		</li>
+	{/block}
+	
+	{block name="admin_admin_access_partial_overview_list_container_list_element"}
+		<li class="col-md-12 list-element" data-list-element-id="{$element.id}">
+			<span class="list-element-text col-md-4">
+				{$element.title}
+			</span>
+			<span class="list-element-badge col-md-7">
+				{if count($element.roleBadges) > 0}
+					{foreach item=roleBadge from=$element.roleBadges}
+						<span>{$roleBadge}</span>
+					{/foreach}
+					{if $element.additionalRoles}
+						&nbsp;<i title="{$element.additionalRoles}">...</i>
+					{/if}
+				{/if}
+			</span>
+			<span class="col-md-1 list-element-actions">
+				<a data-id="{$element.id}" href="admin.php?do=AdminAccess/editAdmin&id={$element.id}"><i class="fa fa-pencil"></i></a>
+			</span>
+		</li>
+	{/block}
+	
+	{block name="admin_admin_access_partial_overview_list_container_empty_list_item"}
+		<li class="col-md-12 list-headline">
+			<span class="list-element-text col-md-4">
+				{$txt.headline_admins_overview_name}
+			</span>
+			<span class="list-element-text col-md-7">
+				{$txt.headline_admins_overview_assigned_roles}
+			</span>
+			<span class="col-md-1">
+				&nbsp;
+			</span>
+		</li>
+		<li class="col-md-12 list-element">
+			<span class="list-element-text list-element-title col-md-4">
+				{$content.mainAdmin.customers_firstname} {$content.mainAdmin.customers_lastname}
+			</span>
+			<span class="list-element-text col-md-7">
+				&nbsp;
+			</span>
+			<span class="col-md-1 list-element-actions text-right">
+				<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+					{$txt.tooltip_admins_overview}
+				</span>
+			</span>
+		</li>
+	{/block}
+{* *}
+
+{block name="content"}
+	{load_language_text section="admin_access"}
+	
+	{block name="admin_admin_access_overview_admins"}
+		<div class="admin_access_container breakpoint-small">
+			{include file="get_usermod:admin_access/partial/overview_list.html"
+			         title=$content.list.title
+			         action=$content.list.action
+			         list_elements=$content.list.elements
+			         element_actions=$content.list.elementActions}
+		</div>
+	{/block}
+{/block}

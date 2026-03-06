@@ -1,0 +1,46 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="buttons" name="button"}
+	{load_language_text section="admin_labels" name="label"}
+	{load_language_text section="admin_general" name="general"}
+	{load_language_text section="quantity_units" name="units"}
+	<div class="gx-container breakpoint-small" data-gx-controller="quantity_units/overview">
+		<div class="grid">
+			<div class="span12 remove-padding">
+				<a id="add-quantity-units" class="btn btn-success btn-create pull-right" data-target=".create-modal">
+					<i class="fa fa-plus"></i>
+					<span>&nbsp;</span>
+					{$button.create}
+				</a>
+			</div>
+		</div>
+
+		<table class="quantity-units-table table">
+			<thead>
+				<tr>
+					<th>{$units.HEADING_TITLE}</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach item=quantityUnitEntity from=$content.quantityUnitEntities}
+					<tr>
+						<td>
+                            {$quantityUnitEntity->getName($content.languageCode)} (ID: {$quantityUnitEntity->getId()})
+						</td>
+						<td class="actions">
+							<div class="pull-right action-list visible-on-hover">
+								<i data-id="{$quantityUnitEntity->getId()}" class="fa fa-pencil edit"></i>
+								<i data-id="{$quantityUnitEntity->getId()}" class="fa fa-trash-o delete"></i>
+							</div>
+						</td>
+					</tr>
+				{/foreach}
+			</tbody>
+		</table>
+		{include file="get_usermod:quantity_units/modals/creation_modal.html"}
+		{include file="get_usermod:quantity_units/modals/edit_modal.html"}
+		{include file="get_usermod:quantity_units/modals/remove_confirmation_modal.html"}
+	</div>
+{/block}

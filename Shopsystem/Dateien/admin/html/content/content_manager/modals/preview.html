@@ -1,0 +1,39 @@
+{*
+	Preview modal
+	==================
+
+	Is triggered when the user clicks on the preview icon.
+*}
+
+{block name="admin_content_manager_modals_preview"}
+	<div class="preview modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_content_manager_modals_preview_header"}
+					<div class="modal-header">
+						{block name="admin_content_manager_modals_preview_header_close_button"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$buttons.BUTTON_CLOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						{/block}
+						{block name="admin_content_manager_modals_preview_header_title"}
+							<h4 class="modal-title">{$txt.TEXT_PREVIEW}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_content_manager_modals_preview_body"}
+					<div class="modal-body row">
+						{* Iframe is filled dynamically by JavaScript *}
+						<iframe class="col-md-12"></iframe>
+					</div>
+				{/block}
+				{block name="admin_content_manager_modals_preview_footer"}
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">{$buttons.BUTTON_CLOSE}</button>
+						<button type="button" class="btn btn-primary copy-link">{$txt.COPY_LINK}</button>
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

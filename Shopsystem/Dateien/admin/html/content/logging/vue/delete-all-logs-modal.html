@@ -1,0 +1,29 @@
+{literal}
+	<div class="delete-all-logs modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+					        :aria-label="lang.modals.deleteAllLogfiles.close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					
+					<h4 class="modal-title">{{lang.modals.deleteAllLogfiles.title}}</h4>
+				</div>
+				
+				<div class="modal-body">
+					{{lang.modals.deleteAllLogfiles.text}}
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						{{lang.modals.deleteAllLogfiles.close}}
+					</button>
+					
+					<button class="btn btn-primary" @click="deleteAllLogfiles">{{lang.modals.deleteAllLogfiles.confirm}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{/literal}

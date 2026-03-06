@@ -1,0 +1,24 @@
+{
+	"name": "CheckPermissions",
+	"title": "cronjob_check_permissions.title",
+	"configuration": {
+		"active": {
+			"name": "active",
+			"type": "checkbox",
+			"label": "cronjob_check_permissions.label_activate",
+			"defaultValue": false
+		},
+		"interval": {
+			"name": "interval",
+			"type": "hidden",
+			"label": "",
+			"defaultValue": "*/15 * * * *"
+		},
+		"sortOrder": {
+			"name": "sort-order",
+			"type": "hidden",
+			"label": "",
+			"defaultValue": "30"
+		}
+	}
+}

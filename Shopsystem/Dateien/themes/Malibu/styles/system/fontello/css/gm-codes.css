@@ -1,0 +1,56 @@
+
+.gm-chevron-right:before {
+    content: '\e800';
+}
+
+/* '' */
+.gm-chevron-up:before {
+    content: '\e801';
+}
+
+/* '' */
+.gm-star:before {
+    content: '\e802';
+}
+
+/* '' */
+.gm-search:before {
+    content: '\e80b';
+}
+
+/* '' */
+.gm-cart-basket:before {
+    content: '\e80c';
+}
+
+/* '' */
+.gm-menu:before {
+    content: '\e80d';
+}
+
+/* '' */
+.gm-minus:before {
+    content: '\e810';
+}
+
+/* '' */
+.gm-plus:before {
+    content: '\e81e';
+}
+
+/* '' */
+.gm-chevron-down:before {
+    content: '\e81f';
+}
+
+/* '' */
+.gm-chevron-left:before {
+    content: '\e820';
+}
+
+/* '' */
+.gm-cart:before {
+    content: '\e821';
+}
+
+/* '' */

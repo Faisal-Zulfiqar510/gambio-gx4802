@@ -1,0 +1,89 @@
+{extends file="../layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="parcelshopfinder"}
+	
+	{block name="admin_module_center_parcelshopfinder_configuration"}
+		<form action="{$content.form_action}" method="POST" class="form-configuration" style="max-width: 60em;">
+			<input type="hidden" name="page_token" value="{$pageToken}">
+			<div class="form-horizontal">
+				{block name="admin_module_center_parcelshopfinder_configuration_map_api"}
+					<fieldset>
+						{block name="admin_module_center_parcelshopfinder_configuration_map_api_legend"}
+							<legend>{$txt.configuration_map_api}</legend>
+						{/block}
+						{block name="admin_module_center_parcelshopfinder_configuration_map_api_map_type"}
+							<div class="form-group">
+								<label class="col-sm-4 control-label" for="google_map_type">{$txt.cfg_map_type}</label>
+								<div class="col-sm-8">
+									<select class="form-control" id="google_map_type" name="google_map_type">
+										<option value="none"    {if $content.google_map_type === "none"   }selected="selected"{/if}>
+											{$txt.cfg_map_type_none}
+										</option>
+										<option value="static"  {if $content.google_map_type === "static" }selected="selected"{/if}>
+											{$txt.cfg_map_type_static}
+										</option>
+										<option value="dynamic" {if $content.google_map_type === "dynamic"}selected="selected"{/if}>
+											{$txt.cfg_map_type_dynamic}
+										</option>
+									</select>
+								</div>
+							</div>
+						{/block}
+						{block name="admin_module_center_parcelshopfinder_configuration_map_api_key"}
+							<div class="form-group">
+								<label class="col-sm-4 control-label" for="psf_google_api_key">{$txt.cfg_api_key}</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="psf_google_api_key" name="google_api_key" value="{$content.google_api_key}">
+								</div>
+							</div>
+						{/block}
+						{block name="admin_module_center_parcelshopfinder_configuration_map_api_url_signature_secret"}
+							<div class="form-group">
+								<label class="col-sm-4 control-label" for="psf_google_url_signature_secret">{$txt.cfg_url_signature_secret}</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="psf_google_url_signature_secret" name="google_url_signature_secret" value="{$content.google_url_signature_secret}">
+								</div>
+							</div>
+						{/block}
+						{block name="admin_module_center_parcelshopfinder_configuration_note_map_api"}
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{$txt.cfg_label_note_maps_keys}</label>
+								<div class="col-sm-8">
+									{$txt.cfg_note_maps_keys}
+									<a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">{$txt.cfg_note_maps_keys_link}</a>
+								</div>
+							</div>
+						{/block}
+					</fieldset>
+				{/block}
+				{block name="admin_module_center_parcelshopfinder_configuration_resultlist"}
+					<fieldset>
+						{block name="admin_module_center_parcelshopfinder_configuration_resultlist_legemd"}
+							<legend>{$txt.configuration_resultlist}</legend>
+						{/block}
+						{block name="admin_module_center_parcelshopfinder_configuration_resultlist_maximum_list_entries"}
+							<div class="form-group">
+								<label class="col-sm-4 control-label" for="maximum_list_entries">{$txt.cfg_maximum_list_entries}</label>
+								<div class="col-sm-8">
+									<select class="form-control" id="maximum_list_entries" name="maximum_list_entries">
+										<option value="50" {if $content.maximum_list_entries == 50}selected="selected"{/if}>50</option>
+										<option value="40" {if $content.maximum_list_entries == 40}selected="selected"{/if}>40</option>
+										<option value="30" {if $content.maximum_list_entries == 30}selected="selected"{/if}>30</option>
+										<option value="20" {if $content.maximum_list_entries == 20}selected="selected"{/if}>20</option>
+										<option value="10" {if $content.maximum_list_entries == 10}selected="selected"{/if}>10</option>
+									</select>
+								</div>
+							</div>
+						{/block}
+					</fieldset>
+				{/block}
+				{block name="admin_module_center_parcelshopfinder_configuration_submit"}
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary pull-right">{$txt.cfg_save}</button>
+					</div>
+				{/block}
+			</div>
+		</form>
+	{/block}
+{/block}

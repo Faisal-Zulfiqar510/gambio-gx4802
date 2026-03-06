@@ -1,0 +1,109 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="content_manager"}
+
+	{block name="admin_content_manager_pages_edit"}
+		{include file="get_usermod:content_manager/modals/payment_shipping_matrix.html" content_manager=$content.contentManager type="infopage"}
+	
+		<div class="breakpoint-large" data-gx-controller="content_manager/type_selection">
+			{block name="admin_content_manager_pages_edit_type_selection"}
+				<div class="content-manager-form form-horizontal type-selection-container">
+					<fieldset>
+						{block name="admin_content_manager_pages_edit_type_selection_form"}
+							<div class="form-group">
+								{block name="admin_content_manager_pages_edit_type_selection_label"}
+									<label class="col-md-2">{$txt.PAGE_TYPE}:</label>
+								{/block}
+								<div class="col-md-4">
+									{block name="admin_content_manager_pages_edit_type_selection_input"}
+										<select class="form-control content-manager-type-selection">
+											<option value="infopage" {if $content.contentType == 'content'}selected{/if}>{$txt.PAGE_TYPE_INFO}</option>
+											<option value="linkpage" {if $content.contentType == 'link'}selected{/if}>{$txt.PAGE_TYPE_LINK}</option>
+											<option value="scriptpage" {if $content.contentType == 'file'}selected{/if}>{$txt.PAGE_TYPE_SCRIPT}</option>
+										</select>
+									{/block}
+								</div>
+							</div>
+						{/block}
+						{block name="admin_content_manager_pages_edit_slider_form"}
+							<div class="form-group content-manager-type-selection-content product-contents-forms">
+								<div class="content-manager-slider infopage scriptpage" data-gx-controller="content_manager/slider_selection">
+									{block name="admin_content_manager_pages_edit_slider_label"}
+										<label class="col-md-2">{$txt.TITLE_CONTENT_SLIDER}:</label>
+									{/block}
+									<div class="col-md-4">
+										{block name="admin_content_manager_pages_edit_slider_input"}
+											<select class="form-control content-slider-selection" name="slider_id">
+												<option value="0" {if !$content.contentManager.sliderId}selected{/if}>{$txt.TEXT_SELECT_NONE}</option>
+												{foreach item=slider from=$content.contentManager.sliders}
+													<option value="{$slider.id}" {if $content.contentManager.sliderId == $slider.id}selected{/if}>{$slider.name}</option>
+												{/foreach}
+											</select>
+										{/block}
+									</div>
+								</div>
+							</div>
+						{/block}
+					</fieldset>
+				</div>
+			{/block}
+	
+			{block name="admin_content_manager_pages_edit_types_content"}
+				<div class="content-manager-type-selection-content">
+					{block name="admin_content_manager_pages_edit_types_content_infopage"}
+						<div class="infopage">
+							{include file="get_usermod:content_manager/partial/contents_edit_form.html" content_manager=$content.contentManager type="infopage"}
+						</div>
+					{/block}
+					{block name="admin_content_manager_pages_edit_types_content_linkpage"}
+						<div class="linkpage">
+							{include file="get_usermod:content_manager/partial/contents_edit_form.html" content_manager=$content.contentManager type="linkpage"}
+						</div>
+					{/block}
+					{block name="admin_content_manager_pages_edit_types_content_scriptpage"}
+						<div class="scriptpage">
+							{include file="get_usermod:content_manager/partial/contents_edit_form.html" content_manager=$content.contentManager type="scriptpage"}
+						</div>
+					{/block}
+				</div>
+			{/block}
+		</div>
+	{/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+
+	{block name="admin_content_manager_pages_edit_buttons"}
+		{block name="admin_content_manager_pages_edit_buttons_save"}
+		<button data-gx-controller="content_manager/save_bar"
+		        type="submit"
+		        name="save"
+		        value="1"
+		        class="btn btn-primary pull-right">{$admin_buttons.BUTTON_SAVE}</button>
+		{/block}
+
+		{block name="admin_content_manager_pages_edit_buttons_update"}
+		<button data-gx-controller="content_manager/save_bar"
+		        type="submit"
+		        name="update"
+		        value="1"
+		        class="btn btn-default pull-right">{$admin_buttons.BUTTON_UPDATE}</button>
+		{/block}
+
+		{block name="admin_content_manager_pages_edit_buttons_back"}
+		<a href="./admin.php?do=ContentManagerPages{if isset($smarty.get.expert)}&expert{/if}"
+		   class="btn btn-default pull-right">{$admin_buttons.BUTTON_BACK}</a>
+		{/block}
+
+		{if $content.contentManager.themeSystemIsActive && $content.contentManager.styleEditIsInstalled && $content.contentType == 'content'}
+			{block name="admin_content_manager_pages_buttons_open_in_se4"}
+				<a href="./admin.php?do=StyleEdit4Authentication&startPageUrl={$content.contentManager.shop_page_link}"
+				   class="btn btn-default pull-right"
+				   target="_blank"
+				>{$txt.BUTTON_OPEN_PAGE_IN_SE4}</a>
+			{/block}
+        {/if}
+	{/block}
+{/block}

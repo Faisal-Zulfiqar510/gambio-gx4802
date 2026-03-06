@@ -1,0 +1,23 @@
+.modifier-group {
+	&.modifier-type {
+		&__dropdown {
+			&.form-group-big-select {
+				.form-control {
+					border-radius: 0;
+				}
+			}
+		}
+		&__radio {
+			.radio {
+				.radio-wrapper {
+					.checkmark {
+						border-radius: 0;
+						&:after {
+							border-radius: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

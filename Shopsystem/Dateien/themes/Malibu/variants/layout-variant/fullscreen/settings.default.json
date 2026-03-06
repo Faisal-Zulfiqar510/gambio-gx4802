@@ -1,0 +1,20 @@
+[
+    {
+        "name": "gx-body-wrap",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-index-full-width",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-stage-below-header",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    }
+]

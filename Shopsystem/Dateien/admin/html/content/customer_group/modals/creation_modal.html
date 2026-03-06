@@ -1,0 +1,478 @@
+{block name="admin_customer_groups_overview_creation_modal"}
+    <div class="modal fade creation-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label">
+        <div class="modal-dialog" role="document">
+            <form class="form-horizontal customer-group-form" onsubmit="return false">
+                <div class="modal-content">
+                    {block name="admin_customer_groups_overview_creation_modal_header"}
+                        <div class="modal-header">
+                            {block name="admin_customer_groups_overview_creation_modal_header_close_button"}
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            {/block}
+
+                            {block name="admin_customer_groups_overview_creation_modal_header_title"}
+                                <h4 class="modal-title">
+                                    {$customers_status.TEXT_INFO_HEADING_NEW_CUSTOMERS_STATUS}
+                                </h4>
+                            {/block}
+                        </div>
+                    {/block}
+
+                    {block name="admin_customer_groups_overview_creation_modal_body"}
+                        <div class="modal-body">
+                            <div class="col-md-12">
+                                {block name="admin_customer_groups_overview_creation_modal_modal_body_main_fieldset"}
+                                    <fieldset class="create-form-input-name">
+                                        {block name="admin_customer_groups_overview_creation_modal_body_info_text"}
+                                            <p class="customer-group-modal-info"></p>
+                                        {/block}
+
+                                        {block name="admin_customer_groups_overview_creation_modal_body_customer_group_basic_setting_fieldset"}
+                                            <fieldset>
+                                                {block name='admin_customer_groups_overview_creation_modal_body_customer_group_basic_setting_fieldset_legend'}
+                                                    <legend>{$customers_status.ENTRY_CUSTOMERS_BASIC_SETTING}</legend>
+                                                {/block}
+                                                {foreach item=lang from=$content.languages name=languages}
+                                                    {if  $smarty.foreach.languages.first}
+                                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_names_first"}
+                                                            <div class="form-group">
+                                                                <label for="customer-group-name"
+                                                                       class="col-md-5">
+                                                                    {$customers_status.TEXT_INFO_CUSTOMERS_STATUS_NAME}
+                                                                </label>
+                                                                <div class="col-md-6">
+                                                                    <input type="text"
+                                                                           data-gx-widget="icon_input"
+                                                                           data-lang-id="{$lang.id}"
+                                                                           name="customer_group[{$lang.id}]"
+                                                                           class="form-control customer-group-name-{$lang.code}"
+                                                                           title="{$lang.code}"
+                                                                           id="customer-group-name">
+                                                                </div>
+                                                            </div>
+                                                        {/block}
+                                                    {else}
+                                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_names_others"}
+                                                            <div class="form-group">
+                                                                <div class="col-md-6 col-md-offset-5">
+                                                                    <input type="text"
+                                                                           data-gx-widget="icon_input"
+                                                                           data-lang-id="{$lang.id}"
+                                                                           name="customer_group[{$lang.id}]"
+                                                                           class="form-control customer-group-name-{$lang.code}"
+                                                                           title="{$lang.code}">
+                                                                </div>
+                                                            </div>
+                                                        {/block}
+                                                    {/if}
+                                                {/foreach}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_public"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-public"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_PUBLIC}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="public"
+                                                                   id="customer-group-public"
+                                                                   title="{$customers_status.ENTRY_CUSTOMERS_STATUS_PUBLIC}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_default"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-default"
+                                                               class="col-md-5">
+                                                            {$customers_status.TEXT_INFO_CUSTOMER_STATUS_DEFAULT}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="default"
+                                                                   id="customer-group-default"
+                                                                   title="{$customers_status.TEXT_INFO_CUSTOMER_STATUS_DEFAULT}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+                                            </fieldset>
+                                        {/block}
+
+                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_order_values_fieldset"}
+                                            <fieldset>
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_order_values_fieldset_legend"}
+                                                    <legend>{$customers_status.ENTRY_CUSTOMERS_ORDER_VALUES}</legend>
+                                                    <p class="customer-group-modal-order-values-info"></p>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_min_order"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-min-order"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_MIN_ORDER}
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <input name="min_order"
+                                                                   type="number"
+                                                                   step="0.01"
+                                                                   min="0"
+                                                                   class="form-control"
+                                                                   id="customer-group-min-order">
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_max_order"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-max-order"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_MAX_ORDER}
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <input name="max_order"
+                                                                   type="number"
+                                                                   step="0.01"
+                                                                   min="0"
+                                                                   class="form-control"
+                                                                   id="customer-group-max-order">
+                                                        </div>
+                                                    </div>
+                                                {/block}
+                                            </fieldset>
+                                        {/block}
+
+                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_customers_prices_fieldset"}
+                                            <fieldset>
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_customers_prices_fieldset_legend"}
+                                                    <legend>{$customers_status.ENTRY_CUSTOMERS_PRICES}</legend>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_base"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-base"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_BASE}
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <select class="form-control"
+                                                                    name="base"
+                                                                    id="customer-group-base">
+                                                                {foreach item=customerGroup from=$content.customerGroups name=customerGroups}
+                                                                    {if  $smarty.foreach.customerGroups.first}
+                                                                        <option value="{$customerGroup->getId()}"></option>
+                                                                    {else}
+                                                                        <option value="{$customerGroup->getId()}">{$customerGroup->getName($content.languageCode)}</option>
+                                                                    {/if}
+                                                                {/foreach}
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <span data-gx-widget="tooltip_icon"
+                                                                  data-tooltip_icon-type="info">
+                                                              {$customers_status.ENTRY_CUSTOMERS_STATUS_BASE_INFO}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_show_add_tax"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-show-add-tax"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_SHOW_PRICE_TAX}
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <select class="form-control"
+                                                                    name="show_add_tax"
+                                                                    id="customer-group-show-add-tax">
+                                                                <option value="false">{$customers_status.GM_TAX_NO}</option>
+                                                                <option value="true">{$customers_status.GM_TAX_YES}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_add_tax"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-add-tax"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_ADD_TAX}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="add_tax"
+                                                                   id="customer-group-add-tax"
+                                                                   title="{$customers_status.ENTRY_CUSTOMERS_STATUS_ADD_TAX}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_show_price"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-show-price"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_SHOW_PRICE}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="customer_show_price"
+                                                                   id="customer-group-show-price"
+                                                                   title="{$customers_status.ENTRY_CUSTOMERS_STATUS_SHOW_PRICE}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                            </fieldset>
+                                        {/block}
+
+                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_discount_on_products_fieldset"}
+                                            <fieldset>
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_discount_on_products_legend"}
+                                                    <legend>{$customers_status.ENTRY_CUSTOMERS_DISCOUNT_ON_PRODUCTS}</legend>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_discount_price"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-discount-price"
+                                                               class="col-md-5">
+                                                            {$customers_status.TEXT_INFO_CUSTOMERS_STATUS_DISCOUNT_PRICE_INTRO}
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <input name="discount_price"
+                                                                   type="number"
+                                                                   step="0.01"
+                                                                   min="0"
+                                                                   max="100"
+                                                                   class="form-control"
+                                                                   placeholder="0 - 100%"
+                                                                   id="customer-group-show-price">
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <span data-gx-widget="tooltip_icon"
+                                                                  data-tooltip_icon-type="info">
+                                                               {$customers_status.TEXT_INFO_CUSTOMERS_STATUS_DISCOUNT_PRICE_INTRO_INFO}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_discount_attributes"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-discount-attributes"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_DISCOUNT_ATTRIBUTES}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="discount_attributes"
+                                                                   id="customer-group-discount-attributes"
+                                                                   title="{$customers_status.ENTRY_CUSTOMERS_STATUS_DISCOUNT_ATTRIBUTES}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                            </fieldset>
+                                        {/block}
+
+                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_discount_on_order_fieldset"}
+                                            <fieldset>
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_discount_on_order_fieldset_legend"}
+                                                    <legend>{$customers_status.ENTRY_CUSTOMERS_DISCOUNT_ON_ORDER}</legend>
+                                                {/block}
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_order_discount_price"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-order-discount-price"
+                                                               class="col-md-5">
+                                                            {$customers_status.TEXT_INFO_CUSTOMERS_STATUS_DISCOUNT_OT_XMEMBER_INTRO}
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <input name="order_discount_price"
+                                                                   type="number"
+                                                                   step="0.01"
+                                                                   min="0"
+                                                                   max="100"
+                                                                   class="form-control"
+                                                                   placeholder="0 - 100%"
+                                                                   id="customer-group-order-discount-price">
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_order_discount"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-order-discount"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_OT_XMEMBER}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="order_discount"
+                                                                   id="customer-group-order-discount"
+                                                                   title="{$customers_status.ENTRY_OT_XMEMBER}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_graduated_prices"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-graduated-prices"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_GRADUATED_PRICES}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="graduated_prices"
+                                                                   id="customer-group-graduated-prices"
+                                                                   title="{$customers_status.ENTRY_GRADUATED_PRICES}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+                                            </fieldset>
+                                        {/block}
+
+                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_unallowed_modules_fieldset"}
+                                            <fieldset>
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_unallowed_modules_fieldset_legend"}
+                                                    <legend>{$customers_status.ENTRY_CUSTOMERS_UNALLOWED_MODULES}</legend>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_payment_unallowed"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-payment-unallowed"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_PAYMENT_UNALLOWED}
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <input name="payment_unallowed"
+                                                                   type="text"
+                                                                   class="form-control"
+                                                                   id="customer-group-payment-unallowed"
+                                                                   placeholder="{$customers_status.ENTRY_CUSTOMERS_STATUS_PAYMENT_UNALLOWED_PLACEHOLDER}">
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_shipping_unallowed"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-shipping-unallowed"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_SHIPPING_UNALLOWED}
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            <input name="shipping_unallowed"
+                                                                   type="text"
+                                                                   class="form-control"
+                                                                   id="customer-group-shipping-unallowed"
+                                                                   placeholder=" {$customers_status.ENTRY_CUSTOMERS_STATUS_SHIPPING_UNALLOWED_PLACEHOLDER}">
+                                                        </div>
+                                                    </div>
+                                                {/block}
+                                            </fieldset>
+                                        {/block}
+
+                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_filtering_for_minors_fieldset"}
+                                            <fieldset>
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_filtering_for_minors_fieldset_legend"}
+                                                    <legend>{$customers_status.ENTRY_CUSTOMERS_FILTERING_FOR_MINORS}</legend>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_fsk18"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-fsk18"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_FSK18}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="fsk18_purchasable"
+                                                                   id="customer-group-fsk18"
+                                                                   title="{$customers_status.ENTRY_CUSTOMERS_FSK18}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_fsk18_display"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-fsk18-display"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_FSK18_DISPLAY}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="fsk18_display"
+                                                                   id="customer-group-fsk18-display"
+                                                                   title="{$customers_status.ENTRY_CUSTOMERS_FSK18_DISPLAY}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+                                            </fieldset>
+                                        {/block}
+
+                                        {block name="admin_customer_group_overview_creation_modal_body_customer_group_customer_review_fieldset"}
+                                            <fieldset>
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_customer_review_fieldset_legend"}
+                                                    <legend>{$customers_status.ENTRY_CUSTOMERS_REVIEW}</legend>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_write_reviews"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-write-reviews"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_WRITE_REVIEWS}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="write_reviews"
+                                                                   id="customer-group-write-reviews"
+                                                                   title="{$customers_status.ENTRY_CUSTOMERS_STATUS_WRITE_REVIEWS}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+
+                                                {block name="admin_customer_group_overview_creation_modal_body_customer_group_read_reviews"}
+                                                    <div class="form-group">
+                                                        <label for="customer-group-read-reviews"
+                                                               class="col-md-5">
+                                                            {$customers_status.ENTRY_CUSTOMERS_STATUS_READ_REVIEWS}
+                                                        </label>
+                                                        <div class="col-md-6" data-gx-widget="checkbox">
+                                                            <input type="checkbox"
+                                                                   name="read_reviews"
+                                                                   id="customer-group-read-reviews"
+                                                                   title="{$customers_status.ENTRY_CUSTOMERS_STATUS_READ_REVIEWS}"/>
+                                                        </div>
+                                                    </div>
+                                                {/block}
+                                            </fieldset>
+                                        {/block}
+                                    </fieldset>
+                                {/block}
+                            </div>
+                        </div>
+                    {/block}
+
+                    {block name="admin_customer_group_overview_creation_modal_footer"}
+                        <div class="modal-footer">
+                            {block name="admin_customer_group_overview_creation_modal_footer_hidden_submit_button"}
+                                <button type="submit" hidden="hidden"></button>
+                            {/block}
+
+                            {block name="admin_customer_group_overview_creation_modal_footer_abort_button"}
+                                <button type="button"
+                                        class="btn btn-default"
+                                        data-dismiss="modal">{$button.abort}</button>
+                            {/block}
+
+                            {block name="admin_customer_group_overview_creation_modal_footer_add_button"}
+                                <button type="button" class="btn btn-primary">{$button.add}</button>
+                            {/block}
+                        </div>
+                    {/block}
+                </div>
+            </form>
+        </div>
+    </div>
+{/block}

@@ -1,0 +1,30 @@
+<div class="form-group visibility_switcher">
+	<label class="col-sm-4 control-label" for="{$field}">{$config.label}</label>
+	<div class="col-sm-7">
+		{if $content.use_responsive_filemanager == true}
+		<div
+		     data-gx-widget="filemanager"
+		     data-filemanager-name="{$field}"
+		     data-filemanager-type="all"
+		     data-filemanager-content-directory="{$config.folder}"
+		     {if $config.folder !== $config.default_value|basename}
+		     	data-filemanager-previous-file="{$config.default_value|basename}"
+			 {/if}
+		     data-filemanager-page-active="true">
+		</div>
+		{else}
+
+		<input type="hidden" name="{$field}_folder" value="{$config.folder}" />
+		<input type="file"
+		       id="{$field}"
+		       name="{$field}"
+		       class="form-control"
+		       {if $config.accept}
+		            accept="{$config.accept}"
+		       {/if}"
+		        />
+		{$config.default_value|basename}
+		{/if}
+	</div>
+	<span class="col-sm-1 tooltip-icon" style="margin: 0px;" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+</div>

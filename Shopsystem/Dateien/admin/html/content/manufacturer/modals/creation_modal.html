@@ -1,0 +1,120 @@
+{block name="admin_manufacturers_overview_creation_modal"}
+	<div class="modal fade creation-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-md" role="document">
+			<form class="form-horizontal manufacturer-form" action="./admin.php?do=ManufacturerAjax/save" method="post">
+				<div class="modal-content">
+					{block name="admin_manufacturers_overview_creation_modal_header"}
+						<div class="modal-header">
+							{block name="admin_manufacturers_overview_creation_modal_header_close_button"}
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>	
+							{/block}
+							
+							{block name="admin_manufacturers_overview_creation_modal_header_title"}
+								<h4 class="modal-title" id="myModalLabel">
+									{$manufacturers.TEXT_HEADING_NEW_MANUFACTURER}
+								</h4>
+							{/block}
+						</div>
+					{/block}
+					
+					{block name="admin_manufacturers_overview_creation_modal_body"}
+						<div class="modal-body">
+							<div class="col-md-12">
+								{block name="admin_manufacturers_overview_creation_modal_body_fieldset"}
+									<fieldset class="create-form-input">
+										{block name="admin_manufacturers_overview_creation_modal_body_info_text"}
+											<p class="manufacturer-modal-info">
+												{$manufacturers.TEXT_NEW_INTRO}
+											</p>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_creation_modal_body_manufacturer_name"}
+											<div class="form-group">
+												<label for="input-manufacturers-name"
+													   class="col-md-3">
+													{$manufacturers.TEXT_MANUFACTURERS_NAME}
+												</label>
+												<div class="col-md-9">
+													<input name="manufacturer_name"
+														   type="text"
+														   class="form-control name-create-input"
+														   id="input-manufacturers-name">
+												</div>
+											</div>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_creation_modal_body_manufacturer_urls"}
+											{foreach item=lang from=$content.languages name=languages}
+												{if  $smarty.foreach.languages.first}
+													{block name="admin_manufacturers_overview_creation_modal_body_manufacturer_urls_first"}
+														<div class="form-group">
+															<label for="input-manufacturers-urls"
+																   class="col-md-3">
+																{$manufacturers.TEXT_MANUFACTURERS_URL}
+															</label>
+															<div class="col-md-9">
+																<input type="text"
+																	   data-gx-widget="icon_input"
+																	   data-lang-id="{$lang.id}"
+																	   name="manufacturer_urls[{$lang.id}]"
+																	   class="form-control"
+																	   title="{$lang.code}"
+																	   id="input-manufacturers-urls">
+															</div>
+														</div>
+													{/block}
+												{else}
+													{block name="admin_manufacturers_overview_creation_modal_body_manufacturer_urls_others"}
+														<div class="form-group">
+															<div class="col-md-9 col-md-offset-3">
+																<input type="text"
+																	   data-gx-widget="icon_input"
+																	   data-lang-id="{$lang.id}"
+																	   name="manufacturer_urls[{$lang.id}]"
+																	   class="form-control"
+																	   title="{$lang.code}">
+															</div>
+														</div>
+													{/block}
+												{/if}
+											{/foreach}
+										{/block}
+
+										{block name="admin_manufacturers_overview_creation_modal_body_manufacturer_image"}
+											<div class="form-group">
+												<label for="input-manufacturers-img" class="col-md-3">
+													{$manufacturers.TEXT_MANUFACTURERS_IMAGE}
+												</label>
+												<div class="col-md-9"
+													 data-gx-widget="filemanager"
+													 data-filemanager-name="manufacturer_logo"
+													 data-filemanager-type="images"
+													 data-filemanager-content-directory="images/manufacturers"
+													 data-filemanager-page-active="true"
+													 id="input-manufacturers-img"></div>
+											</div>
+										{/block}
+									</fieldset>
+								{/block}
+							</div>
+						</div>
+					{/block}
+					
+					{block name="admin_manufacturers_overview_creation_modal_footer"}
+						<div class="modal-footer">
+							{block name="admin_manufacturers_overview_creation_modal_footer_abort_button"}
+								<button type="button" class="btn btn-default" data-dismiss="modal">{$button.abort}</button>
+							{/block}
+							
+							{block name="admin_manufacturers_overview_creation_modal_footer_add_buttons"}
+								<button type="button" class="btn btn-primary">{$button.add}</button>
+							{/block}
+						</div>
+					{/block}
+				</div>
+			</form>
+		</div>
+	</div>
+{/block}

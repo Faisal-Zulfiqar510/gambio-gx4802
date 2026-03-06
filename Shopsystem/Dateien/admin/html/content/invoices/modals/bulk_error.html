@@ -1,0 +1,28 @@
+{load_language_text section="buttons" name="buttons"}
+
+{block name="admin_invoices_modals_bulk_error"}
+	<div class="bulk-error modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_invoices_modals_bulk_error_header"}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_ClOSE}">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">{$admin_invoices.HEADING_BULK_PDF_ERROR}</h4>
+					</div>
+				{/block}
+				{block name="admin_invoices_modals_bulk_error_body"}
+					<div class="modal-body">
+						{$admin_invoices.TEXT_BULK_PDF_ERROR|sprintf:$content.max_amount_invoices_bulk_pdf:$content.bulk_settings_url nofilter}
+					</div>
+				{/block}
+				{block name="admin_invoices_modals_bulk_error_footer"}
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">{$buttons.close}</button>
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

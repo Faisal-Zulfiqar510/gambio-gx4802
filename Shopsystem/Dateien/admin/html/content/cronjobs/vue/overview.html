@@ -1,0 +1,22 @@
+{literal}
+	<script type="text/x-template" id="cronjobs-overview">
+		<div class="cronjobs-overview">
+			<template v-if="ready">
+				<gx-cronjobs-miscellaneous :meta="meta" />
+				<gx-cronjobs-list-elements
+						:cronjobs="cronjobs"
+						v-on:open-logs-modal="openLogsModal"
+						v-on:open-configuration-modal="openConfigurationModal"
+				/>
+			</template>
+			<div v-else class="text-center">
+				<span class="loading-spinner">
+    				<i class="fa step-spin fa-5x fa-spinner fa-fw" />
+				</span>
+			</div>
+			<!-- cronjob modal templates -->
+			<gx-cronjobs-logs-modal :cronjob="logCronjob" />
+			<gx-cronjobs-configuration-modal :cronjob="configurationCronjob" v-on:updated="sync" />
+		</div>
+	</script>
+{/literal}

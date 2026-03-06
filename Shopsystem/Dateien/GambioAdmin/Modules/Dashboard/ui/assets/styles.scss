@@ -1,0 +1,17 @@
+#gx-main {
+	background-color: #eeeeee;
+}
+
+#message-stack {
+	max-width: 1350px;
+	
+	.alert {
+		margin: 20px 36px 0 20px;
+	}
+	
+	.message-content {
+		display: block;
+		font-size: 12px;
+		width: 100%;
+	}
+}

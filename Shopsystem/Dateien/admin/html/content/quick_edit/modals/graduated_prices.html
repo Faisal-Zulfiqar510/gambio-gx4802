@@ -1,0 +1,38 @@
+{load_language_text section="admin_quick_edit" name="admin_quick_edit"}
+{load_language_text section="buttons" name="buttons"}
+
+{block name="admin_quick_edit_modals_graduated_prices"}
+	<div class="graduated-prices modal fade" tabindex="-1" role="dialog"
+		    data-gx-controller="quick_edit/modals/graduated_prices">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_quick_edit_modals_graduated_prices_header"}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span></button>
+						{block name="admin_quick_edit_modals_graduated_prices_header_title"}
+							<h4 class="modal-title">{$admin_quick_edit.MODAL_TITLE_GRADUATED_PRICES}</h4>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_quick_edit_modals_graduated_prices_body"}
+					<div class="modal-body">
+						{* Content will be dynamically created from JS Engine controller. *}
+					</div>
+				{/block}
+	
+				{block name="admin_quick_edit_modals_graduated_prices_footer"}
+					<div class="modal-footer">
+						{block name="admin_quick_edit_modals_graduated_prices_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$buttons.cancel}</button>
+						{/block}
+						{block name="admin_quick_edit_modals_graduated_prices_footer_save"}
+							<button type="button" class="btn btn-primary save">{$buttons.save}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

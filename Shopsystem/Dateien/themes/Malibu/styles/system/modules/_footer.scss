@@ -1,0 +1,452 @@
+/* Footer
+   ========================================================================== */
+
+#footer {
+	font-size: 14px;
+	font-weight: 200;
+	line-height: $line-height-base;
+	@include background($gx-footer-bg-color,
+			$gx-footer-bg-image-url,
+			$gx-footer-bg-image-position,
+			$gx-footer-bg-image-repeat,
+			$gx-footer-bg-image-size,
+			$gx-footer-bg-image-attachment,
+			$gx-footer-bg-image-enabled,   
+			$gx-footer-bg-gradient-enabled,
+			$gx-footer-bg-gradient-color1, 
+			$gx-footer-bg-gradient-color2, 
+			$gx-footer-bg-gradient-type,   
+			$gx-footer-bg-gradient-angle);
+
+	color: $gx-footer-color;
+
+	h4 {
+		font-size: 16px;
+		display: block;
+		margin: 15px 0;
+		padding: 0;
+		text-transform: none;
+		color: inherit;
+		@include thick-heading();
+
+		&.footer-column-title {
+			color: $gx-footer-header-color;
+		}
+	}
+
+	// footer header including newsletter form
+
+	.footer-header {
+		@include background($gx-footer-header-bg-color,
+				$gx-footer-header-bg-image-url,
+				$gx-footer-header-bg-image-position,
+				$gx-footer-header-bg-image-repeat,
+				$gx-footer-header-bg-image-size,
+				$gx-footer-header-bg-image-attachment,
+				$gx-footer-header-bg-image-enabled,   
+				$gx-footer-header-bg-gradient-enabled,
+				$gx-footer-header-bg-gradient-color1, 
+				$gx-footer-header-bg-gradient-color2, 
+				$gx-footer-header-bg-gradient-type,   
+				$gx-footer-header-bg-gradient-angle); 
+
+		color: $gx-footer-header-color;
+		min-height: $gx-footer-header-min-height;
+		padding-top: floor($grid-gutter-width / 2);
+		padding-bottom: 0;
+
+		@extend .container;
+		position: relative;
+		transform: translateY(-50%);
+		border-radius: 40px;
+		font-size: 13px;
+		@media (max-width: $screen-xs-max) {
+			margin: 0 15px;
+		}
+		@media (max-width: $screen-sm-max) {
+			padding-bottom: 15px;
+			transform: translateY(-15%);
+		}
+
+		.heading {
+			font-size: 20px;
+			font-weight: 200;
+			margin-top: 10px;
+		}
+
+		.text {
+			@media (min-width: $screen-lg-min) {
+				margin-top: 15px;
+			}
+		}
+
+		input[type="text"] {
+			border-width: 0;
+			border-radius: 19px;
+		}
+
+		.form-group {
+			margin-top: 5px;
+			margin-bottom: 0;
+
+			> div {
+				@media (min-width: $screen-sm-min) {
+					padding: 0 floor($grid-gutter-width / 4);
+				}
+			}
+
+			.form-control,
+			.btn {
+				margin-bottom: floor($grid-gutter-width / 2);
+			}
+		}
+	}
+
+	// main footer area
+
+	.inside {
+		padding: $grid-gutter-width floor($grid-gutter-width / 2) 0;
+		min-height: ($gx-footer-min-height - 100);
+		border-bottom: 1px solid $gx-footer-boxes-border-color;
+
+		// right borders
+
+		> .row > div {
+			margin-bottom: $grid-gutter-width;
+		}
+
+		.row {
+			.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+				@media (min-width: $screen-sm-min) {
+					height: $gx-footer-height;
+				}
+
+				p {
+					line-height: $gx-footer-line-height;
+				}
+
+				a {
+					color: $gx-footer-link-color;
+
+					&:hover {
+						color: $gx-footer-link-hover-color;
+					}
+				}
+
+				// social media icon bar
+
+				.social-media-icons {
+					position: absolute;
+					list-style: none;
+					padding: 0;
+					margin: 0;
+					top: -50px;
+
+					> li {
+						display: block;
+						float: left;
+						padding-left: 0;
+						padding-right: 10px;
+
+						a {
+							display: table-cell;
+							vertical-align: middle;
+							text-align: center;
+							width: 40px;
+							height: 40px;
+							background: #000000;
+							color: #FFFFFF;
+							font-size: 22px;
+
+							&.facebook {
+								background-color: $gx-facebook;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-facebook;
+								}
+							}
+
+							&.twitter {
+								background-color: $gx-twitter;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-twitter;
+								}
+							}
+
+							&.instagram {
+								background-color: $gx-instagram;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-instagram;
+								}
+							}
+
+							&.youtube {
+								background-color: $gx-youtube;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-youtube;
+								}
+							}
+
+							&.pinterest {
+								background-color: $gx-pinterest;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-pinterest;
+								}
+							}
+
+							&.linkedin {
+								background-color: $gx-linkedin;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-linkedin;
+								}
+							}
+
+							&.vimeo {
+								background-color: $gx-vimeo;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-vimeo;
+								}
+							}
+
+							&.tumblr {
+								background-color: $gx-tumblr;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-tumblr;
+								}
+							}
+
+							&.flickr {
+								background-color: $gx-flickr;
+
+								&:hover {
+									background: #FFFFFF;
+									color: $gx-flickr;
+								}
+							}
+
+							@include border-radius(50%);
+						}
+					}
+				}
+			}
+
+			.footer-col-1 {
+				@media (min-width: $screen-sm-min) {
+					min-height: ($gx-footer-min-height - 100);
+				}
+
+				@if ($gx-hide-footer-col-1 == true) {
+					display: none;
+				} @else {
+					@include make-xs-column($gx-footer-col-1-xs);
+					@include make-sm-column($gx-footer-col-1-sm);
+					@include make-lg-column($gx-footer-col-1-lg);
+				}
+
+				.panel .panel-body li {
+					padding: 0;
+
+					a {
+						padding-left: 20px;
+						&:before {
+							position: absolute;
+							top: 50%;
+							left: 0;
+							transform: translateY(-50%);
+							@extend %fa-icon;
+							@extend .fas;
+							content: fa-content($fa-var-angle-double-right);
+							font-size: 11px;
+						}
+					}
+				}
+			}
+
+			.footer-col-2 {
+				p {
+					font-size: 14px;
+					font-weight: 200;
+					line-height: $line-height-base;
+				}
+
+				@media (min-width: $screen-sm-min) {
+					min-height: ($gx-footer-min-height - 100);
+				}
+
+				@if ($gx-hide-footer-col-2 == true) {
+					display: none;
+				} @else {
+					@include make-xs-column($gx-footer-col-2-xs);
+					@include make-sm-column($gx-footer-col-2-sm);
+					@include make-lg-column($gx-footer-col-2-lg);
+				}
+			}
+
+			.footer-col-3 {
+				@media (min-width: $screen-sm-min) {
+					min-height: ($gx-footer-min-height - 100);
+				}
+
+				@if ($gx-hide-footer-col-3 == true) {
+					display: none;
+				} @else {
+					@include make-xs-column($gx-footer-col-3-xs);
+					@include make-sm-column($gx-footer-col-3-sm);
+					@include make-lg-column($gx-footer-col-3-lg);
+				}
+
+				ul {
+					list-style: none;
+					padding: 0;
+					li {
+						position: relative;
+						line-height: 32px;
+						padding-left: 20px;
+						&:before {
+							position: absolute;
+							top: 9px;
+							left: 0;
+							@extend %fa-icon;
+							@extend .fas;
+							content: fa-content($fa-var-check);
+							font-size: 11px;
+						}
+					}
+				}
+			}
+
+			.footer-col-4 {
+				@media (min-width: $screen-sm-min) {
+					min-height: ($gx-footer-min-height - 100);
+				}
+
+				@if ($gx-hide-footer-col-4 == true) {
+					display: none;
+				} @else {
+					@include make-xs-column($gx-footer-col-4-xs);
+					@include make-sm-column($gx-footer-col-4-sm);
+					@include make-lg-column($gx-footer-col-4-lg);
+				}
+
+				.social-media-icons {
+					position: relative;
+					top: auto;
+					li > a {
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	// bottom row with copyright
+
+	.footer-bottom {
+		text-align: center;
+		padding-top: 15px;
+		min-height: 80px;
+		clear: both;
+
+		a {
+			color: $gx-footer-link-color;
+
+			&:hover {
+				color: $gx-footer-link-hover-color;
+			}
+		}
+	}
+
+	// panels inside footer
+	// it's possible to show boxes with panel html in footer
+
+	.panel {
+		background: transparent;
+		border: none;
+		@include box-shadow(none);
+
+		.panel-heading,
+		.panel-heading,
+		.panel-body {
+			border: none;
+			background: transparent;
+			@include box-shadow(none);
+			color: $gx-footer-color;
+			padding: 0;
+		}
+
+		.panel-heading {
+			text-transform: uppercase;
+			padding: 0;
+			font-size: $font-size-base;
+			min-height: 30px;
+
+			.panel-title {
+				@include thick-heading();
+				margin: 15px 0;
+				padding: 0;
+				text-transform: none;
+				color: inherit;
+				
+				&.footer-column-title {
+					color: $gx-footer-header-color;
+				}
+			}
+		}
+
+		.panel-body {
+			ul,
+			li {
+				list-style: none;
+				line-height: $gx-footer-line-height;
+				margin: 0;
+				padding: 0;
+
+				a {
+					color: $gx-footer-link-color;
+					display: block;
+					padding: 0;
+
+					&:focus,
+					&:active,
+					&:hover {
+						background-color: transparent;
+						text-decoration: underline;
+					}
+				}
+			}
+
+			li {
+				padding: 2px 0;
+
+				&:first-child {
+					padding-top: 0;
+				}
+			}
+		}
+	}
+
+	// navigation elements
+
+	.nav > li > a {
+		&:hover {
+			background: transparent;
+			color: $gx-footer-link-hover-color;
+			text-decoration: underline;
+		}
+	}
+}

@@ -1,0 +1,148 @@
+{block name="admin_manufacturers_overview_edit_modal"}
+	<div class="modal fade edit-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-md" role="document">
+			<form class="form-horizontal manufacturer-form">
+				<div class="modal-content">
+					{block name="admin_manufacturers_overview_edit_modal_header"}
+						<div class="modal-header">
+							{block name="admin_manufacturers_overview_edit_modal_header_close_button"}
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							{/block}
+							
+							{block name="admin_manufacturers_overview_edit_modal_header_title"}
+								<h4 class="modal-title">{$manufacturers.TEXT_HEADING_EDIT_MANUFACTURER}</h4>
+							{/block}
+						</div>
+					{/block}
+					
+					{block name="admin_manufacturers_overview_edit_modal_body"}
+						<div class="modal-body">
+							<div class="col-md-12">
+								{block name="admin_manufacturers_overview_edit_modal_body_fieldset"}
+									<fieldset class="edit-form-input">
+										{block name="admin_manufacturers_overview_edit_modal_body_hidden_input"}
+											<input type="hidden" name="id" class="manufacturer-id">
+										{/block}
+										
+										{block name="admin_manufacturers_overview_edit_modal_body_info_text"}
+											<p class="manufacturer-modal-info"></p>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_edit_modal_body_manufactuerer_name"}
+											<div class="form-group">
+												<label for="input-manufacturers-name"
+													   class="col-md-3">
+													{$manufacturers.TEXT_MANUFACTURERS_NAME}
+												</label>
+												<div class="col-md-9">
+													<input type="text"
+														   name="manufacturer_name"
+														   id="input-manufacturers-name"
+														   class="form-control name-edit-input">
+												</div>
+											</div>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_edit_modal_body_manufactuerer_urls"}
+											{foreach item=lang from=$content.languages name=languages}
+												{if  $smarty.foreach.languages.first}
+													{block name="admin_manufacturers_overview_edit_modal_body_manufactuerer_urls_first"}
+														<div class="form-group">
+															<label for="input-manufacturers-urls"
+																   class="col-md-3">
+																{$manufacturers.TEXT_MANUFACTURERS_URL}
+															</label>
+															<div class="col-md-9">
+																<input type="text"
+																	   data-gx-widget="icon_input"
+																	   data-lang-id="{$lang.id}"
+																	   name="manufacturer_urls[{$lang.id}]"
+																	   class="form-control manufacturer-{$lang.code}"
+																	   title="{$lang.code}">
+															</div>
+														</div>
+													{/block}
+												{else}
+													{block name="admin_manufacturers_overview_edit_modal_body_manufactuerer_urls_others"}
+														<div class="form-group">
+															<div class="col-md-9 col-md-offset-3">
+																<input type="text"
+																	   data-gx-widget="icon_input"
+																	   data-lang-id="{$lang.id}"
+																	   name="manufacturer_urls[{$lang.id}]"
+																	   class="form-control manufacturer-{$lang.code}"
+																	   title="{$lang.code}">
+															</div>
+														</div>
+													{/block}
+												{/if}
+											{/foreach}
+										{/block}
+										
+										{block name="admin_manufacturers_overview_edit_modal_body_manufacturers_image"}
+											<div class="form-group">
+												<label for="input-manufacturers-img"
+													   class="col-md-3">{$manufacturers.TEXT_MANUFACTURERS_IMAGE}</label>
+												<div class="col-md-9">
+													<div data-gx-widget="filemanager"
+														 data-filemanager-name="manufacturer_logo"
+														 data-filemanager-type="images"
+														 data-filemanager-content-directory="images/manufacturers"
+														 data-filemanager-page-active="true"
+														 id="input-manufacturers-img">
+													</div>
+												</div>
+											</div>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_edit_modal_body_manufacturers_image_data"}
+											<div class="form-group">
+												<div class="col-md-9  col-md-offset-3 manufacturer-image-data"></div>
+											</div>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_edit_modal_body_date_added_info"}
+											<div class="form-group">
+												<label class="col-md-3">{$manufacturers.TEXT_DATE_ADDED}</label>
+												<div class="col-md-9 manufacturer-date-added" style="line-height:30px">
+												</div>
+											</div>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_edit_modal_body_last_modified_info"}
+											<div class="form-group">
+												<label class="col-md-3">{$manufacturers.TEXT_LAST_MODIFIED}</label>
+												<div class="col-md-9 manufacturer-last-modified" style="line-height:30px">
+												</div>
+											</div>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_edit_modal_body_manufacturer_image_preview"}
+											<div class="form-group">
+												<div class="col-md-offset-3 col-md-9 manufacturer-image-container"></div>
+											</div>
+										{/block}
+									</fieldset>
+								{/block}
+							</div>
+						</div>
+					{/block}
+					
+					{block name="admin_manufacturers_overview_edit_modal_footer"}
+						<div class="modal-footer">
+							{block name="admin_manufacturers_overview_edit_modal_footer_abort_button"}
+								<button type="button" class="btn btn-default" data-dismiss="modal">{$button.abort}</button>
+							{/block}
+							
+							{block name="admin_manufacturers_overview_edit_modal_footer_update_button"}
+								<button id="edit-Manufacturer" type="button" class="btn btn-primary">{$button.update}</button>
+							{/block}
+						</div>
+					{/block}
+				</div>
+			</form>
+		</div>
+	</div>
+{/block}

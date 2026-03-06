@@ -1,0 +1,22 @@
+{load_language_text section="ot_gv"}
+<style>
+	table.gift-vouchers { width: 100%; }
+	table.gift-vouchers .gv-amount { text-align: right; }
+</style>
+
+<table class="gift-vouchers">
+	<thead>
+		<tr>
+			<th class="gv-code">{$txt.VOUCHER_CODE}</th>
+			<th class="gv-amount">{$txt.AMOUNT}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach $content_data.gvRedeemData as $gvRow}
+			<tr>
+				<td class="gv-code">{$gvRow.coupon_code}</td>
+				<td class="gv-amount">{$gvRow.amount}</td>
+			</tr>
+		{/foreach}
+	</tbody>
+</table>

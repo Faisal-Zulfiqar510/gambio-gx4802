@@ -1,0 +1,1443 @@
+
+{
+	"type": "category",
+	"title": "malibu.areas.header.variants.header2.title",
+	"id": "header-header2-cat",
+	"basic": true,
+	"categories": [
+		{
+			"type": "category",
+			"id": "header-header2-cat-general",
+			"title": "malibu.areas.header.general.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.header.general.title",
+					"options": [
+						{
+							"id": "gx-header-bg",
+							"type": "background",
+							"label": "malibu.areas.header.general.options.gx-header-bg",
+							"default": {
+								"color": "#fff"
+							}
+						},
+						{
+							"id": "gx-header-bg-mobile",
+							"type": "background",
+							"label": "malibu.areas.header.general.options.gx-header-bg-mobile",
+							"default": {
+								"color": "#fff"
+							}
+						},
+						{
+							"id": "gx-header-bg-sticky",
+							"type": "background",
+							"label": "malibu.areas.header.general.options.gx-header-bg-sticky",
+							"default": {
+								"color": "#fff"
+							}
+						},
+						{
+							"id": "gx-header-height",
+							"type": "textbox",
+							"label": "malibu.areas.header.general.options.gx-header-height",
+							"default": "164px"
+						},
+						{
+							"id": "gx-header-height-mobile",
+							"type": "textbox",
+							"label": "malibu.areas.header.general.options.gx-header-height-mobile",
+							"default": "60px"
+						},
+						{
+							"id": "gx-header-height-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.general.options.gx-header-height-sticky",
+							"default": "84px"
+						},
+						{
+							"id": "gx-menu-mobile-icon-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.header.general.options.gx-menu-mobile-icon-color",
+							"default": "$gx-brand-secondary"
+						}
+					]
+				},
+				{
+					"title": "malibu.areas.header.general.layout.title",
+					"options": [
+						{
+							"id": "gx-hide-topbar",
+							"type": "checkbox",
+							"label": "malibu.areas.header.general.layout.options.gx-hide-topbar",
+							"default": false,
+							"requiresReload": true
+						},
+						{
+							"id": "gx-hide-categories-col",
+							"type": "checkbox",
+							"label": "malibu.areas.header.general.layout.options.gx-hide-categories-col",
+							"default": true,
+							"requiresReload": true
+						},
+						{
+							"id": "gx-hide-secondary-col",
+							"type": "checkbox",
+							"label": "malibu.areas.header.general.layout.options.gx-hide-secondary-col",
+							"default": true,
+							"requiresReload": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "header-header2-cat-colors",
+			"title": "malibu.areas.header.logo.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.header.logo.title",
+					"options": [
+						{
+							"id": "gx-hide-logo-col",
+							"type": "checkbox",
+							"label": "malibu.areas.header.logo.options.gx-hide-logo-col",
+							"default": false
+						},
+						{
+							"id": "gx-header-col-sm",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.logo.options.gx-header-col-sm",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-header-col-md",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.logo.options.gx-header-col-md",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-header-col-lg",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.logo.options.gx-header-col-lg",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-brand-height",
+							"type": "textbox",
+							"label": "malibu.areas.header.logo.options.gx-brand-height",
+							"default": "84px"
+						},
+						{
+							"id": "gx-brand-width-mobile",
+							"type": "textbox",
+							"label": "malibu.areas.header.logo.options.gx-brand-width-mobile",
+							"default": "120px"
+						},
+						{
+							"id": "gx-brand-height-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.logo.options.gx-brand-height-sticky",
+							"default": "84px"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "header-header2-cat-search",
+			"title": "malibu.areas.header.search.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.header.search.title",
+					"options": [
+						{
+							"id": "gx-show-search-top-nav",
+							"type": "checkbox",
+							"label": "malibu.areas.header.search.options.gx-show-search-top-nav",
+							"default": false,
+							"requiresReload": true
+						},
+						{
+							"id": "gx-hide-search-col",
+							"type": "checkbox",
+							"label": "malibu.areas.header.search.options.gx-hide-search-col",
+							"default": false,
+							"requiresReload": true
+						},
+						{
+							"id": "gx-search-mobile-icon-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.header.search.options.gx-search-mobile-icon-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-search-height",
+							"type": "textbox",
+							"label": "malibu.areas.header.search.options.gx-search-height",
+							"default": "70px"
+						},
+						{
+							"id": "gx-search-height-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.search.options.gx-search-height-sticky",
+							"default": "70px"
+						},
+						{
+							"id": "gx-search-padding-vertical",
+							"type": "textbox",
+							"label": "malibu.areas.header.search.options.gx-search-padding-vertical",
+							"default": "25px"
+						},
+						{
+							"id": "gx-search-padding-vertical-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.search.options.gx-search-padding-vertical-sticky",
+							"default": "25px"
+						},
+						{
+							"id": "gx-search-margin-vertical",
+							"type": "textbox",
+							"label": "malibu.areas.header.search.options.gx-search-margin-vertical",
+							"default": "0"
+						},
+						{
+							"id": "gx-search-margin-vertical-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.search.options.gx-search-margin-vertical-sticky",
+							"default": "0"
+						},
+						{
+							"id": "gx-search-col-sm",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.search.options.gx-search-col-sm",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-search-col-md",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.search.options.gx-search-col-md",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-search-col-lg",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.search.options.gx-search-col-lg",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "header-header2-cat-customContent",
+			"title": "malibu.areas.header.customContent.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.header.customContent.title",
+					"options": [
+						{
+							"id": "gx-hide-custom-1-col",
+							"type": "checkbox",
+							"label": "malibu.areas.header.customContent.options.gx-hide-custom-1-col",
+							"default": true,
+							"requiresReload": true
+						},
+						{
+							"id": "gx-custom-1-col-height",
+							"type": "textbox",
+							"label": "malibu.areas.header.customContent.options.gx-custom-1-col-height",
+							"default": "80px"
+						},
+						{
+							"id": "gx-custom-1-col-height-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.customContent.options.gx-custom-1-col-height-sticky",
+							"default": "60px"
+						},
+						{
+							"id": "gx-header-custom-col-sm",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.customContent.options.gx-header-custom-col-sm",
+							"default": "0",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-header-custom-col-md",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.customContent.options.gx-header-custom-col-md",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-header-custom-col-lg",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.customContent.options.gx-header-custom-col-lg",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "header-header2-cat-smallShoppingCart",
+			"title": "malibu.areas.header.smallShoppingCart.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.header.smallShoppingCart.title",
+					"options": [
+						{
+							"id": "gx-hide-cart-col",
+							"type": "checkbox",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-hide-cart-col",
+							"default": false,
+							"requiresReload": true
+						},
+						{
+							"id": "gx-cart-icon-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-icon-color",
+							"default": "$gx-brand-secondary"
+						},
+						{
+							"id": "gx-cart-sticky-icon-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-sticky-icon-color",
+							"default": "$gx-brand-secondary"
+						},
+						{
+							"id": "gx-cart-mobile-icon-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-mobile-icon-color",
+							"default": "$gx-brand-secondary"
+						},
+						{
+							"id": "gx-cart-text-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-text-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-cart-sticky-text-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-sticky-text-color",
+							"default": "#333333"
+						},
+						{
+							"id": "gx-cart-height",
+							"type": "textbox",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-height",
+							"default": "70px"
+						},
+						{
+							"id": "gx-cart-height-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-height-sticky",
+							"default": "70px"
+						},
+						{
+							"id": "gx-cart-padding-vertical",
+							"type": "textbox",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-padding-vertical",
+							"default": "25px"
+						},
+						{
+							"id": "gx-cart-padding-vertical-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-padding-vertical-sticky",
+							"default": "25px"
+						},
+						{
+							"id": "gx-cart-margin-vertical",
+							"type": "textbox",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-margin-vertical",
+							"default": "0"
+						},
+						{
+							"id": "gx-cart-margin-vertical-sticky",
+							"type": "textbox",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-margin-vertical-sticky",
+							"default": "0"
+						},
+						{
+							"id": "gx-cart-col-sm",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-col-sm",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-cart-col-md",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-col-md",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-cart-col-lg",
+							"type": "dropdownselect",
+							"label": "malibu.areas.header.smallShoppingCart.options.gx-cart-col-lg",
+							"default": "4",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"title": "malibu.areas.categories.title",
+			"id": "header-header2-cat-category",
+			"categories": [
+				{
+					"type": "category",
+					"id": "header-header2-cat-category-general",
+					"title": "malibu.areas.categories.general.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.categories.general.title",
+							"options": [
+								{
+									"id": "gx-categories-height",
+									"type": "textbox",
+									"label": "malibu.areas.categories.general.options.gx-categories-height",
+									"default": "$navbar-height"
+								},
+								{
+									"id": "gx-categories-height-sticky",
+									"type": "textbox",
+									"label": "malibu.areas.categories.general.options.gx-categories-height-sticky",
+									"default": "0"
+								},
+								{
+									"id": "gx-categories-transitions",
+									"type": "checkbox",
+									"label": "malibu.areas.categories.general.options.gx-categories-transitions",
+									"default": false
+								},
+								{
+									"id": "navbar-height",
+									"type": "textbox",
+									"group": "bootstrap",
+									"label": "malibu.areas.categories.general.options.navbar-height",
+									"default": "40px"
+								},
+								{
+									"id": "navbar-margin-bottom",
+									"type": "textbox",
+									"label": "malibu.areas.categories.general.options.navbar-margin-bottom",
+									"default": "$line-height-computed"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "category",
+					"id": "header-header2-cat-category-items",
+					"title": "malibu.areas.categories.menuItems.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.categories.menuItems.title",
+							"options": [
+								{
+									"id": "navbar-padding-horizontal",
+									"type": "textbox",
+									"label": "malibu.areas.categories.menuItems.options.navbar-padding-horizontal",
+									"default": "floor(($grid-gutter-width\/2))"
+								},
+								{
+									"id": "navbar-padding-vertical",
+									"type": "textbox",
+									"label": "malibu.areas.categories.menuItems.options.navbar-padding-vertical",
+									"default": "12px"
+								},
+								{
+									"id": "gx-cat-navbar-bg",
+									"type": "background",
+									"label": "malibu.areas.categories.menuItems.options.gx-cat-navbar-bg",
+									"default": {
+										"color": "transparent"
+									}
+								},
+								{
+									"id": "gx-categories-bg",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.gx-categories-bg",
+									"default": "#eee"
+								},
+								{
+									"id": "navbar-default-link-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.navbar-default-link-color",
+									"default": "#000"
+								},
+								{
+									"id": "gx-custom-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.gx-custom-color",
+									"default": "#fff"
+								},
+								{
+									"id": "navbar-default-link-hover-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.navbar-default-link-hover-color",
+									"default": "$brand-primary"
+								},
+								{
+									"id": "gx-custom-color-hover",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.gx-custom-color-hover",
+									"default": "#fff"
+								},
+								{
+									"id": "navbar-default-link-active-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.navbar-default-link-active-color",
+									"default": "#000"
+								},
+								{
+									"id": "gx-custom-color-active",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.gx-custom-color-active",
+									"default": "#fff"
+								},
+								{
+									"id": "gx-categories-text-transformation",
+									"type": "dropdownselect",
+									"label": "malibu.areas.categories.menuItems.options.gx-categories-text-transformation",
+									"default": "uppercase",
+									"options": [
+										"none",
+										"uppercase",
+										"lowercase",
+										"capitalize"
+									]
+								},
+								{
+									"id": "gx-categories-headline-size",
+									"type": "textbox",
+									"label": "malibu.areas.categories.menuItems.options.gx-categories-headline-size",
+									"default": "15px"
+								},
+								{
+									"id": "navbar-default-link-hover-bg",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.navbar-default-link-hover-bg",
+									"default": "#fff",
+									"group": "bootstrap"
+								},
+								{
+									"id": "navbar-default-link-active-bg",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.navbar-default-link-active-bg",
+									"default": "#fff",
+									"group": "bootstrap"
+								},
+								{
+									"id": "gx-custom-bg-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.gx-custom-bg-color",
+									"default": "$gx-brand-secondary"
+								},
+								{
+									"id": "gx-custom-bg-color-hover",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.gx-custom-bg-color-hover",
+									"default": "lighten($gx-custom-bg-color, 10%)"
+								},
+								{
+									"id": "gx-custom-bg-color-active",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.menuItems.options.gx-custom-bg-color-active",
+									"default": "lighten($gx-custom-bg-color, 10%)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "category",
+					"id": "header-header2-cat-category-categoriesMobile",
+					"title": "malibu.areas.categories.categoriesMobile.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.general.title",
+							"options": [
+								{
+									"id": "gx-mobile-menu-overlay-background-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-background-color",
+									"default": "rgba(0, 0, 0, .9)"
+								},
+								{
+									"id": "gx-mobile-menu-close-icon-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-close-icon-color",
+									"default": "#ffffff"
+								},
+								{
+									"id": "gx-mobile-menu-close-icon-color-active",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-close-icon-color-active",
+									"default": "#ffffff"
+								}
+							]
+						},
+						{
+							"title": "malibu.areas.header.categories.categories-mobile.menu-items",
+							"options": [
+								{
+									"id": "navbar-collapse-max-height",
+									"type": "textbox",
+									"label": "malibu.areas.categories.categoriesMobile.options.navbar-collapse-max-height",
+									"default": "340px"
+								},
+								{
+									"id": "gx-categories-mobile-height",
+									"type": "textbox",
+									"label": "malibu.areas.categories.categoriesMobile.options.gx-categories-mobile-height",
+									"default": "50px"
+								},
+								{
+									"id": "gx-categories-mobile-padding-vertical",
+									"type": "textbox",
+									"label": "malibu.areas.categories.categoriesMobile.options.gx-categories-mobile-padding-vertical",
+									"default": "17px"
+								},
+								{
+									"id": "gx-categories-mobile-icons",
+									"type": "checkbox",
+									"label": "malibu.areas.categories.categoriesMobile.options.gx-categories-mobile-icons",
+									"default": true,
+									"requiresReload": true
+								},
+								{
+									"id": "gx-mobile-menu-overlay-items-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-items-color",
+									"default": "#eeeeee"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-items-color-active",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-items-color-active",
+									"default": "#ffffff"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-items-background-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-items-background-color",
+									"default": "transparent"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-items-background-color-active",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-items-background-color-active",
+									"default": "transparent"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-menu-borders-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-menu-borders-color",
+									"default": "#ffffff"
+								}
+							]
+						},
+						{
+							"title": "malibu.areas.header.categories.categories-mobile.search-form",
+							"options": [
+								{
+									"id": "gx-mobile-menu-overlay-search-rounded",
+									"type": "checkbox",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-search-rounded",
+									"default": true
+								},
+								{
+									"id": "gx-mobile-menu-overlay-search-text-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-search-text-color",
+									"default": "#555555"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-search-text-color-active",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-search-text-color-active",
+									"default": "#ffffff"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-search-background-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-search-background-color",
+									"default": "transparent"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-search-background-color-active",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-search-background-color-active",
+									"default": "transparent"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-search-borders-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-search-borders-color",
+									"default": "#ffffff"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-search-borders-color-active",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-search-borders-color-active",
+									"default": "#ffffff"
+								},
+								{
+									"id": "gx-mobile-menu-overlay-search-icon-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.categories.categories-mobile.gx-mobile-menu-overlay-search-icon-color",
+									"default": "#ffffff"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "category",
+					"id": "header-header2-cat-category-megaDropDown",
+					"title": "malibu.areas.categories.megaDropdown.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.categories.megaDropdown.title",
+							"options": [
+								{
+									"id": "gx-megadropdown-heading-font-size",
+									"type": "textbox",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-megadropdown-heading-font-size",
+									"default": "18px"
+								},
+								{
+									"id": "gx-megadropdown-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-megadropdown-color",
+									"default": "$text-color"
+								},
+								{
+									"id": "gx-megadropdown-heading-border-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-megadropdown-heading-border-color",
+									"default": "#fff"
+								},
+								{
+									"id": "gx-megadropdown-block-width",
+									"type": "textbox",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-megadropdown-block-width",
+									"default": "225px"
+								},
+								{
+									"id": "gx-megadropdown-block-count",
+									"type": "textbox",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-megadropdown-block-count",
+									"default": "3"
+								},
+								{
+									"id": "gx-categories-tab-padding",
+									"type": "textbox",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-categories-tab-padding",
+									"default": "2px"
+								},
+								{
+									"id": "gx-megadropdown-bg",
+									"type": "background",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-megadropdown-bg",
+									"default": {
+										"color": "#fff"
+									}
+								},
+								{
+									"id": "gx-enter-category-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-enter-category-color",
+									"default": "$text-color"
+								},
+								{
+									"id": "gx-enter-category-bg",
+									"type": "background",
+									"label": "malibu.areas.categories.megaDropdown.options.gx-enter-category-bg",
+									"default": {
+										"color": "$gray-lighter"
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "category",
+					"id": "header-header2-cat-category-verticalCategoryMenu",
+					"title": "malibu.areas.categories.verticalCategorieMenu.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.categories.verticalCategorieMenu.title",
+							"options": [
+								{
+									"id": "gx-cat-left-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.verticalCategorieMenu.options.gx-cat-left-color",
+									"default": "$text-color"
+								},
+								{
+									"id": "gx-cat-left-hover-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.verticalCategorieMenu.options.gx-cat-left-hover-color",
+									"default": "$text-color"
+								},
+								{
+									"id": "gx-cat-left-active-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.verticalCategorieMenu.options.gx-cat-left-active-color",
+									"default": "#fff"
+								},
+								{
+									"id": "gx-cat-left-open-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.categories.verticalCategorieMenu.options.gx-cat-left-open-color",
+									"default": "$text-color"
+								},
+								{
+									"id": "gx-cat-left-bg",
+									"type": "background",
+									"label": "malibu.areas.categories.verticalCategorieMenu.options.gx-cat-left-bg",
+									"default": {
+										"color": "#fff"
+									}
+								},
+								{
+									"id": "gx-cat-left-bg-hover",
+									"type": "background",
+									"label": "malibu.areas.categories.verticalCategorieMenu.options.gx-cat-left-bg-hover",
+									"default": {
+										"color": "#eee"
+									}
+								},
+								{
+									"id": "gx-cat-left-bg-active",
+									"type": "background",
+									"label": "malibu.areas.categories.verticalCategorieMenu.options.gx-cat-left-bg-active",
+									"default": {
+										"color": "$brand-primary"
+									}
+								},
+								{
+									"id": "gx-cat-left-bg-open",
+									"type": "background",
+									"label": "malibu.areas.categories.verticalCategorieMenu.options.gx-cat-left-bg-open",
+									"default": {
+										"color": "#eee"
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"title": "malibu.areas.header.categoriesCol.title",
+			"id": "header-header2-cat-categoriesCol",
+			"categories": [
+				{
+					"type": "category",
+					"id": "header-header2-cat-categoriesCol-general",
+					"title": "malibu.areas.header.categoriesCol.general.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.header.categoriesCol.general.title",
+							"options": [
+								{
+									"id": "gx-hide-categories-col",
+									"type": "checkbox",
+									"label": "malibu.areas.header.general.layout.options.gx-hide-categories-col",
+									"default": true,
+									"requiresReload": true
+								},
+								{
+									"id": "gx-categories-col-height",
+									"type": "textbox",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-categories-col-height",
+									"default": "70px"
+								},
+								{
+									"id": "gx-categories-col-height-sticky",
+									"type": "textbox",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-categories-col-height-sticky",
+									"default": "70px"
+								},
+								{
+									"id": "gx-categories-padding-vertical",
+									"type": "textbox",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-cart-padding-vertical",
+									"default": "10px"
+								},
+								{
+									"id": "gx-categories-padding-vertical-sticky",
+									"type": "textbox",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-cart-padding-vertical-sticky",
+									"default": "10px"
+								},
+								{
+									"id": "gx-categories-margin-vertical",
+									"type": "textbox",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-cart-margin-vertical",
+									"default": "0"
+								},
+								{
+									"id": "gx-categories-margin-vertical-sticky",
+									"type": "textbox",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-cart-margin-vertical-sticky",
+									"default": "0"
+								},
+								{
+									"id": "gx-header-categories-col-sm",
+									"type": "dropdownselect",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-header-categories-col-sm",
+									"default": "0",
+									"options": [
+										"0",
+										"1",
+										"2",
+										"3",
+										"4",
+										"5",
+										"6",
+										"7",
+										"8",
+										"9",
+										"10",
+										"11",
+										"12"
+									]
+								},
+								{
+									"id": "gx-header-categories-col-md",
+									"type": "dropdownselect",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-header-categories-col-md",
+									"default": "4",
+									"options": [
+										"0",
+										"1",
+										"2",
+										"3",
+										"4",
+										"5",
+										"6",
+										"7",
+										"8",
+										"9",
+										"10",
+										"11",
+										"12"
+									]
+								},
+								{
+									"id": "gx-header-categories-col-lg",
+									"type": "dropdownselect",
+									"label": "malibu.areas.header.categoriesCol.general.options.gx-header-categories-col-lg",
+									"default": "4",
+									"options": [
+										"0",
+										"1",
+										"2",
+										"3",
+										"4",
+										"5",
+										"6",
+										"7",
+										"8",
+										"9",
+										"10",
+										"11",
+										"12"
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"title": "malibu.areas.header.secondaryNavigation.title",
+			"id": "header-header2-cat-secondaryNavigation",
+			"categories": [
+				{
+					"type": "category",
+					"id": "header-header2-cat-secondaryNavigation-general",
+					"title": "malibu.areas.header.secondaryNavigation.general.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.header.secondaryNavigation.general.title",
+							"options": [
+								{
+									"id": "gx-topbar-font-size",
+									"type": "textbox",
+									"label": "malibu.areas.secondaryNavigation.general.options.gx-topbar-font-size",
+									"default": "$font-size-small"
+								},
+								{
+									"id": "gx-topbar-height",
+									"type": "textbox",
+									"label": "malibu.areas.secondaryNavigation.general.options.gx-topbar-height",
+									"default": "40px"
+								},
+								{
+									"id": "gx-topbar-height-sticky",
+									"type": "textbox",
+									"label": "malibu.areas.secondaryNavigation.general.options.gx-topbar-height-sticky",
+									"default": "0"
+								},
+								{
+									"id": "gx-navbar-topbar-bg",
+									"type": "background",
+									"label": "malibu.areas.secondaryNavigation.general.options.gx-navbar-topbar-bg",
+									"default": {
+										"color": "#eee"
+									}
+								},
+								{
+									"id": "gx-navbar-topbar-show-icons",
+									"type": "checkbox",
+									"requiresReload": true,
+									"label": "malibu.areas.secondaryNavigation.general.options.gx-navbar-topbar-show-icons",
+									"default": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "category",
+					"id": "header-header2-cat-secondaryNavigation-items",
+					"title": "malibu.areas.secondaryNavigation.menuItems.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.secondaryNavigation.menuItems.title",
+							"options": [
+								{
+									"id": "gx-navbar-topbar-link-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.secondaryNavigation.menuItems.options.gx-navbar-topbar-link-color",
+									"default": "#ccc"
+								},
+								{
+									"id": "gx-navbar-topbar-link-hover-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.secondaryNavigation.menuItems.options.gx-navbar-topbar-link-hover-color",
+									"default": "#999"
+								},
+								{
+									"id": "gx-navbar-topbar-link-active-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.secondaryNavigation.menuItems.options.gx-navbar-topbar-link-active-color",
+									"default": "#999"
+								},
+								{
+									"id": "gx-navbar-topbar-link-bg",
+									"type": "background",
+									"label": "malibu.areas.secondaryNavigation.menuItems.options.gx-navbar-topbar-link-bg",
+									"default": {
+										"color": "transparent"
+									}
+								},
+								{
+									"id": "gx-navbar-topbar-link-hover-bg",
+									"type": "background",
+									"label": "malibu.areas.secondaryNavigation.menuItems.options.gx-navbar-topbar-link-hover-bg",
+									"default": {
+										"color": "#ddd"
+									}
+								},
+								{
+									"id": "gx-navbar-topbar-link-active-bg",
+									"type": "background",
+									"label": "malibu.areas.secondaryNavigation.menuItems.options.gx-navbar-topbar-link-active-bg",
+									"default": {
+										"color": "#fff"
+									}
+								},
+								{
+									"id": "gx-topbar-link-padding",
+									"type": "textbox",
+									"label": "malibu.areas.secondaryNavigation.menuItems.options.gx-topbar-link-padding",
+									"default": "11px 15px"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"title": "malibu.areas.header.secondaryCol.title",
+			"id": "header-header2-cat-secondaryCol",
+			"categories": [
+				{
+					"type": "category",
+					"id": "header-header2-cat-secondaryCol-general",
+					"title": "malibu.areas.header.secondaryCol.general.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.header.secondaryCol.general.title",
+							"options": [
+								{
+									"id": "gx-secondary-font-size",
+									"type": "textbox",
+									"label": "malibu.areas.header.secondaryCol.general.options.gx-secondary-font-size",
+									"default": "$font-size-small"
+								},
+								{
+									"id": "gx-secondary-height",
+									"type": "textbox",
+									"label": "malibu.areas.header.secondaryNavigation.general.options.gx-secondary-height",
+									"default": "84px"
+								},
+								{
+									"id": "gx-secondary-height-sticky",
+									"type": "textbox",
+									"label": "malibu.areas.header.secondaryNavigation.general.options.gx-secondary-height-sticky",
+									"default": "84px"
+								},
+								{
+									"id": "gx-secondary-padding-vertical",
+									"type": "textbox",
+									"label": "malibu.areas.header.secondaryCol.general.options.gx-secondary-padding-vertical",
+									"default": "0"
+								},
+								{
+									"id": "gx-secondary-padding-vertical-sticky",
+									"type": "textbox",
+									"label": "malibu.areas.header.secondaryCol.general.options.gx-secondary-padding-vertical-sticky",
+									"default": "0"
+								},
+								{
+									"id": "gx-secondary-margin-vertical",
+									"type": "textbox",
+									"label": "malibu.areas.header.secondaryCol.general.options.gx-secondary-margin-vertical",
+									"default": "0"
+								},
+								{
+									"id": "gx-secondary-margin-vertical-sticky",
+									"type": "textbox",
+									"label": "malibu.areas.header.secondaryCol.general.options.gx-secondary-margin-vertical-sticky",
+									"default": "0"
+								},
+								{
+									"id": "gx-header-secondary-col-sm",
+									"type": "dropdownselect",
+									"label": "malibu.areas.header.secondaryCol.general.options.gx-header-secondary-col-sm",
+									"default": "0",
+									"options": [
+										"0",
+										"1",
+										"2",
+										"3",
+										"4",
+										"5",
+										"6",
+										"7",
+										"8",
+										"9",
+										"10",
+										"11",
+										"12"
+									]
+								},
+								{
+									"id": "gx-header-secondary-col-md",
+									"type": "dropdownselect",
+									"label": "malibu.areas.header.secondaryCol.general.options.gx-header-secondary-col-md",
+									"default": "4",
+									"options": [
+										"0",
+										"1",
+										"2",
+										"3",
+										"4",
+										"5",
+										"6",
+										"7",
+										"8",
+										"9",
+										"10",
+										"11",
+										"12"
+									]
+								},
+								{
+									"id": "gx-header-secondary-col-lg",
+									"type": "dropdownselect",
+									"label": "malibu.areas.header.secondaryCol.general.options.gx-header-secondary-col-lg",
+									"default": "4",
+									"options": [
+										"0",
+										"1",
+										"2",
+										"3",
+										"4",
+										"5",
+										"6",
+										"7",
+										"8",
+										"9",
+										"10",
+										"11",
+										"12"
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "category",
+					"id": "header-header2-cat-secondaryCol-items",
+					"title": "malibu.areas.header.secondaryCol.menuItems.title",
+					"fieldsets": [
+						{
+							"title": "malibu.areas.header.secondaryCol.menuItems.title",
+							"options": [
+								{
+									"id": "gx-secondary-link-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.secondaryCol.menuItems.options.gx-secondary-link-color",
+									"default": "#000"
+								},
+								{
+									"id": "gx-secondary-link-hover-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.secondaryCol.menuItems.options.gx-secondary-link-hover-color",
+									"default": "#000"
+								},
+								{
+									"id": "gx-secondary-link-active-color",
+									"type": "colorpicker",
+									"label": "malibu.areas.header.secondaryCol.menuItems.options.gx-secondary-link-active-color",
+									"default": "#000"
+								},
+								{
+									"id": "gx-secondary-link-bg",
+									"type": "background",
+									"label": "malibu.areas.header.secondaryCol.menuItems.options.gx-secondary-link-bg",
+									"default": {
+										"color": "transparent"
+									}
+								},
+								{
+									"id": "gx-secondary-link-hover-bg",
+									"type": "background",
+									"label": "malibu.areas.header.secondaryCol.menuItems.options.gx-secondary-link-hover-bg",
+									"default": {
+										"color": "#eee"
+									}
+								},
+								{
+									"id": "gx-secondary-link-active-bg",
+									"type": "background",
+									"label": "malibu.areas.header.secondaryCol.menuItems.options.gx-secondary-link-active-bg",
+									"default": {
+										"color": "#fff"
+									}
+								},
+								{
+									"id": "gx-secondary-link-padding",
+									"type": "textbox",
+									"label": "malibu.areas.header.secondaryCol.menuItems.options.gx-secondary-link-padding",
+									"default": "25px 10px"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

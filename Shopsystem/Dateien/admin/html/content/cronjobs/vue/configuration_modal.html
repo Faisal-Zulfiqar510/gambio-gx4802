@@ -1,0 +1,62 @@
+{literal}
+	<script type="text/x-template" id="cronjobs-configuration-modal">
+		<div class="configuration modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button"
+								class="close"
+								data-dismiss="modal"
+								:aria-label="lang.button_close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+
+						<h4 class="modal-title" v-text="lang.title_configuration_modal" />
+					</div>
+
+					<div class="modal-body">
+
+						<form class="form-horizontal">
+							<fieldset>
+								<legend v-text="getConfigurationTitle(cronjob)" />
+							</fieldset>
+
+							<template v-for="(configuration, i) in cronjob.configuration">
+								<gx-config-checkbox v-if="configuration.type === 'checkbox'"
+													v-model="configuration.value"
+													:label="configuration.title"
+													:default-value="configuration.value"
+								/>
+
+								<gx-config-number v-if="configuration.type === 'number'"
+												  v-model="configuration.value"
+												  :label="configuration.title"
+												  :default-value="configuration.value"
+								/>
+
+								<gx-config-select v-if="configuration.type === 'select'"
+												  v-model="configuration.value"
+												  :label="configuration.title"
+												  :values="configuration.values"
+												  :default-value="configuration.value"
+								/>
+							</template>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button"
+								class="btn btn-default"
+								data-dismiss="modal" v-text="lang.button_close" />
+
+						<button type="submit"
+								form="task-configuration"
+								:disabled="inProcess"
+								:class="{disabled: inProcess}"
+								class="btn btn-primary" v-text="lang.button_save" @click="saveConfiguration" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+{/literal}

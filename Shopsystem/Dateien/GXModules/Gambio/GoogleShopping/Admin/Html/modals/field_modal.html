@@ -1,0 +1,142 @@
+{load_language_text section="google_shopping"}
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_google_shopping_schemes_modals_field"}
+	<div class="scheme-field modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_google_shopping_schemes_modals_field_header"}
+					<div class="modal-header">
+						{block name="admin_google_shopping_schemes_modals_field_close_button"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						{/block}
+						{block name="admin_google_shopping_schemes_modals_field_header_title"}
+							<h4 class="modal-title">{$txt.field_modal_title_create}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_google_shopping_schemes_modals_field_body"}
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<fieldset>
+								<input type="hidden" id="schemeId" class="form-control" name="schemeId" value="">
+								{block name="admin_google_shopping_schemes_modals_field_body_field_name"}
+									<div class="form-group">
+										{block name="admin_google_shopping_schemes_modals_field_body_field_name_label"}
+											<label for="name" class="col-md-4">{$txt.field_modal_label_name}:</label>
+										{/block}
+										
+										{block name="admin_google_shopping_schemes_modals_field_body_field_name_input"}
+											<div class="col-md-8">
+												<input type="text" id="name" class="form-control" name="name" value="">
+											</div>
+										{/block}
+									</div>
+								{/block}
+								{block name="admin_google_shopping_schemes_modals_field_body_field_value"}
+									<div class="form-group">
+										{block name="admin_google_shopping_schemes_modals_field_body_field_value_label"}
+											<label for="value" class="col-md-4">{$txt.field_modal_label_value}:</label>
+										{/block}
+										
+										{block name="admin_google_shopping_schemes_modals_field_body_field_value_input"}
+											<div class="col-md-8">
+												<input type="text" id="value" class="form-control" name="value" value="">
+											</div>
+										{/block}
+									</div>
+								{/block}
+								{block name="admin_google_shopping_schemes_modals_field_body_field_default"}
+									<div class="form-group">
+										{block name="admin_google_shopping_schemes_modals_field_body_field_default_label"}
+											<label for="default" class="col-md-4">{$txt.field_modal_label_default}:</label>
+										{/block}
+										
+										{block name="admin_google_shopping_schemes_modals_field_body_field_default_input"}
+											<div class="col-md-8">
+												<input type="text" id="default" class="form-control" name="default" value="">
+											</div>
+										{/block}
+									</div>
+								{/block}
+							</fieldset>
+							
+							<hr />
+							
+							<fieldset>
+								{block name="admin_google_shopping_schemes_modals_field_body_variables"}
+									<div class="form-group">
+										{block name="admin_google_shopping_schemes_modals_field_body_variables_dropdown"}
+											<div class="col-md-8">
+												<select id="field_variable" name="field_variable" class="form-control field-variable">
+													<option value="" disabled selected hidden>{$txt.field_modal_variables_placeholder}</option>
+													<optgroup label="{$txt.field_modal_label_attributes} / {$txt.field_modal_label_properties} / {$txt.field_modal_label_additional_fields}">
+														<option value="collective_field" title="{$txt.field_modal_variables_collectiv_field_description}">{$txt.field_modal_variables_collectiv_field}</option>
+													</optgroup>
+													{foreach key=group item=variableArray from=$data.variables}
+														<optgroup label="{$group}">
+															{foreach key=variable_key item=variable_value from=$variableArray}
+																<option value="{$variable_key}" title="{$variable_value.description}">{$variable_value.title}</option>
+															{/foreach}
+														</optgroup>
+													{/foreach}
+												</select>
+											</div>
+										{/block}
+										
+										{block name="admin_google_shopping_schemes_modals_field_body_variables_button"}
+										<div class="col-md-4">
+											<a href="#" class="btn add-field-variable">{$admin_buttons.BUTTON_ADD}</a>
+										</div>
+										{/block}
+										
+										{block name="admin_google_shopping_schemes_modals_field_body_variables_description"}
+											<div class="col-md-12 field-variable-description"></div>
+										{/block}
+									</div>
+								{/block}
+								{block name="admin_google_shopping_schemes_modals_field_body_collective_field"}
+									<div class="form-group collective-field">
+										{block name="admin_google_shopping_schemes_modals_field_body_collective_field_dropdown"}
+											<div class="col-md-12">
+												<select class="form-control collective-field" size="8" id="collective_field" name="collective_field" multiple>
+													<optgroup data-source="attributes" label="{$txt.field_modal_label_attributes}">
+														{foreach item=attribute from=$data.attributes}
+															<option value="{$attribute.name}">{$attribute.name}</option>
+														{/foreach}
+													</optgroup>
+													<optgroup data-source="properties" label="{$txt.field_modal_label_properties}">
+														{foreach item=property from=$data.properties}
+															<option value="{$property.name}">{$property.name}</option>
+														{/foreach}
+													</optgroup>
+													<optgroup data-source="additional_fields" label="{$txt.field_modal_label_additional_fields}">
+														{foreach item=additionalField from=$data.additionalFields}
+															<option value="{$additionalField.name}">{$additionalField.name}</option>
+														{/foreach}
+													</optgroup>
+												</select>
+											</div>
+										{/block}
+									</div>
+								{/block}
+							</fieldset>
+						</form>
+					</div>
+				{/block}
+				{block name="admin_google_shopping_schemes_modals_field_footer"}
+					<div class="modal-footer">
+						{block name="admin_google_shopping_schemes_modals_field_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_google_shopping_schemes_modals_field_footer_delete"}
+							<button type="button" class="btn btn-primary confirm">{$admin_buttons.BUTTON_SAVE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

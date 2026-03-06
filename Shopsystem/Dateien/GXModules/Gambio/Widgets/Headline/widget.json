@@ -1,0 +1,85 @@
+{
+	"id": "headline",
+	"title": "headlineWidget.title",
+	"icon": {
+		"name": "Image",
+		"file": "headline.svg"
+	},
+	"author": {
+		"name": "Gambio GmbH",
+		"email": "info@gambio.de",
+		"url": "https://www.gambio.de"
+	},
+	"helpUrl": "https://www.gambio.de/help",
+	"description": "headlineWidget.description",
+	"cache": 0,
+	"version": "1.0.0",
+	"displayConfig": "sidebar",
+	"fieldsets": [
+		{
+			"title": "headlineWidget.options.general.title",
+			"options": [
+				{
+					"id": "text",
+					"label": "headlineWidget.options.text.label",
+					"translatable": true,
+					"type": "textbox",
+					"attributes": {
+						"placeholder": "headlineWidget.options.text.placeholder"
+					},
+					"default": {
+						"en": "Headline",
+						"de": "Headline"
+					},
+					"from": "contentZoneWidget"
+				},
+				{
+					"id": "id",
+					"label": "headlineWidget.options.id.label",
+					"type": "textbox",
+					"placeholder": "headlineWidget.options.id.placeholder",
+					"default": ""
+				},
+				{
+					"id": "headingType",
+					"label": "headlineWidget.options.type.label",
+					"type": "selectbox",
+					"placeholder": "headlineWidget.options.type.placeholder",
+					"options": [
+						{ "value": "h1", "text": "Heading 1" },
+						{ "value": "h2", "text":  "Heading 2" },
+						{ "value": "h3", "text":  "Heading 3" },
+						{ "value": "h4", "text":  "Heading 4" },
+						{ "value": "h5", "text":  "Heading 5" },
+						{ "value": "h6", "text":  "Heading 6" }
+					],
+					"default": "h3",
+					"from": "contentZoneWidget"
+				}
+			]
+		},
+		{
+			"title": "headlineWidget.options.design.title",
+			"options": [
+				{
+					"id": "font",
+					"label": "headlineWidget.options.font-group.label",
+					"type": "font",
+					"placeholder": "headlineWidget.options.font-group.label",
+					"default": {
+						"enableCustomization": false,
+						"family": "Arial",
+						"size": "13px",
+						"color" : "#000000",
+						"style": "normal",
+						"textAlign": "left",
+						"textDecorationUnderline": false,
+						"textTransformUppercase": true
+					},
+					"from": "contentZoneWidget"
+				}
+			]
+		}
+
+	]
+}

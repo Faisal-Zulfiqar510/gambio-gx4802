@@ -1,0 +1,1308 @@
+/* Template Variables
+   ========================================================================== 
+  
+  Layout and functionality relevant variables for the template
+
+   */
+
+// Base URLs 
+
+$theme-base-path: "/public/theme/" !default;
+
+// Body Background
+
+$gx-body-bg-image-url: "" !default;
+$gx-body-bg-image-position: 50% 50% !default;
+$gx-body-bg-image-repeat: no-repeat !default;
+$gx-body-bg-image-size: auto !default;
+$gx-body-bg-image-attachment: scroll !default;
+$gx-body-bg-gradient-angle: 90deg !default;
+$gx-body-bg-gradient-color1: #CCCCCC !default;
+$gx-body-bg-gradient-color2: #FFFFFF !default;
+$gx-body-bg-gradient-enabled: false !default;
+$gx-body-bg-gradient-type: linear !default;
+$gx-body-bg-image-enabled: true !default;
+
+$gx-body-padding-top: 0 !default;
+$gx-body-padding-bottom: 0 !default;
+
+$gx-wrapper-bg-color: #FFFFFF !default;
+$gx-wrapper-bg-image-url: "" !default;
+$gx-wrapper-bg-image-position: 50% 50% !default;
+$gx-wrapper-bg-image-repeat: no-repeat !default;
+$gx-wrapper-bg-image-size: auto !default;
+$gx-wrapper-bg-image-attachment: scroll !default;
+$gx-wrapper-bg-gradient-angle: 90deg !default;
+$gx-wrapper-bg-gradient-color1: #CCCCCC !default;
+$gx-wrapper-bg-gradient-color2: #FFFFFF !default;
+$gx-wrapper-bg-gradient-enabled: false !default;
+$gx-wrapper-bg-gradient-type: linear !default;
+$gx-wrapper-bg-image-enabled: true !default;
+
+$thumbnail-bg: $gx-wrapper-bg-color;
+
+
+// Main Layout                                     
+
+$gx-body-wrap: false !default;
+$gx-topbar-wrap: true !default;
+$gx-categories-wrap: true !default;
+$gx-center-categories: false !default;
+$gx-header-fixed: true !default;
+$gx-header-wrap: true !default;
+$gx-stage-wrap: false !default;
+$gx-footer-wrap: true !default;
+$gx-logo-horizontal: true !default;
+$gx-stage-below-header: false !default;
+
+$gx-hide-logo-col: false !default;
+$gx-hide-search-col: false !default;
+$gx-hide-custom-1-col: true !default;
+$gx-hide-cart-col: true !default;
+
+// Border Radius                                   
+
+$gx-wrapper-border-radius: 0px !default; // works only for boxed layout
+$gx-cat-navbar-border-radius: 0px !default;
+$gx-cart-border-radius: 0px !default;
+
+// Border Color                                    
+
+$gx-headline-border-color: $brand-primary !default;
+$gx-footer-boxes-border-color: #BBBBBB !default;
+$gx-checkout-headline-border-color: $brand-primary !default;
+$gx-pagination-border-color: #E7E7E7 !default;
+$gx-product-list-border-color: #EEEEEE !default;
+$gx-product-info-border-color: darken($gray-lighter, 10%) !default;
+
+// Main layout cols                                
+
+$gx-left-col-sm: 4 !default;
+$gx-left-col-md: 4 !default;
+$gx-left-col-lg: 3 !default;
+
+$gx-right-col-sm: 0 !default;
+$gx-right-col-md: 0 !default;
+$gx-right-col-lg: 0 !default;
+
+$gx-main-col-sm: 12 - $gx-left-col-sm - $gx-right-col-sm !default;
+$gx-main-col-md: 12 - $gx-left-col-md - $gx-right-col-md !default;
+$gx-main-col-lg: 12 - $gx-left-col-lg - $gx-right-col-lg !default;
+
+
+// Full width pages
+// Left col with boxes will be hidden              
+
+$gx-index-full-width: true !default;
+$gx-advanced-search-result-full-width: true !default;
+$gx-shop-content-full-width: true !default;
+$gx-product-info-full-width: true !default;
+$gx-product-listing-full-width: true !default;
+$gx-shopping-cart-full-width: true !default;
+$gx-wishlist-full-width: true !default;
+$gx-checkout-full-width: true !default;
+$gx-account-full-width: true !default;
+$gx-create-account-full-width: true !default;
+$gx-newsletter-full-width: true !default;
+
+
+// Fonts
+// load font css from google webfonts
+
+$gx-font-import-url: "https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700,900" !default;
+$gx-breadcrumb-color: #999999 !default;
+
+// Buttons                                         
+
+$gx-btn-border-radius: 0px !default;
+$gx-btn-text-transform: uppercase !default;
+
+$gx-btn-primary-color: $btn-primary-color !default;
+$gx-btn-primary-bg-color: $btn-primary-bg !default;
+$gx-btn-primary-border: $btn-primary-bg !default;
+$gx-btn-primary-bg-image-url: "" !default;
+$gx-btn-primary-bg-image-position: 50% 50% !default;
+$gx-btn-primary-bg-image-repeat: no-repeat !default;
+$gx-btn-primary-bg-image-size: auto !default;
+$gx-btn-primary-bg-image-attachment: scroll !default;
+$gx-btn-primary-bg-gradient-angle: 90deg !default;
+$gx-btn-primary-bg-gradient-color1: #CCCCCC !default;
+$gx-btn-primary-bg-gradient-color2: #FFFFFF !default;
+$gx-btn-primary-bg-gradient-enabled: false !default;
+$gx-btn-primary-bg-gradient-type: linear !default;
+$gx-btn-primary-bg-image-enabled: true !default;
+
+$gx-btn-default-color: $btn-default-color !default;
+$gx-btn-default-bg-color: $btn-default-bg !default;
+$gx-btn-default-border: $btn-default-bg !default;
+$gx-btn-default-bg-image-url: "" !default;
+$gx-btn-default-bg-image-position: 50% 50% !default;
+$gx-btn-default-bg-image-repeat: no-repeat !default;
+$gx-btn-default-bg-image-size: auto !default;
+$gx-btn-default-bg-image-attachment: scroll !default;
+$gx-btn-default-bg-gradient-angle: 90deg !default;
+$gx-btn-default-bg-gradient-color1: #CCCCCC !default;
+$gx-btn-default-bg-gradient-color2: #FFFFFF !default;
+$gx-btn-default-bg-gradient-enabled: false !default;
+$gx-btn-default-bg-gradient-type: linear !default;
+$gx-btn-default-bg-image-enabled: true !default;
+
+// Teaser Slider                                   
+
+$gx-display-teaser-slider-xs: true !default;
+$gx-display-teaser-slider-sm: true !default;
+$gx-display-teaser-slider-md: true !default;
+$gx-display-teaser-slider-lg: true !default;
+
+// Ribbons                                         
+
+$gx-ribbon-new-active: true !default;
+$gx-ribbon-new-bg: #515151 !default;
+$gx-ribbon-new-color: #FFFFFF !default;
+$gx-ribbon-special-active: true !default;
+$gx-ribbon-special-bg: #F1544D !default;
+$gx-ribbon-special-color: #FFFFFF !default;
+$gx-ribbon-available-active: true !default;
+$gx-ribbon-available-bg: #79A70A !default;
+$gx-ribbon-available-color: #FFFFFF !default;
+$gx-ribbon-recommendation-active: true !default;
+$gx-ribbon-recommendation-bg: #337AB7 !default;
+$gx-ribbon-recommendation-color: #FFFFFF !default;
+$gx-ribbon-sold-out-active: true !default;
+$gx-ribbon-sold-out-bg: #C20400 !default;
+$gx-ribbon-sold-out-color: #FFFFFF !default;
+
+// Call to action                                                                               
+// applied to buy-buttons                                                                       
+
+$gx-btn-calltoaction-color: #FFFFFF !default;
+$gx-btn-calltoaction-bg-color: #2EAE06 !default;
+$gx-btn-calltoaction-border: #2EAE06 !default;
+$gx-btn-calltoaction-bg-image-url: "" !default;
+$gx-btn-calltoaction-bg-image-position: 50% 50% !default;
+$gx-btn-calltoaction-bg-image-repeat: no-repeat !default;
+$gx-btn-calltoaction-bg-image-size: auto !default;
+$gx-btn-calltoaction-bg-image-attachment: scroll !default;
+$gx-btn-calltoaction-bg-gradient-angle: 90deg !default;
+$gx-btn-calltoaction-bg-gradient-color1: #CCCCCC !default;
+$gx-btn-calltoaction-bg-gradient-color2: #FFFFFF !default;
+$gx-btn-calltoaction-bg-gradient-enabled: false !default;
+$gx-btn-calltoaction-bg-gradient-type: linear !default;
+$gx-btn-calltoaction-bg-image-enabled: true !default;
+
+// Price on request
+// applied to price-on-request button
+
+$gx-btn-price-on-request-color: $gx-btn-calltoaction-color !default;
+$gx-btn-price-on-request-bg: $gx-btn-calltoaction-bg-color !default;
+$gx-btn-price-on-request-border: darken($gx-btn-price-on-request-bg, 5%) !default;
+$gx-btn-price-on-request-bg-image-url: $gx-btn-calltoaction-bg-image-url !default;
+$gx-btn-price-on-request-bg-image-position: $gx-btn-calltoaction-bg-image-url !default;
+$gx-btn-price-on-request-bg-image-repeat: $gx-btn-calltoaction-bg-image-repeat !default;
+$gx-btn-price-on-request-bg-image-size: $gx-btn-calltoaction-bg-image-size !default;
+$gx-btn-price-on-request-bg-image-attachment: $gx-btn-calltoaction-bg-image-attachment !default;
+$gx-btn-price-on-request-bg-gradient-angle: 90deg !default;
+$gx-btn-price-on-request-bg-gradient-color1: #CCCCCC !default;
+$gx-btn-price-on-request-bg-gradient-color2: #FFFFFF !default;
+$gx-btn-price-on-request-bg-gradient-enabled: false !default;
+$gx-btn-price-on-request-bg-gradient-type: linear !default;
+$gx-btn-price-on-request-bg-image-enabled: true !default;
+
+// Product-Info Button
+// for the buttons below the call to action button
+
+$gx-product-info-button-bg: transparent !default;
+$gx-product-info-button-bg-hover: transparent !default;
+$gx-product-info-button-border: #dddddd !default;
+$gx-product-info-button-border-hover: darken($gx-product-info-button-border, 10%) !default;
+$gx-product-info-button-color: #999999 !default;
+$gx-product-info-button-color-hover: darken($gx-product-info-button-color, 10%) !default;
+
+// Topbar
+// Copy/paste from bootstrap navbar settings       
+
+$gx-navbar-topbar-show-icons: true !default;
+$gx-navbar-topbar-color: #333333 !default;
+$gx-navbar-topbar-bg-color: transparent !default;
+$gx-navbar-topbar-border: #CCCCCC !default;
+$gx-navbar-topbar-link-bg-color: transparent !default;
+$gx-navbar-topbar-link-color: #000000 !default;
+$gx-navbar-topbar-link-hover-color: #000000 !default;
+$gx-navbar-topbar-link-hover-bg-color: darken($brand-primary, 5%) !default;
+$gx-navbar-topbar-link-active-color: #000000 !default;
+$gx-navbar-topbar-link-active-bg-color: #ffffff !default;
+$gx-navbar-topbar-link-disabled-color: #444444 !default;
+$gx-navbar-topbar-link-disabled-bg: transparent !default;
+
+$gx-topbar-height: 60px !default;
+$gx-topbar-height-sticky: 60px !default;
+$gx-topbar-link-padding: 19px 15px !default;
+$gx-topbar-font-size: $font-size-small !default;
+
+$gx-navbar-topbar-bg-image-url: "" !default;
+$gx-navbar-topbar-bg-image-position: 50% 50% !default;
+$gx-navbar-topbar-bg-image-repeat: no-repeat !default;
+$gx-navbar-topbar-bg-image-size: auto !default;
+$gx-navbar-topbar-bg-image-attachment: scroll !default;
+$gx-navbar-topbar-bg-gradient-angle: 90deg !default;
+$gx-navbar-topbar-bg-gradient-color1: #CCCCCC !default;
+$gx-navbar-topbar-bg-gradient-color2: #FFFFFF !default;
+$gx-navbar-topbar-bg-gradient-enabled: false !default;
+$gx-navbar-topbar-bg-gradient-type: linear !default;
+$gx-navbar-topbar-bg-image-enabled: true !default;
+
+$gx-navbar-topbar-link-bg-image-url: "" !default;
+$gx-navbar-topbar-link-bg-image-position: 50% 50% !default;
+$gx-navbar-topbar-link-bg-image-repeat: no-repeat !default;
+$gx-navbar-topbar-link-bg-image-size: auto !default;
+$gx-navbar-topbar-link-bg-image-attachment: scroll !default;
+$gx-navbar-topbar-link-bg-gradient-angle: 90deg !default;
+$gx-navbar-topbar-link-bg-gradient-color1: #CCCCCC !default;
+$gx-navbar-topbar-link-bg-gradient-color2: #FFFFFF !default;
+$gx-navbar-topbar-link-bg-gradient-enabled: false !default;
+$gx-navbar-topbar-link-bg-gradient-type: linear !default;
+$gx-navbar-topbar-link-bg-image-enabled: true !default;
+
+$gx-navbar-topbar-link-hover-bg-image-url: "" !default;
+$gx-navbar-topbar-link-hover-bg-image-position: 50% 50% !default;
+$gx-navbar-topbar-link-hover-bg-image-repeat: no-repeat !default;
+$gx-navbar-topbar-link-hover-bg-image-size: auto !default;
+$gx-navbar-topbar-link-hover-bg-image-attachment: scroll !default;
+$gx-navbar-topbar-link-hover-bg-gradient-angle: 90deg !default;
+$gx-navbar-topbar-link-hover-bg-gradient-color1: #CCCCCC !default;
+$gx-navbar-topbar-link-hover-bg-gradient-color2: #FFFFFF !default;
+$gx-navbar-topbar-link-hover-bg-gradient-enabled: false !default;
+$gx-navbar-topbar-link-hover-bg-gradient-type: linear !default;
+$gx-navbar-topbar-link-hover-bg-image-enabled: true !default;
+
+$gx-navbar-topbar-link-active-bg-image-url: "" !default;
+$gx-navbar-topbar-link-active-bg-image-position: 50% 50% !default;
+$gx-navbar-topbar-link-active-bg-image-repeat: no-repeat !default;
+$gx-navbar-topbar-link-active-bg-image-size: auto !default;
+$gx-navbar-topbar-link-active-bg-image-attachment: scroll !default;
+$gx-navbar-topbar-link-active-bg-gradient-angle: 90deg !default;
+$gx-navbar-topbar-link-active-bg-gradient-color1: #CCCCCC !default;
+$gx-navbar-topbar-link-active-bg-gradient-color2: #FFFFFF !default;
+$gx-navbar-topbar-link-active-bg-gradient-enabled: false !default;
+$gx-navbar-topbar-link-active-bg-gradient-type: linear !default;
+$gx-navbar-topbar-link-active-bg-image-enabled: true !default;
+
+
+// Header
+
+$gx-header-bg-color: $brand-primary !default;
+$gx-header-bg-mobile-color: $brand-primary !default;
+$gx-header-bg-sticky-color: $brand-primary !default;
+
+$gx-header-bg-mobile-image-url: "" !default;
+$gx-header-bg-mobile-image-position: 50% 50% !default;
+$gx-header-bg-mobile-image-repeat: no-repeat !default;
+$gx-header-bg-mobile-image-size: auto !default;
+$gx-header-bg-mobile-image-attachment: scroll !default;
+$gx-header-bg-mobile-gradient-angle: 90deg !default;
+$gx-header-bg-mobile-gradient-color1: #CCCCCC !default;
+$gx-header-bg-mobile-gradient-color2: #FFFFFF !default;
+$gx-header-bg-mobile-gradient-enabled: false !default;
+$gx-header-bg-mobile-gradient-type: linear !default;
+$gx-header-bg-mobile-image-enabled: true !default;
+
+$gx-header-bg-image-url: "" !default;
+$gx-header-bg-image-position: 50% 50% !default;
+$gx-header-bg-image-repeat: no-repeat !default;
+$gx-header-bg-image-size: auto !default;
+$gx-header-bg-image-attachment: scroll !default;
+$gx-header-bg-gradient-angle: 90deg !default;
+$gx-header-bg-gradient-color1: #CCCCCC !default;
+$gx-header-bg-gradient-color2: #FFFFFF !default;
+$gx-header-bg-gradient-enabled: false !default;
+$gx-header-bg-gradient-type: linear !default;
+$gx-header-bg-image-enabled: true !default;
+
+$gx-header-bg-sticky-image-url: "" !default;
+$gx-header-bg-sticky-image-position: 50% 50% !default;
+$gx-header-bg-sticky-image-repeat: no-repeat !default;
+$gx-header-bg-sticky-image-size: auto !default;
+$gx-header-bg-sticky-image-attachment: scroll !default;
+$gx-header-bg-sticky-gradient-angle: 90deg !default;
+$gx-header-bg-sticky-gradient-color1: #CCCCCC !default;
+$gx-header-bg-sticky-gradient-color2: #FFFFFF !default;
+$gx-header-bg-sticky-gradient-enabled: false !default;
+$gx-header-bg-sticky-gradient-type: linear !default;
+$gx-header-bg-sticky-image-enabled: true !default;
+
+$gx-custom-1-col-height: 80px !default;
+$gx-custom-1-col-height-sticky: 60px !default;
+
+$gx-show-search-top-nav: false !default;
+$gx-search-height: 70px !default;
+$gx-search-height-sticky: 70px !default;
+$gx-search-padding-vertical: 18px !default;
+$gx-search-padding-vertical-sticky: 18px !default;
+$gx-search-margin-vertical: 0 !default;
+$gx-search-margin-vertical-sticky: 0 !default;
+$gx-search-col-sm: 4 !default;
+$gx-search-col-md: 4 !default;
+$gx-search-col-lg: 4 !default;
+
+$gx-cart-height: 30px !default;
+$gx-cart-height-sticky: 30px !default;
+$gx-cart-padding-vertical: 13px !default;
+$gx-cart-padding-vertical-sticky: 10px !default;
+$gx-cart-margin-vertical: 10px !default;
+$gx-cart-margin-vertical-sticky: 0 !default;
+$gx-cart-col-sm: 4 !default;
+$gx-cart-col-md: 3 !default;
+$gx-cart-col-lg: 2 !default;
+$gx-cart-icon-color: $gx-brand-secondary !default;
+$gx-cart-text-color: #333333 !default;
+$gx-cart-sticky-icon-color: $gx-brand-secondary !default;
+$gx-cart-sticky-text-color: #333333 !default;
+$gx-cart-mobile-icon-color: $gx-brand-secondary !default;
+$gx-menu-mobile-icon-color: $gx-brand-secondary !default;
+$gx-search-mobile-icon-color: #333333 !default;
+
+$gx-categories-height: $navbar-height !default; /* Bootstrap */
+$gx-categories-height-sticky: 0 !default;
+$gx-categories-transitions: false !default;
+$gx-categories-bg: #ffffff !default;
+$gx-categories-text-transformation: uppercase !default;
+$gx-categories-headline-size: 15px !default;
+$gx-custom-color: #FFFFFF !default;
+$gx-custom-color-hover: #FFFFFF !default;
+$gx-custom-color-active: #FFFFFF !default;
+$gx-custom-bg-color: $gx-brand-secondary !default;
+$gx-custom-bg-color-active: lighten($gx-custom-bg-color, 10%) !default;
+$gx-custom-bg-color-hover: lighten($gx-custom-bg-color, 10%) !default;
+
+
+// Categories Navbar
+
+$gx-cat-navbar-bg-color: #ffffff !default;
+$gx-cat-navbar-bg-image-url: "" !default;
+$gx-cat-navbar-bg-image-position: 50% 50% !default;
+$gx-cat-navbar-bg-image-repeat: no-repeat !default;
+$gx-cat-navbar-bg-image-size: auto !default;
+$gx-cat-navbar-bg-image-attachment: scroll !default;
+$gx-cat-navbar-bg-gradient-angle: 90deg !default;
+$gx-cat-navbar-bg-gradient-color1: #CCCCCC !default;
+$gx-cat-navbar-bg-gradient-color2: #FFFFFF !default;
+$gx-cat-navbar-bg-gradient-enabled: false !default;
+$gx-cat-navbar-bg-gradient-type: linear !default;
+$gx-cat-navbar-bg-image-enabled: true !default;
+
+$gx-cat-navbar-link-hover-bg-image-url: "" !default;
+$gx-cat-navbar-link-hover-bg-image-position: 50% 50% !default;
+$gx-cat-navbar-link-hover-bg-image-repeat: no-repeat !default;
+$gx-cat-navbar-link-hover-bg-image-size: auto !default;
+$gx-cat-navbar-link-hover-bg-image-attachment: scroll !default;
+$gx-cat-navbar-link-hover-bg-gradient-angle: 90deg !default;
+$gx-cat-navbar-link-hover-bg-gradient-color1: #CCCCCC !default;
+$gx-cat-navbar-link-hover-bg-gradient-color2: #FFFFFF !default;
+$gx-cat-navbar-link-hover-bg-gradient-enabled: false !default;
+$gx-cat-navbar-link-hover-bg-gradient-type: linear !default;
+$gx-cat-navbar-link-hover-bg-image-enabled: true !default;
+
+$gx-cat-navbar-link-active-bg-image-url: "" !default;
+$gx-cat-navbar-link-active-bg-image-position: 50% 50% !default;
+$gx-cat-navbar-link-active-bg-image-repeat: no-repeat !default;
+$gx-cat-navbar-link-active-bg-image-size: auto !default;
+$gx-cat-navbar-link-active-bg-image-attachment: scroll !default;
+$gx-cat-navbar-link-active-bg-gradient-angle: 90deg !default;
+$gx-cat-navbar-link-active-bg-gradient-color1: #CCCCCC !default;
+$gx-cat-navbar-link-active-bg-gradient-color2: #FFFFFF !default;
+$gx-cat-navbar-link-active-bg-gradient-enabled: false !default;
+$gx-cat-navbar-link-active-bg-gradient-type: linear !default;
+$gx-cat-navbar-link-active-bg-image-enabled: true !default;
+
+
+// Left Category Box
+
+$gx-cat-left-color: $text-color !default;
+$gx-cat-left-hover-color: $text-color !default;
+$gx-cat-left-active-color: #FFFFFF !default;
+$gx-cat-left-open-color: $text-color !default;
+
+$gx-cat-left-bg-color: #FFFFFF !default;
+$gx-cat-left-bg-image-url: "" !default;
+$gx-cat-left-bg-image-position: 50% 50% !default;
+$gx-cat-left-bg-image-repeat: no-repeat !default;
+$gx-cat-left-bg-image-size: auto !default;
+$gx-cat-left-bg-image-attachment: scroll !default;
+$gx-cat-left-bg-gradient-angle: 90deg !default;
+$gx-cat-left-bg-gradient-color1: #CCCCCC !default;
+$gx-cat-left-bg-gradient-color2: #FFFFFF !default;
+$gx-cat-left-bg-gradient-enabled: false !default;
+$gx-cat-left-bg-gradient-type: linear !default;
+$gx-cat-left-bg-image-enabled: true !default;
+
+$gx-cat-left-bg-hover-color: #EEEEEE !default;
+$gx-cat-left-bg-hover-image-url: "" !default;
+$gx-cat-left-bg-hover-image-position: 50% 50% !default;
+$gx-cat-left-bg-hover-image-repeat: no-repeat !default;
+$gx-cat-left-bg-hover-image-size: auto !default;
+$gx-cat-left-bg-hover-image-attachment: scroll !default;
+$gx-cat-left-bg-hover-gradient-angle: 90deg !default;
+$gx-cat-left-bg-hover-gradient-color1: #CCCCCC !default;
+$gx-cat-left-bg-hover-gradient-color2: #FFFFFF !default;
+$gx-cat-left-bg-hover-gradient-enabled: false !default;
+$gx-cat-left-bg-hover-gradient-type: linear !default;
+$gx-cat-left-bg-hover-image-enabled: true !default;
+
+$gx-cat-left-bg-active-color: $brand-primary !default;
+$gx-cat-left-bg-active-image-url: "" !default;
+$gx-cat-left-bg-active-image-position: 50% 50% !default;
+$gx-cat-left-bg-active-image-repeat: no-repeat !default;
+$gx-cat-left-bg-active-image-size: auto !default;
+$gx-cat-left-bg-active-image-attachment: scroll !default;
+$gx-cat-left-bg-active-gradient-angle: 90deg !default;
+$gx-cat-left-bg-active-gradient-color1: #CCCCCC !default;
+$gx-cat-left-bg-active-gradient-color2: #FFFFFF !default;
+$gx-cat-left-bg-active-gradient-enabled: false !default;
+$gx-cat-left-bg-active-gradient-type: linear !default;
+$gx-cat-left-bg-active-image-enabled: true !default;
+
+$gx-cat-left-bg-open-color: #EEEEEE !default;
+$gx-cat-left-bg-open-image-url: "" !default;
+$gx-cat-left-bg-open-image-position: 50% 50% !default;
+$gx-cat-left-bg-open-image-repeat: no-repeat !default;
+$gx-cat-left-bg-open-image-size: auto !default;
+$gx-cat-left-bg-open-image-attachment: scroll !default;
+$gx-cat-left-bg-open-gradient-angle: 90deg !default;
+$gx-cat-left-bg-open-gradient-color1: #CCCCCC !default;
+$gx-cat-left-bg-open-gradient-color2: #FFFFFF !default;
+$gx-cat-left-bg-open-gradient-enabled: false !default;
+$gx-cat-left-bg-open-gradient-type: linear !default;
+$gx-cat-left-bg-open-image-enabled: true !default;
+
+
+// mobile menu sizes and paddings
+$gx-categories-mobile-height: 50px !default;
+$gx-categories-mobile-padding-vertical: 17px !default;
+
+
+// Mobile Color Theme with dropdown colors
+// (white background); default theme will          
+// have default navbar colors (dark)     
+
+$gx-categories-mobile-dropdown-colors: false !default;
+
+
+// mobile menu icons
+$gx-categories-mobile-icons: true !default;
+
+
+// Subcategory Listing
+$gx-sub-cat-col-sm: 6 !default;
+$gx-sub-cat-col-md: 6 !default;
+$gx-sub-cat-col-lg: 6 !default;
+$gx-sub-cat-bg: #F5F5F5 !default;
+$gx-sub-cat-bg-image-url: "" !default;
+$gx-sub-cat-bg-image-position: 50% 50% !default;
+$gx-sub-cat-bg-image-repeat: no-repeat !default;
+$gx-sub-cat-bg-image-size: auto !default;
+$gx-sub-cat-bg-image-attachment: scroll !default;
+$gx-sub-cat-bg-gradient-angle: 90deg !default;
+$gx-sub-cat-bg-gradient-color1: #CCCCCC !default;
+$gx-sub-cat-bg-gradient-color2: #FFFFFF !default;
+$gx-sub-cat-bg-gradient-enabled: false !default;
+$gx-sub-cat-bg-gradient-type: linear !default;
+$gx-sub-cat-bg-image-enabled: true !default;
+$gx-sub-cat-border-color: #DDDDDD !default;
+$gx-sub-cat-image-height: 200px !default;
+$gx-sub-cat-image-height-mobile: 75px !default;
+$gx-sub-cat-name-height: 50px !default;
+$gx-sub-cat-image-padding: 0px !default;
+$gx-sub-cat-name-color: $text-color !default;
+
+$gx-brand-height: 70px !default; /* $gx-topbar-height + $search-height + $gx-categories-height;*/
+$gx-brand-height-sticky: 70px !default;
+$gx-brand-width-mobile: 120px !default;
+
+$gx-header-height: 118px !default;
+$gx-header-height-mobile: 60px !default;
+$gx-header-height-sticky: 70px !default;
+$gx-header-col-sm: 4 !default;
+$gx-header-col-md: 4 !default;
+$gx-header-col-lg: 4 !default;
+
+$gx-header-custom-col-sm: 0 !default; /* can be 0 to hide */
+$gx-header-custom-col-md: 4 !default;
+$gx-header-custom-col-lg: 4 !default;
+
+
+// Footer
+
+$gx-footer-min-height: 300px !default;
+$gx-footer-height: 300px !default;
+$gx-footer-color: #666666 !default;
+$gx-footer-link-color: #666666 !default;
+$gx-footer-link-hover-color: #000000 !default;
+$gx-footer-line-height: 2.3 !default;
+
+$gx-footer-bg-color: #eeeeee !default;
+$gx-footer-bg-image-url: "" !default;
+$gx-footer-bg-image-position: 50% 50% !default;
+$gx-footer-bg-image-repeat: no-repeat !default;
+$gx-footer-bg-image-size: auto !default;
+$gx-footer-bg-image-attachment: scroll !default;
+$gx-footer-bg-gradient-angle: 90deg !default;
+$gx-footer-bg-gradient-color1: #CCCCCC !default;
+$gx-footer-bg-gradient-color2: #FFFFFF !default;
+$gx-footer-bg-gradient-enabled: false !default;
+$gx-footer-bg-gradient-type: linear !default;
+$gx-footer-bg-image-enabled: true !default;
+
+$gx-footer-header-min-height: 50px !default;
+$gx-footer-header-color: #000000 !default;
+$gx-footer-header-bg-color: $brand-primary !default;
+$gx-footer-header-bg-image-url: "" !default;
+$gx-footer-header-bg-image-position: 50% 50% !default;
+$gx-footer-header-bg-image-repeat: no-repeat !default;
+$gx-footer-header-bg-image-size: auto !default;
+$gx-footer-header-bg-image-attachment: scroll !default;
+$gx-footer-header-bg-gradient-angle: 90deg !default;
+$gx-footer-header-bg-gradient-color1: #CCCCCC !default;
+$gx-footer-header-bg-gradient-color2: #FFFFFF !default;
+$gx-footer-header-bg-gradient-enabled: false !default;
+$gx-footer-header-bg-gradient-type: linear !default;
+$gx-footer-header-bg-image-enabled: true !default;
+
+$gx-hide-footer-col-1: false !default;
+$gx-footer-col-1-lg: 3 !default;
+$gx-footer-col-1-sm: 6 !default;
+$gx-footer-col-1-xs: 12 !default;
+
+$gx-hide-footer-col-2: false !default;
+$gx-footer-col-2-lg: 3 !default;
+$gx-footer-col-2-sm: 6 !default;
+$gx-footer-col-2-xs: 12 !default;
+
+$gx-hide-footer-col-3: false !default;
+$gx-footer-col-3-lg: 3 !default;
+$gx-footer-col-3-sm: 6 !default;
+$gx-footer-col-3-xs: 12 !default;
+
+$gx-hide-footer-col-4: false !default;
+$gx-footer-col-4-lg: 3 !default;
+$gx-footer-col-4-sm: 6 !default;
+$gx-footer-col-4-xs: 12 !default;
+
+
+// Panels
+
+$gx-panel-header-color: $text-color !default;
+$gx-panel-header-bg-color: $brand-primary !default;
+$gx-panel-header-bg-image-url: "" !default;
+$gx-panel-header-bg-image-position: 50% 50% !default;
+$gx-panel-header-bg-image-repeat: no-repeat !default;
+$gx-panel-header-bg-image-size: auto !default;
+$gx-panel-header-bg-image-attachment: scroll !default;
+$gx-panel-header-bg-gradient-angle: 90deg !default;
+$gx-panel-header-bg-gradient-color1: #CCCCCC !default;
+$gx-panel-header-bg-gradient-color2: #FFFFFF !default;
+$gx-panel-header-bg-gradient-enabled: false !default;
+$gx-panel-header-bg-gradient-type: linear !default;
+$gx-panel-header-bg-image-enabled: true !default;
+
+$gx-panel-border-color: #DDDDDD !default;
+$gx-panel-bg-color: #FFFFFF !default;
+$gx-panel-bg-image-url: "" !default;
+$gx-panel-bg-image-position: 50% 50% !default;
+$gx-panel-bg-image-repeat: no-repeat !default;
+$gx-panel-bg-image-size: auto !default;
+$gx-panel-bg-image-attachment: scroll !default;
+$gx-panel-bg-gradient-angle: 90deg !default;
+$gx-panel-bg-gradient-color1: #CCCCCC !default;
+$gx-panel-bg-gradient-color2: #FFFFFF !default;
+$gx-panel-bg-gradient-enabled: false !default;
+$gx-panel-bg-gradient-type: linear !default;
+$gx-panel-bg-image-enabled: true !default;
+
+
+// Product listing
+
+$gx-product-bg-color: #FFFFFF !default;
+$gx-product-bg-image-url: "" !default;
+$gx-product-bg-image-position: 50% 50% !default;
+$gx-product-bg-image-repeat: no-repeat !default;
+$gx-product-bg-image-size: auto !default;
+$gx-product-bg-image-attachment: scroll !default;
+$gx-product-bg-gradient-angle: 90deg !default;
+$gx-product-bg-gradient-color1: #CCCCCC !default;
+$gx-product-bg-gradient-color2: #FFFFFF !default;
+$gx-product-bg-gradient-enabled: false !default;
+$gx-product-bg-gradient-type: linear !default;
+$gx-product-bg-image-enabled: true !default;
+
+$gx-gallery-bg-color: #FFFFFF !default;
+$gx-gallery-bg-image-url: "" !default;
+$gx-gallery-bg-image-position: 50% 50% !default;
+$gx-gallery-bg-image-repeat: no-repeat !default;
+$gx-gallery-bg-image-size: auto !default;
+$gx-gallery-bg-image-attachment: scroll !default;
+$gx-gallery-bg-gradient-angle: 90deg !default;
+$gx-gallery-bg-gradient-color1: #CCCCCC !default;
+$gx-gallery-bg-gradient-color2: #FFFFFF !default;
+$gx-gallery-bg-gradient-enabled: false !default;
+$gx-gallery-bg-gradient-type: linear !default;
+$gx-gallery-bg-image-enabled: true !default;
+
+$gx-product-listing-col-xs: 6 !default;
+$gx-product-listing-col-sm: 6 !default;
+$gx-product-listing-col-md: 4 !default;
+$gx-product-listing-col-lg: 3 !default;
+
+$gx-product-listing-image-height: 180px !default;
+$gx-product-listing-image-height-mobile: 130px !default;
+$gx-product-listing-gallery-image-height: 75px !default;
+$gx-product-listing-gallery-width: 95px !default;
+
+$gx-products-name-height: 65px !default;
+$gx-ribbons-padding: 0 !default;
+$gx-rating-height: 30px !default;
+$gx-products-price-height: 80px !default;
+$gx-product-tile-additional-container: 0 !default;
+$gx-show-shipping-in-tile: false !default;
+
+// Mega dropdown                                   
+
+$gx-megadropdown-block-width: 225px !default;
+$gx-megadropdown-block-count: 3 !default;
+$gx-categories-tab-padding: 2px !default;
+$gx-megadropdown-heading-font-size: 18px !default;
+
+$gx-megadropdown-bg-color: #FFFFFF !default;
+$gx-megadropdown-bg-image-url: "" !default;
+$gx-megadropdown-bg-image-position: 50% 50% !default;
+$gx-megadropdown-bg-image-repeat: no-repeat !default;
+$gx-megadropdown-bg-image-size: auto !default;
+$gx-megadropdown-bg-image-attachment: scroll !default;
+$gx-megadropdown-bg-gradient-angle: 90deg !default;
+$gx-megadropdown-bg-gradient-color1: #CCCCCC !default;
+$gx-megadropdown-bg-gradient-color2: #FFFFFF !default;
+$gx-megadropdown-bg-gradient-enabled: false !default;
+$gx-megadropdown-bg-gradient-type: linear !default;
+$gx-megadropdown-bg-image-enabled: true !default;
+$gx-megadropdown-color: $text-color !default;
+$gx-megadropdown-hover-color: $brand-primary !default;
+$gx-megadropdown-heading-border-color: #ffffff !default;
+
+$gx-enter-category-color: $text-color !default;
+$gx-enter-category-bg-color: $gray-lighter !default;
+$gx-enter-category-bg-image-url: "" !default;
+$gx-enter-category-bg-image-position: 50% 50% !default;
+$gx-enter-category-bg-image-repeat: no-repeat !default;
+$gx-enter-category-bg-image-size: auto !default;
+$gx-enter-category-bg-image-attachment: scroll !default;
+$gx-enter-category-bg-gradient-angle: 90deg !default;
+$gx-enter-category-bg-gradient-color1: #CCCCCC !default;
+$gx-enter-category-bg-gradient-color2: #FFFFFF !default;
+$gx-enter-category-bg-gradient-enabled: false !default;
+$gx-enter-category-bg-gradient-type: linear !default;
+$gx-enter-category-bg-image-enabled: true !default;
+
+
+// Dropdowns
+
+$gx-dropdown-color: $text-color !default;
+$gx-dropdown-info-color: #999999 !default;
+$gx-dropdown-footer-color: $text-color !default;
+$gx-dropdown-disabled-color: #999999 !default;
+$gx-dropdown-border-color: #EEEEEE !default;
+
+$gx-dropdown-bg-color: #ffffff !default;
+$gx-dropdown-bg-image-url: "" !default;
+$gx-dropdown-bg-image-position: 50% 50% !default;
+$gx-dropdown-bg-image-repeat: no-repeat !default;
+$gx-dropdown-bg-image-size: auto !default;
+$gx-dropdown-bg-image-attachment: scroll !default;
+$gx-dropdown-bg-gradient-angle: 90deg !default;
+$gx-dropdown-bg-gradient-color1: #CCCCCC !default;
+$gx-dropdown-bg-gradient-color2: #FFFFFF !default;
+$gx-dropdown-bg-gradient-enabled: false !default;
+$gx-dropdown-bg-gradient-type: linear !default;
+$gx-dropdown-bg-image-enabled: true !default;
+
+$gx-dropdown-hover-bg-color: transparent !default;
+$gx-dropdown-hover-bg-image-url: "" !default;
+$gx-dropdown-hover-bg-image-position: 50% 50% !default;
+$gx-dropdown-hover-bg-image-repeat: no-repeat !default;
+$gx-dropdown-hover-bg-image-size: auto !default;
+$gx-dropdown-hover-bg-image-attachment: scroll !default;
+$gx-dropdown-hover-bg-gradient-angle: 90deg !default;
+$gx-dropdown-hover-bg-gradient-color1: #CCCCCC !default;
+$gx-dropdown-hover-bg-gradient-color2: #FFFFFF !default;
+$gx-dropdown-hover-bg-gradient-enabled: false !default;
+$gx-dropdown-hover-bg-gradient-type: linear !default;
+$gx-dropdown-hover-bg-image-enabled: true !default;
+
+$gx-dropdown-footer-bg-color: transparent !default;
+$gx-dropdown-footer-bg-image-url: "" !default;
+$gx-dropdown-footer-bg-image-position: 50% 50% !default;
+$gx-dropdown-footer-bg-image-repeat: no-repeat !default;
+$gx-dropdown-footer-bg-image-size: auto !default;
+$gx-dropdown-footer-bg-image-attachment: scroll !default;
+$gx-dropdown-footer-bg-gradient-angle: 90deg !default;
+$gx-dropdown-footer-bg-gradient-color1: #CCCCCC !default;
+$gx-dropdown-footer-bg-gradient-color2: #FFFFFF !default;
+$gx-dropdown-footer-bg-gradient-enabled: false !default;
+$gx-dropdown-footer-bg-gradient-type: linear !default;
+$gx-dropdown-footer-bg-image-enabled: true !default;
+
+
+// Product Info
+
+$gx-product-info-details-bg-color: transparent !default;
+$gx-product-info-details-bg-image-url: "" !default;
+$gx-product-info-details-bg-image-position: 50% 50% !default;
+$gx-product-info-details-bg-image-repeat: no-repeat !default;
+$gx-product-info-details-bg-image-size: auto !default;
+$gx-product-info-details-bg-image-attachment: scroll !default;
+$gx-product-info-details-bg-gradient-angle: 90deg !default;
+$gx-product-info-details-bg-gradient-color1: #CCCCCC !default;
+$gx-product-info-details-bg-gradient-color2: #FFFFFF !default;
+$gx-product-info-details-bg-gradient-enabled: false !default;
+$gx-product-info-details-bg-gradient-type: linear !default;
+$gx-product-info-details-bg-image-enabled: true !default;
+
+$gx-product-info-details-sticky: false !default;
+
+$gx-product-info-details-color: $text-color !default;
+$gx-product-info-details-note-color: $gray-light !default;
+$gx-product-info-details-border-width: 0 !default;
+$gx-product-info-details-border-style: none !default;
+$gx-product-info-details-border-color: transparent !default;
+$gx-product-info-stage-height: 500px !default;
+$gx-product-info-stage-height-mobile: 300px !default;
+$gx-product-info-layer-stage-height: 650px !default;
+$gx-product-info-layer-stage-height-mobile: 300px !default;
+$gx-product-info-thumbnail-width: 100px !default;
+$gx-product-info-thumbnail-width-mobile: 50px !default;
+$gx-product-info-magnifier-z-index: 1000 !default;
+
+$gx-tab-color: #777777 !default;
+$gx-tab-color-active: #333333 !default;
+$gx-tab-border-color: transparent !default;
+$gx-tab-border-color-active: $brand-primary !default;
+$gx-tab-container-border-color: transparent !default;
+
+$gx-tab-bg-color: transparent !default;
+$gx-tab-bg-active-color: transparent !default;
+
+$gx-tab-bg-image-url: "" !default;
+$gx-tab-bg-image-position: 50% 50% !default;
+$gx-tab-bg-image-repeat: no-repeat !default;
+$gx-tab-bg-image-size: auto !default;
+$gx-tab-bg-image-attachment: scroll !default;
+$gx-tab-bg-gradient-angle: 90deg !default;
+$gx-tab-bg-gradient-color1: #CCCCCC !default;
+$gx-tab-bg-gradient-color2: #FFFFFF !default;
+$gx-tab-bg-gradient-enabled: false !default;
+$gx-tab-bg-gradient-type: linear !default;
+$gx-tab-bg-image-enabled: true !default;
+
+$gx-tab-bg-active-image-url: "" !default;
+$gx-tab-bg-active-image-position: 50% 50% !default;
+$gx-tab-bg-active-image-repeat: no-repeat !default;
+$gx-tab-bg-active-image-size: auto !default;
+$gx-tab-bg-active-image-attachment: scroll !default;
+$gx-tab-bg-active-gradient-angle: 90deg !default;
+$gx-tab-bg-active-gradient-color1: #CCCCCC !default;
+$gx-tab-bg-active-gradient-color2: #FFFFFF !default;
+$gx-tab-bg-active-gradient-enabled: false !default;
+$gx-tab-bg-active-gradient-type: linear !default;
+$gx-tab-bg-active-image-enabled: true !default;
+
+$gx-product-info-img-bg-color: transparent !default;
+$gx-product-info-img-bg-image-url: "" !default;
+$gx-product-info-img-bg-image-position: 50% 50% !default;
+$gx-product-info-img-bg-image-repeat: no-repeat !default;
+$gx-product-info-img-bg-image-size: auto !default;
+$gx-product-info-img-bg-image-attachment: scroll !default;
+$gx-product-info-img-bg-gradient-angle: 90deg !default;
+$gx-product-info-img-bg-gradient-color1: #CCCCCC !default;
+$gx-product-info-img-bg-gradient-color2: #FFFFFF !default;
+$gx-product-info-img-bg-gradient-enabled: false !default;
+$gx-product-info-img-bg-gradient-type: linear !default;
+$gx-product-info-img-bg-image-enabled: true !default;
+
+
+// Checkout
+
+$gx-checkout-headline-color: $brand-primary !default;
+
+$gx-checkout-table-color: $text-color !default;
+$gx-checkout-table-header-color: #999999 !default;
+$gx-checkout-table-additional-info-color: $gray !default;
+$gx-checkout-table-border-color: #E7E7E7 !default;
+
+$gx-checkout-table-bg-color: #F3F3F3 !default;
+$gx-checkout-table-bg-image-url: "" !default;
+$gx-checkout-table-bg-image-position: 50% 50% !default;
+$gx-checkout-table-bg-image-repeat: no-repeat !default;
+$gx-checkout-table-bg-image-size: auto !default;
+$gx-checkout-table-bg-image-attachment: scroll !default;
+$gx-checkout-table-bg-gradient-angle: 90deg !default;
+$gx-checkout-table-bg-gradient-color1: #CCCCCC !default;
+$gx-checkout-table-bg-gradient-color2: #FFFFFF !default;
+$gx-checkout-table-bg-gradient-enabled: false !default;
+$gx-checkout-table-bg-gradient-type: linear !default;
+$gx-checkout-table-bg-image-enabled: true !default;
+
+$gx-list-group-item-color: $text-color !default;
+$gx-list-group-item-color-active: $text-color !default;
+$gx-list-group-item-link-color: $brand-primary !default;
+$gx-list-group-item-link-color-active: $brand-primary !default;
+$gx-list-group-item-border-color: $gray-lighter !default;
+$gx-list-group-item-border-color-active: #CCCCCC !default;
+
+$gx-list-group-item-bg-color: transparent !default;
+$gx-list-group-item-bg-image-url: "" !default;
+$gx-list-group-item-bg-image-position: 50% 50% !default;
+$gx-list-group-item-bg-image-repeat: no-repeat !default;
+$gx-list-group-item-bg-image-size: auto !default;
+$gx-list-group-item-bg-image-attachment: scroll !default;
+$gx-list-group-item-bg-gradient-angle: 90deg !default;
+$gx-list-group-item-bg-gradient-color1: #CCCCCC !default;
+$gx-list-group-item-bg-gradient-color2: #FFFFFF !default;
+$gx-list-group-item-bg-gradient-enabled: false !default;
+$gx-list-group-item-bg-gradient-type: linear !default;
+$gx-list-group-item-bg-image-enabled: true !default;
+
+$gx-list-group-item-bg-active-color: #EEEEEE !default;
+$gx-list-group-item-bg-active-image-url: "" !default;
+$gx-list-group-item-bg-active-image-position: 50% 50% !default;
+$gx-list-group-item-bg-active-image-repeat: no-repeat !default;
+$gx-list-group-item-bg-active-image-size: auto !default;
+$gx-list-group-item-bg-active-image-attachment: scroll !default;
+$gx-list-group-item-bg-active-gradient-angle: 90deg !default;
+$gx-list-group-item-bg-active-gradient-color1: #CCCCCC !default;
+$gx-list-group-item-bg-active-gradient-color2: #FFFFFF !default;
+$gx-list-group-item-bg-active-gradient-enabled: false !default;
+$gx-list-group-item-bg-active-gradient-type: linear !default;
+$gx-list-group-item-bg-active-image-enabled: true !default;
+
+$gx-checkout-form-bg-color: #CCCCCC;
+$gx-checkout-form-bg-image-url: "" !default;
+$gx-checkout-form-bg-image-position: 50% 50% !default;
+$gx-checkout-form-bg-image-repeat: no-repeat !default;
+$gx-checkout-form-bg-image-size: auto !default;
+$gx-checkout-form-bg-image-attachment: scroll !default;
+$gx-checkout-form-bg-gradient-angle: 90deg !default;
+$gx-checkout-form-bg-gradient-color1: #CCCCCC !default;
+$gx-checkout-form-bg-gradient-color2: #FFFFFF !default;
+$gx-checkout-form-bg-gradient-enabled: false !default;
+$gx-checkout-form-bg-gradient-type: linear !default;
+$gx-checkout-form-bg-image-enabled: true !default;
+
+// Shopping Cart                                   
+
+$gx-cart-border-color: #E7E7E7 !default;
+$gx-cart-table-head-color: #999999 !default;
+$gx-cart-table-color: $text-color !default;
+$gx-cart-table-info-color: $gray !default;
+
+$gx-total-box-color: $text-color !default;
+$gx-total-box-border-color: #E7E7E7 !default;
+
+$gx-total-box-top-bg-color: $gx-panel-bg-color !default;
+$gx-total-box-top-bg-image-url: "" !default;
+$gx-total-box-top-bg-image-position: 50% 50% !default;
+$gx-total-box-top-bg-image-repeat: no-repeat !default;
+$gx-total-box-top-bg-image-size: auto !default;
+$gx-total-box-top-bg-image-attachment: scroll !default;
+$gx-total-box-top-bg-gradient-angle: 90deg !default;
+$gx-total-box-top-bg-gradient-color1: #CCCCCC !default;
+$gx-total-box-top-bg-gradient-color2: #FFFFFF !default;
+$gx-total-box-top-bg-gradient-enabled: false !default;
+$gx-total-box-top-bg-gradient-type: linear !default;
+$gx-total-box-top-bg-image-enabled: true !default;
+
+$gx-total-box-bottom-bg-color: #EEEEEE !default;
+$gx-total-box-bottom-bg-image-url: "" !default;
+$gx-total-box-bottom-bg-image-position: 50% 50% !default;
+$gx-total-box-bottom-bg-image-repeat: no-repeat !default;
+$gx-total-box-bottom-bg-image-size: auto !default;
+$gx-total-box-bottom-bg-image-attachment: scroll !default;
+$gx-total-box-bottom-bg-gradient-angle: 90deg !default;
+$gx-total-box-bottom-bg-gradient-color1: #CCCCCC !default;
+$gx-total-box-bottom-bg-gradient-color2: #FFFFFF !default;
+$gx-total-box-bottom-bg-gradient-enabled: false !default;
+$gx-total-box-bottom-bg-gradient-type: linear !default;
+$gx-total-box-bottom-bg-image-enabled: true !default;
+
+// Tables                                          
+
+$gx-table-headline-color: #999999 !default;
+$gx-table-body-color-odd: $text-color !default;
+$gx-table-body-color-even: $text-color !default;
+$gx-table-border-color: #E7E7E7 !default;
+
+$gx-table-even-row-bg: transparent !default;
+$gx-table-odd-row-bg: #F9F9F9 !default;
+
+$gx-table-bg-color: transparent !default;
+$gx-table-bg-image-url: "" !default;
+$gx-table-bg-image-position: 50% 50% !default;
+$gx-table-bg-image-repeat: no-repeat !default;
+$gx-table-bg-image-size: auto !default;
+$gx-table-bg-image-attachment: scroll !default;
+$gx-table-bg-gradient-angle: 90deg !default;
+$gx-table-bg-gradient-color1: #CCCCCC !default;
+$gx-table-bg-gradient-color2: #FFFFFF !default;
+$gx-table-bg-gradient-enabled: false !default;
+$gx-table-bg-gradient-type: linear !default;
+$gx-table-bg-image-enabled: true !default;
+
+
+// Alerts
+
+$gx-alert-danger-color: $alert-danger-text !default;
+$gx-alert-success-color: $alert-success-text !default;
+$gx-alert-info-color: $alert-info-text !default;
+$gx-alert-warning-color: $alert-warning-text !default;
+
+$gx-alert-danger-border: $alert-danger-border !default;
+$gx-alert-success-border: $alert-success-border !default;
+$gx-alert-info-border: $alert-info-border !default;
+$gx-alert-warning-border: $alert-warning-border !default;
+
+$gx-alert-danger-bg-color: $alert-danger-bg !default;
+$gx-alert-danger-bg-image-url: "" !default;
+$gx-alert-danger-bg-image-position: 50% 50% !default;
+$gx-alert-danger-bg-image-repeat: no-repeat !default;
+$gx-alert-danger-bg-image-size: auto !default;
+$gx-alert-danger-bg-image-attachment: scroll !default;
+$gx-alert-danger-bg-gradient-angle: 90deg !default;
+$gx-alert-danger-bg-gradient-color1: #CCCCCC !default;
+$gx-alert-danger-bg-gradient-color2: #FFFFFF !default;
+$gx-alert-danger-bg-gradient-enabled: false !default;
+$gx-alert-danger-bg-gradient-type: linear !default;
+$gx-alert-danger-bg-image-enabled: true !default;
+
+
+$gx-alert-success-bg-color: $alert-success-bg !default;
+$gx-alert-success-bg-image-url: "" !default;
+$gx-alert-success-bg-image-position: 50% 50% !default;
+$gx-alert-success-bg-image-repeat: no-repeat !default;
+$gx-alert-success-bg-image-size: auto !default;
+$gx-alert-success-bg-image-attachment: scroll !default;
+$gx-alert-success-bg-gradient-angle: 90deg !default;
+$gx-alert-success-bg-gradient-color1: #CCCCCC !default;
+$gx-alert-success-bg-gradient-color2: #FFFFFF !default;
+$gx-alert-success-bg-gradient-enabled: false !default;
+$gx-alert-success-bg-gradient-type: linear !default;
+$gx-alert-success-bg-image-enabled: true !default;
+
+$gx-alert-info-bg-color: $alert-info-bg !default;
+$gx-alert-info-bg-image-url: "" !default;
+$gx-alert-info-bg-image-position: 50% 50% !default;
+$gx-alert-info-bg-image-repeat: no-repeat !default;
+$gx-alert-info-bg-image-size: auto !default;
+$gx-alert-info-bg-image-attachment: scroll !default;
+$gx-alert-info-bg-gradient-angle: 90deg !default;
+$gx-alert-info-bg-gradient-color1: #CCCCCC !default;
+$gx-alert-info-bg-gradient-color2: #FFFFFF !default;
+$gx-alert-info-bg-gradient-enabled: false !default;
+$gx-alert-info-bg-gradient-type: linear !default;
+$gx-alert-info-bg-image-enabled: true !default;
+
+$gx-alert-warning-bg-color: $alert-warning-bg !default;
+$gx-alert-warning-bg-image-url: "" !default;
+$gx-alert-warning-bg-image-position: 50% 50% !default;
+$gx-alert-warning-bg-image-repeat: no-repeat !default;
+$gx-alert-warning-bg-image-size: auto !default;
+$gx-alert-warning-bg-image-attachment: scroll !default;
+$gx-alert-warning-bg-gradient-angle: 90deg !default;
+$gx-alert-warning-bg-gradient-color1: #CCCCCC !default;
+$gx-alert-warning-bg-gradient-color2: #FFFFFF !default;
+$gx-alert-warning-bg-gradient-enabled: false !default;
+$gx-alert-warning-bg-gradient-type: linear !default;
+$gx-alert-warning-bg-image-enabled: true !default;
+
+
+// Modals
+
+$gx-modal-bg-color: #FFFFFF !default;
+$gx-modal-bg-image-url: "" !default;
+$gx-modal-bg-image-position: 50% 50% !default;
+$gx-modal-bg-image-repeat: no-repeat !default;
+$gx-modal-bg-image-size: auto !default;
+$gx-modal-bg-image-attachment: scroll !default;
+$gx-modal-bg-gradient-angle: 90deg !default;
+$gx-modal-bg-gradient-color1: #CCCCCC !default;
+$gx-modal-bg-gradient-color2: #FFFFFF !default;
+$gx-modal-bg-gradient-enabled: false !default;
+$gx-modal-bg-gradient-type: linear !default;
+$gx-modal-bg-image-enabled: true !default;
+
+
+// GTC + Withdrawal Checkboxes
+
+$gx-checkbox-color: $alert-warning-text !default;
+$gx-checkbox-active-color: $alert-success-text !default;
+$gx-checkbox-border: $alert-warning-border !default;
+$gx-checkbox-active-border: $alert-success-border !default;
+
+$gx-checkbox-bg-color: $alert-warning-bg !default;
+$gx-checkbox-bg-image-url: "" !default;
+$gx-checkbox-bg-image-position: 50% 50% !default;
+$gx-checkbox-bg-image-repeat: no-repeat !default;
+$gx-checkbox-bg-image-size: auto !default;
+$gx-checkbox-bg-image-attachment: scroll !default;
+$gx-checkbox-bg-gradient-angle: 90deg !default;
+$gx-checkbox-bg-gradient-color1: #CCCCCC !default;
+$gx-checkbox-bg-gradient-color2: #FFFFFF !default;
+$gx-checkbox-bg-gradient-enabled: false !default;
+$gx-checkbox-bg-gradient-type: linear !default;
+$gx-checkbox-bg-image-enabled: true !default;
+
+$gx-checkbox-active-bg-color: $alert-success-bg !default;
+$gx-checkbox-active-bg-image-url: "" !default;
+$gx-checkbox-active-bg-image-position: 50% 50% !default;
+$gx-checkbox-active-bg-image-repeat: no-repeat !default;
+$gx-checkbox-active-bg-image-size: auto !default;
+$gx-checkbox-active-bg-image-attachment: scroll !default;
+$gx-checkbox-active-bg-gradient-angle: 90deg !default;
+$gx-checkbox-active-bg-gradient-color1: #CCCCCC !default;
+$gx-checkbox-active-bg-gradient-color2: #FFFFFF !default;
+$gx-checkbox-active-bg-gradient-enabled: false !default;
+$gx-checkbox-active-bg-gradient-type: linear !default;
+$gx-checkbox-active-bg-image-enabled: true !default;
+
+
+// Shadows
+
+$gx-dropdown-box-shadow: 0 18px 18px rgba(0, 0, 0, .35) !default;
+$gx-shopping-cart-total-box-shadow: 0 0 25px rgba(0, 0, 0, .35) !default;
+$gx-product-hover-box-shadow: 0 0 25px rgba(0, 0, 0, .35) !default;
+
+
+// Page-Up
+
+$gx-pageup-z-index: 1020 !default;
+$gx-pageup-align-left: false !default;
+$gx-pageup-vertical-space-bottom: 25px !default;
+$gx-pageup-bg-color: #FFFFFF !default;
+$gx-pageup-hover-bg-color: #FFFFFF !default;
+$gx-pageup-color: $brand-primary !default;
+$gx-pageup-hover-color: $brand-primary !default;
+
+
+// Rating
+
+$gx-rating-stars-width: 80px !default;
+$gx-no-rating-hint-color: $text-color !default;
+$gx-rating-stars-unmarked-color: #CCCCCC !default;
+$gx-rating-stars-marked-color: #FF9000 !default;
+
+
+// Font Awesome Path (Use without "gx" prefix)
+
+$fa-font-path:                                     $theme-base-path + "/fonts/fontawesome-free" !default;
+
+
+// Social Media Colors
+
+$gx-twitter: #00ACED !default;
+$gx-facebook: #3B5998 !default;
+$gx-pinterest: #CB2027 !default;
+$gx-linkedin: #007BB6 !default;
+$gx-youtube: #BB0000 !default;
+$gx-vimeo: #AAD450 !default;
+$gx-tumblr: #32506D !default;
+$gx-instagram: #517FA4 !default;
+$gx-flickr: #FF0084 !default;
+
+// Two Factor Authentication QR Code
+
+$gx-qr-code-color: #337AB7 !default;
+$gx-qr-code-bg-color: #FFFFFF !default;
+
+// SVG Sizes and Colors
+$gx-search-color: #000000 !default;
+$gx-search-size: 21px !default;
+
+$gx-cart-basket-color: #000000 !default;
+$gx-cart-basket-size: 30px !default;
+
+$gx-cart-basket-mobile-color: #000000 !default;
+$gx-cart-basket-mobile-size: 30px !default;
+
+$gx-cart-basket-sticky-color: #000000 !default;
+$gx-cart-basket-sticky-size: 30px !default;
+
+$gx-search-mobile-color: #000000 !default;
+$gx-search-mobile-size: 21px !default;
+
+$gx-bars-mobile-color: #000000 !default;
+$gx-bars-mobile-size: 21px !default;
+
+$gx-chevron-right-color: #999999 !default;
+$gx-chevron-right-size: 10px !default;
+
+$gx-chevron-up-color: #999999 !default;
+$gx-chevron-up-size: 10px !default;
+
+$gx-chevron-down-color: #999999 !default;
+$gx-chevron-down-size: 10px !default;
+
+$gx-chevron-left-color: #999999 !default;
+$gx-chevron-left-size: 10px !default;
+
+$gx-star-size: 21px !default;
+
+$gx-minus-color: #000000 !default;
+$gx-minus-size: 21px !default;
+
+$gx-plus-color: #000000 !default;
+$gx-plus-size: 21px !default;
+
+$gx-checkout-chevron-right-color: $brand-primary !default;
+$gx-checkout-chevron-right-size: 10px !default;
+//Default value for deprecated variables
+$gx-wrapper-bg: $gx-wrapper-bg-color !default;
+$body-bg: $gx-body-bg-color !default;
+$gx-table-bg: $gx-table-bg-color !default;
+$navbar-default-bg: $gx-cat-navbar-bg-color !default;
+$gx-megadropdown-bg: $gx-megadropdown-bg-color !default;
+$gx-enter-category-bg: $gx-enter-category-bg-color !default;
+$gx-cat-left-bg: $gx-cat-left-bg-color !default;
+$gx-cat-left-bg-hover: $gx-cat-left-bg-hover-color !default;
+$gx-cat-left-bg-active: $gx-cat-left-bg-active-color !default;
+$gx-cat-left-bg-open: $gx-cat-left-bg-open-color !default;
+$gx-navbar-topbar-bg: $gx-navbar-topbar-bg-color !default;
+$gx-navbar-topbar-link-bg: $gx-navbar-topbar-link-bg-color !default;
+$gx-navbar-topbar-link-hover-bg: $gx-navbar-topbar-link-hover-bg-color !default;
+$gx-navbar-topbar-link-active-bg: $gx-navbar-topbar-link-active-bg-color !default;
+$gx-dropdown-bg: $gx-dropdown-bg-color !default;
+$gx-dropdown-footer-bg: $gx-dropdown-footer-bg-color !default;
+$gx-dropdown-hover-bg: $gx-dropdown-hover-bg-color !default;
+$gx-footer-header-bg: $gx-footer-header-bg-color !default;
+$gx-product-info-img-bg: $gx-product-info-img-bg-color !default;
+$gx-product-bg: $gx-product-bg-color !default;
+$gx-gallery-bg: $gx-gallery-bg-color !default;
+$gx-product-info-details-bg: $gx-product-info-details-bg-color !default;
+$gx-tab-bg: $gx-tab-bg-color !default;
+$gx-tab-bg-active: $gx-tab-bg-active-color !default;
+$gx-total-box-top-bg: $gx-total-box-top-bg-color !default;
+$gx-total-box-bottom-bg: $gx-total-box-bottom-bg-color !default;
+$gx-checkout-table-bg: $gx-checkout-table-bg-color !default;
+$gx-list-group-item-bg: $gx-list-group-item-bg-color !default;
+$gx-list-group-item-bg-active: $gx-list-group-item-bg-active-color !default;
+$gx-checkout-form-bg: $gx-checkout-form-bg-color !default;
+$gx-checkbox-bg: $gx-checkbox-bg-color !default;
+$gx-checkbox-active-bg: $gx-checkbox-active-bg-color !default;
+$gx-panel-header-bg: $gx-panel-header-bg-color !default;
+$gx-panel-bg: $gx-panel-bg-color !default;
+$gx-header-bg: $gx-header-bg-color !default;
+$gx-header-bg-mobile: $gx-header-bg-mobile-color !default;
+$gx-header-bg-sticky: $gx-header-bg-sticky-color !default;
+$gx-modal-bg: $gx-modal-bg-color !default;
+$gx-alert-danger-bg: $gx-alert-danger-bg-color !default;
+$gx-alert-success-bg: $gx-alert-success-bg-color !default;
+$gx-alert-warning-bg: $gx-alert-warning-bg-color !default;
+$gx-alert-info-bg: $gx-alert-info-bg-color !default;
+$gx-btn-primary-bg: $gx-btn-primary-bg-color !default;
+$gx-btn-default-bg: $gx-btn-default-bg-color !default;
+$gx-btn-calltoaction-bg: $gx-btn-calltoaction-bg-color !default;
+
+// Cookie Consent
+$cookie-consent-panel-opacity: 0.97 !default;
+$cookie-consent-panel-box-shadow: 0 -8px 20px 0 rgba(0,0,0,.2) !default;
+$cookie-consent-panel-switchers-color: $brand-primary !default;
+$cookie-consent-panel-buttons-color: $brand-primary !default;
+$cookie-consent-panel-buttons-color-hover: $brand-primary !default;
+$cookie-consent-panel-description-font-size: 13px !default;
+$cookie-consent-panel-headline-font-size: 18px !default;
+
+// brand margins
+$gx-brand-margin-vertical:              0               !default;
+$gx-brand-margin-vertical-sticky:       0               !default;
+
+// rounded buttons and borderless buttons
+$gx-btn-rounded:                        true            !default;
+$gx-btn-borderless:                     false           !default;
+$gx-offcanvas-cart:						true			!default;
+
+// disable quantity input
+$gx-product-info-hide-quantity-input:   true            !default;
+
+// add possibility to hide topbar with secondary navigation
+$gx-hide-topbar:                        true            !default;
+
+// categories navigation in main header
+$gx-hide-categories-col:                true            !default;
+$gx-header-categories-col-sm:           0               !default; /* can be 0 to hide */
+$gx-header-categories-col-md:           4               !default;
+$gx-header-categories-col-lg:           4               !default;
+$gx-categories-col-height:              70px            !default;
+$gx-categories-col-height-sticky:       70px            !default;
+$gx-categories-padding-vertical:        10px            !default;
+$gx-categories-padding-vertical-sticky: 10px            !default;
+$gx-categories-margin-vertical:         0               !default;
+$gx-categories-margin-vertical-sticky:  0               !default;
+
+// secondary navigation in main header
+$gx-hide-secondary-col:                 false           !default;
+$gx-header-secondary-col-sm:            4               !default; /* can be 0 to hide */
+$gx-header-secondary-col-md:            4               !default;
+$gx-header-secondary-col-lg:            4               !default;
+$gx-secondary-height:               	70px            !default;
+$gx-secondary-height-sticky:        	70px            !default;
+$gx-secondary-padding-vertical:         0               !default;
+$gx-secondary-padding-vertical-sticky:  0               !default;
+$gx-secondary-margin-vertical:          0               !default;
+$gx-secondary-margin-vertical-sticky:   0               !default;
+$gx-secondary-font-size:				$font-size-base !default;
+$gx-secondary-show-icons:				true 			!default;
+$gx-secondary-link-padding:				19px 10px		!default;
+$gx-secondary-link-color:				$gx-brand-secondary !default;
+$gx-secondary-link-bg-color:			transparent;
+$gx-secondary-link-bg-image-url:		"" !default;
+$gx-secondary-link-bg-image-position:	50% 50% !default;
+$gx-secondary-link-bg-image-repeat: 	no-repeat !default;
+$gx-secondary-link-bg-image-size:		auto !default;
+$gx-secondary-link-bg-image-attachment: scroll !default;
+$gx-secondary-link-hover-color:			$gx-brand-secondary !default;
+$gx-secondary-link-hover-bg-color:		darken($brand-primary, 5%) !default;
+$gx-secondary-link-hover-bg-image-url:			"" !default;
+$gx-secondary-link-hover-bg-image-position:		50% 50% !default;
+$gx-secondary-link-hover-bg-image-repeat:		no-repeat !default;
+$gx-secondary-link-hover-bg-image-size:			auto !default;
+$gx-secondary-link-hover-bg-image-attachment:	scroll !default;
+$gx-secondary-link-active-color:				$gx-brand-secondary !default;
+$gx-secondary-link-active-bg-color:				#ffffff !default;
+$gx-secondary-link-active-bg-image-url:			"" !default;
+$gx-secondary-link-active-bg-image-position:	50% 50% !default;
+$gx-secondary-link-active-bg-image-repeat:		no-repeat !default;
+$gx-secondary-link-active-bg-image-size:		auto !default;
+$gx-secondary-link-active-bg-image-attachment:	scroll !default;
+$gx-secondary-link-disabled-color:				$gx-brand-secondary !default;
+$gx-secondary-link-disabled-bg-color:			darken($brand-primary, 5%);
+
+$gx-use-content-zone-for-hero:					false !default;
+$gx-transparent-header-text-color:				$brand-primary !default;
+$gx-transparent-header-text-hover-color:		black !default;
+$gx-transparent-header-text-hover-background-color:		darken($brand-primary, 2%) !default;
+
+// Mobile Menu Overlay colors
+$gx-mobile-menu-overlay-background-color: rgba(0, 0, 0, .9) !default;
+
+$gx-mobile-menu-overlay-items-color: #eeeeee !default;
+$gx-mobile-menu-overlay-items-color-active: #ffffff !default;
+$gx-mobile-menu-overlay-items-background-color: transparent !default;
+$gx-mobile-menu-overlay-items-background-color-active: transparent !default;
+$gx-mobile-menu-overlay-menu-borders-color: #ffffff !default;
+
+$gx-mobile-menu-overlay-search-rounded: true !default;
+$gx-mobile-menu-overlay-search-text-color: #ffffff !default;
+$gx-mobile-menu-overlay-search-text-color-active: #ffffff !default;
+$gx-mobile-menu-overlay-search-background-color: transparent !default;
+$gx-mobile-menu-overlay-search-background-color-active: transparent !default;
+$gx-mobile-menu-overlay-search-borders-color: #ffffff !default;
+$gx-mobile-menu-overlay-search-borders-color-active: #ffffff !default;
+$gx-mobile-menu-overlay-search-icon-color: #ffffff !default;
+
+// @todo: delete option
+$gx-mobile-menu-overlay-borders-color: #ffffff !default;

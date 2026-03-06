@@ -1,0 +1,33 @@
+@import "../variables";
+
+&.fixed {
+	.info {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: $footer-height;
+		background-color: #ffffff;
+		z-index: $zindex-main-footer;
+	}
+}
+
+.info {
+	@import "menu_trigger";
+	@import "version_info";
+	@import "badges";
+	@import "language_selection";
+	@import "bottom_save_bar";
+	
+	display: flex;
+	height: 100%;
+	border-top: 1px solid $border-color;
+	color: $text-color-light;
+	font-size: $default-font-size;
+	
+	> div {
+		display: flex;
+		align-items: center;
+		margin-left: 2rem;
+	}
+}

@@ -1,0 +1,46 @@
+<div class="form-group visibility_switcher">
+    <div>
+        <label class="{if $config.tooltip.text} col-sm-{math equation='x - 1' x=$config.grids_width[0]} {else} col-sm-{$config.grids_width[0]} {/if} control-label" for="{$field}">{$config.label}</label>
+        {if $config.tooltip.text}
+            <span class="col-sm-1" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+        {/if}
+        <ul class="col-sm-{$config.grids_width[1]} lang-select" role="tablist">
+            {foreach item=language name=tabs from=$adminLanguages}
+                {assign var=languageCode value=$language.code|lower}
+                <li role="presentation" {if $smarty.foreach.tabs.first} class="active"{/if}>
+                    <a href="#tab-content-{$field}-{$languageCode}"
+                       data-language="{$languageCode}"
+                       aria-controls="home"
+                       role="tab"
+                       data-toggle="tab"
+                    ><span class="flag-icon flag-icon-{$languageCode}"></span></a>
+                </li>
+            {/foreach}
+        </ul>
+    </div>
+    <div>
+        <div class="col-sm-12">
+
+            <div class="tab-content">
+                {foreach item=language name=panel from=$languages}
+                    {assign var=languageCode value=$language.code|lower}
+                    {if isset($config.default_value->{$languageCode})}
+                        {assign var=inputValue value=$config.default_value->{$languageCode}}
+                    {elseif isset($config.default_value.{$languageCode})}
+                        {assign var=inputValue value=$config.default_value.{$languageCode}}
+                    {elseif $config.default_value}
+                        {assign var=inputValue value=$config.default_value}
+                    {/if}
+                     <div role="tabpanel" class="tab-pane fade {if $smarty.foreach.panel.first}active in{/if}"
+                         id="tab-content-{$field}-{$languageCode}" data-language="{$languageCode}">
+                        <div class="row">
+                            <textarea style="max-width: inherit" rows="10" id="{$field}[{$languageCode}]" name="{$field}[{$languageCode}]"
+                                      class="col-sm-12 form-control" {if $config.readonly == true}readonly="readonly"{/if}
+                            >{$inputValue}</textarea>
+                        </div>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+@import "../variables";
+
+#gx-main {
+	@import "content_header";
+	@import "message_stack";
+	
+	width: 100%;
+	
+	#gx-content {
+		padding: $padding-large $padding-large 0;
+		
+		.breakpoint-small {
+			max-width: $breakpoint-width-small;
+		}
+		
+		.breakpoint-large {
+			max-width: $breakpoint-width-large;
+		}
+	}
+}

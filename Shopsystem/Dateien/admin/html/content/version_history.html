@@ -1,0 +1,133 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+
+	{load_language_text section="version_history" name="version_history"}
+
+	{block name="admin_version_history_table"}
+		<table class="version_history table table-main table-striped breakpoint-large">
+			{block name="admin_version_history_table_thead"}
+				<thead>
+					<tr>
+						{block name="admin_version_history_table_thead_ths"}
+							<th>{$version_history.TABLE_HEAD_NAME}</th>
+							<th>{$version_history.TABLE_HEAD_VERSION}</th>
+							<th>{$version_history.TABLE_HEAD_INSTALLATION_DATE}</th>
+							<th>{$version_history.TABLE_HEAD_VENDOR}</th>
+							<th>{$version_history.TABLE_HEAD_CHANGELOG}</th>
+						{/block}
+					</tr>
+				</thead>
+			{/block}
+			{block name="admin_version_history_table_tbody"}
+				<tbody>
+					{foreach item=versionInfo from=$content.version_info_items}
+						{block name="admin_version_history_table_row"}
+							<tr {if $versionInfo->isForcedInstallationVersion() === true}
+									class="forced-version"
+								
+								{elseif $versionInfo->isOriginInstallationVersion() === true}
+									class="origin-version"
+								
+								{elseif $versionInfo->isCurrentInstallationVersion() === true}
+								class="current-version"
+								
+								{elseif $versionInfo->isInstalledTargetVersion() === true}
+									class="installation-version"
+								
+								{elseif $versionInfo->isFailedInstallationVersion() === true}
+									class="failed-version"
+								
+								{/if} >
+								{block name="admin_version_history_table_row_tds"}
+									<td>{$versionInfo->getName()}</td>
+									<td>{$versionInfo->getVersion()}</td>
+									<td>{$versionInfo->getInstallationDate()->format('Y-m-d H:i:s')}</td>
+									<td>{$versionInfo->getVendor()}</td>
+									<td>{if $versionInfo->getChangelogVersionURL() !== '/'} <a href="{$versionInfo->getChangelogVersionURL()}"
+									                                                           target="ChangeLogIFrame">
+										<button type="button" class="btn btn-default" data-toggle="modal" data-target="#changelog">
+											<i class="fa fa-info" aria-hidden="true"></i>
+										</button>
+									</a> {/if}
+									</td>
+								{/block}
+							</tr>
+						{/block}
+					{/foreach}
+				</tbody>
+			{/block}
+			{block name="admin_version_history_table_tfoot"}
+				<tfoot>
+					<tr>
+						{block name="admin_version_history_table_tfoot_tds"}
+							<td colspan="5">
+								{block name="admin_version_history_table_tfoot_tds_headline"}
+									<h3 class="legend-headline">{$version_history.TABLE_FOOT_HEADLINE}</h3>
+								{/block}
+								{block name="admin_version_history_table_tfoot_tds_legend"}
+									<div class="row legend-background-box">
+										{block name="admin_version_history_table_tfoot_tds_legend_items"}
+											<div class="col-xs-2 legend-container">
+												<span class="legend"><span class="legend-color-box origin">&nbsp;</span></span>
+												<span class="legend-name">{$version_history.TABLE_FOOT_TEXT_ORIGIN}</span>
+											</div>
+											<div class="col-xs-2 legend-container">
+												<span class="legend"><span class="legend-color-box current">&nbsp;</span></span>
+												<span class="legend-name">{$version_history.TABLE_FOOT_TEXT_CURRENT}</span>
+											</div>
+											<div class="col-xs-2 legend-container">
+												<span class="legend"><span class="legend-color-box installation">&nbsp;</span></span> <span
+												class="legend-name">{$version_history.TABLE_FOOT_TEXT_INSTALLED}</span>
+											</div>
+											<div class="col-xs-2 legend-container">
+												<span class="legend"><span class="legend-color-box forced">&nbsp;</span></span>
+												<span class="legend-name">{$version_history.TABLE_FOOT_TEXT_FORCED}</span>
+											</div>
+											<div class="col-xs-2 legend-container">
+												<span class="legend"><span class="legend-color-box failed">&nbsp;</span></span>
+												<span class="legend-name">{$version_history.TABLE_FOOT_TEXT_FAILED}</span>
+											</div>
+										{/block}
+									</div>
+								{/block}
+							</td>
+						{/block}
+					</tr>
+				</tfoot>
+			{/block}
+		</table>
+	{/block}
+
+	{block name="admin_version_history_modal"}
+		<div id="changelog" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-lg" role="document">
+				<div class="modal-content">
+					{block name="admin_version_history_modal_header"}
+						<div class="modal-header">
+							{block name="admin_version_history_modal_header_close"}
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							{/block}
+							{block name="admin_version_history_modal_header_title"}
+								<h4 class="modal-title">{$version_history.TABLE_HEAD_CHANGELOG}</h4>
+							{/block}
+						</div>
+					{/block}
+					{block name="admin_version_history_modal_body"}
+						<div class="modal-body">
+							<div class="modal_iframe">
+								<iframe id="modal-IFrame"
+								        class="embed-responsive-item"
+								        name="ChangeLogIFrame"
+								        width="100%"
+								        frameborder="0"></iframe>
+							</div>
+						</div>
+					{/block}
+				</div>
+			</div>
+		</div>
+	{/block}
+{/block}

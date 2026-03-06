@@ -1,0 +1,161 @@
+{load_language_text section="buttons" name="btn"}
+
+{block name="admin_orders_modals_change_status"}
+	<div class="status modal fade" tabindex="-1" role="dialog" data-gx-controller="orders/modals/change_status">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_orders_modals_change_status_header"}
+					<div class="modal-header">
+						{block name="admin_orders_modals_change_status_header_close"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_ClOSE}">
+								<span aria-hidden="true">&times;</span></button>
+						{/block}
+						{block name="admin_orders_modals_change_status_header_title"}
+							<h4 class="modal-title">{$orders.HEADING_GM_STATUS}</h4>
+						{/block}
+					</div>
+				{/block}
+
+				{block name="admin_orders_modals_change_status_body"}
+					<div class="modal-body">
+						{block name="admin_orders_modals_change_status_body_form"}
+							<form class="form-horizontal" data-gx-widget="single_checkbox">
+								<fieldset class="status-group">
+									<ul class="status">
+										{block name="admin_orders_modals_change_status_body_form_new_order_status"}
+											<li class="status-number">
+												<div class="form-group">
+													{block name="admin_orders_modals_change_status_body_form_new_order_status_label"}
+														<label for="status-dropdown" class="col-md-6">{$orders.ENTRY_NEW_ORDER_STATUS}</label>
+													{/block}
+                                                    {block name="admin_orders_modals_change_status_body_form_new_order_status_input"}
+														<div class="col-md-6">
+															<select id="status-dropdown" name="order_status"
+																	class="form-control">
+																<option value>{$orders.TEXT_GM_STATUS}</option>
+																<optgroup label="{$orders.TEXT_MOST_USED_ORDER_STATUS}">
+                                                                    {foreach $content.most_uesed_order_status as $status}
+																		<option value="{$status.orders_status_id}">{$status.orders_status_name}</option>
+                                                                    {/foreach}
+																</optgroup>
+																<optgroup label="{$orders.TEXT_OTHER_ORDER_STATUS}">
+                                                                    {foreach $content.order_status as $status}
+																		<option value="{$status.orders_status_id}">{$status.orders_status_name}</option>
+                                                                    {/foreach}
+																</optgroup>
+															</select>
+														</div>
+                                                    {/block}
+												</div>
+											</li>
+										{/block}
+
+                                        {* Selected Order IDs *}
+										{block name="admin_orders_modals_change_status_body_form_selected_orders"}
+											<li class="status-number">
+												<div class="form-group">
+													{block name="admin_orders_modals_change_status_body_form_selected_orders_label"}
+														<label class="col-md-6">{$orders.TEXT_SELECTED_ORDERS}</label>
+													{/block}
+													{block name="admin_orders_modals_change_status_body_form_selected_orders_input"}
+														<div class="col-md-6 selected-orders">
+															{* Dynamic Content *}
+														</div>
+													{/block}
+												</div>
+											</li>
+										{/block}
+
+                                        {block name="admin_orders_modals_change_status_body_form_notify_customer"}
+											<li class="status-number">
+												<div class="form-group">
+													{block name="admin_orders_modals_change_status_body_form_notify_customer_label"}
+														<label for="notify-customer" class="col-md-6">{$orders.ENTRY_NOTIFY_CUSTOMER}</label>
+													{/block}
+													{block name="admin_orders_modals_change_status_body_form_notify_customer_input"}
+														<div class="col-md-6">
+															<input id="notify-customer"
+																   type="checkbox"
+																   name="notify_customer"
+																   value="on" data-single_checkbox />
+														</div>
+													{/block}
+												</div>
+											</li>
+										{/block}
+
+                                        {block name="admin_orders_modals_change_status_body_form_send_parcel_tracking_code"}
+											<li class="status-number">
+												<div class="form-group">
+													{block name="admin_orders_modals_change_status_body_form_send_parcel_tracking_code_label"}
+														<label for="send-parcel-tracking-code"
+															   class="col-md-6">{$orders.ENTRY_SEND_PARCEL_TRACKING_CODES}</label>
+													{/block}
+													{block name="admin_orders_modals_change_status_body_form_send_parcel_tracking_code_input"}
+														<div class="col-md-6">
+															<input id="send-parcel-tracking-code"
+																   type="checkbox"
+															       name="send_parcel_tracking_codes"
+															       value="on"
+															       data-single_checkbox />
+														</div>
+													{/block}
+												</div>
+											</li>
+										{/block}
+
+                                        {block name="admin_orders_modals_change_status_body_form_notify_comments"}
+											<li class="status-number">
+												<div class="form-group">
+													{block name="admin_orders_modals_change_status_body_form_notify_comments_label"}
+														<label for="send-comment"
+															   class="col-md-6">{$orders.ENTRY_NOTIFY_COMMENTS}</label>
+													{/block}
+													{block name="admin_orders_modals_change_status_body_form_notify_comments_input"}
+														<div class="col-md-6">
+															<input id="send-comment"
+																   type="checkbox"
+															       name="send_comment"
+															       value="on"
+															       data-single_checkbox />
+														</div>
+													{/block}
+												</div>
+											</li>
+										{/block}
+
+                                        {block name="admin_orders_modals_change_status_body_form_heading_comments"}
+											<li class="status-number">
+												<div class="form-group">
+													{block name="admin_orders_modals_change_status_body_form_heading_comments_label"}
+														<label for="comment" class="col-md-6">{$orders.TABLE_HEADING_COMMENTS}</label>
+													{/block}
+													{block name="admin_orders_modals_change_status_body_form_heading_comments_input"}
+														<div class="col-md-6">
+															<textarea id="comment" class="form-control" name="comment"></textarea>
+														</div>
+													{/block}
+												</div>
+											</li>
+										{/block}
+									</ul>
+								</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+
+                {block name="admin_orders_modals_change_status_footer"}
+					<div class="modal-footer">
+						{block name="admin_orders_modals_change_status_footer_close"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$btn.close}</button>
+						{/block}
+						{block name="admin_orders_modals_change_status_footer_execute"}
+							<button type="button" class="btn btn-primary save">{$btn.execute}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

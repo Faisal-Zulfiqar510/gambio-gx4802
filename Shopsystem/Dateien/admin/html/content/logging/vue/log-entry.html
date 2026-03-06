@@ -1,0 +1,15 @@
+{literal}
+	<script type="text/x-template" id="log-entry">
+		<div :class="'log-entry ' + data.level_name.toLowerCase()">
+			<p :class="'title' + (showDetails? ' long' : ' short')" @click="toogleDetails">
+				<span class="date-time">{{data.datetime.date.substring(0, 19)}}</span>
+				<span class="log-level">{{data.level_name}}:</span>
+				<span class="message">{{data.message}}</span>
+			</p>
+			
+			<div class="details" v-if="showDetails">
+				<gx-array-to-table :data="{context: data.context, extra: data.extra}" />
+			</div>
+		</div>
+	</script>
+{/literal}

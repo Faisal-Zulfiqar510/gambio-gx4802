@@ -1,0 +1,8 @@
+{
+	"type": "category",
+	"title": "malibu.areas.slider.variants.default.title",
+	"id": "slider-default",
+	"basic": true,
+	"hidden": true,
+	"fieldsets": []
+}

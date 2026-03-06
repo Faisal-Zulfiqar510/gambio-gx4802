@@ -1,0 +1,28 @@
+@import "menu_variables";
+
+@mixin menu-group-link() {
+	padding-left: $menu-item-padding;
+	
+	flex-basis: $menu-group-item-height;
+	
+	display: flex;
+	align-items: center;
+	
+	span {
+		margin-left: 10px;
+	}
+}
+
+@mixin menu-entry-item() {
+	flex-basis: $menu-entry-item-height;
+	display: flex;
+	align-items: center;
+	
+	a {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		margin-left: $menu-item-margin;
+	}
+}

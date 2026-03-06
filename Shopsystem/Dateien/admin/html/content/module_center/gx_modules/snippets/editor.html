@@ -1,0 +1,20 @@
+<div class="form-group visibility_switcher">
+	<div class="row">
+        <label style="float: none" class="col-sm-11 control-label" for="{$field}">{$config.label}</label>
+        <span class="col-sm-1 tooltip-icon" style="margin: 0px;" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+	</div>
+	<div class="row">
+        <textarea style="max-width: inherit" rows="10" id="{$field}" name="{$field}"
+            {if $config.readonly == true}readonly="readonly"{/if}
+            {if $content.USE_WYSIWYG === 'true'}
+                class="form-control wysiwyg"
+                data-editor-identifier="editor-{$content.module_name}-{$field}"
+                data-editor-type="{$config.editor_type}"
+            {else}
+                class="form-control"
+            {/if}
+        >
+            {$config.default_value}
+        </textarea>
+	</div>
+</div>

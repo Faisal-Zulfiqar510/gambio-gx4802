@@ -1,0 +1,29 @@
+{*
+	Sliders Overview Table Row
+
+	Represents a slider data table row.
+
+	Parameters:
+		- $slider {Array} (Slider data)
+*}
+
+{block name="admin_sliders_overview_table_row"}
+	<tr class="visibility_switcher"
+	    data-slider-id="{$slider.slider_id}"
+		data-slider-name="{$slider.name}"
+		data-slider-speed="{$slider.speed}"
+		data-slides-quantity="{$slider.quantity}">
+		{block name="admin_sliders_overview_table_row_tds"}
+			<td>{$slider.name}</td>
+			<td>
+				<input type="checkbox" {if $slider.start_page}checked{/if} />
+			</td>
+			<td class="actions">
+				<div class="action-list pull-right visible-on-hover" data-gx-extension="toolbar_icons">
+					<a href="admin.php?do=SlidersDetails&id={$slider.slider_id}" class="btn-edit"></a>
+					<a href="#" class="btn-delete"></a>
+				</div>
+			</td>
+		{/block}
+	</tr>
+{/block}

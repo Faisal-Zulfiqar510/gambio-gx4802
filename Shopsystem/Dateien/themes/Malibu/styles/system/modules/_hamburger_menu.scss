@@ -1,0 +1,128 @@
+
+
+/* Hamburger Menu Configuration
+   ========================================================================== */
+
+$button-width:                  60px    !default; // The width of the button area
+$button-height:                 60px    !default; // The height of the button area
+$bar-thickness:                 2px     !default; // The thickness of the button bars
+$button-pad:                    19px    !default; // The left/right padding between button area and bars.
+$button-bar-space:              4px     !default; // The spacing between button bars
+$button-transistion-duration:   0.3s    !default; // The transition duration
+$gx-mobile-menu-close-icon-color:           #fff    !default;
+$gx-mobile-menu-close-icon-color-active:    #fff    !default;
+
+/* Hamburger Menu
+   ========================================================================== */
+
+.c-hamburger {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    float: right;
+    margin-right: 15px;
+    margin: 0;
+    padding: 0;
+    padding-left: ($button-width) !important;
+    width: $button-width;
+    height: $button-height;
+    text-align: left;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background $button-transistion-duration;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    @media (max-width: $grid-float-breakpoint-max) {
+        font-size: 0;
+        text-indent: -9999px;
+        padding-left: 0 !important;
+    }
+}
+.c-hamburger:focus {
+    outline: none;
+}
+.c-hamburger span {
+    display: block;
+    position: absolute;
+    top: (($button-height / 2) - ($bar-thickness / 2));
+    left: $button-pad;
+    right: $button-pad;
+    height: $bar-thickness;
+    background: $gx-menu-mobile-icon-color;
+    width: $button-width - $button-pad*2;
+}
+.c-hamburger span::before,
+.c-hamburger span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: $bar-thickness;
+    background-color: $gx-menu-mobile-icon-color;
+    content: "";
+}
+.c-hamburger:hover {
+    span {
+        &,
+        &:before,
+        &:after {
+                background-color: $gx-menu-mobile-icon-color !important;
+        }
+    }
+}
+.c-hamburger span::before {
+    top: (-$bar-thickness - $button-bar-space);
+}
+
+.c-hamburger span::after {
+    bottom: (-$bar-thickness - $button-bar-space);
+}
+.c-hamburger--htx {
+    // background-color: transparent;
+}
+.c-hamburger--htx span {
+    // transition: background 0s @button-transistion-duration;
+}
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+    transition-duration: $button-transistion-duration, $button-transistion-duration;
+    transition-delay: $button-transistion-duration, 0s;
+}
+.c-hamburger--htx span::before {
+    transition-property: top, transform;
+}
+.c-hamburger--htx span::after {
+    transition-property: bottom, transform;
+}
+body.show-menu .c-hamburger--htx {
+    // background-color: darken(rgb(255,50,100), 20%);
+}
+body.show-menu .c-hamburger--htx span {
+    background: none !important;
+}
+body.show-menu .c-hamburger--htx span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+body.show-menu .c-hamburger--htx span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+body.show-menu .c-hamburger--htx span::before,
+body.show-menu .c-hamburger--htx span::after {
+    transition-delay: 0s, $button-transistion-duration;
+    background-color: $gx-mobile-menu-close-icon-color;
+}
+body.show-menu .c-hamburger--htx:hover span {
+    &:before,
+    &:after {
+        background-color: $gx-mobile-menu-close-icon-color-active !important;
+    }
+}

@@ -1,0 +1,84 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="google_shopping"}
+    {load_language_text section="buttons" name="btn"}
+
+    {block name="admin_google_shopping_configuration_tabs"}
+        <div class="breakpoint-small" data-gxmodules-namespace="{$base_url}/GXModules/Gambio/GoogleShopping/Build/Admin/Javascript">
+            <form method="post" action="admin.php?do=GoogleShopping/storeScheme" id="google-shopping-configuration-form" class="form-horizontal google-shopping-configuration-form" enctype="multipart/form-data" data-gx-extension="visibility_switcher">
+                {block name="admin_google_shopping_configuration_tabs_headers"}
+                    <ul class="nav nav-tabs" role="tablist">
+                        {block name="admin_google_shopping_configuration_tabs_headers_settings"}
+                            <li role="presentation" class="active">
+                                <a role="tab" data-toggle="tab" href="#tab-settings">{$txt.tab_settings}</a>
+                            </li>
+                        {/block}
+
+                        {if $content.scheme.id != 0}
+                            {block name="admin_google_shopping_configuration_tabs_headers_fields"}
+                                <li role="presentation">
+                                    <a role="tab" data-toggle="tab" href="#tab-fields">{$txt.tab_fields}</a>
+                                </li>
+                            {/block}
+
+                            {block name="admin_google_shopping_configuration_tabs_headers_categories"}
+                                <li role="presentation">
+                                    <a role="tab" data-toggle="tab" href="#tab-categories">{$txt.tab_categories}</a>
+                                </li>
+                            {/block}
+                        {/if}
+                    </ul>
+                {/block}
+                <div class="tab-content">
+                    <input type="hidden" class="schemeId" name="scheme[id]" value="{$content.scheme.id}">
+                    {block name="admin_google_shopping_configuration_tabs_contents"}
+                        {block name="admin_google_shopping_configuration_tabs_contents_settings"}
+                            <div role="tabpanel" 
+								 class="tab-pane fade in active" 
+								 id="tab-settings" 
+								 data-gxmodules-controller="scheme_general_configuration">
+                                {include
+                                    file="get_usermod:Gambio/GoogleShopping/Admin/Html/configuration/general.html"
+                                    data=$content
+                                }
+                            </div>
+                        {/block}
+
+                        {if $content.scheme.id != 0}
+                            {block name="admin_google_shopping_configuration_tabs_contents_fields"}
+                                <div role="tabpanel" 
+									 class="tab-pane fade" 
+									 id="tab-fields"
+                                     data-gxmodules-controller="scheme_fields">
+                                    {include
+                                        file="get_usermod:Gambio/GoogleShopping/Admin/Html/configuration/fields.html"
+                                        data=$content
+                                    }
+                                </div>
+                            {/block}
+
+                            {block name="admin_google_shopping_configuration_tabs_contents_categories"}
+                                <div role="tabpanel" class="tab-pane fade" id="tab-categories">
+                                    {include
+                                        file="get_usermod:Gambio/GoogleShopping/Admin/Html/configuration/categories.html"
+                                        data=$content}
+                                </div>
+                            {/block}
+                        {/if}
+                    {/block}
+                </div>
+            </form>
+        </div>
+
+        {block name="admin_google_shopping_schemes_fields_configuration_delete_modal_include"}
+            {include file="get_usermod:Gambio/GoogleShopping/Admin/Html/modals/delete_field_modal.html"}
+        {/block}
+    {/block}
+{/block}
+
+{block name="bottom_save_bar"}
+    {* TODO *}
+    <a href="admin.php?do=GoogleShopping" class="btn">{$btn.abort}</a>
+    <button class="btn btn-primary" form="google-shopping-configuration-form">{$btn.save}</button>
+{/block}

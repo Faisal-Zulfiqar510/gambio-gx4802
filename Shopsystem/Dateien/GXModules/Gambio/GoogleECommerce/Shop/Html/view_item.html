@@ -1,0 +1,21 @@
+{*
+	Google Analytics view_item partial
+
+	Parameters
+		$data - JSON encoded data (string)
+*}
+
+{block name="google_analytics_partials_view_item"}
+    {if cookie_consent_panel_is_installed()}
+		<script
+				data-managed="as-oil"
+				data-type="text/javascript"
+				data-purposes="4"
+				type="as-oil"
+		>
+	{else}
+		<script>
+	{/if}
+		gtag('event', 'view_item', { items: {$data} });
+	</script>
+{/block}

@@ -1,0 +1,64 @@
+{
+	"id": "BOX_HEADING_SHOP_SETTINGS_BACKUP",
+	"sort": 259,
+	"class": "fa fa-hammer",
+	"title": "Settings Backup",
+	"items": [
+		{
+			"sort": 10,
+			"link": "gm_miscellaneous.php",
+			"title": "admin_menu.BOX_GM_MISCELLANEOUS"
+		},
+		{
+			"sort": 20,
+			"link": "gm_laws.php",
+			"title": "admin_menu.BOX_GM_LAWS"
+		},
+		{
+			"sort": 30,
+			"link": "campaigns.php",
+			"title": "admin_menu.BOX_CAMPAIGNS"
+		},
+		{
+			"sort": 40,
+			"link": "shipping_status.php",
+			"title": "admin_menu.BOX_SHIPPING_STATUS"
+		},
+		{
+			"sort": 50,
+			"link": "parcel-services",
+			"title": "admin_menu.BOX_PARCEL_SERVICES"
+		},
+		{
+			"sort": 60,
+			"link": "gm_pdf.php",
+			"title": "admin_menu.BOX_GM_PDF"
+		},
+		{
+			"sort": 70,
+			"link": "gm_id_starts.php",
+			"title": "admin_menu.BOX_GM_ID_STARTS"
+		},
+		{
+			"sort": 80,
+			"link": "gm_seo_boost.php",
+			"title": "SEO"
+		},
+		{
+			"sort": 90,
+			"link": "zones.php",
+			"title": "admin_menu.BOX_HEADING_ZONE"
+		},
+		{
+			"sort": 100,
+			"link": "admin.php",
+			"link_param": "do=ShopKey",
+			"title": "admin_menu.BOX_SYSTEM_SETTINGS"
+		},
+		{
+			"sort": 110,
+			"link": "redirect-rules",
+			"title": "admin_menu.BOX_REDIRECT_RULES"
+		}
+	]
+}

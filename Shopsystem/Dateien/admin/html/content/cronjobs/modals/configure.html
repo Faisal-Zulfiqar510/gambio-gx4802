@@ -1,0 +1,55 @@
+{*
+	Configuration modal
+	==================
+
+	Is triggered when the user clicks on the configuration button.
+*}
+
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_cronjob_modals_configure"}
+	<div class="configuration modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_cronjob_modals_configure_header"}
+					<div class="modal-header">
+						{block name="admin_cronjob_modals_configure_header_close_button"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						{/block}
+						
+						{block name="admin_cronjob_modals_configure_header_title"}
+							<h4 class="modal-title">{$txt.title_configuration_modal}</h4>
+						{/block}
+					</div>
+				{/block}
+				
+				{block name="admin_cronjob_modals_configure_body"}
+					<div class="modal-body">
+						<form id="task-configuration">
+							{* Dynamic content *}
+						</form>
+					</div>
+				{/block}
+				
+				{block name="admin_cronjob_modals_configure_footer"}
+					<div class="modal-footer">
+						{block name="admin_cronjob_modals_configure_footer_cancel"}
+							<button type="button" 
+									class="btn btn-default" 
+									data-dismiss="modal">{$admin_buttons.BUTTON_CLOSE}</button>
+						{/block}
+
+						{block name="admin_cronjob_modals_configure_footer_save"}
+							<button type="submit"
+									form="task-configuration" 
+									class="btn btn-primary" 
+									data-dismiss="modal">{$admin_buttons.BUTTON_SAVE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

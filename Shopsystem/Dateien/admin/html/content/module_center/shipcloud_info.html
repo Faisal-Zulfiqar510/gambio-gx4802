@@ -1,0 +1,32 @@
+{* --------------------------------------------------------------
+	shipcloud_info.html 2017-06-14
+	Gambio GmbH
+	http://www.gambio.de
+	Copyright (c) 2020 Gambio GmbH
+	Released under the GNU General Public License (Version 2)
+	[http://www.gnu.org/licenses/gpl-2.0.html]
+	--------------------------------------------------------------
+*}
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="shipcloud"}
+	
+	{block name="admin_module_center_shipcloud_info"}
+		<div class="gx-compatibility">
+			{block name="admin_module_center_shipcloud_info_wrapper2"}
+				<div class="gx-container shipcloud-info breakpoint-large">
+					{block name="admin_module_center_shipcloud_info_iframe_style"}
+						<style>
+						iframe.embedded { border: none; width: 100%; min-height: 360em; }
+						</style>
+					{/block}
+				
+					{block name="admin_module_center_shipcloud_info_iframe"}
+						<iframe class="embedded" src="{$content.info_url}"></iframe>
+					{/block}
+				</div>
+			{/block}
+		</div>
+	{/block}
+{/block}

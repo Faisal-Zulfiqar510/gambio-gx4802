@@ -1,0 +1,146 @@
+
+@import "gambio_malibu_header";
+@import "gambio_malibu_header_logo";
+@import "gambio_malibu_header_search";
+@import "gambio_malibu_header_secondary";
+@import "gambio_malibu_header_categories_col";
+@import "gambio_malibu_header_secondary_cart";
+
+body {
+	&.page-index {
+		#header {
+			&:not(.sticky) {
+				background-color: transparent !important;
+				box-shadow: none !important;
+				.navbar-default .navbar-nav > li > a {
+					color: $gx-transparent-header-text-color;
+					&:hover {
+						color: $gx-transparent-header-text-hover-color;
+						background-color: $gx-transparent-header-text-hover-background-color;
+					}
+				}
+
+				.navbar-secondary .navbar-nav > li > a {
+					path,
+					polygon {
+						fill: $gx-transparent-header-text-color;
+						color: $gx-transparent-header-text-color;
+						&:hover {
+							fill: $gx-transparent-header-text-hover-color;
+							color: $gx-transparent-header-text-hover-color;
+							background-color: $gx-transparent-header-text-hover-background-color;
+						}
+					}
+				}
+
+				& ~ #meco-overlay-menu-toggle {
+					&.c-hamburger {
+						span {
+							background-color: $gx-transparent-header-text-color;
+							&:after,
+							&:before {
+								background-color: $gx-transparent-header-text-color;
+							}
+						}
+						&:hover {
+							background-color: $gx-transparent-header-text-hover-background-color;
+							span {
+								fill: $gx-transparent-header-text-hover-color;
+								color: $gx-transparent-header-text-hover-color;
+								background-color: $gx-transparent-header-text-hover-color;
+								/*body.show-menu & {
+									background-color: transparent !important;
+								}*/
+								&:after,
+								&:before {
+									background-color: $gx-transparent-header-text-hover-color;
+								}
+							}
+						}
+					}
+				}
+
+				.inside .navbar-header .navbar-toggle {
+					path {
+						fill: $gx-transparent-header-text-color;
+					}
+					&:hover {
+						background-color: $gx-transparent-header-text-hover-background-color;
+						path {
+							fill: $gx-transparent-header-text-hover-color;
+						}
+					}
+				}
+
+			}
+			@media (max-width: 1024px) {
+				height: $gx-header-height-sticky;
+			}
+		}
+	}
+}
+#header {
+	/*height: auto !important;*/
+	.inside {
+		.categories-column-wrapper {
+			display: none;
+			@media (min-width: 1024px) {
+				display: flex;
+				align-items: center;
+				flex-direction: row;
+				height: $gx-header-height;
+				@include make-sm-column(12-($gx-header-col-sm + $gx-header-secondary-col-sm));
+				@include make-md-column(12-($gx-header-col-md + $gx-header-secondary-col-md));
+				@include make-lg-column(12-($gx-header-col-lg + $gx-header-secondary-col-lg));
+			}
+		}
+		@media (max-width: 1024px) {
+			width: 100%;
+			.navbar-header {
+				display: flex;
+				align-items: center;
+				max-width: 100%;
+				padding-left: 15px;
+				width: 100%;
+				.navbar-toggle {
+					display: block;
+				}
+			}
+		}
+	}
+	@media (max-width: 1024px) {
+		.navbar-secondary {
+			display: none !important;
+		}
+	}
+	&.sticky {
+		.navbar-brand {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.navbar-categories {
+			height: auto !important;
+			overflow: unset !important;
+		}
+	}
+
+	#categories {
+		display: none;
+		@media (min-width: 1025px) {
+			display: block !important;
+			background-color: transparent !important;
+			.navbar-default,
+			.navbar-collapse .navbar-categories ul.navbar-nav {
+				display: block !important;
+				background-color: transparent !important;
+				height: auto !important;
+				max-width: 100% !important;
+			}
+		}
+	}
+}
+@media (max-width: 1024px) {
+	#meco-overlay-menu-toggle {
+		display: block !important;
+	}
+}

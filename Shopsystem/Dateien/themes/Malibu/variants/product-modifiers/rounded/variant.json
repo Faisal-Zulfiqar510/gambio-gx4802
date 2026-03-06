@@ -1,0 +1,43 @@
+{
+    "type": "category",
+    "title": "malibu.areas.product-modifiers.rounded.title",
+    "id": "product-modifier-rounded",
+    "basic": true,
+    "fieldsets": [
+        {
+            "title": "malibu.areas.product-modifiers.rounded.border-radius.title",
+            "options": [
+                {
+                    "id": "product-modifier-image-border-radius",
+                    "type": "text",
+                    "label": "malibu.areas.product-modifiers.rounded.image",
+                    "default": "50%"
+                },
+                {
+                    "id": "product-modifier-boxed-text-border-radius",
+                    "type": "text",
+                    "label": "malibu.areas.product-modifiers.rounded.boxed-text",
+                    "default": "50%"
+                },
+                {
+                    "id": "product-modifier-dropdown-border-radius",
+                    "type": "text",
+                    "label": "malibu.areas.product-modifiers.rounded.dropdown",
+                    "default": "5px"
+                },
+                {
+                    "id": "product-modifier-text-border-radius",
+                    "type": "text",
+                    "label": "malibu.areas.product-modifiers.rounded.text",
+                    "default": "5px"
+                },
+                {
+                    "id": "product-modifier-radio-border-radius",
+                    "type": "text",
+                    "label": "malibu.areas.product-modifiers.rounded.radio",
+                    "default": "50%"
+                }
+            ]
+        }
+    ]
+}

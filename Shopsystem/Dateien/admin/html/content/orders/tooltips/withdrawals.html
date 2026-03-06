@@ -1,0 +1,16 @@
+{extends file="get_usermod:layouts/main/partial/tooltip.html"}
+
+{block name="content"}
+	{load_language_text section="orders" name="orders"}
+    {block name="admin_orders_modal_tooltips_withdrawals"}
+        {foreach $withdrawals as $withdrawalId}
+            {block name="admin_orders_modal_tooltips_withdrawals_withdrawal"}
+				<div>
+					<a href="admin.php?do=Withdrawals&id={$withdrawalId}">
+						{$orders.TABLE_HEADING_WITHDRAWAL_ID} ({$withdrawalId})
+					</a>
+				</div>
+            {/block}
+        {/foreach}
+    {/block}
+{/block}

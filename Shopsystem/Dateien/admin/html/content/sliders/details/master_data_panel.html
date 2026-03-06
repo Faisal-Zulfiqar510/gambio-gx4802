@@ -1,0 +1,60 @@
+{*
+	Master Data Settings Panel
+
+	Contains the form part for slider master data settings.
+*}
+
+{block name="admin_sliders_details_master_data_panel"}
+	<div class="panel panel-default master-data">
+		{block name="admin_sliders_details_master_data_panel_heading"}
+			<div class="panel-heading"
+				 data-gx-widget="collapser"
+				 data-collapser-target_selector=".panel-body"
+				 data-collapser-user_id="{$_SESSION.customer_id}"
+				 data-collapser-section="slider-master_data_panel"
+				 data-collapser-collapsed="{$content.user_configuration.master_data_panel}">
+				{block name="admin_sliders_details_master_data_panel_heading_title"}
+					<strong>{$txt.MASTER_DATA}</strong>
+				{/block}
+			</div>
+		{/block}
+		{block name="admin_sliders_details_master_data_panel_body"}
+			<div class="panel-body">
+				{block name="admin_sliders_details_master_data_panel_body_name"}
+					<div class="row form-group">
+						<div class="col-md-3">
+							{block name="admin_sliders_details_master_data_panel_body_name_label"}
+								<label class="control-label">{$txt.NAME}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_sliders_details_master_data_panel_body_name_input"}
+								<input class="form-control" type="text" name="name" value="{$content.name}">
+							{/block}
+						</div>
+					</div>
+				{/block}
+		
+				{block name="admin_sliders_details_master_data_panel_body_speed"}
+					<div class="row form-group">
+						<div class="col-md-3">
+							{block name="admin_sliders_details_master_data_panel_body_speed_label"}
+								<label class="control-label">{$txt.SPEED}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_sliders_details_master_data_panel_body_speed_input"}
+								<input class="form-control"
+									   type="number"
+									   name="speed"
+									   value="{$content.speed}"
+									   min="0"
+									   step="0.1">
+							{/block}
+						</div>
+					</div>
+				{/block}
+			</div>
+		{/block}
+	</div>
+{/block}

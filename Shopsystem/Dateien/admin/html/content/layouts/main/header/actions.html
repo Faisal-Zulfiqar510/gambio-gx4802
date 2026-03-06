@@ -1,0 +1,54 @@
+{load_language_text section="admin_general" name="admin_general"}
+
+{* Use the "dynamic_header_actions" variable for inserting custom HTML before the normal actions. *}
+{$dynamic_header_actions}
+
+{block name="admin_layouts_main_header_actions"}
+	{block name="admin_layouts_main_header_actions_list"}
+		<ul>
+			{block name="admin_layouts_main_header_actions_list_online_manual"}
+				<li class="external">
+					<a href="admin.php?do=DirectHelpProxy/GoToManual" title="{$admin_general.GM_TOP_MENU_MANUAL}" target="_blank">
+						<i class="fa fa-question"></i>
+					</a>
+				</li>
+			{/block}
+			{block name="admin_layouts_main_header_actions_list_support_forum"}
+				<li class="external">
+					<a href="admin.php?do=DirectHelpProxy/GoToForum" title="{$admin_general.GM_TOP_MENU_FORUM}" target="_blank">
+						<i class="fa fa-users"></i>
+					</a>
+				</li>
+			{/block}
+			{block name="admin_layouts_main_header_actions_list_info_box"}
+				<li class="info-box" data-gx-controller="layouts/main/header/info_box">
+					<i class="fa fa-bullhorn"></i> <span class="notification-count hidden"></span>
+				</li>
+			{/block}
+			{block name="admin_layouts_main_header_actions_list_shopping_cart"}
+				<li class="frontend">
+					<a href="..">
+						<i class="fa fa-shopping-cart"></i>
+					</a>
+				</li>
+			{/block}
+			{block name="admin_layouts_main_header_actions_list_logout"}
+				<li class="logout"
+					title="{$admin_general.GM_TOP_MENU_LOGOUT} ({$_SESSION.customer_first_name|htmlspecialchars} {$_SESSION.customer_last_name|htmlspecialchars})">
+					<a href="../logoff.php">
+						<i class="fa fa-power-off"></i>
+					</a>
+				</li>
+			{/block}
+		</ul>
+	{/block}
+	
+	{if $shopOffline == true}
+		{block name="admin_layouts_main_header_actions_show_offline"}
+			<div class="label offline-notice-label">
+				<i class="fa fa-exclamation-triangle"></i>
+				<a href="gm_offline.php">{$admin_general.TEXT_SHOP_STATUS}</a>
+			</div>
+		{/block}
+	{/if}
+{/block}

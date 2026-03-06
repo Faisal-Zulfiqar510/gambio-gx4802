@@ -1,0 +1,17 @@
+.schemes-overview table tbody tr td.actions {
+    text-align: right;
+}
+
+.schemes-overview table tbody tr td.actions a i.fa {
+    color: #737373;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.schemes-overview table tbody tr td.actions a:hover .fa {
+    color: #2196F3;
+}
+
+.empty-table {
+    text-align: center;
+}

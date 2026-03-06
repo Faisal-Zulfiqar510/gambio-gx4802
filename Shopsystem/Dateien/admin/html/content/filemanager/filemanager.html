@@ -1,0 +1,17 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="file_manager"}
+	
+	<div class="breakpoint-large">
+		<div class="row">
+			<div class="col-md-12 filemanager-container">
+				{if $content.is_available}
+					<iframe src="{$content.url}"></iframe>
+				{else}
+					<span class="error no-filemanager">{$txt.ERROR_NO_FILEMANAGER}</span>
+				{/if}
+			</div>
+		</div>
+	</div>
+{/block}

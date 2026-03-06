@@ -1,0 +1,22 @@
+.gambio_store_updates_badge_container {
+    position: relative;
+}
+
+.gambio_store_updates_badge_container .gambio_store_updates_badge {
+    position:         absolute;
+    top:              4px;
+    right:            4px;
+    
+    background-color: red;
+    color:            white;
+    
+    font-size:        9px;
+    line-height:      14px;
+    font-weight:      bold;
+    text-align:       center;
+    
+    height:           14px;
+    min-width:        14px;
+    padding:          0 3px;
+    border-radius:    7px;
+}

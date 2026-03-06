@@ -1,0 +1,18 @@
+div.payment_instruction {
+	width: 80%;
+	margin: 1ex auto;
+	background-color: #eee;
+	padding: 1em;
+	
+	p.payment_note {
+		font-size: 1.2em;
+		margin-top: 0;
+	}
+
+	table.payment_instruction_data {
+		td.pp-label {
+			font-weight: bold;
+			padding: 0 1em 0 0;
+		}
+	}
+}

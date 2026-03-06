@@ -1,0 +1,127 @@
+{*
+	Slide Settings Panel
+
+	Contains settings for one slide and language.
+
+	Parameters:
+		- $slide {Array} Slide data
+		- $breakpoints {Array} Available breakpoints
+*}
+
+{block name="admin_sliders_details_slide_panel"}
+	<div class="panel panel-default"
+	     data-gx-extension="visibility_switcher"
+	     data-visibility_switcher-selections="div.action-list"
+	     data-id="{$slide.id}">
+		{block name="admin_sliders_details_slide_panel_heading"}
+			<div class="panel-heading sortable"
+			     data-gx-widget="collapser"
+			     data-collapser-target_selector=".panel-body"
+			     data-collapser-additional_classes="pull-right"
+			     data-collapser-is_button_trigger="true">
+				<span class="drag-handle drag-bar" style="display: none;"></span>
+				
+				{block name="admin_sliders_details_slide_panel_heading_title"}
+					<strong class="slide-title">{$slide.title}</strong>
+				{/block}
+		
+				{block name="admin_sliders_details_slide_panel_heading_handle"}
+					<span class="action-list pull-right">
+						<span class="pull-right icon drag-handle" style="display: none;">
+							<i class="fa fa-sort"></i>
+						</span>
+				
+						<span class="pull-right icon delete">
+							<i class="fa fa-trash-o"></i>
+						</span>
+					</span>
+				{/block}
+			</div>
+		{/block}
+	
+		{block name="admin_sliders_details_slide_panel_body"}
+			<div class="panel-body">
+				{* Thumbnail image *}
+				{block name="admin_sliders_details_slide_panel_body_thumbnail"}
+					{include
+						file="get_usermod:sliders/details/image_row.html"
+						label=$txt.THUMBNAIL
+						name="thumbnail"
+						value=$slide.thumbnail
+						options=$content.selections.thumbnail
+						classes="visibility_switcher"
+					}
+				{/block}
+		
+				{* Breakpoint images *}
+				{block name="admin_sliders_details_slide_panel_body_breakpoint_images"}
+					{foreach $breakpoints as $breakpoint}
+						{foreach $slide.images as $image}
+							{if $image.breakpoint|lower eq $breakpoint}
+								{include
+									file="get_usermod:sliders/details/image_row.html"
+									label=$breakpoint|upper
+									name="breakpoint_"|cat:$breakpoint|lower
+									classes="visibility_switcher"
+									options=$content.selections.images
+									value=$image.image
+									attributes="data-id="|cat:$image.id
+									areas=$image.areas
+								}
+							{/if}
+						{/foreach}
+					{/foreach}
+				{/block}
+		
+				{block name="admin_sliders_details_slide_panel_body_title"}
+					<div class="row form-group">
+						<div class="col-md-3">
+							{block name="admin_sliders_details_slide_panel_body_title_label"}
+								<label class="control-label">{$txt.TITLE}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_sliders_details_slide_panel_body_title_input"}
+								<input class="form-control" type="text" name="title" value="{$slide.title}" placeholder="{$txt.PLACEHOLDER_TITLE}">
+							{/block}
+						</div>
+					</div>
+				{/block}
+		
+				{block name="admin_sliders_details_slide_panel_body_alt_text"}
+					<div class="row form-group">
+						<div class="col-md-3">
+							{block name="admin_sliders_details_slide_panel_body_alt_text_label"}
+								<label class="control-label">{$txt.ALT_TEXT}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_sliders_details_slide_panel_body_alt_text_input"}
+								<input class="form-control" type="text" name="alt_text" value="{$slide.alt_text}" placeholder="{$txt.PLACEHOLDER_ALT_TEXT}">
+							{/block}
+						</div>
+					</div>
+				{/block}
+		
+				{block name="admin_sliders_details_slide_panel_body_link"}
+					<div class="row form-group">
+						<div class="col-md-3">
+							{block name="admin_sliders_details_slide_panel_body_link_label"}
+								<label class="control-label">{$txt.LINK}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_sliders_details_slide_panel_body_link_input"}
+								<select class="form-control link-target-field" name="link_target">
+									<option value="_blank" {if $slide.link_target eq "_blank"}selected{/if}>{$txt.LINK_TARGET_BLANK}</option>
+									<option value="_self" {if $slide.link_target eq "_self"}selected{/if}>{$txt.LINK_TARGET_SELF}</option>
+								</select>
+								<input class="form-control" type="text" name="link" value="{$slide.link}" placeholder="{$txt.PLACEHOLDER_LINK}">
+							{/block}
+						</div>
+					</div>
+				{/block}
+			</div>
+		{/block}
+	</div>
+{/block}

@@ -1,0 +1,80 @@
+{*
+	Google Analytics product click snippet partial
+
+	Parameters
+		$data - JSON encoded data (string)
+		$selector - Element selector that triggers the product click (string)
+		$match_name_by_template_selector - Selector to match the product name <template> element within the selector element (string, optional)
+*}
+
+{block name="google_analytics_partials_product_click_snippet"}
+    {if cookie_consent_panel_is_installed()}
+		<script
+				data-json='{$data}'
+				data-selector="{$selector}"
+				data-purposes="4"
+				{if $match_name_by_template_selector}data-match-name-by-template-selector="{$match_name_by_template_selector}"{/if}
+				data-managed="as-oil"
+				data-type="text/javascript"
+				type="as-oil"
+		>
+	{else}
+		<script data-json='{$data}' data-selector="{$selector}
+			" {if $match_name_by_template_selector}data-match-name-by-template-selector="{$match_name_by_template_selector}"{/if}>
+	{/if}
+		(function() {
+			const CLICK_EVENT_NAME = 'click';
+			const TIMEOUT = 250;
+
+			const data = JSON.parse(document.currentScript.dataset.json);
+			const selector = document.currentScript.dataset.selector;
+			const templateSelector = document.currentScript.dataset.matchNameByTemplateSelector;
+
+			if (!data || !selector) {
+				throw new Error('Missing or invalid arguments');
+			}
+
+			const triggers = document.currentScript.parentNode.querySelectorAll(selector);
+
+			document.addEventListener('JSENGINE_INIT_FINISHED', function() {
+				triggers.forEach(function(element, index) {
+					let listener;
+
+					listener = function (event) {
+						let isClicked = false;
+						let impression = templateSelector ? impressionByName() : data[index];
+
+						function impressionByName() {
+							const name = element.querySelector(templateSelector).content.textContent.trim();
+
+							return data.find(function(dataset) {
+								return 'name' in dataset && dataset.name === name;
+							});
+						}
+
+						function performClick() {
+							if (!isClicked) {
+								isClicked = true;
+								event.target.click();
+							}
+						}
+
+						event.preventDefault();
+
+						setTimeout(performClick, TIMEOUT);
+
+						gtag('event', 'select_content', {
+							content_type: 'product',
+							items: [impression],
+							event_callback: performClick,
+						});
+
+						element.removeEventListener(CLICK_EVENT_NAME, listener);
+					};
+
+					element.addEventListener(CLICK_EVENT_NAME, listener);
+				});
+			});
+		})();
+	</script>
+{/block}

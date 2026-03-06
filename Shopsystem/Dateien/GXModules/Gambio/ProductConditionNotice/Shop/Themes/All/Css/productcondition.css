@@ -1,0 +1,14 @@
+.page-checkout-confirmation .miscellaneous-container {
+    height: 200px;
+    overflow-y: auto;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    background-color: #eeeeee;
+    padding: 9px 12px;
+    opacity: 1;
+    font-family: "Fira Sans", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    -webkit-overflow-scrolling: touch;
+}

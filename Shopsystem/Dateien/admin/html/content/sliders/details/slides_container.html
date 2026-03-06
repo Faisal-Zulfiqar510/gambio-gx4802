@@ -1,0 +1,85 @@
+{*
+	Slides Container Panel
+
+	Holds a tab container with all slide panels.
+*}
+
+{load_language_text section="buttons" name="btn"}
+
+{block name="admin_sliders_details_slides_container"}
+	<div class="slides-container" data-gx-controller="sliders/details/slides_container">
+		{* Slides action buttons *}
+		{block name="admin_sliders_details_slides_container_toolbar"}
+			<div class="toolbar">
+				{* Sort button *}
+				{block name="admin_sliders_details_slides_container_toolbar_sort"}
+					<button type="button"
+							class="btn sort-button hidden-xs"
+							data-text-enter="{$txt.SLIDE_SORT_BUTTON_TEXT}"
+							data-text-exit="{$txt.SLIDE_SORT_BUTTON_EXIT_TEXT}">
+						{$txt.SLIDE_SORT_BUTTON_TEXT}
+					</button>
+				{/block}
+
+				{* Create slide button *}
+				{block name="admin_sliders_details_slides_container_toolbar_create"}
+					<button type="button" class="btn btn-success btn-create btn-margin">
+						<i class="fa fa-plus"></i>
+						{$txt.SLIDE_CREATE_BUTTON_TEXT}
+					</button>
+				{/block}
+			</div>
+		{/block}
+
+		{* Flag buttons *}
+		{block name="admin_sliders_details_slides_container_flags"}
+			<ul class="nav nav-tabs" role="tablist">
+				{foreach $adminLanguages as $language}
+					{block name="admin_sliders_details_slides_container_flags_flag"}
+						<li role="presentation">
+							<a href="#slides-{$language.code|lower}"
+							   data-language="{$language.code|lower}"
+							   aria-controls="home"
+							   role="tab"
+							   data-toggle="tab">
+								<span class="flag-icon flag-icon-{$language.code|lower}"></span>
+							</a>
+						</li>
+					{/block}
+				{/foreach}
+			</ul>
+		{/block}
+
+		{* Tab content *}
+		{block name="admin_sliders_details_slides_container_tab_content"}
+			<div class="tab-content">
+				{* Panel Template *}
+				{block name="admin_sliders_details_slides_container_tab_content_javascript"}
+					<script id="slide-panel-template" type="text/template">
+						{include file="get_usermod:sliders/details/slide_panel.html" slide=$content.empty_slide breakpoints=$content.breakpoints}
+					</script>
+				{/block}
+
+				{* Create tab content for each language *}
+				{foreach $adminLanguages as $language}
+					{block name="admin_sliders_details_slides_container_tab_content_language_content"}
+						<div role="tabpanel"
+						     class="tab-pane fade"
+						     id="slides-{$language.code|lower}"
+							 data-language="{$language.code|lower}"
+							 data-gx-extension="sortable"
+							 data-sortable-handle=".drag-handle"
+							 data-sortable-placeholder="placeholder"
+							 data-sortable-axis="y">
+							{foreach $content.slides as $slide}
+								{if $slide.language_code|lower eq $language.code|lower}
+									{include file="get_usermod:sliders/details/slide_panel.html" slide=$slide breakpoints=$content.breakpoints}
+								{/if}
+							{/foreach}
+						</div>
+					{/block}
+				{/foreach}
+			</div>
+		{/block}
+	</div>
+{/block}

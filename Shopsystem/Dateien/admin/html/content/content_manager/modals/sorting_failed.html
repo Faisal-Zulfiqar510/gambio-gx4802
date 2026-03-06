@@ -1,0 +1,39 @@
+{*
+	Sorting failed modal
+	====================
+
+	Is triggered when the sorting of the content manager pages failed.
+*}
+
+{block name="admin_content_manager_modals_sorting_failed"}
+	<div class="sorting-failed modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_content_manager_modals_sorting_failed_header"}
+					<div class="modal-header">
+						{block name="admin_content_manager_modals_sorting_failed_header_close_button"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$buttons.BUTTON_CLOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						{/block}
+						{block name="admin_content_manager_modals_sorting_failed_header_title"}
+							<h4 class="modal-title">{$txt.TEXT_SORTING}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_content_manager_modals_sorting_failed_body"}
+					<div class="modal-body row">
+						<div class="col-md-12">
+							{$txt.TEXT_SORTING_FAILED}
+						</div>
+					</div>
+				{/block}
+				{block name="admin_content_manager_modals_sorting_failed_footer"}
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">{$buttons.BUTTON_CLOSE}</button>
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

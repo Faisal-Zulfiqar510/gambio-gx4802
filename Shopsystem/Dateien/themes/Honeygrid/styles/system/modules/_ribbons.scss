@@ -1,0 +1,63 @@
+/* Ribbons
+   ========================================================================== */
+
+.ribbons {
+
+	// positioning
+
+	position: absolute;
+	right: -30px;
+	top: 0px;
+
+	// general ribbon style
+
+	> div {
+		height: 20px;
+		text-align: center;
+		display: table-cell;
+		vertical-align: middle;
+		font-size: 11px;
+		font-weight: 700;
+		text-transform: uppercase;
+		border-right: 1px solid #FFFFFF;
+		padding: 2px 8px 0;
+
+		&:last-of-type {
+			border-right: 0;
+		}
+	}
+
+	// ribbon styles
+
+	@mixin ribbon-style($title, $code, $active, $bgcolor, $color) {
+		> .ribbon-#{$title} {
+			@if $active == false {
+				display: none;
+			}
+			background: $bgcolor;
+			color: $color;
+		}
+	}
+
+	@include ribbon-style("new", "\e814", $gx-ribbon-new-active, $gx-ribbon-new-bg, $gx-ribbon-new-color);
+	@include ribbon-style("special", "\e817", $gx-ribbon-special-active, $gx-ribbon-special-bg, $gx-ribbon-special-color);
+	@include ribbon-style("available", "\e817", $gx-ribbon-available-active, $gx-ribbon-available-bg, $gx-ribbon-available-color);
+	@include ribbon-style("recommendation", "\e817", $gx-ribbon-recommendation-active, $gx-ribbon-recommendation-bg, $gx-ribbon-recommendation-color);
+	@include ribbon-style("sold-out", "\e817", $gx-ribbon-sold-out-active, $gx-ribbon-sold-out-bg, $gx-ribbon-sold-out-color);
+
+	// positioning on product listing as list
+
+	.productlist-viewmode-list & {
+		left: 0;
+		right: auto;
+		top: 0;
+	}
+
+	// positioning on product-info page
+
+	.product-info-details & {
+		right: 15px;
+		top: 15px;
+	}
+
+}

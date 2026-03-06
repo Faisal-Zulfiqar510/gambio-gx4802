@@ -1,0 +1,27 @@
+.easycredit-rr-container {
+    background-repeat: no-repeat;
+    background-position: 0 center;
+}
+
+.easycredit-rr-container.tb-rk {
+    background-color: initial !important;
+    margin: 5px 15px;
+    font-size: 14px;
+}
+
+.easycredit-rr-container > * {
+    margin-left: 50px;
+}
+
+.easycredit-rr-container a.ec-link {
+    color: #ed6501;
+}
+
+.product-info .product-info-details {
+    z-index: initial !important;
+}
+
+div.checkout-buttons {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}

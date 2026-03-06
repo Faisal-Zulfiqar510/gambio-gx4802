@@ -1,0 +1,74 @@
+{
+    "settings": {
+        "availableColumns": [
+            "id", "first-name", "last-name"
+        ],
+        "stickyColumns": [
+            "id", "first-name", "last-name"
+        ],
+        "style": "small"
+    },
+    "columns": [
+        {
+            "id": "id",
+            "label": "ID",
+            "sortable": true,
+            "type": "number"
+        },
+        {
+            "id": "first-name",
+            "label": "First Name",
+            "sortable": true,
+            "type": "string"
+        },
+        {
+            "id": "last-name",
+            "label": "Last Name",
+            "sortable": true,
+            "type": "string"
+        },
+        {
+            "id": "email",
+            "label": "Email",
+            "sortable": false,
+            "type": "email"
+        },
+        {
+            "id": "phone",
+            "label": "Phone",
+            "sortable": false,
+            "type": "phone"
+        },
+        {
+            "id": "company",
+            "label": "Company",
+            "sortable": true,
+            "type": "string"
+        },
+        {
+            "id": "customer-group",
+            "label": "Customer Group",
+            "sortable": false,
+            "type": "badge"
+        },
+        {
+            "id": "total-orders",
+            "label": "Total Orders",
+            "sortable": true,
+            "type": "number",
+            "prepend": "$"
+        },
+        {
+            "id": "total-spent",
+            "label": "Total Spent",
+            "sortable": true,
+            "type": "number",
+            "append": "orders"
+        }
+    ],
+    "rows": [
+        [
+            1, "Jane", "Doe"
+        ]
+    ]
+}

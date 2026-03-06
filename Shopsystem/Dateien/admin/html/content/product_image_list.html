@@ -1,0 +1,115 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+
+{block name="content"}
+    <div class="image-configuration-manager">
+        <div class="image-configuration-manager-header clearfix">
+            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createNewCollection">
+                <i class="fa fa-plus"></i> Create a new Collection
+            </button>
+            <div class="modal fade" id="createNewCollection" tabindex="-1" role="dialog" aria-labelledby="createNewCollectionLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="createNewCollectionLabel">Create a new Collection</h4>
+                        </div>
+                        <form method="post" action="">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="new-collection-name">Collection name</label>
+                                            <input class="form-control" id="new-collection-name" name="collection_name">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                <input type="submit" class="btn btn-primary" value="Create"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="configurations-list">
+            {foreach from=$content.ImageListsCollection item=$image}
+            <li>
+                <div class="row">
+                    <div class="col-md-10">
+                        <a href="/admin/admin.php?do=ProductImageList/Edit&listId={$image->listId()->value()}" class="image-collection-title">{$image->listName()->value()}</a>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="actions">
+                            <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#deleteCollection-{$image->listId()->value()}">
+                                Delete
+                            </button>
+                            <a href="/admin/admin.php?do=ProductImageList/Edit&listId={$image->listId()->value()}" class="btn btn-success pull-right">Edit</a>
+                            <div class="modal fade" id="deleteCollection-{$image->listId()->value()}" tabindex="-1" role="dialog" aria-labelledby="deleteCollection-{$image->listId()->value()}Label">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="deleteCollection-{$image->listId()->value()}Label">Delete collection image</h4>
+                                        </div>
+                                        <form method="post" action="">
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <p>Are you sure you want to delete this image from the collection?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                                <input type="submit" class="btn btn-danger" value="Delete"/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+
+        <style>
+            .image-configuration-manager-header {
+                padding-bottom: 15px;
+            }
+            .configurations-list {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            .configurations-list > li {
+                border: 1px solid #dedede;
+                border-bottom-width: 0;
+            }
+            .configurations-list > li:last-child {
+                border-bottom-width: 1px;
+            }
+            .configurations-list > li .image-collection-title {
+                display: block;
+                margin: 0;
+                padding: 10px 15px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            .configurations-list > li .actions {
+                padding: 4px 4px 0;
+                opacity: 0;
+            }
+            .configurations-list > li .actions .btn {
+                margin: 0 0 0 4px;
+            }
+            .configurations-list > li:hover .actions {
+                opacity: 1;
+            }
+        </style>
+    </div>
+{/block}

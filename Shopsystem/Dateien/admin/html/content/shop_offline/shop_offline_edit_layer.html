@@ -1,0 +1,19 @@
+{load_language_text section="shop_offline"}
+{load_language_text section="notifications" name="notification"}
+
+{block name="admin_shop_offile_shop_offline_edit_layer"}
+	<form class="offline_content_layer" {if $smarty.const.USE_WYSIWYG == 'true'}data-gx-_widget="editor"
+		  data-editor-selector=".wysiwyg" data-editor-init-event-type="editor:initialize"{/if}>
+		<div class="formfields">
+			{block name="admin_shop_offile_shop_offline_edit_layer_label"}
+				<label for="{$content_data.data_src}_msg[{$content_data.data_id}]">{$notification.offline_message_label}:</label><br />
+			{/block}
+			{block name="admin_shop_offile_shop_offline_edit_layer_input"}
+				<textarea name="{$content_data.data_src}_msg[{$content_data.data_id}]"
+						  {if $smarty.const.USE_WYSIWYG == 'true'}class="wysiwyg"
+						  data-editor-identifier="{$content_data.layer_editor_identifier}"
+						  data-editor-type="{$content_data.layer_editor_type}"{/if}></textarea>
+			{/block}
+		</div>
+	</form>
+{/block}

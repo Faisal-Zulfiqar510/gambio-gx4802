@@ -1,0 +1,101 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	<input type="hidden" value="{$pageToken}" name="page_token">
+	<div class="vue-instance"
+	     data-withdrawals-namespace="{$base_url}/admin/html/assets/javascript/engine"
+	     data-config-namespace="{$base_url}/admin/html/assets/javascript/engine"
+	     data-components-namespace="{$base_url}/admin/html/assets/javascript/engine"
+	     data-vue-instance-name="withdrawals">
+		
+		<gx-withdrawals-overview data-withdrawals-controller="withdrawals/withdrawals-overview withdrawals/details-modal
+                                                              withdrawals/delete-modal withdrawals/create-modal"
+		                         startup-id="{$smarty.get.id}"/>
+	</div>
+	
+	{literal}
+		<script type="text/x-template" id="withdrawals-overview">
+			<div class="withdrawals-overview">
+				<div class="text-right">
+					<button class="btn btn-success" @click="openCreateModal">
+						<i class="fa fa-plus"></i> &nbsp;{{ lang.create }}
+					</button>
+				</div>
+				
+				<table class="withdrawals">
+					<tr class="no-hover">
+						<th class="col-id" @click="changeSorting('id')">
+							{{ lang.heading.id }} &nbsp;
+							<span v-if="sortBy === 'id' && sortOrder === 'asc'" class="fa fa-sort-up"/>
+							<span v-if="sortBy === 'id' && sortOrder === 'desc'" class="fa fa-sort-down"/>
+						</th>
+						<th class="col-date" @click="changeSorting('date')">
+							{{ lang.heading.date }} &nbsp;
+							<span v-if="sortBy === 'date' && sortOrder === 'asc'" class="fa fa-sort-up"/>
+							<span v-if="sortBy === 'date' && sortOrder === 'desc'" class="fa fa-sort-down"/>
+						</th>
+						<th class="col-order">{{ lang.heading.order }}</th>
+						<th class="col-customer">{{ lang.heading.customer }}</th>
+						<th class="col-action"></th>
+					</tr>
+					<tr v-if="withdrawals.length > 0" v-for="withdrawal in withdrawals">
+						<td class="col-id">{{withdrawal.id}}</td>
+						<td class="col-date">{{withdrawal.date}}</td>
+						<td class="col-order">
+							<a v-if="withdrawal.orderId !== null" :href="'orders.php?oID='+withdrawal.orderId+'&action=edit'">
+								{{withdrawal.orderId}}
+							</a>
+							<span v-if="withdrawal.orderId === null">{{withdrawal.orderId}}</span>
+						</td>
+						<td class="col-customer">
+							<a v-if="withdrawal.customerId !== null" :href="'customers/'+withdrawal.customerId">{{withdrawal.customer}}</a>
+							<span v-if="withdrawal.customerId === null">{{withdrawal.customer}}</span>
+						</td>
+						<td class="col-action">
+							<span @click="openDetailsModal(withdrawal.id)" class="fa fa-eye"/>
+							<span @click="openDeleteModal(withdrawal)" class="fa fa-trash"/>
+						</td>
+					</tr>
+					<tr class="no-hover" v-if="withdrawals.length === 0">
+						<td colspan="5">{{lang.noWithdrawalsExist}}</td>
+					</tr>
+				</table>
+				
+				<div class="navigation">
+					<div class="pagination col-md-6">
+						<select class="limit pull-left" v-model="limit" @change="loadWithdrawals">
+							<option v-for="(text, value) in lang.limits" :value="value">{{ text }}</option>
+						</select>
+						
+						<div class="offset">
+							<span>
+								{{ totalItems > 0? offset+1 : 0 }} {{ lang.offset.to }}
+								{{ offset + limit*1 > totalItems? totalItems : offset + limit*1 }}
+								({{ lang.offset.of }} {{ totalItems }})
+							</span>
+						</div>
+					</div>
+					
+					<div class="page col-md-6 text-right">
+						<button :disabled="page === 1" @click="previousPage" class="btn">{{ lang.page.previous }}
+						</button>
+						<select v-model="page" @change="updateOffset">
+							<option v-for="i in totalPages">{{ i }}</option>
+						</select>
+						<button :disabled="page === totalPages" @click="nextPage" class="btn">{{ lang.page.next }}
+						</button>
+					</div>
+				</div>
+				
+				<gx-create-modal/>
+				<gx-details-modal @reload-overview="loadWithdrawals" :withdrawalId="detailsWithdrawalId"/>
+				<gx-delete-modal @reload-overview="loadWithdrawals" :withdrawal="deleteWithdrawal"/>
+			</div>
+		</script>
+	{/literal}
+	
+	{* withdrawals modals *}
+	{include file="get_usermod:withdrawals/create_modal.html"}
+	{include file="get_usermod:withdrawals/details_modal.html"}
+	{include file="get_usermod:withdrawals/delete_modal.html"}
+{/block}

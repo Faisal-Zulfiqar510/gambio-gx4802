@@ -1,0 +1,102 @@
+{load_language_text section="combis"}
+
+{block name="admin_properties_combis_settings"}
+	<div class="lightbox_properties lightbox_combis_settings">
+	    <div class="lightbox_combis_settings_content">
+		    {block name="admin_properties_combis_settings_dropdown_mode"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_settings_dropdown_mode_label"}
+							<label>{$txt.dropdown_mode}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_settings_dropdown_mode_input"}
+							<select name="properties_dropdown_mode">
+								<option value="">{$txt.dropdown_mode_0}</option>
+								<option value="dropdown_mode_1" {if $content_data.combis_setting.properties_dropdown_mode == "dropdown_mode_1"}selected="selected"{/if}>{$txt.dropdown_mode_1}</option>
+								<option value="dropdown_mode_2" {if $content_data.combis_setting.properties_dropdown_mode == "dropdown_mode_2"}selected="selected"{/if}>{$txt.dropdown_mode_2}</option>
+							</select>
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_settings_show_perperty_price"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_settings_show_perperty_price_price"}
+					        <label>{$txt.show_property_price}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_settings_show_perperty_price_input"}
+					        <select name="properties_show_price">
+						        <option value="false">{$txt.no}</option>
+						        <option value="true" {if $content_data.combis_setting.properties_show_price == "true"}selected="selected"{/if}>{$txt.yes}</option>
+					        </select>
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_settings_weight_calculation"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_settings_weight_calculation_label"}
+					        <label>{$txt.weight_calculation}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_settings_weight_calculation_input"}
+					        <select name="use_properties_combis_weight">
+						        <option value="0">{$txt.weights_add}</option>
+						        <option value="1" {if $content_data.combis_setting.use_properties_combis_weight == "1"}selected="selected"{/if}>{$txt.replace_products_weight}</option>
+					        </select>
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_settings_quantity_check"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_settings_quantity_check_label"}
+					        <label>{$txt.quantity_check}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_settings_quantity_check_input"}
+					        <select name="use_properties_combis_quantity">
+						        <option value="0">{$txt.default}</option>
+						        <option value="1" {if $content_data.combis_setting.use_properties_combis_quantity == "1"}selected="selected"{/if}>{$txt.products_quantity}</option>
+						        <option value="2" {if $content_data.combis_setting.use_properties_combis_quantity == "2"}selected="selected"{/if}>{$txt.combi_quantity}</option>
+						        <option value="3" {if $content_data.combis_setting.use_properties_combis_quantity == "3"}selected="selected"{/if}>{$txt.no_check}</option>
+					        </select>
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_settings_show_shipping_status"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_settings_show_shipping_status_label"}
+					        <label>{$txt.show_shipping_status}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_settings_show_shipping_status_input"}
+					        <select name="use_properties_combis_shipping_time">
+						        <option value="0">{$txt.products_shipping_status}</option>
+						        <option value="1" {if $content_data.combis_setting.use_properties_combis_shipping_time == "1"}selected="selected"{/if}>{$txt.combi_shipping_status}</option>
+					        </select>
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+	        <div class="clear_both"> <!-- &nbsp; --> </div>
+	    </div>
+	</div>
+{/block}

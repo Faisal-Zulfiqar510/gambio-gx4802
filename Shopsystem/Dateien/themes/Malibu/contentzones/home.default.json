@@ -1,0 +1,3303 @@
+{
+    "id": "home",
+    "type": "content-zone",
+    "rows": [
+        {
+            "columnsLayout": {
+                "id": "radioimage-7naeo7w8z",
+                "type": "radioimage",
+                "from": "widget",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "title": "100%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "title": "50%x50%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "title": "33%x66%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "title": "66%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "title": "25%x75%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "title": "75%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "title": "33%x33%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "title": "25%x25%x25%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "fullwidth"
+            },
+            "contentAlign": {
+                "id": "checkbox-3ziulter7",
+                "type": "checkbox",
+                "label": "Inhalt wrappen",
+                "labelId": "StyleEdit.contentZone.row.alignment.label",
+                "value": true,
+                "from": "widget"
+            },
+            "responsive": {
+                "id": "responsive-4zbbx03r2",
+                "type": "responsive",
+                "from": "widget",
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-dyvkxx24s",
+                "type": "background",
+                "label": "Hintergrund",
+                "labelId": "StyleEdit.contentZone.background.label",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "value": null
+            },
+            "border": {
+                "id": "border-r0cfls2d2",
+                "type": "border",
+                "label": "Rahmen",
+                "labelId": "StyleEdit.contentZone.border.label",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "value": null
+            },
+            "class": {
+                "id": "textbox-snha84mbu",
+                "type": "textbox",
+                "label": "Klasse",
+                "labelId": "StyleEdit.contentZone.class.label",
+                "value": "textbox-pe39i22nt",
+                "from": "widget"
+            },
+            "id": {
+                "id": "textbox-o1oo5wc6d",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-bjq5jegjw",
+                "from": "widget"
+            },
+            "cols": [
+                {
+                    "widgets": [
+                        {
+                            "id": "headline",
+                            "title": "\u00dcberschrift",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Headline\/headline.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach eine besondere \u00dcberschrift in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "displayConfig": "sidebar",
+                            "fieldsets": [
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": "Headline",
+                                                "de": "Headline"
+                                            },
+                                            "type": "textbox",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": "Headline",
+                                                "de": "Unsere Empfehlungen"
+                                            },
+                                            "label": "Inhalt",
+                                            "attributes": {
+                                                "placeholder": "Inhalt"
+                                            }
+                                        },
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "headlineegyo260pz",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "id": "headingType",
+                                            "default": "h3",
+                                            "type": "selectbox",
+                                            "value": "h2",
+                                            "label": "Type",
+                                            "options": [
+                                                {
+                                                    "value": "h1",
+                                                    "text": "Heading 1"
+                                                },
+                                                {
+                                                    "value": "h2",
+                                                    "text": "Heading 2"
+                                                },
+                                                {
+                                                    "value": "h3",
+                                                    "text": "Heading 3"
+                                                },
+                                                {
+                                                    "value": "h4",
+                                                    "text": "Heading 4"
+                                                },
+                                                {
+                                                    "value": "h5",
+                                                    "text": "Heading 5"
+                                                },
+                                                {
+                                                    "value": "h6",
+                                                    "text": "Heading 6"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Schrift",
+                                    "options": [
+                                        {
+                                            "id": "font",
+                                            "type": "font",
+                                            "label": "\u00dcberschrift",
+                                            "items": {
+                                                "family": "Arial",
+                                                "color": "#000000",
+                                                "size": "13px",
+                                                "style": "normal",
+                                                "textAlign": "left",
+                                                "textDecorationUnderline": false,
+                                                "textTransformUppercase": true,
+                                                "enableCustomization": false
+                                            },
+                                            "default": {
+                                                "family": "Arial",
+                                                "color": "#000000",
+                                                "size": "13px",
+                                                "style": "normal",
+                                                "textAlign": "left",
+                                                "textDecorationUnderline": false,
+                                                "textTransformUppercase": true,
+                                                "enableCustomization": false
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "headline"
+                        },
+                        {
+                            "id": "productlist",
+                            "title": "Produktliste",
+                            "icon": {
+                                "name": "Product List",
+                                "file": "GXModules\/Gambio\/Widgets\/ProductList\/icon.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit diesem Widget kannst du ganz einfach Produkt-Slider zu deinem Shop hinzuf\u00fcgen",
+                            "cache": 0,
+                            "displayConfig": "sidebar",
+                            "fieldsets": [
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "productlistrtq7urqc5",
+                                            "label": "ID",
+                                            "attributes": {
+                                                "placeholder": "HTML Element ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Klasse",
+                                            "attributes": {
+                                                "placeholder": "HTML Element Klasse"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Darstellung",
+                                    "options": [
+                                        {
+                                            "id": "presentation",
+                                            "default": "slider",
+                                            "type": "selectbox",
+                                            "value": "slider",
+                                            "label": "Darstellung",
+                                            "options": [
+                                                {
+                                                    "value": "slider",
+                                                    "text": "Slider"
+                                                },
+                                                {
+                                                    "value": "list",
+                                                    "text": "List"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "maxProducts",
+                                            "default": "10",
+                                            "type": "textbox",
+                                            "value": "10",
+                                            "label": "Max. angezeigte Produkte"
+                                        },
+                                        {
+                                            "id": "random",
+                                            "default": false,
+                                            "type": "checkbox",
+                                            "value": false,
+                                            "label": "Artikel zuf\u00e4llig anzeigen"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Produkt",
+                                    "options": [
+                                        {
+                                            "id": "productlist",
+                                            "type": "productlist",
+                                            "label": "Product",
+                                            "items": {
+                                                "listType": {
+                                                    "id": "productlist-listType",
+                                                    "default": "own-list",
+                                                    "type": "selectbox",
+                                                    "value": "recommended",
+                                                    "label": "Artikelauswahl",
+                                                    "attributes": {
+                                                        "placeholder": "Artikelauswahl"
+                                                    },
+                                                    "options": [
+                                                        {
+                                                            "value": "own-list",
+                                                            "text": "Eigene Liste"
+                                                        },
+                                                        {
+                                                            "value": "category",
+                                                            "text": "Kategorien"
+                                                        },
+                                                        {
+                                                            "value": "deals",
+                                                            "text": "Angebote"
+                                                        },
+                                                        {
+                                                            "value": "recommended",
+                                                            "text": "Empfohlene Artikel"
+                                                        },
+                                                        {
+                                                            "value": "coming-soon",
+                                                            "text": "Erscheint bald"
+                                                        },
+                                                        {
+                                                            "value": "new",
+                                                            "text": "Neu"
+                                                        }
+                                                    ]
+                                                },
+                                                "products": {
+                                                    "id": "productlist-products",
+                                                    "default": [],
+                                                    "type": "productsearchbox",
+                                                    "value": [],
+                                                    "label": "Produkt w\u00e4hlen",
+                                                    "attributes": {
+                                                        "placeholder": "Produkt-ID oder -namen suchen..."
+                                                    },
+                                                    "endpoint": "..\/..\/..\/..\/admin\/admin.php?do=StyleEditProductSearch\/byTerm"
+                                                },
+                                                "category": {
+                                                    "id": "productlist-category",
+                                                    "type": "categorysearchbox",
+                                                    "label": "Kategorie ausw\u00e4hlen",
+                                                    "attributes": {
+                                                        "placeholder": "Kategorie-ID oder -namen suchen"
+                                                    },
+                                                    "endpoint": "..\/..\/..\/..\/admin\/admin.php?do=StyleEditCategorySearch\/byTerm"
+                                                }
+                                            },
+                                            "default": {
+                                                "listType": "own-list",
+                                                "products": [],
+                                                "category": null
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "productlist"
+                        }
+                    ],
+                    "background": {
+                        "id": "background-eys3gqvbr",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-bcvykbtzs",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-zhousi0n6",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-weg0hf7d6",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "col-md-12",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-go3jv6dg5",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-p7js0o2im",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                }
+            ],
+            "type": "contentZoneRow"
+        },
+        {
+            "columnsLayout": {
+                "id": "radioimage-ooece8uug",
+                "type": "radioimage",
+                "from": "widget",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "title": "100%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "title": "50%x50%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "title": "33%x66%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "title": "66%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "title": "25%x75%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "title": "75%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "title": "33%x33%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "title": "25%x25%x25%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "three-thirty-three"
+            },
+            "contentAlign": {
+                "id": "checkbox-z25bdkouv",
+                "type": "checkbox",
+                "label": "Inhalt wrappen",
+                "labelId": "StyleEdit.contentZone.row.alignment.label",
+                "value": false,
+                "from": "widget"
+            },
+            "responsive": {
+                "id": "responsive-3g391pygw",
+                "type": "responsive",
+                "from": "widget",
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-3d96u1lhb",
+                "type": "background",
+                "label": "Hintergrund",
+                "labelId": "StyleEdit.contentZone.background.label",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "value": null
+            },
+            "border": {
+                "id": "border-ylfoolz95",
+                "type": "border",
+                "label": "Rahmen",
+                "labelId": "StyleEdit.contentZone.border.label",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "value": null
+            },
+            "class": {
+                "id": "textbox-w71x0wd73",
+                "type": "textbox",
+                "label": "Klasse",
+                "labelId": "StyleEdit.contentZone.class.label",
+                "value": "teaser-group-three-squares",
+                "from": "widget"
+            },
+            "id": {
+                "id": "textbox-6uelzhc7h",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-0mvwmw2d0",
+                "from": "widget"
+            },
+            "cols": [
+                {
+                    "widgets": [
+                        {
+                            "id": "text",
+                            "title": "Text",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Text\/text.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach einen Text-Inhalt in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "wysiwyg",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": {
+                                                    "value": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                                                    "title": "StyleEdit-1ef6ff"
+                                                },
+                                                "de": {
+                                                    "value": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                                                    "title": "StyleEdit-1ef6ff"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4311003,
+                                            "contentAlias": "Malibu-4311003",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "textdhsonwzem",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Klassen",
+                                            "attributes": {
+                                                "placeholder": "Klassen"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "text",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "",
+                                "label": "Klassen",
+                                "attributes": {
+                                    "placeholder": "Klassen"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-f0w8ilcb3",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": true,
+                                "url": "__SHOP_BASE_URL__images\/big-teaser.png",
+                                "position": "left center",
+                                "attachment": "scroll",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#F1A88F",
+                                "color2": "#CC8972",
+                                "gradientType": "linear",
+                                "angle": "45deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-36hvuvgqm",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-zsdd5f552",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-2rdkghztt",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "col-xs-height-50 col-md-height-100 vertical-align-bottom horizontal-align-center",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-8izh3cgut",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-rq6fg5sw7",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                },
+                {
+                    "widgets": [
+                        {
+                            "id": "text",
+                            "title": "Text",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Text\/text.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach einen Text-Inhalt in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "wysiwyg",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": {
+                                                    "value": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                                                    "title": "StyleEdit-a4e9d5"
+                                                },
+                                                "de": {
+                                                    "value": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                                                    "title": "StyleEdit-a4e9d5"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4311005,
+                                            "contentAlias": "Malibu-4311005",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "textdhsonwzem-0lh6q-2ewvj",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Klassen",
+                                            "attributes": {
+                                                "placeholder": "Klassen"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "text",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "",
+                                "label": "Klassen",
+                                "attributes": {
+                                    "placeholder": "Klassen"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-4azs1zbmd",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": true,
+                                "url": "__SHOP_BASE_URL__images\/big-teaser.png",
+                                "position": "center center",
+                                "attachment": "scroll",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#50E3BD",
+                                "color2": "#3DB596",
+                                "gradientType": "linear",
+                                "angle": "45deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-vtkysxay2",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-3nbwqyq3m",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-d05i8rmox",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "col-xs-height-50 col-md-height-100 vertical-align-bottom horizontal-align-center",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-kleupnhgn",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-rgqb9la19",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                },
+                {
+                    "widgets": [
+                        {
+                            "id": "text",
+                            "title": "Text",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Text\/text.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach einen Text-Inhalt in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "wysiwyg",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": {
+                                                    "value": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                                                    "title": "StyleEdit-a4e9d5"
+                                                },
+                                                "de": {
+                                                    "value": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                                                    "title": "StyleEdit-a4e9d5"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4311004,
+                                            "contentAlias": "Malibu-4311004",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "textdhsonwzem-0lh6q",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Klassen",
+                                            "attributes": {
+                                                "placeholder": "Klassen"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "text",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "",
+                                "label": "Klassen",
+                                "attributes": {
+                                    "placeholder": "Klassen"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-dn80gza1p",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": true,
+                                "url": "__SHOP_BASE_URL__images\/big-teaser.png",
+                                "position": "right center",
+                                "attachment": "scroll",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#B8E986",
+                                "color2": "#90C15E",
+                                "gradientType": "linear",
+                                "angle": "45deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-w64d43gl7",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-v5il7ys9p",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-j732punf7",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "col-xs-height-50 col-md-height-100 vertical-align-bottom horizontal-align-center",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-3w9bvrhxc",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-4eetgq0vc",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                }
+            ],
+            "type": "contentZoneRow"
+        },
+        {
+            "columnsLayout": {
+                "id": "radioimage-nrqezi7zq",
+                "type": "radioimage",
+                "from": "widget",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "title": "100%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "title": "50%x50%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "title": "33%x66%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "title": "66%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "title": "25%x75%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "title": "75%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "title": "33%x33%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "title": "25%x25%x25%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "fullwidth"
+            },
+            "contentAlign": {
+                "id": "checkbox-e37fynyr0",
+                "type": "checkbox",
+                "label": "Inhalt wrappen",
+                "labelId": "StyleEdit.contentZone.row.alignment.label",
+                "value": true,
+                "from": "widget"
+            },
+            "responsive": {
+                "id": "responsive-ipkxg6g5q",
+                "type": "responsive",
+                "from": "widget",
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-t89t68j46",
+                "type": "background",
+                "label": "Hintergrund",
+                "labelId": "StyleEdit.contentZone.background.label",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "value": null
+            },
+            "border": {
+                "id": "border-ul0vwwyka",
+                "type": "border",
+                "label": "Rahmen",
+                "labelId": "StyleEdit.contentZone.border.label",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "value": null
+            },
+            "class": {
+                "id": "textbox-co0tn3dz8",
+                "type": "textbox",
+                "label": "Klasse",
+                "labelId": "StyleEdit.contentZone.class.label",
+                "value": "textbox-walxarfk0",
+                "from": "widget"
+            },
+            "id": {
+                "id": "textbox-zzz4m4toy",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-ys9qgpv5k",
+                "from": "widget"
+            },
+            "cols": [
+                {
+                    "widgets": [
+                        {
+                            "id": "headline",
+                            "title": "\u00dcberschrift",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Headline\/headline.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach eine besondere \u00dcberschrift in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "displayConfig": "sidebar",
+                            "fieldsets": [
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": "Headline",
+                                                "de": "Headline"
+                                            },
+                                            "type": "textbox",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": "Headline",
+                                                "de": "Angebote"
+                                            },
+                                            "label": "Inhalt",
+                                            "attributes": {
+                                                "placeholder": "Inhalt"
+                                            }
+                                        },
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "headlineon2ea7shx",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "id": "headingType",
+                                            "default": "h3",
+                                            "type": "selectbox",
+                                            "value": "h2",
+                                            "label": "Type",
+                                            "options": [
+                                                {
+                                                    "value": "h1",
+                                                    "text": "Heading 1"
+                                                },
+                                                {
+                                                    "value": "h2",
+                                                    "text": "Heading 2"
+                                                },
+                                                {
+                                                    "value": "h3",
+                                                    "text": "Heading 3"
+                                                },
+                                                {
+                                                    "value": "h4",
+                                                    "text": "Heading 4"
+                                                },
+                                                {
+                                                    "value": "h5",
+                                                    "text": "Heading 5"
+                                                },
+                                                {
+                                                    "value": "h6",
+                                                    "text": "Heading 6"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Schrift",
+                                    "options": [
+                                        {
+                                            "id": "font",
+                                            "type": "font",
+                                            "label": "\u00dcberschrift",
+                                            "items": {
+                                                "family": "Arial",
+                                                "color": "#000000",
+                                                "size": "13px",
+                                                "style": "normal",
+                                                "textAlign": "left",
+                                                "textDecorationUnderline": false,
+                                                "textTransformUppercase": true,
+                                                "enableCustomization": false
+                                            },
+                                            "default": {
+                                                "family": "Arial",
+                                                "color": "#000000",
+                                                "size": "13px",
+                                                "style": "normal",
+                                                "textAlign": "left",
+                                                "textDecorationUnderline": false,
+                                                "textTransformUppercase": true,
+                                                "enableCustomization": false
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "headline"
+                        },
+                        {
+                            "id": "productlist",
+                            "title": "Produktliste",
+                            "icon": {
+                                "name": "Product List",
+                                "file": "GXModules\/Gambio\/Widgets\/ProductList\/icon.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit diesem Widget kannst du ganz einfach Produkt-Slider zu deinem Shop hinzuf\u00fcgen",
+                            "cache": 0,
+                            "displayConfig": "sidebar",
+                            "fieldsets": [
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "productlistmu5belrks",
+                                            "label": "ID",
+                                            "attributes": {
+                                                "placeholder": "HTML Element ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Klasse",
+                                            "attributes": {
+                                                "placeholder": "HTML Element Klasse"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Darstellung",
+                                    "options": [
+                                        {
+                                            "id": "presentation",
+                                            "default": "slider",
+                                            "type": "selectbox",
+                                            "value": "list",
+                                            "label": "Darstellung",
+                                            "options": [
+                                                {
+                                                    "value": "slider",
+                                                    "text": "Slider"
+                                                },
+                                                {
+                                                    "value": "list",
+                                                    "text": "List"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "maxProducts",
+                                            "default": "10",
+                                            "type": "textbox",
+                                            "value": "10",
+                                            "label": "Max. angezeigte Produkte"
+                                        },
+                                        {
+                                            "id": "random",
+                                            "default": false,
+                                            "type": "checkbox",
+                                            "value": false,
+                                            "label": "Artikel zuf\u00e4llig anzeigen"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Produkt",
+                                    "options": [
+                                        {
+                                            "id": "productlist",
+                                            "type": "productlist",
+                                            "label": "Product",
+                                            "items": {
+                                                "listType": {
+                                                    "id": "productlist-listType",
+                                                    "default": "own-list",
+                                                    "type": "selectbox",
+                                                    "value": "deals",
+                                                    "label": "Artikelauswahl",
+                                                    "attributes": {
+                                                        "placeholder": "Artikelauswahl"
+                                                    },
+                                                    "options": [
+                                                        {
+                                                            "value": "own-list",
+                                                            "text": "Eigene Liste"
+                                                        },
+                                                        {
+                                                            "value": "category",
+                                                            "text": "Kategorien"
+                                                        },
+                                                        {
+                                                            "value": "deals",
+                                                            "text": "Angebote"
+                                                        },
+                                                        {
+                                                            "value": "recommended",
+                                                            "text": "Empfohlene Artikel"
+                                                        },
+                                                        {
+                                                            "value": "coming-soon",
+                                                            "text": "Erscheint bald"
+                                                        },
+                                                        {
+                                                            "value": "new",
+                                                            "text": "Neu"
+                                                        }
+                                                    ]
+                                                },
+                                                "products": {
+                                                    "id": "productlist-products",
+                                                    "default": [],
+                                                    "type": "productsearchbox",
+                                                    "value": [],
+                                                    "label": "Produkt w\u00e4hlen",
+                                                    "attributes": {
+                                                        "placeholder": "Produkt-ID oder -namen suchen..."
+                                                    },
+                                                    "endpoint": "..\/..\/..\/..\/admin\/admin.php?do=StyleEditProductSearch\/byTerm"
+                                                },
+                                                "category": {
+                                                    "id": "productlist-category",
+                                                    "type": "categorysearchbox",
+                                                    "label": "Kategorie ausw\u00e4hlen",
+                                                    "attributes": {
+                                                        "placeholder": "Kategorie-ID oder -namen suchen"
+                                                    },
+                                                    "endpoint": "..\/..\/..\/..\/admin\/admin.php?do=StyleEditCategorySearch\/byTerm"
+                                                }
+                                            },
+                                            "default": {
+                                                "listType": "own-list",
+                                                "products": [],
+                                                "category": null
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "productlist"
+                        }
+                    ],
+                    "background": {
+                        "id": "background-gxm26cnwr",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-rlu26bsdo",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-e6b13k4ox",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-33s3c2bbi",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "col-md-12",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-4h29ijyd1",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-x26a5jyit",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                }
+            ],
+            "type": "contentZoneRow"
+        },
+        {
+            "columnsLayout": {
+                "id": "radioimage-04a2ooemi",
+                "type": "radioimage",
+                "from": "widget",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "title": "100%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "title": "50%x50%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "title": "33%x66%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "title": "66%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "title": "25%x75%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "title": "75%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "title": "33%x33%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "title": "25%x25%x25%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "fifty-fifty"
+            },
+            "contentAlign": {
+                "id": "checkbox-at18tl4nn",
+                "type": "checkbox",
+                "label": "Inhalt wrappen",
+                "labelId": "StyleEdit.contentZone.row.alignment.label",
+                "value": true,
+                "from": "widget"
+            },
+            "responsive": {
+                "id": "responsive-qzsup7pda",
+                "type": "responsive",
+                "from": "widget",
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-lwg1dhui6",
+                "type": "background",
+                "label": "Hintergrund",
+                "labelId": "StyleEdit.contentZone.background.label",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "value": null
+            },
+            "border": {
+                "id": "border-2ga1vqvex",
+                "type": "border",
+                "label": "Rahmen",
+                "labelId": "StyleEdit.contentZone.border.label",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "value": null
+            },
+            "class": {
+                "id": "textbox-s400bvemr",
+                "type": "textbox",
+                "label": "Klasse",
+                "labelId": "StyleEdit.contentZone.class.label",
+                "value": "teaser-group-2-cols-big-image",
+                "from": "widget"
+            },
+            "id": {
+                "id": "textbox-sz0v786tj",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-d8ltyjpg7",
+                "from": "widget"
+            },
+            "cols": [
+                {
+                    "widgets": [
+                        {
+                            "id": "image",
+                            "title": "Bild",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Image\/image.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach ein Bild in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "displayConfig": "sidebar",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "image",
+                                            "default": {
+                                                "de": "__SHOP_BASE_URL__public\/theme\/images\/teaser-4-3.png",
+                                                "en": "__SHOP_BASE_URL__public\/theme\/images\/teaser-4-3.png"
+                                            },
+                                            "type": "imageupload",
+                                            "translatable": true,
+                                            "value": {
+                                                "de": "__SHOP_BASE_URL__public\/theme\/images\/teaser-4-3.png",
+                                                "en": "__SHOP_BASE_URL__public/theme/images/teaser-4-3.png"
+                                            },
+                                            "label": "Bild"
+                                        },
+                                        {
+                                            "id": "name",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Name",
+                                            "attributes": {
+                                                "placeholder": "Name"
+                                            }
+                                        },
+                                        {
+                                            "id": "link",
+                                            "default": {},
+                                            "type": "url",
+                                            "translatable": true,
+                                            "value": {},
+                                            "label": "Link",
+                                            "attributes": {
+                                                "placeholder": "Link"
+                                            }
+                                        },
+                                        {
+                                            "id": "alt",
+                                            "default": {},
+                                            "type": "textbox",
+                                            "translatable": true,
+                                            "value": {},
+                                            "label": "Alt",
+                                            "attributes": {
+                                                "placeholder": "Alt"
+                                            }
+                                        },
+                                        {
+                                            "id": "title",
+                                            "default": {},
+                                            "type": "textbox",
+                                            "translatable": true,
+                                            "value": {},
+                                            "label": "Titel",
+                                            "attributes": {
+                                                "placeholder": "Titel"
+                                            }
+                                        },
+                                        {
+                                            "id": "target",
+                                            "default": "_self",
+                                            "type": "selectbox",
+                                            "value": "_self",
+                                            "label": "Target",
+                                            "options": [
+                                                {
+                                                    "value": "_blank",
+                                                    "text": "Neues Fenster"
+                                                },
+                                                {
+                                                    "value": "_self",
+                                                    "text": "Selbes Fenster"
+                                                },
+                                                {
+                                                    "value": "_parent",
+                                                    "text": "Eltern Fenster"
+                                                },
+                                                {
+                                                    "value": "_top",
+                                                    "text": "Ganzes Fenster"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Masse",
+                                    "options": [
+                                        {
+                                            "id": "width",
+                                            "default": "",
+                                            "type": "numberbox",
+                                            "value": "",
+                                            "label": "Breite"
+                                        },
+                                        {
+                                            "id": "height",
+                                            "default": "",
+                                            "type": "numberbox",
+                                            "value": "",
+                                            "label": "H\u00f6he"
+                                        },
+                                        {
+                                            "id": "responsive",
+                                            "default": true,
+                                            "type": "checkbox",
+                                            "value": true,
+                                            "label": "Bild responsive anpassen"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "imagef56u8k1yv",
+                                            "label": "ID",
+                                            "attributes": {
+                                                "placeholder": "ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Klassen",
+                                            "attributes": {
+                                                "placeholder": "Klassen"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "image"
+                        }
+                    ],
+                    "background": {
+                        "id": "background-7ktiinc5u",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-6rq2j3bbr",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-cyxxevoi8",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-x4q5jqab4",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "shop-the-look-image col-md-push-6",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-jt6yc9xvv",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-omhorkvnm",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                },
+                {
+                    "widgets": [
+                        {
+                            "id": "text",
+                            "title": "Text",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Text\/text.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach einen Text-Inhalt in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "wysiwyg",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": {
+                                                    "value": "<p><strong>Lorem<\/strong><br><strong>Ipsum dolor<\/strong><br><strong>sit amet<\/strong><\/p>",
+                                                    "title": "StyleEdit-8f8dce"
+                                                },
+                                                "de": {
+                                                    "value": "<p><strong>Lorem<\/strong><br><strong>Ipsum dolor<\/strong><br><strong>sit amet<\/strong><\/p>",
+                                                    "title": "StyleEdit-8f8dce"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4311002,
+                                            "contentAlias": "Malibu-4311002",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "textavned40qq-374th",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "content",
+                                            "label": "Klassen",
+                                            "attributes": {
+                                                "placeholder": "Klassen"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "text",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "content",
+                                "label": "Klassen",
+                                "attributes": {
+                                    "placeholder": "Klassen"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-hvb260qgq",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "#eee",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-suby0c29h",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-lq3zv5nli",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-171oeazhy",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "shop-the-look-text col-xs-height-75 vertical-align-center horizontal-align-center col-md-pull-6",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-fnhagbj1o",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-sw3thhu8i",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                }
+            ],
+            "type": "contentZoneRow"
+        },
+        {
+            "columnsLayout": {
+                "id": "radioimage-p9kwtkpyp",
+                "type": "radioimage",
+                "from": "widget",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "title": "100%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "title": "50%x50%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "title": "33%x66%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "title": "66%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "title": "25%x75%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "title": "75%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "title": "33%x33%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "title": "25%x25%x25%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "fullwidth"
+            },
+            "contentAlign": {
+                "id": "checkbox-mai0ukqd5",
+                "type": "checkbox",
+                "label": "Inhalt wrappen",
+                "labelId": "StyleEdit.contentZone.row.alignment.label",
+                "value": true,
+                "from": "widget"
+            },
+            "responsive": {
+                "id": "responsive-53ys468ve",
+                "type": "responsive",
+                "from": "widget",
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-dr7o1d8t5",
+                "type": "background",
+                "label": "Hintergrund",
+                "labelId": "StyleEdit.contentZone.background.label",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "value": null
+            },
+            "border": {
+                "id": "border-hh7r6qmar",
+                "type": "border",
+                "label": "Rahmen",
+                "labelId": "StyleEdit.contentZone.border.label",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "value": null
+            },
+            "class": {
+                "id": "textbox-7gsdq6ic5",
+                "type": "textbox",
+                "label": "Klasse",
+                "labelId": "StyleEdit.contentZone.class.label",
+                "value": "textbox-ya4rb84km",
+                "from": "widget"
+            },
+            "id": {
+                "id": "textbox-ux0or5k8u",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-2sw7xelg9",
+                "from": "widget"
+            },
+            "cols": [
+                {
+                    "widgets": [
+                        {
+                            "id": "productlist",
+                            "title": "Produktliste",
+                            "icon": {
+                                "name": "Product List",
+                                "file": "GXModules\/Gambio\/Widgets\/ProductList\/icon.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit diesem Widget kannst du ganz einfach Produkt-Slider zu deinem Shop hinzuf\u00fcgen",
+                            "cache": 0,
+                            "displayConfig": "sidebar",
+                            "fieldsets": [
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "productlist6x1egk0xh",
+                                            "label": "ID",
+                                            "attributes": {
+                                                "placeholder": "HTML Element ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Klasse",
+                                            "attributes": {
+                                                "placeholder": "HTML Element Klasse"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Darstellung",
+                                    "options": [
+                                        {
+                                            "id": "presentation",
+                                            "default": "slider",
+                                            "type": "selectbox",
+                                            "value": "slider",
+                                            "label": "Darstellung",
+                                            "options": [
+                                                {
+                                                    "value": "slider",
+                                                    "text": "Slider"
+                                                },
+                                                {
+                                                    "value": "list",
+                                                    "text": "List"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "maxProducts",
+                                            "default": "10",
+                                            "type": "textbox",
+                                            "value": "5",
+                                            "label": "Max. angezeigte Produkte"
+                                        },
+                                        {
+                                            "id": "random",
+                                            "default": false,
+                                            "type": "checkbox",
+                                            "value": true,
+                                            "label": "Produkte zuf\u00e4llig anzeigen"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Produkt",
+                                    "options": [
+                                        {
+                                            "id": "productlist",
+                                            "type": "productlist",
+                                            "label": "Product",
+                                            "items": {
+                                                "listType": {
+                                                    "id": "productlist-listType",
+                                                    "default": "own-list",
+                                                    "type": "selectbox",
+                                                    "value": "deals",
+                                                    "label": "Artikelauswahl",
+                                                    "attributes": {
+                                                        "placeholder": "Artikelauswahl"
+                                                    },
+                                                    "options": [
+                                                        {
+                                                            "value": "own-list",
+                                                            "text": "Eigene Liste"
+                                                        },
+                                                        {
+                                                            "value": "category",
+                                                            "text": "Kategorien"
+                                                        },
+                                                        {
+                                                            "value": "deals",
+                                                            "text": "Angebote"
+                                                        },
+                                                        {
+                                                            "value": "recommended",
+                                                            "text": "Empfohlene Artikel"
+                                                        },
+                                                        {
+                                                            "value": "coming-soon",
+                                                            "text": "Erscheint bald"
+                                                        },
+                                                        {
+                                                            "value": "new",
+                                                            "text": "Neu"
+                                                        }
+                                                    ]
+                                                },
+                                                "products": {
+                                                    "id": "productlist-products",
+                                                    "default": [],
+                                                    "type": "productsearchbox",
+                                                    "value": [],
+                                                    "label": "Produkt w\u00e4hlen",
+                                                    "attributes": {
+                                                        "placeholder": "Produkt-ID oder -namen suchen..."
+                                                    },
+                                                    "endpoint": "..\/..\/..\/..\/admin\/admin.php?do=StyleEditProductSearch\/byTerm"
+                                                },
+                                                "category": {
+                                                    "id": "productlist-category",
+                                                    "type": "categorysearchbox",
+                                                    "label": "Kategorie ausw\u00e4hlen",
+                                                    "attributes": {
+                                                        "placeholder": "Kategorie-ID oder -namen suchen"
+                                                    },
+                                                    "endpoint": "..\/..\/..\/..\/admin\/admin.php?do=StyleEditCategorySearch\/byTerm"
+                                                }
+                                            },
+                                            "default": {
+                                                "listType": "own-list",
+                                                "products": [],
+                                                "category": null
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "productlist"
+                        }
+                    ],
+                    "background": {
+                        "id": "background-ygaftbp0a",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-1myxs7t6j",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-5v7ew637q",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-lpoqrb7ra",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "col-md-12",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-16zrzpir2",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-9mvczyqt0",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                }
+            ],
+            "type": "contentZoneRow"
+        },
+        {
+            "columnsLayout": {
+                "id": "radioimage-we1trobf1",
+                "type": "radioimage",
+                "from": "widget",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "title": "100%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "title": "50%x50%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "title": "33%x66%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "title": "66%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "title": "25%x75%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "title": "75%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "title": "33%x33%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "title": "25%x25%x25%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "fifty-fifty"
+            },
+            "contentAlign": {
+                "id": "checkbox-9b4pfoawm",
+                "type": "checkbox",
+                "label": "Inhalt wrappen",
+                "labelId": "StyleEdit.contentZone.row.alignment.label",
+                "value": false,
+                "from": "widget"
+            },
+            "responsive": {
+                "id": "responsive-cajh2bnhp",
+                "type": "responsive",
+                "from": "widget",
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-4f6cvpngl",
+                "type": "background",
+                "label": "Hintergrund",
+                "labelId": "StyleEdit.contentZone.background.label",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "value": null
+            },
+            "border": {
+                "id": "border-sou1fcxag",
+                "type": "border",
+                "label": "Rahmen",
+                "labelId": "StyleEdit.contentZone.border.label",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "value": null
+            },
+            "class": {
+                "id": "textbox-hdrb0r5hi",
+                "type": "textbox",
+                "label": "Klasse",
+                "labelId": "StyleEdit.contentZone.class.label",
+                "value": "teaser-group-2-cols-big-image",
+                "from": "widget"
+            },
+            "id": {
+                "id": "textbox-ogtgubcme",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-w5fr9cnek",
+                "from": "widget"
+            },
+            "cols": [
+                {
+                    "widgets": [
+                        {
+                            "id": "image",
+                            "title": "Bild",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Image\/image.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach ein Bild in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "version": "1.0.0",
+                            "displayConfig": "sidebar",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "image",
+                                            "default": {
+                                                "de": "__SHOP_BASE_URL__public\/theme\/images\/big-teaser.png",
+                                                "en": "__SHOP_BASE_URL__public\/theme\/images\/big-teaser.png"
+                                            },
+                                            "type": "imageupload",
+                                            "translatable": true,
+                                            "value": {
+                                                "de": "__SHOP_BASE_URL__public\/theme\/images\/big-teaser.png",
+                                                "en": "__SHOP_BASE_URL__public/theme/images/big-teaser.png"
+                                            },
+                                            "label": "Bild"
+                                        },
+                                        {
+                                            "id": "name",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Name",
+                                            "attributes": {
+                                                "placeholder": "Name"
+                                            }
+                                        },
+                                        {
+                                            "id": "link",
+                                            "default": {},
+                                            "type": "url",
+                                            "translatable": true,
+                                            "value": {},
+                                            "label": "Link",
+                                            "attributes": {
+                                                "placeholder": "Link"
+                                            }
+                                        },
+                                        {
+                                            "id": "alt",
+                                            "default": {},
+                                            "type": "textbox",
+                                            "translatable": true,
+                                            "value": {},
+                                            "label": "Alt",
+                                            "attributes": {
+                                                "placeholder": "Alt"
+                                            }
+                                        },
+                                        {
+                                            "id": "title",
+                                            "default": {},
+                                            "type": "textbox",
+                                            "translatable": true,
+                                            "value": {},
+                                            "label": "Titel",
+                                            "attributes": {
+                                                "placeholder": "Titel"
+                                            }
+                                        },
+                                        {
+                                            "id": "alt",
+                                            "default": {},
+                                            "type": "textbox",
+                                            "translatable": true,
+                                            "value": {},
+                                            "label": "Alt",
+                                            "attributes": {
+                                                "placeholder": "Alt"
+                                            }
+                                        },
+                                        {
+                                            "id": "title",
+                                            "default": {},
+                                            "type": "textbox",
+                                            "translatable": true,
+                                            "value": {},
+                                            "label": "Titel",
+                                            "attributes": {
+                                                "placeholder": "Titel"
+                                            }
+                                        },
+                                        {
+                                            "id": "target",
+                                            "default": "_self",
+                                            "type": "selectbox",
+                                            "value": "_self",
+                                            "label": "Target",
+                                            "options": [
+                                                {
+                                                    "value": "_blank",
+                                                    "text": "Neues Fenster"
+                                                },
+                                                {
+                                                    "value": "_self",
+                                                    "text": "Selbes Fenster"
+                                                },
+                                                {
+                                                    "value": "_parent",
+                                                    "text": "Eltern Fenster"
+                                                },
+                                                {
+                                                    "value": "_top",
+                                                    "text": "Ganzes Fenster"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Dimensionen",
+                                    "options": [
+                                        {
+                                            "id": "width",
+                                            "default": "",
+                                            "type": "numberbox",
+                                            "value": "",
+                                            "label": "Breite"
+                                        },
+                                        {
+                                            "id": "height",
+                                            "default": "",
+                                            "type": "numberbox",
+                                            "value": "",
+                                            "label": "H\u00f6he"
+                                        },
+                                        {
+                                            "id": "responsive",
+                                            "default": true,
+                                            "type": "checkbox",
+                                            "value": true,
+                                            "label": "Bild responsive anpassen"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "imagepfxhk4v38",
+                                            "label": "ID",
+                                            "attributes": {
+                                                "placeholder": "ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Klassen",
+                                            "attributes": {
+                                                "placeholder": "Klassen"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "image"
+                        }
+                    ],
+                    "background": {
+                        "id": "background-q0d9az6bf",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-u4c64652f",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-zap4xkt8c",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-v7sggq3e2",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "instagram-grid",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-memzfj2s2",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-8aubx6h8q",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                },
+                {
+                    "widgets": [
+                        {
+                            "id": "code",
+                            "title": "HTML",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Code\/code.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach Code in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "version": "1.0.0",
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "sourcecode",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": {
+                                                    "value": "<div class=\"content vertical-align-center horizontal-align-center text-center\">\n  <p>Lorem<br>Ipsum<\/p>\n<\/div>",
+                                                    "title": "StyleEdit-7df417"
+                                                },
+                                                "de": {
+                                                    "value": "<div class=\"content vertical-align-center horizontal-align-center text-center\">\n  <p>Lorem<br>Ipsum<\/p>\n<\/div>",
+                                                    "title": "StyleEdit-7df417"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4311006,
+                                            "contentAlias": "Malibu-4311006",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "codeem98423zo",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "video-background col-xs-height-75 col-md-height-100",
+                                            "label": "Class",
+                                            "attributes": {
+                                                "placeholder": "Class"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "code",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "video-background col-xs-height-75 col-md-height-100",
+                                "label": "Class",
+                                "attributes": {
+                                    "placeholder": "Class"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-o28rr93k3",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "#F3F3F3",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-e3tv3804s",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-yois1lwz1",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-nax84chti",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "follow-us",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-9rjoolqbh",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-qa32sgfdf",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                }
+            ],
+            "type": "contentZoneRow"
+        },
+        {
+            "columnsLayout": {
+                "id": "radioimage-nnjdnbhni",
+                "type": "radioimage",
+                "from": "widget",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "title": "100%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "title": "50%x50%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "title": "33%x66%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "title": "66%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "title": "25%x75%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "title": "75%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "title": "33%x33%x33%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "title": "25%x25%x25%x25%",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "fullwidth"
+            },
+            "contentAlign": {
+                "id": "checkbox-xera7ki4d",
+                "type": "checkbox",
+                "label": "Inhalt wrappen",
+                "labelId": "StyleEdit.contentZone.row.alignment.label",
+                "value": true,
+                "from": "widget"
+            },
+            "responsive": {
+                "id": "responsive-q69wcl6ke",
+                "type": "responsive",
+                "from": "widget",
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-hpk0kek7b",
+                "type": "background",
+                "label": "Hintergrund",
+                "labelId": "StyleEdit.contentZone.background.label",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "value": null
+            },
+            "border": {
+                "id": "border-ej9ulxq5y",
+                "type": "border",
+                "label": "Rahmen",
+                "labelId": "StyleEdit.contentZone.border.label",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "value": null
+            },
+            "class": {
+                "id": "textbox-8k9y8va50",
+                "type": "textbox",
+                "label": "Klasse",
+                "labelId": "StyleEdit.contentZone.class.label",
+                "value": "textbox-4uv83puhi",
+                "from": "widget"
+            },
+            "id": {
+                "id": "textbox-4tn89ovvm",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-oq0q3rdlk",
+                "from": "widget"
+            },
+            "cols": [
+                {
+                    "widgets": [
+                        {
+                            "id": "code",
+                            "title": "HTML",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Code\/code.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach Code in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "sourcecode",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": {
+                                                    "value": "<div class=\"row\"> <div class=\"col-md-6\"> <h1>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<\/h1> <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.<\/p> <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.<\/p> <\/div> <div class=\"col-md-6\"> <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.<\/p> <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. <\/p> <\/div> <\/div>",
+                                                    "title": "StyleEdit-cbf7bd"
+                                                },
+                                                "de": {
+                                                    "value": "<div class=\"row\"> <div class=\"col-md-6\"> <h1>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<\/h1> <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.<\/p> <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.<\/p> <\/div> <div class=\"col-md-6\"> <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.<\/p> <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. <\/p> <\/div> <\/div>",
+                                                    "title": "StyleEdit-cbf7bd"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4311001,
+                                            "contentAlias": "Malibu-4311001",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "codej6bb7loj9",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "content-box-shadow",
+                                            "label": "Class",
+                                            "attributes": {
+                                                "placeholder": "Class"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "code",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "content-box-shadow",
+                                "label": "Class",
+                                "attributes": {
+                                    "placeholder": "Class"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-w68epdvu6",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "labelId": "StyleEdit.contentZone.background.label",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "color": "rgba(255, 255, 255, 0)",
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "attachment": "fixed",
+                                "repeat": "no-repeat",
+                                "size": "cover"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "border": {
+                        "id": "border-sa49pq0rx",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "labelId": "StyleEdit.contentZone.border.label",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "value": null
+                    },
+                    "responsive": {
+                        "id": "responsive-j3fhda5rl",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-91m0ytsut",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "labelId": "StyleEdit.contentZone.class.label",
+                        "value": "col-md-12",
+                        "from": "widget"
+                    },
+                    "id": {
+                        "id": "textbox-ncqq0gynd",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-u5eujfojk",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                }
+            ],
+            "type": "contentZoneRow"
+        }
+    ],
+    "value": null,
+    "shopVersion": "4.1_develop"
+}

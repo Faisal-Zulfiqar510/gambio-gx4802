@@ -1,0 +1,2782 @@
+[
+    {
+        "key": "Alphabetisch-Filter 1",
+        "script_name": "admin\/gm_emails.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "gm_type"
+            }
+        ],
+        "function": "only_alphabetic",
+        "severity": "error"
+    },
+    {
+        "key": "Alphabetisch-Filter 2",
+        "script_name": "admin\/yatego.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "section"
+            },
+            {
+                "type": "GET",
+                "property": "selectArticles"
+            },
+            {
+                "type": "GET",
+                "property": "selectCategoryArticles"
+            }
+        ],
+        "function": "only_alphabetic",
+        "severity": "error"
+    },
+    {
+        "key": "Alphabetisch-Filter 3",
+        "script_name": "admin\/gm_offline.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "shop_offline"
+            }
+        ],
+        "function": "only_alphabetic",
+        "severity": "error"
+    },
+    {
+        "key": "Alphabetisch-Filter 5",
+        "script_name": "admin\/magnalister.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "expert"
+            },
+            {
+                "type": "GET",
+                "property": "MLDEBUG"
+            },
+            {
+                "type": "GET",
+                "property": "update"
+            }
+        ],
+        "function": "only_alphabetic",
+        "severity": "error"
+    },
+    {
+        "key": "Alphabetisch-Filter 6",
+        "script_name": "admin\/banner_statistics.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "type"
+            }
+        ],
+        "function": "only_alphabetic",
+        "severity": "error"
+    },
+    {
+        "key": "Alphabetisch-Filter 7",
+        "script_name": [
+            "advanced_search_result.php",
+            "index.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "currency"
+            },
+            {
+                "type": "GET",
+                "property": "language"
+            }
+        ],
+        "function": "only_alphabetic",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 1",
+        "script_name": "admin\/products_attributes.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "option_order_by"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 2",
+        "script_name": [
+            "admin\/categories.php",
+            "admin\/create_account.php",
+            "admin\/countries.php",
+            "admin\/customers.php",
+            "admin\/gm_gprint.php",
+            "admin\/orders.php",
+            "admin\/paypal.php",
+            "admin\/show_logs.php",
+            "admin\/specials.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "language"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 3",
+        "script_name": "admin\/customers.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "sorting"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 4",
+        "script_name": [
+            "admin\/accounting.php",
+            "admin\/backup.php",
+            "admin\/banner_manager.php",
+            "admin\/blacklist.php",
+            "admin\/campaigns.php",
+            "admin\/categories.php",
+            "admin\/configuration.php",
+            "admin\/content_manager.php",
+            "admin\/countries.php",
+            "admin\/coupon_admin.php",
+            "admin\/create_account.php",
+            "admin\/cross_sell_groups.php",
+            "admin\/csv_backend.php",
+            "admin\/currencies.php",
+            "admin\/customers.php",
+            "admin\/customers_status.php",
+            "admin\/geo_zones.php",
+            "admin\/gm_backup_files_zip.php.php",
+            "admin\/gm_gprint.php",
+            "admin\/gm_module_export.php",
+            "admin\/gm_module_part_export.php",
+            "admin\/gm_opensearch.php",
+            "admin\/gm_product_export.php",
+            "admin\/gm_trusted_shops_id.php",
+            "admin\/gm_trusted_shops_widget.php",
+            "admin\/gm_sitemap.php",
+            "admin\/gv_mail.php",
+            "admin\/gm_meta.php",
+            "admin\/languages.php",
+            "admin\/mail.php",
+            "admin\/manufacturers.php",
+            "admin\/mediafinanz.php",
+            "admin\/modules.php",
+            "admin\/module_export.php",
+            "admin\/module_newsletter.php",
+            "admin\/orders.php",
+            "admin\/orders_edit.php",
+            "admin\/orders_status.php",
+            "admin\/paypal.php",
+            "admin\/products_attributes.php",
+            "admin\/products_vpe.php",
+            "admin\/properties_combis.php",
+            "admin\/request_port.php",
+            "admin\/reviews.php",
+            "admin\/shipping_status.php",
+            "admin\/specials.php",
+            "admin\/tax_classes.php",
+            "admin\/tax_rates.php",
+            "admin\/zones.php",
+            "login.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "action"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 5",
+        "script_name": "admin\/categories.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "cPath"
+            },
+            {
+                "type": "GET",
+                "property": "sorting"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 6",
+        "script_name": "admin\/gm_logo.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "gm_logo"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 7",
+        "script_name": "admin\/paypal.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "view"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 8",
+        "script_name": "admin\/geo_zones.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "saction"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 10",
+        "script_name": "admin\/orders_edit.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "edit_action"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 11",
+        "script_name": [
+            "admin\/gm_module_export.php",
+            "admin\/gm_module_part_export.php",
+            "admin\/modules.php",
+            "admin\/module_export.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "module"
+            },
+            {
+                "type": "GET",
+                "property": "set"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 12",
+        "script_name": "admin\/mediafinanz.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "clientLicence"
+            },
+            {
+                "type": "GET",
+                "property": "options"
+            },
+            {
+                "type": "POST",
+                "property": "options"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 13",
+        "script_name": "admin\/magnalister.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "do"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 14",
+        "script_name": [
+            "admin\/ekomi.php",
+            "admin\/gm_guestbook.php",
+            "admin\/gm_miscellaneous.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "content"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 15",
+        "script_name": "admin\/content_manager.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "special"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 16",
+        "script_name": [
+            "admin\/gm_module_part_export.php",
+            "admin\/yatego.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "module"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 17",
+        "script_name": "admin\/stats_sales_report.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "payment"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 18",
+        "script_name": "admin\/stats_campaigns.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "campaign"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 19",
+        "script_name": "admin\/properties_combis.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "cPath"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 20",
+        "script_name": [
+            "admin\/nc_clickandbuy.php",
+            "admin\/yoochoose.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "page"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 21",
+        "script_name": "admin\/mail.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "selected_box"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 22",
+        "script_name": "admin\/intraship.php",
+        "variables": [
+            {
+                "type": "POST",
+                "subcategory": "intraship",
+                "property": [
+                    "ekp",
+                    "zone_1_product",
+                    "zone_2_product",
+                    "zone_3_product",
+                    "zone_4_product",
+                    "zone_1_partner_id",
+                    "zone_2_partner_id",
+                    "zone_3_partner_id",
+                    "zone_4_partner_id"
+                ]
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 23",
+        "script_name": "admin\/orders.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "oID"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Alphanumerisch-Filter 24",
+        "script_name": "admin\/orders.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "ptd_rand"
+            }
+        ],
+        "function": "only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Integer-Filter 1",
+        "script_name": "admin\/gm_feature_control.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "featureMode"
+            }
+        ],
+        "function": "recursive_integer_value",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Integer-Filter 2",
+        "script_name": "admin\/gm_meta.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "gm_delete"
+            }
+        ],
+        "function": "recursive_integer_value",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Integer-Filter 3",
+        "script_name": [
+            "product_info.php",
+            "request_port.php",
+            "shop.php"
+        ],
+        "variables": [
+            {
+                "type": "POST",
+                "property": "properties_values_ids"
+            },
+            {
+                "type": "GET",
+                "property": "modifiers"
+            }
+        ],
+        "function": "recursive_integer_value",
+        "severity": "error"
+    },
+    {
+        "key": "Dateinamen-Filter 1",
+        "script_name": "admin\/backup.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "file"
+            }
+        ],
+        "function": "basename",
+        "severity": "error"
+    },
+    {
+        "key": "Dateinamen-Filter 2",
+        "script_name": "admin\/csv_backend.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "select_file"
+            }
+        ],
+        "function": "basename",
+        "severity": "error"
+    },
+    {
+        "key": "Dateinamen-Filter 3",
+        "script_name": "admin\/show_logs.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "file"
+            },
+            {
+                "type": "GET",
+                "property": "hidden_file"
+            }
+        ],
+        "function": "basename",
+        "severity": "error"
+    },
+    {
+        "key": "Dateinamen-Filter 4",
+        "script_name": "admin\/content_manager.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "select_file"
+            }
+        ],
+        "function": "basename",
+        "severity": "error"
+    },
+    {
+        "key": "Dateinamen-Filter 5",
+        "script_name": "admin\/languages.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "image"
+            }
+        ],
+        "function": "basename",
+        "severity": "error"
+    },
+    {
+        "key": "htmlentities-Filter 1",
+        "script_name": "admin\/gv_mail.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "email_to"
+            },
+            {
+                "type": "GET",
+                "property": "mail_sent_to"
+            }
+        ],
+        "function": "htmlentities",
+        "severity": "error"
+    },
+    {
+        "key": "htmlentities-Filter 2",
+        "script_name": "admin\/mail.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "mail_sent_to"
+            },
+            {
+                "type": "GET",
+                "property": "customer"
+            }
+        ],
+        "function": "htmlentities",
+        "severity": "error"
+    },
+    {
+        "key": "htmlentities-Filter 3",
+        "script_name": "admin\/gm_bookmarks_action.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "gm_result"
+            }
+        ],
+        "function": "htmlentities",
+        "severity": "error"
+    },
+    {
+        "key": "htmlentities-Filter 4",
+        "script_name": "admin\/gm_opensearch.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "GM_OPENSEARCH_CONTACT"
+            },
+            {
+                "type": "POST",
+                "property": "GM_OPENSEARCH_DESCRIPTION"
+            },
+            {
+                "type": "POST",
+                "property": "GM_OPENSEARCH_LINK"
+            },
+            {
+                "type": "POST",
+                "property": "GM_OPENSEARCH_LONGNAME"
+            },
+            {
+                "type": "POST",
+                "property": "GM_OPENSEARCH_SHORTNAME"
+            },
+            {
+                "type": "POST",
+                "property": "GM_OPENSEARCH_TAGS"
+            },
+            {
+                "type": "POST",
+                "property": "GM_OPENSEARCH_TEXT"
+            }
+        ],
+        "function": "htmlentities",
+        "severity": "error"
+    },
+    {
+        "key": "htmlentities-Filter 6",
+        "script_name": "admin\/gm_security.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "GM_RECAPTCHA_PUBLIC_KEY"
+            },
+            {
+                "type": "POST",
+                "property": "GM_RECAPTCHA_PRIVATE_KEY"
+            }
+        ],
+        "function": "htmlentities",
+        "severity": "error"
+    },
+    {
+        "key": "htmlentities-Filter 7",
+        "script_name": "admin\/mobile_configuration.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "mobile_css_border_color"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_border_color_dark"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_button_blue_bg_1"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_button_blue_bg_2"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_button_blue_color"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_checkout_bg"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_checkout_sum_bg"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_content_bg"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_content_color_dark"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_content_color_light"
+            },
+            {
+                "type": "POST",
+                "property": "mobile_css_content_color_medium"
+            }
+        ],
+        "function": "htmlentities",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 1",
+        "script_name": "admin\/gm_emails.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "id"
+            },
+            {
+                "type": "GET",
+                "property": "lang"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 2",
+        "script_name": [
+            "admin\/banner_manager.php",
+            "admin\/banner_statistics.php",
+            "admin\/blacklist.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "bID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 3",
+        "script_name": [
+            "admin\/blacklist.php",
+            "admin\/banner_manager.php",
+            "admin\/banner_statistics.php",
+            "admin\/campaigns.php",
+            "admin\/countries.php",
+            "admin\/coupon_admin.php",
+            "admin\/cross_sell_groups.php",
+            "admin\/currencies.php",
+            "admin\/customers.php",
+            "admin\/customers_status.php",
+            "admin\/gm_feature_control.php",
+            "admin\/gm_slider.php",
+            "admin\/languages.php",
+            "admin\/lettr_de.php",
+            "admin\/manufacturers.php",
+            "admin\/orders.php",
+            "admin\/orders_status.php",
+            "admin\/products_vpe.php",
+            "admin\/quantity_units.php",
+            "admin\/specials.php",
+            "admin\/shipping_status.php",
+            "admin\/show_logs.php",
+            "admin\/tax_classes.php",
+            "admin\/tax_rates.php",
+            "admin\/yatego.php",
+            "admin\/zones.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "page"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 4",
+        "script_name": "admin\/categories.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "products_id"
+            },
+            {
+                "type": "POST",
+                "property": "parent_id"
+            },
+            {
+                "type": "POST",
+                "property": "categories_id"
+            },
+            {
+                "type": "GET",
+                "property": "pID"
+            },
+            {
+                "type": "POST",
+                "property": "gm_gprint_delete_assignment"
+            },
+            {
+                "type": "GET",
+                "property": "flag"
+            },
+            {
+                "type": "POST",
+                "property": "show_sub_products"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 5",
+        "script_name": [
+            "admin\/campaigns.php",
+            "admin\/categories.php",
+            "admin\/countries.php",
+            "admin\/coupon_manager.php",
+            "admin\/currencies.php",
+            "admin\/customers.php",
+            "admin\/customers_status.php",
+            "admin\/orders.php",
+            "admin\/orders_edit",
+            "admin\/zones.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "cID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 6",
+        "script_name": "admin\/geo_zones.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "sID"
+            },
+            {
+                "type": "GET",
+                "property": "spage"
+            },
+            {
+                "type": "GET",
+                "property": "zID"
+            },
+            {
+                "type": "GET",
+                "property": "zpage"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 7",
+        "script_name": "admin\/gm_gprint.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "categories_id"
+            },
+            {
+                "type": "GET",
+                "property": "categories_id"
+            },
+            {
+                "type": "GET",
+                "property": "id"
+            },
+            {
+                "type": "GET",
+                "property": "languages_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 8",
+        "script_name": [
+            "admin\/gm_meta.php",
+            "admin\/gm_scroller",
+            "admin\/gm_statusbar"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "lang_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 9",
+        "script_name": "admin\/gm_slider.php",
+        "variables": [
+            {
+                "type": "REQUEST",
+                "property": "lang_all"
+            },
+            {
+                "type": "GET",
+                "property": "newPIC"
+            },
+            {
+                "type": "GET",
+                "property": "newTHUMB"
+            },
+            {
+                "type": "REQUEST",
+                "property": "slider_set_id"
+            },
+            {
+                "type": "POST",
+                "property": "sliderWidth"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 10",
+        "script_name": [
+            "admin\/orders_edit.php",
+            "admin\/orders_status.php",
+            "admin\/products_vpe",
+            "admin\/shipping_status.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "oID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 11",
+        "script_name": "admin\/products_attributes.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "option_id"
+            },
+            {
+                "type": "GET",
+                "property": "option_page"
+            },
+            {
+                "type": "POST",
+                "property": "value_id"
+            },
+            {
+                "type": "GET",
+                "property": "value_page"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 12",
+        "script_name": [
+            "admin\/tax_classes.php",
+            "admin\/tax_rates.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "tID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 13",
+        "script_name": "admin\/yatego.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "topseller"
+            },
+            {
+                "type": "GET",
+                "property": "selectall"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 14",
+        "script_name": "admin\/customers.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "status"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 16",
+        "script_name": "admin\/orders_edit.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "cID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 17",
+        "script_name": "admin\/languages.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "lID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 18",
+        "script_name": "admin\/gm_sitemap.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "update"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 19",
+        "script_name": "admin\/gm_feature_control.php",
+        "variables": [
+            {
+                "type": "REQUEST",
+                "property": "feature_id"
+            },
+            {
+                "type": "REQUEST",
+                "property": "lang_all"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 20",
+        "script_name": "admin\/banner_statistics.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "month"
+            },
+            {
+                "type": "GET",
+                "property": "year"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 21",
+        "script_name": "admin\/configuration.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "gID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 22",
+        "script_name": "admin\/content_manager.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "coID"
+            },
+            {
+                "type": "POST",
+                "property": "coID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 24",
+        "script_name": "admin\/gm_security.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "GM_LOGIN_TRYOUT"
+            },
+            {
+                "type": "POST",
+                "property": "GM_LOGIN_TIMELINE"
+            },
+            {
+                "type": "POST",
+                "property": "GM_LOGIN_TIMEOUT"
+            },
+            {
+                "type": "POST",
+                "property": "GM_SEARCH_TIMELINE"
+            },
+            {
+                "type": "POST",
+                "property": "GM_SEARCH_TIMEOUT"
+            },
+            {
+                "type": "POST",
+                "property": "GM_SEARCH_TRYOUT"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 25",
+        "script_name": "admin\/stats_sales_report.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "detail"
+            },
+            {
+                "type": "GET",
+                "property": "endD"
+            },
+            {
+                "type": "GET",
+                "property": "endM"
+            },
+            {
+                "type": "GET",
+                "property": "endY"
+            },
+            {
+                "type": "GET",
+                "property": "export"
+            },
+            {
+                "type": "GET",
+                "property": "max"
+            },
+            {
+                "type": "GET",
+                "property": "report"
+            },
+            {
+                "type": "GET",
+                "property": "sort"
+            },
+            {
+                "type": "GET",
+                "property": "startD"
+            },
+            {
+                "type": "GET",
+                "property": "startM"
+            },
+            {
+                "type": "GET",
+                "property": "startY"
+            },
+            {
+                "type": "GET",
+                "property": "status"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 26",
+        "script_name": "admin\/stats_campaigns.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "endD"
+            },
+            {
+                "type": "GET",
+                "property": "endM"
+            },
+            {
+                "type": "GET",
+                "property": "endY"
+            },
+            {
+                "type": "GET",
+                "property": "export"
+            },
+            {
+                "type": "GET",
+                "property": "report"
+            },
+            {
+                "type": "GET",
+                "property": "startD"
+            },
+            {
+                "type": "GET",
+                "property": "startM"
+            },
+            {
+                "type": "GET",
+                "property": "startY"
+            },
+            {
+                "type": "GET",
+                "property": "status"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 27",
+        "script_name": "admin\/specials.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "sID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 28",
+        "script_name": "admin\/popup_memo.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "ID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 29",
+        "script_name": "admin\/properties_combis.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "products_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 30",
+        "script_name": "admin\/quantity_units.php",
+        "variables": [
+            {
+                "type": "REQUEST",
+                "property": "lang_all"
+            },
+            {
+                "type": "REQUEST",
+                "property": "quanitity_unit_id"
+            },
+            {
+                "type": "GET",
+                "property": "quanitity_unit_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 31",
+        "script_name": [
+            "admin\/create_account.php",
+            "admin\/customers.php"
+        ],
+        "variables": [
+            {
+                "type": "POST",
+                "property": "entry_country_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 32",
+        "script_name": "admin\/create_account.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "default_address_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 33",
+        "script_name": "admin\/csv_backend.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "gm_delete_categories"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 34",
+        "script_name": [
+            "admin\/manufacturers.php",
+            "admin\/customers.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "mID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 35",
+        "script_name": "admin\/orders.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "status"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 36",
+        "script_name": "admin\/gm_ebay.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "GM_EBAY_COUNT"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 37",
+        "script_name": "admin\/coupon_admin.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "cid"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 38",
+        "script_name": "admin\/gm_opensearch.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "lang_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 39",
+        "script_name": "admin\/new_attributes.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "current_product_id"
+            },
+            {
+                "type": "POST",
+                "property": "copy_product_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 40",
+        "script_name": "admin\/yatego.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "category"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 41",
+        "script_name": "admin\/print_intraship_label.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "oID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 42",
+        "script_name": "admin\/intraship.php",
+        "variables": [
+            {
+                "type": "POST",
+                "subcategory": "intraship",
+                "property": [
+                    "active",
+                    "debug",
+                    "send_email",
+                    "send_announcement",
+                    "bpi_use_premium",
+                    "use_postfinder",
+                    "status_id_storno",
+                    "status_id_sent"
+                ]
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 43",
+        "script_name": "admin\/orders.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "ptd_order_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 44",
+        "script_name": "admin\/admin.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "product_id"
+            },
+            {
+                "type": "GET",
+                "property": "atttributesId"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 45",
+        "script_name": "admin\/reviews.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "page"
+            },
+            {
+                "type": "GET",
+                "property": "rID"
+            },
+            {
+                "type": "POST",
+                "property": "reviews_rating"
+            },
+            {
+                "type": "POST",
+                "property": "reviews_id"
+            },
+            {
+                "type": "POST",
+                "property": "products_id"
+            },
+            {
+                "type": "POST",
+                "property": "reviews_rating"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 45",
+        "script_name": "admin\/request_port.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "properties_id"
+            },
+            {
+                "type": "POST",
+                "property": "properties_id"
+            },
+            {
+                "type": "POST",
+                "property": "properties_values_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 46",
+        "script_name": [
+            "advanced_search_result.php",
+            "shop.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "inc_subcat"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 47",
+        "script_name": [
+            "advanced_search_result.php",
+            "login.php",
+            "shop.php",
+            "index.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "categories_id"
+            },
+            {
+                "type": "GET",
+                "property": "filter_categories_id"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Integer-Filter 48",
+        "script_name": [
+            "request_port.php",
+            "popup_content.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "coID"
+            }
+        ],
+        "function": "convert_to_integer",
+        "severity": "error"
+    },
+    {
+        "key": "Nummerisch-Filter 1",
+        "script_name": "admin\/gm_gmotion.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "gm_gmotion_standard_zoom_from"
+            },
+            {
+                "type": "POST",
+                "property": "gm_gmotion_standard_zoom_to"
+            }
+        ],
+        "function": "only_numeric",
+        "severity": "error"
+    },
+    {
+        "key": "Nummerisch-Filter 2",
+        "script_name": "admin\/orders.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "status"
+            }
+        ],
+        "function": "only_numeric",
+        "severity": "error"
+    },
+    {
+        "key": "Nummerisch-Filter 3",
+        "script_name": "admin\/specials.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "cboMonth"
+            },
+            {
+                "type": "GET",
+                "property": "cboYear"
+            }
+        ],
+        "function": "only_numeric",
+        "severity": "error"
+    },
+    {
+        "key": "Nummerisch-Filter 4",
+        "script_name": "admin\/intraship.php",
+        "variables": [
+            {
+                "type": "POST",
+                "subcategory": "intraship",
+                "property": [
+                    "cod_account_number",
+                    "cod_bank_number"
+                ]
+            }
+        ],
+        "function": "only_numeric",
+        "severity": "error"
+    },
+    {
+        "key": "Nummerisch-Filter 5",
+        "script_name": [
+            "advanced_search_result.php",
+            "login.php",
+            "shop.php",
+            "index.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "filter_price_max"
+            },
+            {
+                "type": "GET",
+                "property": "filter_price_min"
+            },
+            {
+                "type": "GET",
+                "property": "pfrom"
+            },
+            {
+                "type": "GET",
+                "property": "pto"
+            }
+        ],
+        "function": "only_numeric",
+        "severity": "error"
+    },
+    {
+        "key": "Preis-Filter 1",
+        "script_name": "admin\/specials.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "specials_price"
+            }
+        ],
+        "function": "filter_price",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 1",
+        "script_name": "admin\/products_attributes.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "option_name"
+            },
+            {
+                "type": "POST",
+                "property": "value_name"
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 2",
+        "script_name": "admin\/gm_gprint.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "surfaces_group_name"
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 3",
+        "script_name": "admin\/quantity_units.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "unitNew"
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 4",
+        "script_name": "admin\/clear_cache.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "manual_categories_index"
+            },
+            {
+                "type": "GET",
+                "property": "manual_categories_index"
+            },
+            {
+                "type": "GET",
+                "property": "manual_data_cache"
+            },
+            {
+                "type": "GET",
+                "property": "manual_feature_index"
+            },
+            {
+                "type": "GET",
+                "property": "manual_output"
+            },
+            {
+                "type": "GET",
+                "property": "manual_products_properties_index"
+            },
+            {
+                "type": "GET",
+                "property": "manual_submenu"
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 5",
+        "script_name": "admin\/customers.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "search"
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 6",
+        "script_name": "admin\/magnalister.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "search"
+            },
+            {
+                "type": "POST",
+                "subcategory": "conf",
+                "property": [
+                    "general.passphrase",
+                    "general.firstactivation"
+                ]
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 7",
+        "script_name": "admin\/intraship.php",
+        "variables": [
+            {
+                "type": "POST",
+                "subcategory": "intraship",
+                "property": [
+                    "password",
+                    "shipper_name",
+                    "shipper_contact",
+                    "shipper_city",
+                    "shipper_street",
+                    "cod_account_holder",
+                    "cod_bank_name"
+                ]
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 8",
+        "script_name": "admin\/gm_slider.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "sliderName"
+            },
+            {
+                "type": "POST",
+                "property": "sliderNew"
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 9",
+        "script_name": "admin\/customers_status.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "customers_status_min_order"
+            },
+            {
+                "type": "POST",
+                "property": "customers_status_max_order"
+            },
+            {
+                "type": "POST",
+                "property": "customers_status_discount"
+            },
+            {
+                "type": "POST",
+                "property": "customers_status_ot_discount"
+            },
+            {
+                "type": "POST",
+                "property": "customers_status_payment_unallowed"
+            },
+            {
+                "type": "POST",
+                "property": "customers_status_shipping_unallowed"
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Text-Filter 10",
+        "script_name": [
+            "account.php",
+            "account_edit.php",
+            "account_history.php",
+            "account_history_info.php",
+            "account_password.php",
+            "address_book.php",
+            "address_book_process.php",
+            "advanced_search.php",
+            "advanced_search_result.php",
+            "checkout_confirmation.php",
+            "checkout_ipayment.php",
+            "checkout_payment.php",
+            "checkout_payment_address.php",
+            "checkout_payone_cr.php",
+            "checkout_payone_addresscheck.php",
+            "checkout_process.php",
+            "checkout_shipping.php",
+            "checkout_shipping_address.php",
+            "checkout_success.php",
+            "create_account.php",
+            "create_guest_account.php",
+            "gm_account_delete.php",
+            "gm_price_offer.php",
+            "gv_send.php",
+            "index.php",
+            "login.php",
+            "logoff.php",
+            "password_double_opt.php",
+            "newsletter.php",
+            "popup_content.php",
+            "popup_coupon_help.php",
+            "popup_image.php",
+            "popup_search_help.php",
+            "print_order.php",
+            "product_info.php",
+            "print_product_info.php",
+            "product_reviews.php",
+            "product_reviews_write.php",
+            "product_reviews_info.php",
+            "products_new.php",
+            "request_port.php",
+            "shop.php",
+            "shop_content.php",
+            "skrill_iframe.php",
+            "shopping_cart.php",
+            "specials.php",
+            "wish_list.php",
+            "withdrawal.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "do"
+            }
+        ],
+        "function": "filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 1",
+        "script_name": "admin\/coupon_admin.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "status"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 2",
+        "script_name": "admin\/categories.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "products_sorting"
+            },
+            {
+                "type": "POST",
+                "property": "products_sorting2"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 3",
+        "script_name": "admin\/mail.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "customers_email_address"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 4",
+        "script_name": "admin\/gm_product_export.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "module"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 5",
+        "script_name": "admin\/languages.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "charset"
+            },
+            {
+                "type": "POST",
+                "property": "directory"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 6",
+        "script_name": "admin\/show_logs.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "file"
+            },
+            {
+                "type": "GET",
+                "property": "hidden_file"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 7",
+        "script_name": "admin\/products_attributes.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "option_order_by"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 8",
+        "script_name": "admin\/amazoncheckout_config.php",
+        "variables": [
+            {
+                "type": "REQUEST",
+                "property": "accesskey"
+            },
+            {
+                "type": "REQUEST",
+                "property": "button_background"
+            },
+            {
+                "type": "REQUEST",
+                "property": "button_color"
+            },
+            {
+                "type": "REQUEST",
+                "property": "button_size"
+            },
+            {
+                "type": "REQUEST",
+                "property": "customers_status"
+            },
+            {
+                "type": "REQUEST",
+                "property": "marketplace_id"
+            },
+            {
+                "type": "REQUEST",
+                "property": "merchant_id"
+            },
+            {
+                "type": "REQUEST",
+                "property": "mode"
+            },
+            {
+                "type": "REQUEST",
+                "property": "os_cancel"
+            },
+            {
+                "type": "REQUEST",
+                "property": "os_new"
+            },
+            {
+                "type": "REQUEST",
+                "property": "os_ready"
+            },
+            {
+                "type": "REQUEST",
+                "property": "os_shipped"
+            },
+            {
+                "type": "REQUEST",
+                "property": "secretkey"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 9",
+        "script_name": "admin\/intraship.php",
+        "variables": [
+            {
+                "type": "POST",
+                "subcategory": "intraship",
+                "property": [
+                    "user",
+                    "intraship_zone_1_countries",
+                    "intraship_zone_2_countries",
+                    "intraship_zone_3_countries",
+                    "intraship_zone_4_countries",
+                    "shipper_house",
+                    "shipper_postcode",
+                    "shipper_email",
+                    "shipper_phone",
+                    "cod_iban",
+                    "cod_bic"
+                ]
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 10",
+        "script_name": [
+            "export\/xml_export.php",
+            "export\/cao_import.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "user"
+            },
+            {
+                "type": "GET",
+                "property": "password"
+            },
+            {
+                "type": "POST",
+                "property": "user"
+            },
+            {
+                "type": "POST",
+                "property": "password"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Zeichen-Filter 11",
+        "script_name": "index.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "cat"
+            }
+        ],
+        "function": "only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Alphanumerisch-Filter 1",
+        "script_name": "admin\/accounting.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "access"
+            }
+        ],
+        "function": "recursive_only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Alphanumerisch-Filter 2",
+        "script_name": "admin\/stats_sales_report.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "orders_status"
+            }
+        ],
+        "function": "recursive_only_alphanumeric",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Text-Filter 1",
+        "script_name": "admin\/quantity_units.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "unitName"
+            }
+        ],
+        "function": "recursive_filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Text-Filter 2",
+        "script_name": "admin\/includes\/ckeditor\/filemanager\/connectors\/php\/inc\/vendor\/wideimage\/demo\/index.php",
+        "variables": [
+            {
+                "type": "GET",
+                "property": "matrix"
+            },
+            {
+                "type": "GET",
+                "property": "text"
+            },
+            {
+                "type": "GET",
+                "property": "x"
+            },
+            {
+                "type": "GET",
+                "property": "y"
+            }
+        ],
+        "function": "recursive_filter_text",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Zeichen-Filter 1",
+        "script_name": "admin\/gm_module_export.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "configuration"
+            }
+        ],
+        "function": "recursive_only_safe_characters",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-htmlspecialchars-Filter 1",
+        "script_name": "admin\/gm_feature_control.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "featAdminName"
+            }
+        ],
+        "function": "recursive_htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-htmlspecialchars-Filter 2",
+        "script_name": "admin\/gm_feature_control.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "featName"
+            }
+        ],
+        "function": "recursive_htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-htmlspecialchars-Filter 3",
+        "script_name": "admin\/gm_feature_control.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "featNew"
+            }
+        ],
+        "function": "recursive_htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-htmlspecialchars-Filter 4",
+        "script_name": "admin\/gm_feature_control.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "featValueNew"
+            }
+        ],
+        "function": "recursive_htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "htmlspecialchars-Filter 1",
+        "script_name": [
+            "admin\/reviews.php"
+        ],
+        "variables": [
+            {
+                "type": "POST",
+                "property": "customers_name"
+            },
+            {
+                "type": "POST",
+                "property": "products_name"
+            },
+            {
+                "type": "POST",
+                "property": "products_image"
+            },
+            {
+                "type": "POST",
+                "property": "last_modified"
+            },
+            {
+                "type": "POST",
+                "property": "date_added"
+            }
+        ],
+        "function": "htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "htmlspecialchars-Filter 2",
+        "script_name": [
+            "admin\/request_port.php"
+        ],
+        "variables": [
+            {
+                "type": "POST",
+                "property": "value_model"
+            }
+        ],
+        "function": "htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "htmlspecialchars-Filter 3",
+        "script_name": [
+            "login.php",
+            "shop.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "keywords"
+            }
+        ],
+        "function": "htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "htmlspecialchars-Filter 4",
+        "script_name": [
+            "advanced_search_result.php",
+            "login.php",
+            "shop.php",
+            "index.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "filter_url"
+            }
+        ],
+        "function": "htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "htmlspecialchars-Filter 5",
+        "script_name": "admin\/coupon_admin.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "coupon_code"
+            }
+        ],
+        "function": "htmlspecialchars",
+        "severity": "error"
+    },
+    {
+        "key": "Tag-Filter 1",
+        "script_name": "account_edit.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "gender"
+            },
+            {
+                "type": "POST",
+                "property": "firstname"
+            },
+            {
+                "type": "POST",
+                "property": "lastname"
+            },
+            {
+                "type": "POST",
+                "property": "email_address"
+            },
+            {
+                "type": "POST",
+                "property": "telephone"
+            },
+            {
+                "type": "POST",
+                "property": "fax"
+            },
+            {
+                "type": "POST",
+                "property": "vat"
+            }
+        ],
+        "function": "filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Tag-Filter 2",
+        "script_name": "address_book_process.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "gender"
+            },
+            {
+                "type": "POST",
+                "property": "firstname"
+            },
+            {
+                "type": "POST",
+                "property": "lastname"
+            },
+            {
+                "type": "POST",
+                "property": "company"
+            },
+            {
+                "type": "POST",
+                "property": "street_address"
+            },
+            {
+                "type": "POST",
+                "property": "house_number"
+            },
+            {
+                "type": "POST",
+                "property": "postcode"
+            },
+            {
+                "type": "POST",
+                "property": "city"
+            },
+            {
+                "type": "POST",
+                "property": "country"
+            },
+            {
+                "type": "POST",
+                "property": "b2b_status"
+            }
+        ],
+        "function": "filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Tag-Filter 3",
+        "script_name": "product_reviews_write.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "review"
+            }
+        ],
+        "function": "filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Tag-Filter 4",
+        "script_name": "checkout_shipping_address.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "gender"
+            },
+            {
+                "type": "POST",
+                "property": "firstname"
+            },
+            {
+                "type": "POST",
+                "property": "lastname"
+            },
+            {
+                "type": "POST",
+                "property": "company"
+            },
+            {
+                "type": "POST",
+                "property": "street_address"
+            },
+            {
+                "type": "POST",
+                "property": "house_number"
+            },
+            {
+                "type": "POST",
+                "property": "postcode"
+            },
+            {
+                "type": "POST",
+                "property": "city"
+            },
+            {
+                "type": "POST",
+                "property": "state"
+            },
+            {
+                "type": "POST",
+                "property": "country"
+            },
+            {
+                "type": "POST",
+                "property": "suburb"
+            },
+            {
+                "type": "POST",
+                "property": "additional_address_info"
+            }
+        ],
+        "function": "filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Tag-Filter 5",
+        "script_name": "checkout_payment_address.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "gender"
+            },
+            {
+                "type": "POST",
+                "property": "firstname"
+            },
+            {
+                "type": "POST",
+                "property": "lastname"
+            },
+            {
+                "type": "POST",
+                "property": "company"
+            },
+            {
+                "type": "POST",
+                "property": "street_address"
+            },
+            {
+                "type": "POST",
+                "property": "house_number"
+            },
+            {
+                "type": "POST",
+                "property": "postcode"
+            },
+            {
+                "type": "POST",
+                "property": "city"
+            },
+            {
+                "type": "POST",
+                "property": "state"
+            },
+            {
+                "type": "POST",
+                "property": "country"
+            },
+            {
+                "type": "POST",
+                "property": "suburb"
+            },
+            {
+                "type": "POST",
+                "property": "additional_address_info"
+            }
+        ],
+        "function": "filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Tag-Filter 6",
+        "script_name": "admin\/categories.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "products_model"
+            }
+        ],
+        "function": "filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Tag-Filter 7",
+        "script_name": "admin\/banner_manager.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "banners_title"
+            }
+        ],
+        "function": "filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Tag-Filter 8",
+        "script_name": "admin\/content_manager.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "cont_title"
+            },
+            {
+                "type": "POST",
+                "property": "cont_heading"
+            }
+        ],
+        "function": "filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Strip-Tags-Filter 1",
+        "script_name": "admin\/module_newsletter.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "title"
+            },
+            {
+                "type": "POST",
+                "property": "cc"
+            }
+        ],
+        "function": "strip_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Tag-Filter 1",
+        "script_name": "withdrawal.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "withdrawal_data"
+            }
+        ],
+        "function": "recursive_filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Tag-Filter 2",
+        "script_name": "admin\/products_vpe.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "products_vpe_name"
+            }
+        ],
+        "function": "recursive_filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Tag-Filter 3",
+        "script_name": "admin\/customers_status.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "customers_status_name"
+            }
+        ],
+        "function": "recursive_filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "Rekursiv-Tag-Filter 4",
+        "script_name": "admin\/orders_status.php",
+        "variables": [
+            {
+                "type": "POST",
+                "property": "orders_status_name"
+            }
+        ],
+        "function": "recursive_filter_tags",
+        "severity": "error"
+    },
+    {
+        "key": "URL anti-spambot-mechanic",
+        "script_name": [
+            "shop.php",
+            "create_account.php",
+            "create_guest_account.php"
+        ],
+        "variables": [
+            {
+                "type": "POST",
+                "property": "firstname"
+            },
+            {
+                "type": "POST",
+                "property": "lastname"
+            },
+            {
+                "type": "POST",
+                "property": "vat"
+            },
+            {
+                "type": "POST",
+                "property": "street_address"
+            },
+            {
+                "type": "POST",
+                "property": "house_number"
+            },
+            {
+                "type": "POST",
+                "property": "additional_address_info"
+            },
+            {
+                "type": "POST",
+                "property": "suburb"
+            },
+            {
+                "type": "POST",
+                "property": "postcode"
+            },
+            {
+                "type": "POST",
+                "property": "city"
+            },
+            {
+                "type": "POST",
+                "property": "state"
+            },
+            {
+                "type": "POST",
+                "property": "country"
+            },
+            {
+                "type": "POST",
+                "property": "telephone"
+            },
+            {
+                "type": "POST",
+                "property": "fax"
+            }
+        ],
+        "function": "block_all_urls_in_registration_form",
+        "severity": "error"
+    },
+    {
+        "key": "Filter-Ids Filter 1",
+        "script_name": [
+            "advanced_search_result.php",
+            "advanced_search.php",
+            "login.php",
+            "shop.php",
+            "index.php"
+        ],
+        "variables": [
+            {
+                "type": "GET",
+                "property": "filter_fv_id"
+            },
+            {
+                "type": "GET",
+                "property": "value_conjunction"
+            }
+        ],
+        "function": "filter_ids",
+        "severity": "error"
+    }
+]

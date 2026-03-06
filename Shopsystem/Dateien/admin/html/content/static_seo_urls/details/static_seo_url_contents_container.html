@@ -1,0 +1,55 @@
+{*
+	Static Seo Url Contents Container Panel
+
+	Holds a tab container with all static seo url content panels.
+*}
+
+{load_language_text section="buttons" name="btn"}
+
+{block name="admin_static_seo_urls_details_static_seo_url_content_container"}
+	<div class="static-seo-urls-contents-container" data-gx-controller="static_seo_urls/static_seo_urls_contents_container">
+	
+		{* Flag buttons *}
+		{block name="admin_static_seo_urls_details_static_seo_url_content_container_flag_list"}
+			<ul class="nav nav-tabs" role="tablist">
+				{foreach $adminLanguages as $language}
+					{block name="admin_static_seo_urls_details_static_seo_url_content_container_flag_item"}
+						<li role="presentation">
+							<a href="#static-seo-url-contents-{$language.code|lower}"
+							   data-language="{$language.code|lower}"
+							   aria-controls="home"
+							   role="tab"
+							   data-toggle="tab">
+								<span class="flag-icon flag-icon-{$language.code|lower}"></span>
+							</a>
+						</li>
+					{/block}
+				{/foreach}
+			</ul>
+		{/block}
+		
+		{* Tab content *}
+		{block name="admin_static_seo_urls_details_static_seo_url_content_container_tab_content"}
+			<div class="tab-content">
+				{* Create tab content for each language *}
+				{foreach $languages as $language}
+					{block name="admin_static_seo_urls_details_static_seo_url_content_container_tab_content_language_tab_panel"}
+						<div role="tabpanel"
+						     class="tab-pane fade"
+						     id="static-seo-url-contents-{$language.code|lower}"
+							 data-language="{$language.code|lower}"
+							>
+							{block name="admin_static_seo_urls_details_static_seo_url_content_container_tab_content_language_tab_panel_content"}
+								{foreach $content.staticSeoUrlContents as $staticSeoUrlContent}
+									{if $staticSeoUrlContent.language_code|lower eq $language.code|lower}
+										{include file="get_usermod:static_seo_urls/details/static_seo_url_content_panel.html" staticSeoUrlContent=$staticSeoUrlContent}
+									{/if}
+								{/foreach}
+							{/block}
+						</div>
+					{/block}
+				{/foreach}
+			</div>
+		{/block}
+	</div>
+{/block}

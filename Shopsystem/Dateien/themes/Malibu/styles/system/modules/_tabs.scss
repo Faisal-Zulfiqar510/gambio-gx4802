@@ -1,0 +1,214 @@
+/* Tabs & Mobile-Accordion
+   ========================================================================== */
+
+// add tab styles to
+// accordion headings
+
+.tab-content > .tab-pane {
+	.tab-heading > a {
+		display: block;
+		position: relative;
+		padding: $nav-link-padding;
+		line-height: $line-height-base;
+		border: 1px solid transparent;
+
+		@include border-top-radius($border-radius-base);
+		@include border-bottom-radius(0);
+
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+// add styles to tab-navigation 
+// and accordion headings
+
+.nav-tabs {
+	border-bottom: 3px solid $gx-tab-container-border-color;
+	height: 50px;
+}
+
+.nav-tabs > li,
+.tab-content > .tab-pane > .tab-heading {
+	margin-bottom: 0;
+
+	> a {
+		color: $gx-tab-color;
+		margin: 0;
+		line-height: $line-height-base;
+		height: 50px;
+		border: none;
+		border-bottom: 3px solid $gx-tab-border-color;
+
+		@extend h2;
+
+		@include background($gx-tab-bg-color,
+				$gx-tab-bg-image-url,
+				$gx-tab-bg-image-position,
+				$gx-tab-bg-image-repeat,
+				$gx-tab-bg-image-size,
+				$gx-tab-bg-image-attachment,
+			    $gx-tab-bg-image-enabled,
+			    $gx-tab-bg-gradient-enabled,
+			    $gx-tab-bg-gradient-color1,
+			    $gx-tab-bg-gradient-color2,
+			    $gx-tab-bg-gradient-type,
+			    $gx-tab-bg-gradient-angle);
+
+		@media (max-width: $screen-xs-max) {
+			border-bottom: 3px solid #EEEEEE;
+			padding: 10px 5px 10px 0;
+
+			&:before {
+				font-family: "gm";
+				font-style: normal;
+				font-weight: normal;
+				speak: none;
+				display: inline-block;
+				text-decoration: inherit;
+				width: 1em;
+				margin-right: .2em;
+				text-align: center;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1em;
+				margin-left: .2em;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+
+				float: right;
+				font-size: 20px;
+				margin-top: 3px;
+				content: '\e800'; /* chevron-right */
+				@include transition(ease 200ms transform);
+			}
+		}
+	}
+
+	> a:hover {
+		color: $gx-tab-color-active;
+		border-bottom: 3px solid $gx-tab-border-color-active;
+
+		@include background($gx-tab-bg-active-color,
+				$gx-tab-bg-active-image-url,
+				$gx-tab-bg-active-image-position,
+				$gx-tab-bg-active-image-repeat,
+				$gx-tab-bg-active-image-size,
+				$gx-tab-bg-active-image-attachment,
+				$gx-tab-bg-active-image-enabled,
+				$gx-tab-bg-active-gradient-enabled,
+				$gx-tab-bg-active-gradient-color1,
+				$gx-tab-bg-active-gradient-color2,
+				$gx-tab-bg-active-gradient-type,
+				$gx-tab-bg-active-gradient-angle);
+	}
+}
+
+.nav-tabs > li.active,
+.tab-content > .tab-pane.active > .tab-heading {
+	> a,
+	> a:focus,
+	> a:hover {
+		border: none;
+		color: $gx-tab-color-active;
+
+		@include background($gx-tab-bg-active-color,
+				$gx-tab-bg-active-image-url,
+				$gx-tab-bg-active-image-position,
+				$gx-tab-bg-active-image-repeat,
+				$gx-tab-bg-active-image-size,
+				$gx-tab-bg-active-image-attachment,
+				$gx-tab-bg-active-image-enabled,
+				$gx-tab-bg-active-gradient-enabled,
+				$gx-tab-bg-active-gradient-color1,
+				$gx-tab-bg-active-gradient-color2,
+				$gx-tab-bg-active-gradient-type,
+				$gx-tab-bg-active-gradient-angle);
+
+		.has-multi-tabs & {
+			border-bottom: 3px solid $gx-tab-border-color-active;
+		}
+	}
+
+	@media (max-width: $screen-xs-max) {
+		a {
+			&:before {
+				transform: rotate(90deg);
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				-ms-transform: rotate(90deg);
+			}
+		}
+	}
+}
+
+.nav-tabs > li.active {
+	border-bottom: 3px solid $gx-tab-border-color-active;
+
+	.has-multi-tabs & {
+		border-bottom: none;
+	}
+}
+
+// mobile behavior as accordion
+// hide tab navigation
+
+.nav-tabs {
+	display: none;
+}
+
+.tab-content > .tab-pane {
+	display: block;
+
+	&.active > .tab-body {
+		border-bottom: 3px solid #EEEEEE;
+		display: block;
+	}
+
+	> .tab-body {
+		display: none;
+
+		@media (max-width: $screen-xs-max) {
+			padding-top: 5px!important;
+		}
+	}
+}
+
+// reset mobile behavior
+
+@media (min-width: $grid-float-breakpoint) {
+	.nav-tabs {
+		display: block;
+	}
+
+	.tab-content {
+		> .tab-pane {
+			display: none;
+
+			&.active {
+				display: block;
+			}
+
+			> .tab-heading {
+				display: none;
+			}
+
+			> .tab-body {
+				display: block;
+
+				&.active {
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+// tab-body padding
+
+.tab-body {
+	padding: $grid-gutter-width 0;
+} 

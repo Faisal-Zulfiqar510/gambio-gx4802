@@ -1,0 +1,92 @@
+{*	Email Invoice Modal *}
+
+{load_language_text section="gm_order_menu" name="gm_order_menu"}
+{load_language_text section="gm_send_order" name="gm_send_order"}
+
+{block name="admin_orders_modals_email_invoice_order_details"}
+	<div class="email-invoice-modal-body">
+		<div class="email-invoice-form">
+			{block name="admin_orders_modals_email_invoice_order_details_question"}
+				<div class="form-group remove-border">
+							<span class="confirm-question">
+								{$gm_order_menu.TITLE_INVOICE_CONFIRM}
+								<span class="customer-info">{* Dynamic Content *}</span>
+								{$gm_order_menu.TITLE_INVOICE_CONFIRMED}
+							</span>
+				</div>
+			{/block}
+	
+			{block name="admin_orders_modals_email_invoice_order_details_alert_warning"}
+				<div class="alert alert-warning hidden no-invoice">{$gm_order_menu.TEXT_NO_INVOICE_INFO}</div>
+			{/block}
+	
+			<br>
+	
+			{block name="admin_orders_modals_email_invoice_order_details_form"}
+				<form class="gx-container">
+					<fieldset>
+						{block name="admin_orders_modals_email_invoice_order_details_form_invoices"}
+							<div class="hidden invoice-numbers grid">
+								{block name="admin_orders_modals_email_invoice_order_details_form_invoices_label"}
+									<label for="invoice-subject" class="span2">
+										{$gm_order_menu.TITLE_INVOICES}
+									</label>
+								{/block}
+								{block name="admin_orders_modals_email_invoice_order_details_form_invoices_input"}
+									<div class="span10 invoice-numbers-checkboxes">
+				
+									</div>
+								{/block}
+							</div>
+						{/block}
+		
+						{* Subject Field*}
+						{block name="admin_orders_modals_email_invoice_order_details_form_subject"}
+							<div class="grid">
+								{block name="admin_orders_modals_email_invoice_order_details_form_subject_label"}
+									<label for="invoice-subject" class="span2">
+										{$gm_order_menu.TITLE_SUBJECT}
+									</label>
+								{/block}
+								{block name="admin_orders_modals_email_invoice_order_details_form_subject_input"}
+									<div class="span10 control-group">
+										<input id="invoice-subject"
+											   type="text"
+											   class="subject form-control"
+											   name="gm_subject"
+											   value="MAIL_SUBJECT" />
+									</div>
+								{/block}
+							</div>
+						{/block}
+		
+						{* E-Mail Address Field *}
+						{block name="admin_orders_modals_email_invoice_order_details_form_email_address_field"}
+							<div class="grid">
+								{block name="admin_orders_modals_email_invoice_order_details_form_email_address_field_label"}
+									<label for="invoice-email-address" class="span2">
+										{$gm_order_menu.TITLE_MAIL}
+									</label>
+								{/block}
+								{block name="admin_orders_modals_email_invoice_order_details_form_email_address_field_input"}
+									<div class="span10 control-group">
+										<input id="invoice-email-address"
+											   type="text"
+											   class="email-address form-control"
+											   name="gm_mail"
+											   value="CUSTOMER_EMAIL_ADDRESS" />
+									</div>
+								{/block}
+							</div>
+						{/block}
+					</fieldset>
+				</form>
+			{/block}
+		</div>
+		{block name="admin_orders_modals_email_invoice_order_details_alert_success"}
+			<div class="email-invoice-success hidden">
+				<div class="alert alert-success">{$gm_send_order.MAIL_SUCCESS}</div>
+			</div>
+		{/block}
+	</div>
+{/block}

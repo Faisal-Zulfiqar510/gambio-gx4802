@@ -1,0 +1,69 @@
+[
+    {
+        "id": "BOX_HEADING_ORDERS",
+        "items": [
+            {
+                "sort": 15,
+                "link": "admin.php",
+                "link_param": "do=PaymentMatchingHub",
+                "title": "admin_menu.BOX_HUB_PAYMENT_MATCHING",
+                "if": [
+                    {
+                        "filter": "configExists",
+                        "args": [
+                            "GAMBIO_HUB_CLIENT_KEY",
+                            "GAMBIO_HUB_MECO_MEDIA_SHOP_ID"
+                        ]
+                    },
+                    {
+                        "filter": "oneConfigActive",
+                        "args": [
+                            "GAMBIO_HUB_MECO_MEDIA_MONEY_ORDER",
+                            "GAMBIO_HUB_MECO_MEDIA_INVOICE"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "BOX_HEADING_HUB",
+        "sort": 250,
+        "class": "fa fa-share-alt-square",
+        "title": "admin_menu.BOX_HEADING_HUB",
+        "items": [
+            {
+                "sort": 10,
+                "link": "admin.php",
+                "link_param": "do=HubConfiguration/Account",
+                "title": "admin_menu.BOX_HUB_ACCOUNT"
+            },
+            {
+                "sort": 20,
+                "link": "admin.php",
+                "link_param": "do=KlarnaHubSettlements",
+                "title": "Klarna Settlements",
+                "if": {
+                    "filter": "configExists",
+                    "args": [
+                        "GAMBIO_HUB_CLIENT_KEY",
+                        "GAMBIO_HUB_REMOTE_CONFIG_KLARNAHUB_DEBUGLOGGING"
+                    ]
+                }
+            },
+            {
+                "sort": 30,
+                "link": "admin.php",
+                "link_param": "do=KlarnaHubBoost",
+                "title": "Klarna Boost",
+                "if": {
+                    "filter": "configExists",
+                    "args": [
+                        "GAMBIO_HUB_CLIENT_KEY",
+                        "GAMBIO_HUB_REMOTE_CONFIG_KLARNAHUB_DEBUGLOGGING"
+                    ]
+                }
+            }
+        ]
+    }
+]

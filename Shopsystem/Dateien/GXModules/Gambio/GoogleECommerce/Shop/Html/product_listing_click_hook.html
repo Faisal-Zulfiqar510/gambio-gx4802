@@ -1,0 +1,66 @@
+{*
+	Google Analytics product click snippet partial
+
+	Parameters
+		$data - JSON encoded data (string)
+		$section - Section (string)
+*}
+
+{block name="google_analytics_partials_product_click_snippet"}
+    {if cookie_consent_panel_is_installed()}
+		<script
+			data-json='{$data}'
+			data-section="{$section}"
+			data-managed="as-oil"
+			data-purposes="4"
+			data-type="text/javascript"
+			type="as-oil"
+		>
+	{else}
+		<script data-json='{$data}' data-section="{$section}">
+	{/if}
+		(function() {
+			const data = JSON.parse(document.currentScript.dataset.json);
+			const section = document.currentScript.dataset.section;
+
+			if (!data || !section) {
+				throw new Error('Missing or invalid arguments');
+			}
+
+			document.addEventListener('JSENGINE_INIT_FINISHED', function() {
+				const hooks = {
+					add: jse.libs.hooks.add,
+					key: jse.libs.hooks.keys.shop.product.listing.hover,
+					callback: function(data) {
+						return new Promise(handlePromise.bind(undefined, data));
+					},
+				};
+
+				function handlePromise(payload, resolve) {
+					if (!payload.container.data('index').includes(section)) {
+						resolve();
+						return;
+					}
+
+					const name = payload.container.find('.product-url').text().trim();
+					const impression = data.find(function(dataset) {
+						return 'name' in dataset && dataset.name === name;
+					});
+
+					if (!impression) {
+						resolve();
+						return;
+					}
+
+					gtag('event', 'select_content', {
+						content_type: 'product',
+						items: [impression],
+						event_callback: resolve,
+					});
+				}
+
+				hooks.add(hooks.key, hooks.callback);
+			});
+		})();
+	</script>
+{/block}

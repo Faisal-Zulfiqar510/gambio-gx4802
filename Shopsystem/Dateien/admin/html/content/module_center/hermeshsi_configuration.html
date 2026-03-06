@@ -1,0 +1,262 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+{load_language_text section="module_center_module"}
+{literal}
+	<style>
+		form#hermeshsi-configuration-form input.form-control,
+		form#hermeshsi-configuration-form select.form-control {
+			max-width: inherit;
+		}
+	</style>
+{/literal}
+<div class="breakpoint-small">
+	<form action="{$content.action_save_configuration}" method="POST" class="form-configuration" id="hermeshsi-configuration-form">
+		<input type="hidden" name="pageToken" value="{$content.pageToken}">
+		<div class="form-horizontal">
+			<fieldset>
+				<legend>{$txt.hermeshsi_api_access_credentials}</legend>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_username}</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" name="configuration[apiUser]" id="username" value="{$content.configuration['apiUser']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_password}</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" name="configuration[apiPassword]" id="password" value="{$content.configuration['apiPassword']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_label_testmode}</label>
+					<div class="col-sm-8">
+						<select name="configuration[testMode]" id="hsiTestMode" class="form-control">
+							<option value="0"{if $content.configuration.testMode == false} selected{/if}>{$txt.hermeshsi_testmode_off}</option>
+							<option value="1"{if $content.configuration.testMode == true } selected{/if}>{$txt.hermeshsi_testmode_on }</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+
+            {if $content.configuration['apiUser']}
+			<fieldset>
+				<legend>{$txt.hermeshsi_sender}</legend>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_firstname">{$txt.hermeshsi_sender_firstname}</label>
+					<div class="col-sm-8">
+						<input maxlength="20" type="text" class="form-control" name="configuration[senderNameFirstname]" id="hsi_sender_firstname" value="{$content.configuration['senderNameFirstname']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_middlename">{$txt.hermeshsi_sender_middlename}</label>
+					<div class="col-sm-8">
+						<input maxlength="30" type="text" class="form-control" name="configuration[senderNameMiddlename]" id="hsi_sender_middlename" value="{$content.configuration['senderNameMiddlename']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_lastname">{$txt.hermeshsi_sender_lastname}</label>
+					<div class="col-sm-8">
+						<input maxlength="30" type="text" class="form-control" name="configuration[senderNameLastname]" id="hsi_sender_lastname" value="{$content.configuration['senderNameLastname']}" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_title">{$txt.hermeshsi_sender_title}</label>
+					<div class="col-sm-8">
+						<input  maxlength="20" type="text" class="form-control" name="configuration[senderNameTitle]" id="hsi_sender_title" value="{$content.configuration['senderNameTitle']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_gender">{$txt.hermeshsi_sender_gender}</label>
+					<div class="col-sm-8">
+						<select id="hsi_sender_gender" name="configuration[senderNameGender]" class="form-control">
+							<option value="O"{if $content.configuration['senderNameGender'] === 'O'} selected{/if}>{$txt.hermeshsi_sender_gender_o}</option>
+							<option value="W"{if $content.configuration['senderNameGender'] === 'W'} selected{/if}>{$txt.hermeshsi_sender_gender_w}</option>
+							<option value="M"{if $content.configuration['senderNameGender'] === 'M'} selected{/if}>{$txt.hermeshsi_sender_gender_m}</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_street">{$txt.hermeshsi_sender_street}</label>
+					<div class="col-sm-8">
+						<input maxlength="27" type="text" class="form-control" name="configuration[senderAddressStreet]" id="hsi_sender_street" value="{$content.configuration['senderAddressStreet']}" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_housenumber">{$txt.hermeshsi_sender_housenumber}</label>
+					<div class="col-sm-8">
+						<input maxlength="5" type="text" class="form-control" name="configuration[senderAddressHouseNumber]" id="hsi_sender_housenumber" value="{$content.configuration['senderAddressHouseNumber']}" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_zipcode">{$txt.hermeshsi_sender_zipcode}</label>
+					<div class="col-sm-8">
+						<input maxlength="8" type="text" class="form-control" name="configuration[senderAddressZipCode]" id="hsi_sender_zipcode" value="{$content.configuration['senderAddressZipCode']}" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_town">{$txt.hermeshsi_sender_town}</label>
+					<div class="col-sm-8">
+						<input maxlength="30" type="text" class="form-control" name="configuration[senderAddressTown]" id="hsi_sender_town" value="{$content.configuration['senderAddressTown']}" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_countrycode">{$txt.hermeshsi_sender_countrycode}</label>
+					<div class="col-sm-8">
+						<select class="form-control" id="hsi_sender_countrycode" name="configuration[senderAddressCountryCode]">
+							{foreach $content.countries as $country}
+								<option value="{$country.iso2}" {if $content.configuration['senderAddressCountryCode'] == $country.iso2}selected{/if}>{$country.name}</option>
+							{/foreach}
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_addressaddition">{$txt.hermeshsi_sender_addressaddition}</label>
+					<div class="col-sm-8">
+						<input maxlength="20" type="text" class="form-control" name="configuration[senderAddressAddressAddition]" id="hsi_sender_addressaddition" value="{$content.configuration['senderAddressAddressAddition']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_addressaddition2">{$txt.hermeshsi_sender_addressaddition2}</label>
+					<div class="col-sm-8">
+						<input maxlength="20" type="text" class="form-control" name="configuration[senderAddressAddressAddition2]" id="hsi_sender_addressaddition2" value="{$content.configuration['senderAddressAddressAddition2']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="hsi_sender_addressaddition3">{$txt.hermeshsi_sender_addressaddition3}</label>
+					<div class="col-sm-8">
+						<input maxlength="20" type="text" class="form-control" name="configuration[senderAddressAddressAddition3]" id="hsi_sender_addressaddition3" value="{$content.configuration['senderAddressAddressAddition3']}">
+					</div>
+				</div>
+
+			</fieldset>
+
+			<fieldset>
+				<legend>{$txt.hermeshsi_configuration}</legend>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_label_orderstatusaftersave}</label>
+					<div class="col-sm-8">
+						<select name="configuration[orderStatusAfterSave]" id="hsiConfOrderStatusAfterSave" class="form-control">
+							<option value="-1"{if $content.configuration.orderStatusAfterSave === '-1'} selected{/if}>{$txt.hermeshsi_orderstatus_nochange}</option>
+							{foreach $content.orderStatusCollection as $orderStatus}
+								<option value="{$orderStatus->getId()}"{if $content.configuration.orderStatusAfterSave === (string)$orderStatus->getId()} selected{/if}>
+									{$orderStatus->getName($content.languageCode)}
+								</option>
+							{/foreach}
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_label_orderstatusafterprint}</label>
+					<div class="col-sm-8">
+						<select name="configuration[orderStatusAfterPrint]" id="hsiConfOrderStatusAfterPrint" class="form-control">
+							<option value="-1"{if $content.configuration.orderStatusAfterPrint === '-1'} selected{/if}>{$txt.hermeshsi_orderstatus_nochange}</option>
+                            {foreach $content.orderStatusCollection as $orderStatus}
+								<option value="{$orderStatus->getId()}"{if $content.configuration.orderStatusAfterPrint === (string)$orderStatus->getId()} selected{/if}>
+                                    {$orderStatus->getName($content.languageCode)}
+								</option>
+                            {/foreach}
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_label_parcelservice}</label>
+					<div class="col-sm-8">
+						<select name="configuration[parcelServiceId]" id="hsiParcelServiceId" class="form-control">
+							<option value="-1"{if $content.configuration.parcelServiceId === '-1'} selected{/if}>{$txt.hermeshsi_parcelservice_donotuse}</option>
+                            {foreach $content.parcelServiceCollection as $parcelService}
+								<option value="{$parcelService->id()}"{if $content.configuration.parcelServiceId === (string)$parcelService->id()} selected{/if}>
+                                    {$parcelService->name()}
+								</option>
+                            {/foreach}
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_label_download_method}</label>
+					<div class="col-sm-8">
+						<select name="configuration[labelDownloadMethod]" id="hsiLabelDownloadMethod" class="form-control">
+							<option value="inline"{if $content.configuration.labelDownloadMethod === 'inline'} selected{/if}>{$txt.hermeshsi_labeldownloadmethod_inline}</option>
+							<option value="attachment"{if $content.configuration.labelDownloadMethod === 'attachment' } selected{/if}>{$txt.hermeshsi_labeldownloadmethod_attachment}</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_direct_download}</label>
+					<div class="col-sm-8">
+						<select name="configuration[directDownload]" id="hsiDirectDownload" class="form-control">
+							<option value="0"{if $content.configuration.directDownload == false} selected{/if}>{$txt.hermeshsi_direct_download_off}</option>
+							<option value="1"{if $content.configuration.directDownload == true } selected{/if}>{$txt.hermeshsi_direct_download_on }</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">{$txt.hermeshsi_parcel_weight_mode}</label>
+					<div class="col-sm-8">
+						<select name="configuration[parcelWeightMode]" id="hsiParcelWeightMode" class="form-control">
+							<option value="none"{if $content.configuration.parcelWeightMode === 'none'} selected{/if}>{$txt.hermeshsi_parcelweightmode_none}</option>
+							<option value="products_weight"{if $content.configuration.parcelWeightMode === 'products_weight' } selected{/if}>{$txt.hermeshsi_parcelweightmode_productsweight}</option>
+							<option value="add_packing_weight"{if $content.configuration.parcelWeightMode === 'add_packing_weight' } selected{/if}>{$txt.hermeshsi_parcelweightmode_addpackingweight}</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+
+				{function hsiParcelDimensionInputs number='1' valueHeight=13 valueWidth=23 valueDepth=42}
+					<div class="form-group">
+						<label class="col-sm-3 control-label">{$txt.hermeshsi_preset} {$number}</label>
+						<div class="col-sm-3">
+							<input name="configuration[parcelDimensionPreset{$number}Height]" value="{$valueHeight}" class="form-control" type="number" min="0" max="2000" step="1">
+						</div>
+						<div class="col-sm-3">
+							<input name="configuration[parcelDimensionPreset{$number}Width]" value="{$valueWidth}" class="form-control" type="number" min="0" max="2000" step="1">
+						</div>
+						<div class="col-sm-3">
+							<input name="configuration[parcelDimensionPreset{$number}Depth]" value="{$valueDepth}" class="form-control" type="number" min="0" max="2000" step="1">
+						</div>
+					</div>
+				{/function}
+
+			<fieldset>
+				<legend>{$txt.hermeshsi_parcel_presets}</legend>
+				<div class="form-group">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-3">{$txt.hermeshsi_preset_height}</div>
+					<div class="col-sm-3">{$txt.hermeshsi_preset_width}</div>
+					<div class="col-sm-3">{$txt.hermeshsi_preset_depth}</div>
+				</div>
+				{hsiParcelDimensionInputs number='1'
+					valueHeight={$content.configuration.parcelDimensionPreset1Height}
+	                valueWidth={$content.configuration.parcelDimensionPreset1Width}
+    	            valueDepth={$content.configuration.parcelDimensionPreset1Depth}
+				}
+                {hsiParcelDimensionInputs number='2'
+					valueHeight={$content.configuration.parcelDimensionPreset2Height}
+					valueWidth={$content.configuration.parcelDimensionPreset2Width}
+					valueDepth={$content.configuration.parcelDimensionPreset2Depth}
+                }
+                {hsiParcelDimensionInputs number='3'
+					valueHeight={$content.configuration.parcelDimensionPreset3Height}
+					valueWidth={$content.configuration.parcelDimensionPreset3Width}
+					valueDepth={$content.configuration.parcelDimensionPreset3Depth}
+                }
+                {hsiParcelDimensionInputs number='4'
+					valueHeight={$content.configuration.parcelDimensionPreset4Height}
+					valueWidth={$content.configuration.parcelDimensionPreset4Width}
+					valueDepth={$content.configuration.parcelDimensionPreset4Depth}
+                }
+                {hsiParcelDimensionInputs number='5'
+                valueHeight={$content.configuration.parcelDimensionPreset5Height}
+                valueWidth={$content.configuration.parcelDimensionPreset5Width}
+                valueDepth={$content.configuration.parcelDimensionPreset5Depth}
+                }
+			</fieldset>
+
+            {/if}
+		</div>
+	</form>
+</div>
+{/block}
+{block name="bottom_save_bar"}
+	<button type="submit" class="btn btn-primary" form="hermeshsi-configuration-form">{$txt.hermeshsi_button_submit}</button>
+{/block}

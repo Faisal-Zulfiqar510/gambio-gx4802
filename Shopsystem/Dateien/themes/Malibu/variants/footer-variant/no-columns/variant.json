@@ -1,0 +1,64 @@
+{
+    "type": "category",
+    "title": "malibu.areas.footer.default.title",
+    "id": "footer-no-columns-cat",
+    "basic": true,
+    "categories": [
+        {
+            "type": "category",
+            "id": "footer-default-footerBody",
+            "title": "malibu.areas.footer.footerBody.title",
+            "fieldsets": [
+                {
+                    "title": "malibu.areas.footer.footerBody.title",
+                    "options": [
+                        {
+                            "id": "gx-footer-min-height",
+                            "type": "textbox",
+                            "label": "malibu.areas.footer.footerBody.options.gx-footer-min-height",
+                            "default": "100px"
+                        },
+                        {
+                            "id": "gx-footer-height",
+                            "type": "textbox",
+                            "label": "malibu.areas.footer.footerBody.options.gx-footer-height",
+                            "default": "100px"
+                        },
+                        {
+                            "id": "gx-footer-color",
+                            "type": "colorpicker",
+                            "label": "malibu.areas.footer.footerBody.options.gx-footer-color",
+                            "default": "#666"
+                        },
+                        {
+                            "id": "gx-footer-link-color",
+                            "type": "colorpicker",
+                            "label": "malibu.areas.footer.footerBody.options.gx-footer-link-color",
+                            "default": "#666"
+                        },
+                        {
+                            "id": "gx-footer-link-hover-color",
+                            "type": "colorpicker",
+                            "label": "malibu.areas.footer.footerBody.options.gx-footer-link-hover-color",
+                            "default": "#333333"
+                        },
+                        {
+                            "id": "gx-footer-line-height",
+                            "type": "textbox",
+                            "label": "malibu.areas.footer.footerBody.options.gx-footer-line-height",
+                            "default": "2.3"
+                        },
+                        {
+                            "id": "gx-footer-bg",
+                            "type": "background",
+                            "label": "malibu.areas.footer.footerBody.options.gx-footer-bg",
+                            "default": {
+                                "color": "#d1d1d1"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

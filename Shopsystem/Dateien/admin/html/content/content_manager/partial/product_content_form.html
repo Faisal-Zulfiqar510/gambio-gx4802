@@ -1,0 +1,224 @@
+{block name="admin_content_manager_partial_product_content_form"}
+	<form method="post"
+		  id="{$type}"
+		  class="form-horizontal content-manager-form"
+		  action="{$content_manager.{$type}.form_action}{if isset($smarty.get.expert)}&expert{/if}"
+		  enctype="multipart/form-data"
+			{if $smarty.const.USE_WYSIWYG == 'true'}
+				data-gx-widget="editor"
+				data-editor-event-target="form"
+				data-editor-event-type="submit"
+				data-editor-selector="textarea.wysiwyg"
+			{/if}
+	>
+		<input name="content_manager[selected_language]" class="content-manager-selected-language hidden">
+		<input type="hidden" name="page_token" value="{$content_manager.page_token}" />
+		{block name="admin_content_manager_partial_product_content_form_internal_name"}
+			<fieldset>
+				<div class="form-group product-content-form-internal-name">
+					{block name="admin_content_manager_partial_product_content_form_internal_name_label"}
+						<label for="internal-name" class="col-md-2">{$txt.INTERNAL_NAME}:</label>
+					{/block}
+					{block name="admin_content_manager_partial_product_content_form_internal_name_container"}
+						<div class="col-md-4">
+							{block name="admin_content_manager_partial_product_content_form_internal_name_input"}
+								<input id="internal-name"
+									   class="form-control"
+									   type="text"
+									   name="content_manager[{$type}][internal_name]"
+									   value="{$content_manager.{$type}.internal_name}">
+							{/block}
+						</div>
+					{/block}
+				</div>
+				{if $content_manager.{$type}.group_id}
+					<input class="hidden"
+						   type="text"
+						   name="content_manager[{$type}][group_id]"
+						   value="{$content_manager.{$type}.group_id}">
+				{/if}
+			</fieldset>
+		{/block}
+		
+		{block name="admin_content_manager_partial_product_content_form_catalog_selector"}
+			<div data-gx-widget="catalog_selector"
+				 data-catalog_selector-group_selector=".form-group"
+				 data-catalog_selector-label_selector="label"
+				 data-catalog_selector-dropdown_selector=".catalog-selector-dropdown"
+				 data-catalog_selector-remove_selector=".catalog-selector-remove"
+				 data-catalog_selector-headline_text="{$txt.TABLE_HEADING_PRODUCTS}"
+				 data-catalog_selector-add_button_text="{$admin_buttons.BUTTON_ADD}"
+				 data-catalog_selector-selected_data="{$content_manager.{$type}.products}"
+			>
+				<div class="form-group">
+					<label class="col-md-2">{$txt.SHOW_IN}:</label>
+					<div class="col-md-4">
+						<select class="form-control catalog-selector-dropdown"
+								name="content_manager[{$type}][products][]"></select>
+					</div>
+					<div class="col-md-1 catalog-selector-remove"></div>
+				</div>
+			</div>
+		{/block}
+
+		{block name="admin_content_manager_partial_product_content_form_languages"}
+			<ul class="nav nav-tabs" role="tablist">
+				{foreach name=tabs item=language from=$languages}
+					{block name="admin_content_manager_partial_product_content_form_languages_item"}
+						<li {if $content_manager.selected_language == strtolower($language.code) || (!isset($content_manager.selected_language) && $smarty.foreach.tabs.first)} class="active"{/if}
+								role="presentation">
+							<a data-language="{$language.code|lower}"
+							   aria-controls="home"
+							   role="tab"
+							   data-toggle="tab"
+							   href="#{$type}-files-edit-{$language.code|lower}"
+							   onclick="$('.content-manager-selected-language').val('{$language.code|lower}')"
+							> <span class="flag-icon flag-icon-{$language.code|lower}"></span> </a>
+						</li>
+					{/block}
+				{/foreach}
+			</ul>
+		{/block}
+
+		{block name="admin_content_manager_partial_product_content_form_tabs"}
+			<div class="tab-content">
+				{foreach name=panel item=language from=$languages}
+					{block name="admin_content_manager_partial_product_content_form_tabs_item"}
+						<div role="tabpanel"
+							 class="tab-pane fade {if $content_manager.selected_language == strtolower($language.code) || (!isset($content_manager.selected_language) && $smarty.foreach.panel.first)}active in{/if}"
+							 data-language="{$language.code|lower}"
+							 id="{$type}-files-edit-{$language.code|lower}">
+							<fieldset>
+								{block name="admin_content_manager_partial_product_content_form_tabs_item_title_file"}
+									<div class="form-group">
+										{block name="admin_content_manager_partial_product_content_form_tabs_item_title_file_label"}
+											<label for="title-file" class="col-md-2">{$txt.TEXT_TITLE_FILE}:</label>
+										{/block}
+										{block name="admin_content_manager_partial_product_content_form_tabs_item_title_file_input_wrapper"}
+											<div class="col-md-4">
+												{block name="admin_content_manager_partial_product_content_form_tabs_item_title_file_input"}
+													<input id="title-file"
+														   class="form-control"
+														   type="text"
+														   name="content_manager[{$type}][title][{$language.code|upper}]"
+														   value="{$content_manager.{$type}.title.{$language.code|upper}}">
+												{/block}
+											</div>
+										{/block}
+									</div>
+								{/block}
+			
+								{if $type == "file"}
+									{if $content_manager.filemanager_available == false}
+										{block name="admin_content_manager_partial_product_content_form_tabs_item_choose_file"}
+											<div class="form-group">
+												{block name="admin_content_manager_partial_product_content_form_tabs_item_choose_file_label"}
+													<label class="col-md-2">{$txt.TEXT_CHOOSE_FILE}:</label>
+												{/block}
+												{block name="admin_content_manager_partial_product_content_form_tabs_item_choose_file_container"}
+													<div class="col-md-4">
+														{block name="admin_content_manager_partial_product_content_form_tabs_item_choose_file_input"}
+															<select class="form-control"
+																	name="content_manager[file][file][{$language.code|upper}]">
+																{foreach $content_manager.filelist as $file => $text}
+																	<option value="{$file}" {if $content_manager.file.file.{$language.code|upper} == $file}selected{/if}>{$text}</option>
+																{/foreach}
+															</select>
+														{/block}
+													</div>
+												{/block}
+											</div>
+										{/block}
+									{/if}
+									{block name="admin_content_manager_partial_product_content_form_tabs_item_upload_file"}
+										<div class="form-group">
+											{block name="admin_content_manager_partial_product_content_form_tabs_item_upload_file_label"}
+												<label class="col-md-2">
+													{if $content_manager.filemanager_available === false}
+														{$txt.TEXT_UPLOAD_FILE}:
+													{else}
+														{$txt.TEXT_CHOOSE_FILE}:
+													{/if}
+												</label>
+											{/block}
+											{block name="admin_content_manager_partial_product_content_form_tabs_item_upload_file_container"}
+												<div class="col-md-4">
+													{block name="admin_content_manager_partial_product_content_form_tabs_item_upload_file_input"}
+														<div data-gx-widget="filemanager"
+															 data-filemanager-name="content_manager[file][file][{$language.code|upper}]"
+															 data-filemanager-type="all"
+															 data-filemanager-previous-file="{$content_manager.file.file.{$language.code|upper}}"
+															 data-filemanager-page="content_manager_product_contents"
+															 data-filemanager-content-directory="media/products"
+															 data-filemanager-page-active="{$content_manager.filemanager_available}">
+														</div>
+													{/block}
+												</div>
+											{/block}
+										</div>
+									{/block}
+								{elseif $type == "link"}
+									{block name="admin_content_manager_partial_product_content_form_tabs_item_address"}
+										<div class="form-group">
+											{block name="admin_content_manager_partial_product_content_form_tabs_item_address_label"}
+												<label for="link-address" class="col-md-2">{$txt.LABEL_ADDRESS}:</label>
+											{/block}
+											{block name="admin_content_manager_partial_product_content_form_tabs_item_address_container"}
+												<div class="col-md-4">
+													{block name="admin_content_manager_partial_product_content_form_tabs_item_address_input"}
+														<input id="link-address"
+															   class="form-control"
+															   type="text"
+															   name="content_manager[link][link][{$language.code|upper}]"
+															   value="{$content_manager.link.link.{$language.code|upper}}">
+													{/block}
+												</div>
+											{/block}
+										</div>
+									{/block}
+								{/if}
+			
+								{block name="admin_content_manager_partial_product_content_form_tabs_item_content"}
+									<div class="form-group">
+										{block name="admin_content_manager_partial_product_content_form_tabs_item_content_label"}
+											<label for="content" class="col-md-12">{$txt.TEXT_CONTENT}:</label>
+										{/block}
+										{block name="admin_content_manager_partial_product_content_form_tabs_item_content_container"}
+											<div class="col-md-12">
+												{block name="admin_content_manager_partial_product_content_form_tabs_item_content_input"}
+													<textarea name="content_manager[{$type}][content][{$language.code|upper}]"
+															  data-editor-type="{$content_manager.{$type}.ckeditor.type.{$language.code}}"
+															  data-editor-identifier="{$content_manager.{$type}.ckeditor.identifier.{$language.code}}"
+															  class="wysiwyg">{$content_manager.{$type}.content.{$language.code|upper}}</textarea>
+												{/block}
+											</div>
+										{/block}
+									</div>
+								{/block}
+								
+								{if $type == "text"}
+									{block name="admin_content_manager_partial_product_content_form_tabs_item_text"}
+										<input id="text"
+										       class="form-control hidden"
+										       type="text"
+										       name="content_manager[text][text][{$language.code|upper}]"
+										       value="{$content_manager.text.text.{$language.code|upper}}">
+									{/block}
+								{/if}
+							</fieldset>
+						</div>
+					{/block}
+				{/foreach}
+			</div>
+		{/block}
+		
+		{block name="admin_content_manager_partial_product_content_form_group_check"}
+			<div data-gx-widget="group_check"
+				 data-group_check-user="{$smarty.session.customer_id}"
+				 data-group_check-section="content_manager_{$type}"
+				 data-group_check-selected="{$content.content_manager.groupCheck}"
+				 data-group_check-name="content_manager[{$type}][group_check]"></div>
+			<input type="hidden" name="type" value="{$type}">
+		{/block}
+	</form>
+{/block}

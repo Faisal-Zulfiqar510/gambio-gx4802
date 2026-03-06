@@ -1,0 +1,11 @@
+.verified-reviews-options-wrapper {
+    max-width: 880px;
+}
+
+.verified-reviews-options-wrapper label {
+    font-weight: normal;
+}
+
+ul.nav-tabs[role="tablist"] {
+    margin-bottom: 15px;
+}

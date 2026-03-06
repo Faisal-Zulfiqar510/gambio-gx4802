@@ -1,0 +1,275 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="admin_access"}
+	
+	{block name="admin_admin_access_overview_permissions"}
+		<div class="admin_access_container breakpoint-small"
+		     data-gx-controller="admin_access/admin_access_permissions"
+		>
+			{block name="admin_admin_access_overview_permissions_list"}
+				{if $content.listElements || $content.globalListElements}
+					{block name="admin_admin_access_overview_permissions_list_container"}
+						<form id="admin-access-permissions" method="POST" action="admin.php?do=AdminAccess/savePermissions">
+							<input type="hidden" name="roleId" value="{$content.role.id}"/>
+							
+							<div class="row overview-list-container">
+								{block name="admin_admin_access_overview_permissions_list_container_list"}
+									<ul class="row overview-list global-options"
+										data-gx-extension="visibility_switcher"
+										data-visibility_switcher-rows=".list-element"
+										data-visibility_switcher-selections=".list-element-actions"
+									>
+										<li class="col-md-12 list-headline">
+											<span class="list-element-text col-md-5">
+												{$txt.headline_permissions_overview_name}
+											</span>
+											<span class="list-element-text col-md-2 text-center">
+												{$txt.headline_permissions_overview_reading}
+											</span>
+                                            <span class="list-element-text col-md-2 text-center">
+                                                {$txt.headline_permissions_overview_writing}
+                                            </span>
+                                            <span class="list-element-text col-md-2 text-center">
+                                                {$txt.headline_permissions_overview_deleting}
+                                            </span>
+										</li>
+	
+										{foreach item=element from=$content.globalListElements}
+											<li class="col-md-12 list-element"
+												data-list-element-id="{$element.id}"
+											>
+												<span class="list-element-text col-md-5">
+													{$element.group.name}
+												</span>
+	
+												<div data-gx-widget="switcher">
+													<span class="list-element-switcher col-md-2 text-center">
+														<input type="checkbox"
+                                                           class="permission-checkbox"
+                                                           name="granted[reading][{$element.group.id}]"
+                                                           value="{$element.group.id}"
+                                                           data-group-id="{$element.group.id}"
+                                                           data-parent-id="{$element.group.parentId}"
+                                                           data-permission-type="reading"
+                                                           {if $element.reading}checked{/if}
+														/>
+													</span>
+                                                    <span class="list-element-switcher col-md-2 text-center">
+                                                        <input type="checkbox"
+                                                           class="permission-checkbox"
+                                                           name="granted[writing][{$element.group.id}]"
+                                                           value="{$element.group.id}"
+                                                           data-group-id="{$element.group.id}"
+                                                           data-parent-id="{$element.group.parentId}"
+                                                           data-permission-type="writing"
+                                                           {if $element.writing}checked{/if}
+                                                        />
+                                                    </span>
+                                                    <span class="list-element-switcher col-md-2 text-center">
+                                                        <input type="checkbox"
+                                                           class="permission-checkbox"
+                                                           name="granted[deleting][{$element.group.id}]"
+                                                           value="{$element.group.id}"
+                                                           data-group-id="{$element.group.id}"
+                                                           data-parent-id="{$element.group.parentId}"
+                                                           data-permission-type="deleting"
+                                                           {if $element.deleting}checked{/if}
+                                                        />
+                                                    </span>
+	
+													<span class="list-element-tooltip list-element-actions col-md-1"
+														  data-gx-widget="tooltip_icon"
+														  data-tooltip_icon-type="info"
+													>
+														{$element.group.description}
+													</span>
+												</div>
+											</li>
+										{/foreach}
+									</ul>
+									
+									<ul class="row overview-list"
+									    data-gx-extension="visibility_switcher"
+									    data-visibility_switcher-rows=".list-element"
+									    data-visibility_switcher-selections=".list-element-actions"
+									>
+										{block name="admin_admin_access_overview_permissions_list_container_list_items"}
+											{block name="admin_admin_access_overview_permissions_list_container_list_items_headline"}
+												<li class="col-md-12 list-headline">
+													<span class="list-element-text col-md-5">
+														{$txt.headline_permissions_overview_name}
+													</span>
+													<span class="list-element-text col-md-2 text-center">
+														{$txt.headline_permissions_overview_reading}
+													</span>
+													<span class="list-element-text col-md-2 text-center">
+														{$txt.headline_permissions_overview_writing}
+													</span>
+													<span class="list-element-text col-md-2 text-center">
+														{$txt.headline_permissions_overview_deleting}
+													</span>
+													<span class="col-md-1 list-element-tooltip" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+														{$txt.tooltip_headline}
+													</span>
+												</li>
+											{/block}
+											{block name="admin_admin_access_overview_permissions_list_container_list_items_all_groups"}
+												<li class="col-md-12 list-element">
+													<span class="list-element-text col-md-5">
+														{$txt.text_all_groups}
+													</span>
+													<div data-gx-widget="switcher">
+														<span class="list-element-switcher col-md-2 text-center">
+															<input type="checkbox"
+															       class="all-permission-checkbox"
+															       name="grantAll[reading]"
+															       value="1"
+															       data-permission-type="reading"
+															/>
+														</span>
+														<span class="list-element-switcher col-md-2 text-center">
+															<input type="checkbox"
+															       class="all-permission-checkbox"
+															       name="grantAll[writing]"
+															       value="1"
+															       data-permission-type="writing"
+															/>
+														</span>
+														<span class="list-element-switcher col-md-2 text-center">
+															<input type="checkbox"
+															       class="all-permission-checkbox"
+															       name="grantAll[deleting]"
+															       value="1"
+															       data-permission-type="deleting"
+															/>
+														</span>
+													</div>
+													<span class="list-element-tooltip list-element-actions col-md-1"
+													      data-gx-widget="tooltip_icon" data-tooltip_icon-type="info"
+													>
+														{$txt.tooltip_all_groups}
+													</span>
+												</li>
+											{/block}
+											
+											{foreach item=element from=$content.listElements}
+												{block name="admin_admin_access_overview_permissions_list_container_list_element"}
+													<li class="col-md-12 list-element" data-list-element-id="{$element.id}"
+													    {if $element.group.parentId !== 0}data-parent-group-id="{$element.group.parentId}"{/if}
+													>
+														{block name="admin_admin_access_overview_permissions_list_container_list_element_title"}
+															{if $element.group.parentId !== 0}
+																<span class="list-element-text list-element-sub-group col-md-5">
+																	{$element.group.name}
+																</span>
+															{else}
+																<span class="list-element-text col-md-5 list-element-collapse-handler"
+																      data-group-id="{$element.group.id}"
+																>
+																	{if $element.group.hasChildren}
+																		<span class="fa fa-minus-square-o"></span>&nbsp
+																	{/if}
+																	{$element.group.name}
+																</span>
+															{/if}
+															<div data-gx-widget="switcher">
+																<span class="list-element-switcher col-md-2 text-center">
+																	<input type="checkbox"
+																	       class="permission-checkbox"
+																	       name="granted[reading][{$element.group.id}]"
+																	       value="{$element.group.id}"
+																	       data-group-id="{$element.group.id}"
+																	       data-parent-id="{$element.group.parentId}"
+																	       data-permission-type="reading"
+																	       {if $element.reading}checked{/if}
+																	/>
+																</span>
+																
+																<span class="list-element-switcher col-md-2 text-center">
+																	<input type="checkbox"
+																		   class="permission-checkbox"
+																		   name="granted[writing][{$element.group.id}]"
+																		   value="{$element.group.id}"
+																		   data-group-id="{$element.group.id}"
+																		   data-parent-id="{$element.group.parentId}"
+																		   data-permission-type="writing"
+																		   {if $element.writing}checked{/if}
+																	/>
+																</span>
+																
+																<span class="list-element-switcher col-md-2 text-center">
+																	<input type="checkbox"
+																		   class="permission-checkbox"
+																		   name="granted[deleting][{$element.group.id}]"
+																		   value="{$element.group.id}"
+																		   data-group-id="{$element.group.id}"
+																		   data-parent-id="{$element.group.parentId}"
+																		   data-permission-type="deleting"
+																		   {if $element.deleting}checked{/if}
+																	/>
+																</span>
+																
+																<span class="list-element-tooltip list-element-actions col-md-1"
+																      data-gx-widget="tooltip_icon" data-tooltip_icon-type="info"
+																>
+																	{$element.group.description}
+																</span>
+															</div>
+														{/block}
+													</li>
+												{/block}
+											{/foreach}
+										{/block}
+									</ul>
+								{/block}
+							</div>
+						</form>
+					{/block}
+				{else}
+					{block name="admin_admin_access_overview_permissions_list_container_empty_list"}
+						<div class="row overview-list-container empty">
+							<ul class="overview-list"
+							    data-gx-extension="visibility_switcher"
+							    data-visibility_switcher-rows=".list-element"
+							    data-visibility_switcher-selections=".list-element-actions"
+							>
+								{block name="admin_admin_access_overview_permissions_list_container_empty_list_item"}
+									<li class="col-md-12 list-headline">
+										<span class="list-element-text col-md-5">
+											{$txt.headline_permissions_overview_name}
+										</span>
+										<span class="list-element-text col-md-2 text-center">
+											{$txt.headline_permissions_overview_reading}
+										</span>
+										{*
+											<span class="list-element-text col-md-2 text-center">
+												{$txt.headline_permissions_overview_writing}
+											</span>
+											<span class="list-element-text col-md-2 text-center">
+												{$txt.headline_permissions_overview_deleting}
+											</span>
+										*}
+										<span class="col-md-1">
+											&nbsp;
+										</span>
+									</li>
+									<li class="col-md-12 list-element">
+										<span class="title">{$txt.text_empty_permissions_overview_list}</span>
+									</li>
+								{/block}
+							</ul>
+						</div>
+					{/block}
+				{/if}
+			{/block}
+		</div>
+	{/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+	
+	<button type="submit" class="btn btn-primary pull-right" form="admin-access-permissions">{$admin_buttons.BUTTON_SAVE}</button>
+	<a href="admin.php?do=AdminAccess/manageRoles" class="btn btn-default pull-right">{$admin_buttons.BUTTON_BACK}</a>
+{/block}

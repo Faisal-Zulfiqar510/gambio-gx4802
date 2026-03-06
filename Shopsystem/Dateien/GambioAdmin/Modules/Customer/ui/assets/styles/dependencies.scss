@@ -1,0 +1,42 @@
+// custom theming
+@import "variables";
+
+$theme-colors: (
+	"primary": $brand-primary,
+	"secondary": $brand-secondary,
+	"success": $brand-success,
+	"info": $brand-info,
+	"white": #fff,
+	"warning": $brand-warning,
+	"danger": $brand-danger,
+	"default": #eeeeee,
+	"default-dark": #E1E3E5,
+	"black-dark": #4a4a4a,
+);
+
+$badge-font-weight: normal;
+$badge-color: #4D4D4D;
+$card-border-width: 0;
+
+$enable-negative-margins: true;
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap-utilities";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/dropdown";

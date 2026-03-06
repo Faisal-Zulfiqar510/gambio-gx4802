@@ -1,0 +1,138 @@
+{*
+	Master Data Settings Panel
+
+	Contains the form part for static seo url master data settings.
+*}
+
+{block name="admin_static_seo_urls_details_master_data_panel"}
+	<div class="panel panel-default master-data">
+		{block name="admin_static_seo_urls_details_master_data_panel_heading"}
+			<div class="panel-heading">
+				{block name="admin_static_seo_urls_details_master_data_panel_heading_title"}
+					<strong>{$txt.MASTER_DATA}</strong>
+				{/block}
+			</div>
+		{/block}
+		{block name="admin_static_seo_urls_details_master_data_panel_body"}
+			<div class="panel-body" data-gx-widget="switcher">
+				{block name="admin_static_seo_urls_details_master_data_panel_body_name"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_name_label"}
+								<label class="control-label">{$txt.NAME}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_name_input"}
+								<input class="form-control" type="text" name="name" value="{$content.name}">
+							{/block}
+						</div>
+					</div>
+				{/block}
+		
+				{block name="admin_static_seo_urls_details_master_data_panel_body_sitemap_entry"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_sitemap_entry_label"}
+								<label class="control-label">{$txt.SITEMAP_ENTRY}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_sitemap_entry_input"}
+								<input type="checkbox" name="sitemap_entry" {if $content.sitemapEntry}checked{/if} />
+							{/block}
+						</div>
+					</div>
+				{/block}
+		
+				{block name="admin_static_seo_urls_details_master_data_panel_body_changefreq"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_changefreq_label"}
+								<label class="control-label">{$txt.CHANGEFREQ}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_changefreq_input"}
+								<select class="form-control" name="changefreq">
+									{foreach key=key item=changefreq from=$content.changefreqOptions}
+										<option value="{$key}" {if $key eq $content.changefreq}selected{/if}>{$changefreq}</option>
+									{/foreach}
+								</select>
+							{/block}
+						</div>
+					</div>
+				{/block}
+		
+				{block name="admin_static_seo_urls_details_master_data_panel_body_priority"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_priority_label"}
+								<label class="control-label">{$txt.PRIORITY}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_priority_input"}
+								<select class="form-control" name="priority">
+									{foreach key=key item=priority from=$content.priorityOptions}
+										<option value="{$key}" {if $key eq $content.priority}selected{/if}>{$priority}</option>
+									{/foreach}
+								</select>
+							{/block}
+						</div>
+					</div>
+				{/block}
+		
+				{block name="admin_static_seo_urls_details_master_data_panel_body_robots_entry"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_robots_entry_label"}
+								<label class="control-label">{$txt.ROBOTS_ENTRY}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_robots_entry_input"}
+								<input type="checkbox" name="robots_disallow_entry" {if $content.robots_disallow_entry}checked{/if} />
+							{/block}
+						</div>
+					</div>
+				{/block}
+
+				{block name="admin_static_seo_urls_details_master_data_panel_body_ogimage"}
+					<div class="row form-group">
+						<div class="col-md-4">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_ogimage_label"}
+								<label class="control-label">{$txt.OGIMAGE}</label>
+							{/block}
+						</div>
+						<div class="col-md-5">
+							{block name="admin_static_seo_urls_details_master_data_panel_body_ogimage_input"}
+								{if $content.ogimage}
+									<img src="{$content.ogimage_path}/{$content.ogimage}" class="ogimagethumb">
+									{if !$content.use_filemanager}
+										{$txt.OGIMAGE_DELETE} ({$content.ogimage})
+										<input type="checkbox" name="del_og_image" value="yes" data-single_checkbox>
+									{/if}
+								{/if}
+								{if $content.use_filemanager}
+									<div data-gx-widget="filemanager"
+										 class="filemanager-fix"
+										 data-filemanager-name="opengraph_image"
+										 data-filemanager-type="images"
+										 data-filemanager-content-directory="images/"
+										 data-filemanager-previous-file="{$content.ogimage}"
+										 data-filemanager-page-active="{$content.use_filemanager}"
+										 style="clear: both; display: inline-block; margin-top: 12px;"
+									>
+									</div>
+								{else}
+									{$txt.OGIMAGE_FILEMANAGER_ONLY}
+								{/if}
+							{/block}
+						</div>
+					</div>
+				{/block}
+			</div>
+		{/block}
+	</div>
+{/block}

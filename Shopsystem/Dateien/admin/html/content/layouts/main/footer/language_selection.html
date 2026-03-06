@@ -1,0 +1,11 @@
+{block name="admin_layouts_main_footer_language_selection"}
+	{if $adminLanguages|@count gt 1}
+		{foreach $adminLanguages as $language}
+			{block name="admin_layouts_main_footer_language_selection_language"}
+				<a href="#{$language.code|lower}" data-language-code="{$language.code|lower}" class="flag">
+					<span class="flag-icon flag-icon-{$language.code|lower}"></span>
+				</a>
+			{/block}
+		{/foreach}
+    {/if}
+{/block}

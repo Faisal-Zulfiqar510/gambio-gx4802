@@ -1,0 +1,49 @@
+{*
+	Delete slider modal
+	==================
+
+	Is triggered when the user clicks on the delete button.
+*}
+
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_sliders_overview_modals_delete_slider"}
+	<div class="delete-slider modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_sliders_overview_modals_delete_slider_header"}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						{block name="admin_sliders_overview_modals_delete_slider_header_title"}
+							<h4 class="modal-title">{$txt.DELETE_SLIDER_MODAL_TITLE}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_sliders_overview_modals_delete_slider_body"}
+					<div class="modal-body">
+						{block name="admin_sliders_overview_modals_delete_slider_body_text"}
+							<p>{$txt.DELETE_SLIDER_MODAL_TEXT}</p>
+						{/block}
+						{block name="admin_sliders_overview_modals_delete_slider_body_form"}
+							<form class="form-horizontal">
+								<fieldset>{* Dynamic Content *}</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_sliders_overview_modals_delete_slider_footer"}
+					<div class="modal-footer">
+						{block name="admin_sliders_overview_modals_delete_slider_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_sliders_overview_modals_delete_slider_footer_delete"}
+							<button type="button" class="btn btn-primary confirm">{$admin_buttons.BUTTON_DELETE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

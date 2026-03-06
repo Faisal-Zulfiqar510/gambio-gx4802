@@ -1,0 +1,66 @@
+{* Create Missing Order Documents *}
+
+{load_language_text section="buttons" name="buttons"}
+
+{block name="admin_orders_modals_create_missing_documents"}
+	<div class="create-missing-documents modal fade"
+		 tabindex="-1"
+		 role="dialog"
+		 data-gx-controller="orders/modals/create_missing_documents">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_orders_modals_create_missing_documents_header"}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_ClOSE}">
+							<span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">{$admin_orders.DOWNLOAD_DOCUMENTS}</h4>
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_create_missing_documents_body"}
+					<div class="modal-body">
+						{block name="admin_orders_modals_create_missing_documents_body_text"}
+							<p>
+								{$admin_orders.ORDERS_WITHOUT_DOCUMENT}:
+								<span class="order-ids-list"></span>
+							</p>
+						{/block}
+		
+						<br>
+		
+						{block name="admin_orders_modals_create_missing_documents_body_form"}
+							<form class="form-horizontal" data-gx-widget="single_checkbox">
+								<fieldset>
+									{* Create Missing Documents *}
+									{block name="admin_orders_modals_create_missing_documents_body_form_missing_document"}
+										<div class="form-group">
+											{block name="admin_orders_modals_create_missing_documents_body_form_missing_document_label"}
+												<label class="col-md-6">{$admin_orders.CREATE_MISSING_DOCUMENTS}</label>
+											{/block}
+											{block name="admin_orders_modals_create_missing_documents_body_form_missing_document_input"}
+												<div class="col-md-6">
+													<input type="checkbox" class="create-missing-documents-checkbox" />
+												</div>
+											{/block}
+										</div>
+									{/block}
+								</fieldset>
+								<input type="hidden" class="order-ids" />
+								<input type="hidden" class="order-ids-without-documents" />
+								<input type="hidden" class="type" />
+							</form>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_create_missing_documents_footer"}
+					<div class="modal-footer">
+						{block name="admin_orders_modals_create_missing_documents_footer_ok"}
+							<button type="button" class="btn ok">{$buttons.ok}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

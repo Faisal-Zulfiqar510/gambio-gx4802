@@ -1,0 +1,104 @@
+{*
+	Role modal for creating and editing
+	===================================
+
+	Is triggered when the user clicks the create or edit role button.
+*}
+
+{load_language_text section="admin_access"}
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_admin_access_modal_create_edit_role"}
+	<div class="create-edit-role-modal modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_admin_access_modal_create_edit_role_header"}
+					<div class="modal-header">
+						{block name="admin_admin_access_modal_create_edit_role_header_close_button"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						{/block}
+						{block name="admin_admin_access_modal_create_edit_role_header_title"}
+							<h4 class="modal-title">{$txt.role_modal_create_title}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_admin_access_modal_create_edit_role_body"}
+					<div class="modal-body">
+						{block name="admin_admin_access_modal_create_edit_role_body_form"}
+							<form class="form-horizontal">
+								<input class="hidden" type="hidden" name="roleId">
+								<fieldset>
+									{block name="admin_admin_access_modal_create_edit_role_body_form_sort_order"}
+										<div class="form-group hidden">
+											<label class="col-md-8">{$txt.role_modal_sort_order}:</label>
+											<div class="col-md-4">
+												<input class="form-control" type="number" min="1" step="1" name="roleSortOrder">
+											</div>
+										</div>
+									{/block}
+									
+									{block name="admin_admin_access_modal_create_edit_role_body_form_language_tabs"}
+										<ul class="nav nav-tabs" role="tablist">
+											{foreach item=language name=tabs from=$adminLanguages}
+												<li role="presentation" {if $smarty.foreach.tabs.first} class="active"{/if}>
+													<a href="#{$language.code|lower}"
+													   data-language="{$language.code|lower}"
+													   aria-controls="home"
+													   role="tab"
+													   data-toggle="tab"
+													><span class="flag-icon flag-icon-{$language.code|lower}"></span></a>
+												</li>
+											{/foreach}
+										</ul>
+									{/block}
+									{block name="admin_admin_access_modal_create_edit_role_body_form_language_tab_content"}
+										<div class="tab-content">
+											{foreach item=language name=panel from=$adminLanguages}
+												{block name="admin_admin_access_modal_create_edit_role_body_form_language_tab_content_inner_wrapper"}
+													<div role="tabpanel"
+													     class="tab-pane {if $smarty.foreach.panel.first}active in{/if}"
+													     id="{$language.code|lower}"
+													     data-language="{$language.code|lower}"
+													>
+														{block name="admin_admin_access_modal_create_edit_role_body_form_language_tab_content_inner_wrapper_name"}
+															<div class="form-group">
+																<label class="col-md-4">{$txt.role_modal_name}: <span class="mandatory">*</span></label>
+																<div class="col-md-8">
+																	<input class="form-control" type="text" name="roleName" data-lang="{$language.code|upper}">
+																</div>
+															</div>
+														{/block}
+														{block name="admin_admin_access_modal_create_edit_role_body_form_language_tab_content_inner_wrapper_description"}
+															<div class="form-group">
+																<label class="col-md-4">{$txt.role_modal_description}:</label>
+																<div class="col-md-8">
+																	<input class="form-control" type="text" name="roleDescription" data-lang="{$language.code|upper}">
+																</div>
+															</div>
+														{/block}
+													</div>
+												{/block}
+											{/foreach}
+										</div>
+									{/block}
+								</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_admin_access_modal_create_edit_role_footer"}
+					<div class="modal-footer">
+						{block name="admin_admin_access_modal_create_edit_role_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_admin_access_modal_create_edit_role_footer_delete"}
+							<button type="button" class="btn btn-primary confirm">{$admin_buttons.BUTTON_CREATE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

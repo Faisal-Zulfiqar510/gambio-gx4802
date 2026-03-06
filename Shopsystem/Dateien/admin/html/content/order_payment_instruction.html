@@ -1,0 +1,41 @@
+{load_language_text section="admin_order_payment_instruction"}
+<style>
+	table.payment-instruction { width: 100%; }
+</style>
+
+<table class="payment-instruction">
+	<tr>
+		<td class="pi-label">{$txt.account_holder}</td>
+		<td class="pi-data">{$content_data.payment_instruction.account_holder}</td>
+	</tr>
+	<tr>
+		<td class="pi-label">{$txt.bank_name}</td>
+		<td class="pi-data">{$content_data.payment_instruction.bank_name}</td>
+	</tr>
+	<tr>
+		<td class="pi-label">{$txt.iban}</td>
+		<td class="pi-data">{$content_data.payment_instruction.iban}</td>
+	</tr>
+	<tr>
+		<td class="pi-label">{$txt.bic}</td>
+		<td class="pi-data">{$content_data.payment_instruction.bic}</td>
+	</tr>
+	<tr>
+		<td class="pi-label">{$txt.value}</td>
+		<td class="pi-data">{$content_data.payment_instruction.value|number_format:2:',':''} {$content_data.payment_instruction.currency}</td>
+	</tr>
+	<tr>
+		<td class="pi-label">{$txt.reference}</td>
+		<td class="pi-data">{$content_data.payment_instruction.reference}</td>
+	</tr>
+	<tr>
+		<td class="pi-label">{$txt.due_date}</td>
+		<td class="pi-data">
+			{if $content_data.payment_instruction.due_date === '1000-01-01'}
+				{$txt.due_immediately}
+			{else}
+				{$content_data.payment_instruction.due_date}
+			{/if}
+		</td>
+	</tr>
+</table>

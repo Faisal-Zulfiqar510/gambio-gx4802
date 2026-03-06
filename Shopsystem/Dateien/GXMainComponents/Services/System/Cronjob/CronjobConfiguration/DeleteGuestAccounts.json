@@ -1,0 +1,24 @@
+{
+	"name": "DeleteGuestAccounts",
+	"title": "cronjob_delete_guest_accounts.title",
+	"configuration": {
+		"active": {
+			"name": "active",
+			"type": "checkbox",
+			"label": "cronjob_delete_guest_accounts.label_activate",
+			"defaultValue": false
+		},
+		"interval": {
+			"name": "interval",
+			"type": "hidden",
+			"label": "",
+			"defaultValue": "*/15 * * * *"
+		},
+		"sortOrder": {
+			"name": "sort-order",
+			"type": "hidden",
+			"label": "",
+			"defaultValue": "10"
+		}
+	}
+}

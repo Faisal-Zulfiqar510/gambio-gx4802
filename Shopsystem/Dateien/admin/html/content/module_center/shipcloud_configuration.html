@@ -1,0 +1,734 @@
+{* --------------------------------------------------------------
+	shipcloud_configuration.html 2020-05-13
+	Gambio GmbH
+	http://www.gambio.de
+	Copyright (c) 2020 Gambio GmbH
+	Released under the GNU General Public License (Version 2)
+	[http://www.gnu.org/licenses/gpl-2.0.html]
+	--------------------------------------------------------------
+*}
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="shipcloud"}
+	
+	<style>
+		button.webhook-action { margin: 0 !important; }
+	</style>
+	
+	{block name="admin_module_center_shipcloud_configuration"}
+		<div class="gx-compatibility">
+			{block name="admin_module_center_shipcloud_configuration_form"}
+				<form id="buttonform" action="" method="POST">
+					<input type="hidden" name="pageToken" value="{$content.page_token}">
+				</form>
+				<form action="{$content.form_action}" method="POST" class="gx-container" id="sc_configuration" data-gx-controller="shipcloud/shipcloud_config_controller">
+					<input type="hidden" name="pageToken" value="{$content.page_token}">
+					<!-- Credentials -->
+					{block name="admin_module_center_shipcloud_configuration_form_credentials"}
+						<table class="gx-configuration gx-configuration-table breakpoint-small">
+							{block name="admin_module_center_shipcloud_configuration_form_credentials_title"}
+								<tr>
+									<th colspan="2">{$txt.credentials}</th>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_credentials_api_key_live"}
+								<tr>
+									<td class="dataTableContent_gm" style="width: 200px !important;">{$txt.api_key_live}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default"
+										       type="text"
+										       name="configuration[api-key/live]"
+										       value="{$content.configuration.api_key_live}"/>
+										{if $content.configuration.api_key_live == ''}
+											<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+												<a href="{$content.boarding_url}" target="_new">{$txt.unconfigured_shipcloud_linktext}</a>
+											</span>
+										{/if}
+									</td>
+								</tr>
+							{/block}
+						</table>
+					{/block}
+				
+					<!-- Miscellaneous Settings -->
+					{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings"}
+						<table class="gx-configuration gx-configuration-table breakpoint-small">
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_title"}
+								<tr>
+									<th colspan="2">{$txt.misc_settings}</th>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_api_key_sandbox"}
+								<tr>
+									<td class="dataTableContent_gm" style="width: 200px !important;">{$txt.api_key_sandbox}</td>
+									<td class="dataTableContent_gm">
+											<input type="text" class="input-default" name="configuration[api-key/sandbox]" value="{$content.configuration.api_key_sandbox}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_mode"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.mode}</td>
+									<td class="dataTableContent_gm">
+										<div data-gx-widget="checkbox">
+											<input type="radio" name="configuration[mode]" value="live" title="Live" {($content.configuration.mode == 'live') ? 'checked' : ''}/>
+											<input type="radio" name="configuration[mode]" value="sandbox" title="Sandbox" {($content.configuration.mode == 'sandbox') ? 'checked' : ''}/>
+										</div>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_debug_logging"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.debug_logging}</td>
+									<td class="dataTableContent_gm">
+										<div data-gx-widget="checkbox">
+											<input type="radio" name="configuration[debug_logging]" value="1" title="1" {($content.configuration.debug_logging == '1') ? 'checked' : ''}/>
+											<input type="radio" name="configuration[debug_logging]" value="0" title="0" {($content.configuration.debug_logging == '0') ? 'checked' : ''}/>
+										</div>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_api_timeout"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.api_timeout}</td>
+									<td class="dataTableContent_gm">
+										<input type="number" min="2" max="300" name="configuration[api-timeout]" value="{$content.configuration.api_timeout}">
+										<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+											{$txt.api_timeout_tt}
+										</span>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_parcel_service"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.parcel_service}</td>
+									<td class="dataTableContent_gm">
+										<select name="configuration[parcel_service_id]">
+											<option value="0" {if $content.configuration.parcel_service_id == '0'}selected="selected"{/if}>{$txt.parcel_service_none}</option>
+											{foreach from=$content.parcel_services item=parcel_service}
+												<option value="{$parcel_service->getId()}" {if $parcel_service->getId() == $content.configuration.parcel_service_id}selected="selected"{/if}>
+													{$parcel_service->getName()}
+												</option>
+											{/foreach}
+										</select>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_order_status_after_label"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.order_status_after_label}</td>
+									<td class="dataTableContent_gm">
+										<select name="configuration[order_status_after_label]">
+											<option value="-1" {if $content.configuration.order_status_after_label == '0'}selected="selected"{/if}>{$txt.do_not_change}</option>
+											{foreach from=$content.orders_statuses item=orders_status}
+												<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.order_status_after_label}selected="selected"{/if}>
+													{$orders_status->orders_status_name}
+												</option>
+											{/foreach}
+										</select>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_notify_customer"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.notify_customer}</td>
+									<td class="dataTableContent_gm">
+										<div data-gx-widget="checkbox">
+											<input type="radio" name="configuration[notify_customer]" value="1" title="1" {($content.configuration.notify_customer == '1') ? 'checked' : ''}/>
+											<input type="radio" name="configuration[notify_customer]" value="0" title="0" {($content.configuration.notify_customer == '0') ? 'checked' : ''}/>
+										</div>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_prefill_email"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.prefill_email}</td>
+									<td class="dataTableContent_gm">
+										<div data-gx-widget="checkbox">
+											<input type="radio" name="configuration[prefill_email]" value="1" title="1" {($content.configuration.prefill_email == '1') ? 'checked' : ''}/>
+											<input type="radio" name="configuration[prefill_email]" value="0" title="0" {($content.configuration.prefill_email == '0') ? 'checked' : ''}/>
+										</div>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_prefill_phone"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.prefill_phone}</td>
+									<td class="dataTableContent_gm">
+										<div data-gx-widget="checkbox">
+											<input type="radio" name="configuration[prefill_phone]" value="1" title="1" {($content.configuration.prefill_phone == '1') ? 'checked' : ''}/>
+											<input type="radio" name="configuration[prefill_phone]" value="0" title="0" {($content.configuration.prefill_phone == '0') ? 'checked' : ''}/>
+										</div>
+									</td>
+								</tr>
+							{/block}
+		                    {block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_advance_notice_cargo_intl"}
+		                        {if $content.preselected_carriers.preselected_carriers['cargo_international'] == 1}
+									<tr>
+										<td class="dataTableContent_gm">{$txt.use_advance_notice_cargo_intl}</td>
+										<td class="dataTableContent_gm">
+											<div data-gx-widget="checkbox">
+												<input type="radio" name="configuration[additional_services/cargo_intl_advance_notice]" value="1" title="1" {($content.configuration.cargo_intl_advance_notice == '1') ? 'checked' : ''}/>
+												<input type="radio" name="configuration[additional_services/cargo_intl_advance_notice]" value="0" title="0" {($content.configuration.cargo_intl_advance_notice == '0') ? 'checked' : ''}/>
+												<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+													{$txt.use_advance_notice_cargo_intl_note}
+												</span>
+											</div>
+										</td>
+									</tr>
+		                        {/if}
+		                    {/block}
+		                    {block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_advance_notice_dhl"}
+								{if $content.preselected_carriers.preselected_carriers['dhl'] == 1}
+									<tr>
+										<td class="dataTableContent_gm">{$txt.use_advance_notice_dhl}</td>
+										<td class="dataTableContent_gm">
+											<div data-gx-widget="checkbox">
+												<input type="radio" name="configuration[additional_services/dhl_advance_notice]" value="1" title="1" {($content.configuration.dhl_advance_notice == '1') ? 'checked' : ''}/>
+												<input type="radio" name="configuration[additional_services/dhl_advance_notice]" value="0" title="0" {($content.configuration.dhl_advance_notice == '0') ? 'checked' : ''}/>
+												<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+													{$txt.use_advance_notice_dhl_note}
+												</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="dataTableContent_gm">{$txt.use_dhl_gogreen}</td>
+										<td class="dataTableContent_gm">
+											<div data-gx-widget="checkbox">
+												<input type="radio" name="configuration[additional_services/dhl_gogreen]" value="1" title="1" {($content.configuration.dhl_gogreen == '1') ? 'checked' : ''}/>
+												<input type="radio" name="configuration[additional_services/dhl_gogreen]" value="0" title="0" {($content.configuration.dhl_gogreen == '0') ? 'checked' : ''}/>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="dataTableContent_gm">{$txt.use_dhl_premium_international}</td>
+										<td class="dataTableContent_gm">
+											<div data-gx-widget="checkbox">
+												<input type="radio" name="configuration[additional_services/dhl_premium_international]" value="1" title="1" {($content.configuration.dhl_premium_international == '1') ? 'checked' : ''}/>
+												<input type="radio" name="configuration[additional_services/dhl_premium_international]" value="0" title="0" {($content.configuration.dhl_premium_international == '0') ? 'checked' : ''}/>
+											</div>
+										</td>
+									</tr>
+								{/if}
+		                    {/block}
+		                    {block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_advance_notice_dpd"}
+		                        {if $content.preselected_carriers.preselected_carriers['dpd'] == 1}
+									<tr>
+										<td class="dataTableContent_gm">{$txt.use_advance_notice_dpd}</td>
+										<td class="dataTableContent_gm">
+											<div data-gx-widget="checkbox">
+												<input type="radio" name="configuration[additional_services/dpd-predict]" value="1" title="1" {($content.configuration['dpd-predict'] == '1') ? 'checked' : ''}/>
+												<input type="radio" name="configuration[additional_services/dpd-predict]" value="0" title="0" {($content.configuration['dpd-predict'] == '0') ? 'checked' : ''}/>
+												<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+													{$txt.use_advance_notice_dpd_note}
+												</span>
+											</div>
+										</td>
+									</tr>
+		                        {/if}
+		                    {/block}
+		                    {block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_advance_notice_gls"}
+		                        {if $content.preselected_carriers.preselected_carriers['gls'] == 1}
+									<tr>
+										<td class="dataTableContent_gm">{$txt.use_advance_notice_gls}</td>
+										<td class="dataTableContent_gm">
+											<div data-gx-widget="checkbox">
+												<input type="radio" name="configuration[additional_services/gls-flexdelivery]" value="1" title="1" {($content.configuration['gls-flexdelivery'] == '1') ? 'checked' : ''}/>
+												<input type="radio" name="configuration[additional_services/gls-flexdelivery]" value="0" title="0" {($content.configuration['gls-flexdelivery'] == '0') ? 'checked' : ''}/>
+												<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+													{$txt.use_advance_notice_gls_note}
+												</span>
+											</div>
+										</td>
+									</tr>
+		                        {/if}
+		                    {/block}
+		                    {block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_advance_notice_hermes"}
+		                        {if $content.preselected_carriers.preselected_carriers['hermes'] == 1}
+									<tr>
+										<td class="dataTableContent_gm">{$txt.use_advance_notice_hermes}</td>
+										<td class="dataTableContent_gm">
+											<div data-gx-widget="checkbox">
+												<input type="radio" name="configuration[additional_services/hermes_advance_notice]" value="1" title="1" {($content.configuration.hermes_advance_notice == '1') ? 'checked' : ''}/>
+												<input type="radio" name="configuration[additional_services/hermes_advance_notice]" value="0" title="0" {($content.configuration.hermes_advance_notice == '0') ? 'checked' : ''}/>
+												<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+													{$txt.use_advance_notice_hermes_note}
+												</span>
+											</div>
+										</td>
+									</tr>
+		                        {/if}
+		                    {/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_prefill_description"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.prefill_description}</td>
+									<td class="dataTableContent_gm">
+										<div data-gx-widget="checkbox">
+											<input type="radio" name="configuration[prefill_description]" value="1" title="1" {($content.configuration.prefill_description == '1') ? 'checked' : ''}/>
+											<input type="radio" name="configuration[prefill_description]" value="0" title="0" {($content.configuration.prefill_description == '0') ? 'checked' : ''}/>
+										</div>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_declared_value_min"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.declared_value_min}</td>
+									<td class="dataTableContent_gm">
+										<input type="number" min="1" max="100000" name="configuration[declared_value/minimum]" value="{$content.configuration.declared_value_min}">
+										<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+											{$txt.declared_value_tt}
+										</span>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_miscellaneous_settings_declared_value_max"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.declared_value_max}</td>
+									<td class="dataTableContent_gm">
+										<input type="number" min="1" max="100000" name="configuration[declared_value/maximum]" value="{$content.configuration.declared_value_max}">
+										<span class="fa-pull-right" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+											{$txt.declared_value_tt}
+										</span>
+									</td>
+								</tr>
+							{/block}
+						</table>
+					{/block}
+				
+					<!-- sender -->
+					{block name="admin_module_center_shipcloud_configuration_form_sender"}
+						<table class="gx-configuration gx-configuration-table breakpoint-small">
+							{block name="admin_module_center_shipcloud_configuration_form_sender_title"}
+								<tr>
+									<th colspan="2">{$txt.sender}</th>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_company"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_company}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/company]" value="{$content.configuration.from_company}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_firstname"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_first_name}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/first_name]" value="{$content.configuration.from_first_name}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_lastname"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_last_name}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/last_name]" value="{$content.configuration.from_last_name}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_street"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_street}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/street]" value="{$content.configuration.from_street}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_streetnumber"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_street_no}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/street_no]" value="{$content.configuration.from_street_no}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_city"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_city}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/city]" value="{$content.configuration.from_city}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_zip_code"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_zip_code}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/zip_code]" value="{$content.configuration.from_zip_code}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_country"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_country}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/country]" value="{$content.configuration.from_country}">
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_sender_from_phone"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.from_phone}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[from/phone]" value="{$content.configuration.from_phone}">
+									</td>
+								</tr>
+							{/block}
+						</table>
+					{/block}
+				
+					<!-- Cod Account -->
+					{block name="admin_module_center_shipcloud_configuration_form_cod_account"}
+						<table class="gx-configuration gx-configuration-table breakpoint-small">
+							{block name="admin_module_center_shipcloud_configuration_form_cod_account_title"}
+								<tr>
+									<th colspan="2">{$txt.cod_account}</th>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_cod_account_bank_account_holder"}
+								<tr>
+									<td class="dataTableContent_gm" style="width: 200px !important;">{$txt.bank_account_holder}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[cod-account/bank_account_holder]" value="{$content.configuration.cod_bank_account_holder}"/>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_cod_account_bank_name"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.bank_name}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[cod-account/bank_name]" value="{$content.configuration.cod_bank_name}"/>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_cod_account_bank_account_number"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.bank_account_number}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[cod-account/bank_account_number]" value="{$content.configuration.cod_bank_account_number}"/>
+									</td>
+								</tr>
+							{/block}
+							{block name="admin_module_center_shipcloud_configuration_form_cod_account_bank_code"}
+								<tr>
+									<td class="dataTableContent_gm">{$txt.bank_code}</td>
+									<td class="dataTableContent_gm">
+										<input class="input-default" type="text" name="configuration[cod-account/bank_code]" value="{$content.configuration.cod_bank_code}"/>
+									</td>
+								</tr>
+							{/block}
+						</table>
+					{/block}
+		
+					<!-- webhook -->
+					{if ($content.configuration.mode == 'live' && $content.configuration.api_key_live != '') ||
+					($content.configuration.mode == 'sandbox' && $content.configuration.api_key_sandbox != '')}
+						{block name="admin_module_center_shipcloud_configuration_form_webhook"}
+							<table class="gx-configuration gx-configuration-table breakpoint-small">
+								{block name="admin_module_center_shipcloud_configuration_form_webhook_title"}
+									<tr>
+										<th colspan="2">{$txt.webhook}</th>
+									</tr>
+								{/block}
+								{block name="admin_module_center_shipcloud_configuration_form_webhook_status"}
+									<tr>
+										<td class="dataTableContent_gm">{$txt.webhook_status}</td>
+										<td class="dataTableContent_gm">
+											{if $content.configuration.webhook_id}
+												{$txt.webhook_registered}<br>{$content.configuration.webhook_id}<br>
+											{else}
+												{$txt.webhook_not_registered}
+											{/if}
+										</td>
+									</tr>
+								{/block}
+								{block name="admin_module_center_shipcloud_configuration_form_webhook_action"}
+									<tr>
+										<td class="dataTableContent_gm">&nbsp;</td>
+										<td class="dataTableContent_gm">
+											{if $content.configuration.webhook_id}
+												<button form="buttonform" class="btn webhook-action" name="delete_webhook" formaction="{$content.delete_webhook_action}">{$txt.delete_webhook}</button>
+											{else}
+												<button form="buttonform" class="btn webhook-action" name="register_webhook" formaction="{$content.register_webhook_action}">{$txt.register_webhook}</button>
+											{/if}
+										</td>
+									</tr>
+								{/block}
+								{if $content.configuration.webhook_id}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_label_created"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_label_created}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_label_created]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_label_created == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_label_created}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_picked_up"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_picked_up}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_picked_up]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_picked_up == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_picked_up}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_transit"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_transit}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_transit]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_transit == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_transit}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_out_for_delivery"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_out_for_delivery}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_out_for_delivery]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_out_for_delivery == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_out_for_delivery}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_delivered"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_delivered}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_delivered]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_delivered == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_delivered}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_awaits_pickup_by_receiver"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_awaits_pickup_by_receiver}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_awaits_pickup_by_receiver]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_awaits_pickup_by_receiver == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_awaits_pickup_by_receiver}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_canceled"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_canceled}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_canceled]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_canceled == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_canceled}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_delayed"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_delayed}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_delayed]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_delayed == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_delayed}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_exception"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_exception}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_exception]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_exception == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_exception}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_not_delivered"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_not_delivered}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_not_delivered]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_not_delivered == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_not_delivered}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_destroyed"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_destroyed}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_destroyed]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_destroyed == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_destroyed}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_notification"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_notification}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_notification]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_notification == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_notification}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_unknown"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.order_status_webhook_unknown}</td>
+											<td class="dataTableContent_gm">
+												<select name="configuration[webhook/order_status_tracking_unknown]">
+													<option value="-1" {if $content.configuration.webhook_order_status_tracking_unknown == '-1'}selected="selected"{/if}>{$txt.do_not_change}</option>
+													{foreach from=$content.orders_statuses item=orders_status}
+														<option value="{$orders_status->orders_status_id}" {if $orders_status->orders_status_id == $content.configuration.webhook_order_status_tracking_unknown}selected="selected"{/if}>
+															{$orders_status->orders_status_name}
+														</option>
+													{/foreach}
+												</select>
+											</td>
+										</tr>
+									{/block}
+									{block name="admin_module_center_shipcloud_configuration_form_webhook_orderstatus_autoconfigure"}
+										<tr>
+											<td class="dataTableContent_gm">{$txt.orderstatus_autoconfigure}</td>
+											<td class="dataTableContent_gm">
+												<button form="buttonform" class="btn webhook-action" name="orderstatus_autoconfigure" form="clickonly" formaction="{$content.orderstatus_autoconfig_action}">
+													{$txt.orderstatus_autoconfigure}
+												</button>
+											</td>
+										</tr>
+									{/block}
+								{/if}
+							</table>
+						{/block}
+					{/if}
+		
+					{if $content.carriers}
+						<!-- carriers preselection -->
+						{block name="admin_module_center_shipcloud_configuration_form_carriers_preselection"}
+							<table class="gx-configuration gx-configuration-table breakpoint-small">
+								{block name="admin_module_center_shipcloud_configuration_form_carriers_preselection_thead"}
+									<thead>
+										<tr>
+											{block name="admin_module_center_shipcloud_configuration_form_carriers_preselection_thead_ths"}
+												<th>{$txt.carrier}</th>
+												<th>{$txt.display_carrier}</th>
+												<th>{$txt.checked_carrier}</th>
+											{/block}
+										</tr>
+									</thead>
+								{/block}
+								{block name="admin_module_center_shipcloud_configuration_form_carriers_preselection_body"}
+									<tbody>
+										{foreach from=$content.carriers item=carrier}
+											{block name="admin_module_center_shipcloud_configuration_form_carriers_preselection_row"}
+												<tr data-gx-widget="tooltip">
+													{block name="admin_module_center_shipcloud_configuration_form_carriers_preselection_row_tds"}
+														<td class="dataTableContent_gm configuration-label"><label for="preselected_carrier_{$carrier->name}">{$carrier->display_name}</label></td>
+														<td class="dataTableContent_gm">
+															<input
+																type="checkbox"
+																name="preselected_carriers[]"
+																value="{$carrier->name}"
+																id="preselected_carrier_{$carrier->name}"
+																{if $content.preselected_carriers.preselected_carriers[$carrier->name] == '1'}checked="checked"{/if}
+															>
+														</td>
+														<td class="dataTableContent_gm">
+															<input
+																type="checkbox"
+																name="checked_carriers[]"
+																value="{$carrier->name}"
+																id="checked_carrier_[$carrier->name]"
+																{if $content.checked_carriers.checked_carriers[$carrier->name] == '1'}checked="checked"{/if}
+															>
+														</td>
+													{/block}
+												</tr>
+											{/block}
+										{/foreach}
+									</tbody>
+								{/block}
+							</table>
+						{/block}
+					{/if}
+					
+					{block name="admin_module_center_shipcloud_configuration_buttons"}
+						<div class="add-margin-top-24 breakpoint-small">
+							<div class="pull-right">
+								{block name="admin_module_center_shipcloud_configuration_buttons_submit"}
+									<input type="submit" value="{$txt.save_settings}" class="btn btn-primary">
+								{/block}
+							</div>
+						</div>
+					{/block}
+				</form>
+			{/block}
+		</div>
+	{/block}
+{/block}

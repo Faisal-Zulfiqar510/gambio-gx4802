@@ -1,0 +1,99 @@
+{load_language_text section="admin_quick_edit" name="admin_quick_edit"}
+
+{block name="admin_quick_edit_modals_properties"}
+	<div class="properties modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_quick_edit_modals_properties_header"}
+					<div class="modal-header">
+						<button type="button"
+								class="close"
+								data-dismiss="modal"
+								aria-label="{$btn.close}">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						{block name="admin_quick_edit_modals_properties_header_title"}
+							<h4 class="modal-title">{$admin_quick_edit.MODAL_TITLE_PROPERTIES}</h4>
+						{/block}
+					</div>
+				{/block}
+				
+				{block name="admin_quick_edit_modals_properties_body"}
+					<div class="modal-body">
+						<div class="quick-edit properties">
+							{block name="admin_quick_edit_modals_properties_body_table"}
+								<table class="table table-main table-striped table-row-{$content.active_row_height}"
+									   data-gx-controller="quick_edit/modals/properties/properties_init quick_edit/modals/properties/properties_events
+														   quick_edit/modals/properties/properties_filter quick_edit/modals/properties/properties_edit
+														   quick_edit/modals/properties/properties_tooltips quick_edit/modals/properties/properties_actions"
+									   data-gx-widget="single_checkbox multi_select"
+									   data-gx-extension="datatable_checkbox_mapping datatable_custom_sorting
+									                      datatable_fixed_row_actions datatable_custom_pagination
+									                      datatable_normalize_overflow datatable_default_actions
+														  datatable_responsive_columns"
+									   data-properties_init-properties-active-columns="{$content.properties_active_columns}"
+									   data-properties_init-page-length="{$content.page_length}"
+									   data-single_checkbox-selector=".properties-bulk-selection"
+									   data-datatable_checkbox_mapping-row-selection=".properties-row-selection"
+									   data-datatable_checkbox_mapping-bulk-selection=".properties-bulk-selection"
+									   data-datatable_checkbox_mapping-bulk-action=".properties-bulk-action"
+									   data-datatable_loading_spinner-z-index-reference-selector=".properties.modal .modal-dialog"
+									   data-datatable_custom_pagination-page-navigation-selector=".properties-page-navigation"
+									   data-datatable_custom_pagination-page-length-selector=".properties-page-length"
+									   data-datatable_default_actions-row="{$content.default_row_action}"
+									   data-datatable_default_actions-bulk="{$content.default_bulk_action}"
+									   data-resize-layout="draw.dt">
+									{block name="admin_quick_edit_modals_properties_body_table_thead"}
+										<thead>
+											{include file="get_usermod:quick_edit/partial/properties/datatables_heading_row.html"}
+											{include file="get_usermod:quick_edit/partial/properties/datatables_filtering_row.html"}
+											{include file="get_usermod:quick_edit/partial/properties/datatables_editing_row.html"}
+										</thead>
+									{/block}
+									{block name="admin_quick_edit_modals_properties_body_table_tbody"}
+										<tbody>
+											{* Content will be loaded dynamically (quick_edit/modals/init.js) *}
+										</tbody>
+									{/block}
+								</table>
+							{/block}
+						</div>
+					</div>
+				{/block}
+				
+				{block name="admin_quick_edit_modals_properties_footer"}
+					<div class="modal-footer">
+						{* Button Dropdown *}
+						{block name="admin_quick_edit_modals_properties_footer_dropdown"}
+							<div class="properties-bulk-action btn-group dropdown pull-left">
+								{block name="admin_quick_edit_modals_properties_footer_dropdown_buttons"}
+									<button type="button" class="btn btn-default disabled">{* Dynamic Content *}</button>
+									<button type="button" class="btn btn-default dropdown-toggle disabled" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">
+										<span class="caret"></span> <span class="sr-only">Toggle Dropdown</span>
+									</button>
+								{/block}
+								{block name="admin_quick_edit_modals_properties_footer_dropdown_ul"}
+									<ul class="dropdown-menu">
+										{* Dynamic Content *}
+									</ul>
+								{/block}
+							</div>
+						{/block}
+		
+						{block name="admin_quick_edit_modals_properties_footer_cancle"}
+							<button type="button"
+									class="btn btn-default"
+									data-dismiss="modal">{$admin_quick_edit.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_quick_edit_modals_properties_footer_save"}
+							<button type="button"
+									class="btn btn-primary save-properties-edits"
+									data-product-id="">{$admin_quick_edit.BUTTON_SAVE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

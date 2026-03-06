@@ -1,0 +1,36 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	<div class="breakpoint-small vue-instance"
+		 data-cronjobs-namespace="{$base_url}/admin/html/assets/javascript/engine"
+		 data-config-namespace="{$base_url}/admin/html/assets/javascript/engine"
+		 data-components-namespace="{$base_url}/admin/html/assets/javascript/engine"
+		 data-vue-instance-name="cronjobs">
+
+		<gx-cronjobs-overview
+				data-cronjobs-controller="cronjobs/vue/overview
+					cronjobs/vue/miscellaneous
+					cronjobs/vue/list_elements
+					cronjobs/vue/logs_modal
+					cronjobs/vue/configuration_modal"
+				data-config-widget="vue/config/checkbox vue/config/number vue/config/select"
+				data-components-widget="vue/components/switcher"
+		/>
+	</div>
+	{* Cronjobs vue templates *}
+	{include file="get_usermod:cronjobs/vue/overview.html"}
+	{include file="get_usermod:cronjobs/vue/miscellaneous.html"}
+	{include file="get_usermod:cronjobs/vue/list_elements.html"}
+
+	{* Cronjobs vue modal templates *}
+	{include file="get_usermod:cronjobs/vue/logs_modal.html"}
+	{include file="get_usermod:cronjobs/vue/configuration_modal.html"}
+
+	{* Cronjobs vue config templates *}
+	{include file="get_usermod:vue/config/checkbox.html"}
+	{include file="get_usermod:vue/config/number.html"}
+	{include file="get_usermod:vue/config/select.html"}
+
+	{* General component templates *}
+	{include file="get_usermod:vue/components/switcher.html"}
+{/block}

@@ -1,0 +1,152 @@
+[
+    {
+        "name": "gx-product-info-button-bg",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-button-bg-hover",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-button-border",
+        "value": "#ddd",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-button-border-hover",
+        "value": "darken($gx-product-info-button-border, 10%)",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-button-color",
+        "value": "#999",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-button-color-hover",
+        "value": "darken($gx-product-info-button-color, 10%)",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-color",
+        "value": "#eee",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-gradient-angle",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-gradient-color1",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-gradient-color2",
+        "value": null,
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-gradient-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-gradient-type",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-image-attachment",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-image-enabled",
+        "value": null,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-image-position",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-image-repeat",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-image-size",
+        "value": null,
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-bg-image-url",
+        "value": null,
+        "type": "url",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-border-color",
+        "value": "transparent",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-border-style",
+        "value": "none",
+        "type": "selectbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-border-width",
+        "value": "0",
+        "type": "textbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-color",
+        "value": "$text-color",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-note-color",
+        "value": "$gray-light",
+        "type": "colorpicker",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-details-sticky",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-product-info-hide-quantity-input",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    }
+]

@@ -1,0 +1,104 @@
+{block name="admin_content_manager_partial_linkpage_form_data"}
+	<fieldset>
+		{block name="admin_content_manager_partial_linkpage_form_data_name"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_linkpage_form_data_name_label"}
+					<label for="name" class="col-md-2">{$txt.LABEL_NAME}</label>
+				{/block}
+				{block name="admin_content_manager_partial_linkpage_form_data_name_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_linkpage_form_data_name_input"}
+							<input id="name"
+								   class="form-control"
+								   type="text"
+								   name="content_manager[linkpage][content_name][{$languageCode}]"
+								   value="{$content_manager.linkpage.content_name.$languageCode}"
+								   placeholder="{$txt.LABEL_NAME}"
+								   {if $content_manager.linkpage.protected.$languageCode == '1' && !isset($smarty.get.expert)}readonly{/if}>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		
+		{block name="admin_content_manager_partial_linkpage_form_data_title"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_linkpage_form_data_title_label"}
+					<label for="title" class="col-md-2">{$txt.LABEL_TITLE}</label>
+				{/block}
+				{block name="admin_content_manager_partial_linkpage_form_data_title_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_linkpage_form_data_title_input"}
+							<input id="title"
+							       class="form-control"
+							       type="text"
+							       name="content_manager[linkpage][content_title][{$languageCode}]"
+							       value="{$content_manager.linkpage.content_title.$languageCode}"
+							       placeholder="{$txt.LABEL_TITLE}">
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		
+		{block name="admin_content_manager_partial_linkpage_form_data_address"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_linkpage_form_data_address_label"}
+					<label for="link-address" class="col-md-2">{$txt.LABEL_ADDRESS}</label>
+				{/block}
+				{block name="admin_content_manager_partial_linkpage_form_data_address_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_linkpage_form_data_address_input"}
+							<input id="link-address"
+								   class="form-control"
+								   type="text"
+								   name="content_manager[linkpage][gm_link][{$languageCode}]"
+								   value="{$content_manager.linkpage.gm_link.$languageCode}"
+								   placeholder="{$txt.LABEL_ADDRESS}">
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		
+		{block name="admin_content_manager_partial_linkpage_form_data_status"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_linkpage_form_data_status_label"}
+					<label class="col-md-2">{$txt.TEXT_STATUS}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_linkpage_form_data_status_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_linkpage_form_data_status_input"}
+							<div class="gx-container" data-gx-widget="checkbox">
+								<input type="checkbox"
+									   name="content_manager[linkpage][content_status][{$languageCode}]"
+									   value="1" {if $content_manager.linkpage.content_status.$languageCode == '1'}checked{/if}/>
+							</div>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		
+		{block name="admin_content_manager_partial_linkpage_form_data_open_new_window"}
+			<div class="form-group" data-gx-widget="checkbox">
+				{block name="admin_content_manager_partial_linkpage_form_data_open_new_window_label"}
+					<label for="new-window" class="col-md-2">{$txt.LABEL_OPEN_NEW_WINDOW}</label>
+				{/block}
+				{block name="admin_content_manager_partial_linkpage_form_data_open_new_window_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_linkpage_form_data_open_new_window_input"}
+							<input id="new-window"
+								   type="checkbox"
+								   name="content_manager[linkpage][gm_link_target][{$languageCode}]"
+								   value="1"
+								   {if $content_manager.linkpage.gm_link_target.$languageCode === '_blank'}checked{/if}/>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		
+		<input type="hidden" name="content_manager[linkpage][content_type][{$languageCode}]" value="link">
+	</fieldset>
+{/block}

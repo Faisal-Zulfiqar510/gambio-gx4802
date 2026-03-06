@@ -1,0 +1,58 @@
+{
+	"name": "ImageProcessing",
+	"title": "cronjob_image_processing.title",
+	"configuration": {
+		"active": {
+			"name": "active",
+			"type": "checkbox",
+			"label": "cronjob_image_processing.label_activate",
+			"defaultValue": false
+		},
+		"onlyMissing": {
+			"name": "only-missing",
+			"type": "checkbox",
+			"label": "cronjob_image_processing.label_only_missing",
+			"defaultValue": true
+		},
+		"afterImageOptionsChange": {
+			"name": "after-image-options-change",
+			"type": "checkbox",
+			"label": "cronjob_image_processing.label_after_image_options_change",
+			"defaultValue": true
+		},
+		"interval": {
+			"name": "interval",
+			"type": "select",
+			"label": "cronjob_image_processing.label_configure_interval",
+			"defaultValue": "0 0 * * *",
+			"values": [
+				{
+					"value": "0 */1 * * *",
+					"text": "cronjob_image_processing.every_hour"
+				},
+				{
+					"value": "0 */3 * * *",
+					"text": "cronjob_image_processing.every_3_hours"
+				},
+				{
+					"value": "0 */6 * * *",
+					"text": "cronjob_image_processing.every_6_hours"
+				},
+				{
+					"value": "0 */12 * * *",
+					"text": "cronjob_image_processing.every_12_hours"
+				},
+				{
+					"value": "0 0 * * *",
+					"text": "cronjob_image_processing.every_24_hours"
+				}
+			]
+		},
+		"sortOrder": {
+			"name": "sort-order",
+			"type": "hidden",
+			"label": "",
+			"defaultValue": "50"
+		}
+	}
+}

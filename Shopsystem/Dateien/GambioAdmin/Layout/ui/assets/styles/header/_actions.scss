@@ -1,0 +1,73 @@
+@import "variables";
+
+.actions {
+	display: flex;
+	color: white;
+	
+	margin-right: 12px;
+	
+	.shop-offline-notice {
+		display: flex;
+		align-items: center;
+		
+		align-self: center;
+		color: $brand-primary;
+		background-color: $brand-alt;
+		margin-right: $margin-small;
+		padding: 3px 8px;
+		font-size: 10px;
+		height: 21px;
+		border-radius: 3px;
+		
+		a {
+			margin-left: 3px;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	
+	.action {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		height: $header-height;
+		width: $header-height;
+		
+		font-size: $header-action-font-size;
+		
+		transition: font-size 100ms, background-color 100ms;
+		
+		&:hover {
+			font-size: $header-action-font-size * 1.3;
+			background-color: lighten($gambio-blue, 10);
+		}
+		
+		a {
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			height: inherit;
+			width: inherit;
+			color: white;
+		}
+	}
+	
+	.dev-mode {
+		cursor: pointer;
+		
+		&.enabled {
+			background: lighten($header-bg-lighter, 20);
+			
+			&:hover {
+				background: lighten($header-bg-lighter, 10);
+			}
+		}
+	}
+	
+	@import "info_box";
+}

@@ -1,0 +1,42 @@
+{
+    "type": "category",
+    "title": "malibu.areas.layout.variants.hero.title",
+    "id": "layout-hero-variant",
+    "basic": true,
+	"hidden": true,
+	"fieldsets": [
+		{
+			"title": "gx-body-wrap",
+			"options": [
+                {
+                    "id": "gx-stage-below-header",
+                    "type": "checkbox",
+                    "label": "malibu.areas.header.general.options.gx-header-bg",
+                    "default": true
+                },
+				{
+					"id": "gx-body-wrap",
+					"type": "checkbox",
+					"label": "malibu.areas.general.layout.options.gx-body-wrap",
+					"default": false
+				}
+			]
+		},
+		{
+			"title": "gx-index-full-width",
+			"options": [
+				{
+					"id": "gx-index-full-width",
+					"type": "checkbox",
+					"label": "malibu.areas.menuBoxes.activeAt.options.gx-index-full-width",
+					"default": true,
+					"requiresReload": true,
+					"values": {
+						"checked": false,
+						"unchecked": true
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,129 @@
+{* --------------------------------------------------------------
+	shipcloud_configuration_package_templates.html 2020-09-23
+	Gambio GmbH
+	http://www.gambio.de
+	Copyright (c) 2020 Gambio GmbH
+	Released under the GNU General Public License (Version 2)
+	[http://www.gnu.org/licenses/gpl-2.0.html]
+	--------------------------------------------------------------
+*}
+{extends file="get_usermod:layouts/main/layout.html"}
+
+
+{block name="content"}
+    {load_language_text section="shipcloud"}
+
+    {block name="admin_module_center_shipcloud_configuration_package_templates"}
+		<div class="gx-compatibility">
+            {block name="admin_module_center_shipcloud_configuration_package_templates_wrapper"}
+				<div class="gx-container" id="sc_package_templates"
+					 data-xgx-controller="shipcloud/package_template_config_controller">
+					<!-- Package Templates -->
+                    {block name="admin_module_center_shipcloud_configuration_package_templates_table"}
+						<form id="form-set-default" action="{$content.set_default_package_template_action}"
+							  method="POST">
+							<input type="hidden" name="pageToken" value="{$content.page_token}">
+						</form>
+						<form id="form-delete" action="{$content.delete_package_template_action}" method="POST">
+							<input type="hidden" name="pageToken" value="{$content.page_token}">
+						</form>
+						<form action="{$content.save_package_templates_action}" method="POST">
+							<input type="hidden" name="pageToken" value="{$content.page_token}">
+							<table class="left-table no-footer">
+                                {block name="admin_module_center_shipcloud_configuration_package_templates_table_thead"}
+									<tr class="dataTableHeadingRow gx-container">
+                                        {block name="admin_module_center_shipcloud_configuration_package_templates_table_thead_ths"}
+											<td class="dataTableHeadingContent"
+												style="width: 300px">{$txt.package_template_name}</td>
+											<td class="dataTableHeadingContent"
+												style="width: 70px">{$txt.package_template_weight}</td>
+											<td class="dataTableHeadingContent"
+												style="width: 70px">{$txt.package_template_length}</td>
+											<td class="dataTableHeadingContent"
+												style="width: 70px">{$txt.package_template_width}</td>
+											<td class="dataTableHeadingContent"
+												style="width: 70px">{$txt.package_template_height}</td>
+											<td class="dataTableHeadingContent"
+												style="width: 140px">{$txt.package_template_type}</td>
+											<td style="min-width: 70px"></td>
+                                        {/block}
+									</tr>
+                                {/block}
+
+                                {if empty($content.configuration.packages.packages)}
+                                    {block name="admin_module_center_shipcloud_configuration_package_templates_table_no_package_templates"}
+										<tr class="gx-container no-hover">
+											<td colspan="6" class="text-center">{$txt.no_package_templates}</td>
+										</tr>
+                                    {/block}
+                                {else}
+                                    {foreach from=$content.configuration.packages.packages item=package key=package_id}
+                                        {block name="admin_module_center_shipcloud_configuration_package_templates_table_row"}
+											<tr
+													class="sc_package_template_{$package_id} dataTableRow gx-container {if $package_id == $content.configuration.default_package}default_package{/if}"
+													data-gx-extension="link"
+													data-link-url="admin.php?do=ShipcloudModuleCenterModule/PackageTemplates#{$package_id}">
+                                                {block name="admin_module_center_shipcloud_configuration_package_templates_row_tds"}
+													<td class="dataTableContent">{$package.name}</td>
+													<td class="dataTableContent numeric_cell">{$package.weight}</td>
+													<td class="dataTableContent numeric_cell">{$package.length}</td>
+													<td class="dataTableContent numeric_cell">{$package.width}</td>
+													<td class="dataTableContent numeric_cell">{$package.height}</td>
+													<td class="dataTableContent">{$package.type_name}</td>
+													<td class="dataTableContent">
+														<button form="form-set-default" class="sctc-makedefault"
+																name="templateId" value="{$package_id}"
+																style="margin-bottom: 0">{$txt.use_as_default_template}</button>
+														<button form="form-delete" class="sctc-delete" name="templateId"
+																value="{$package_id}"
+																style="margin-bottom: 0">{$txt.delete_template}</button>
+													</td>
+                                                {/block}
+											</tr>
+                                        {/block}
+                                    {/foreach}
+                                {/if}
+								<tr class="add-package-template">
+									<td>
+										<input name="package[name]" type="text" value="" required>
+									</td>
+									<td class="numeric_cell">
+										<input name="package[weight]" type="number" min="0.001" max="1000" step="0.001"
+											   value="0.001" size="6">
+									</td>
+									<td class="numeric_cell">
+										<input name="package[length]" type="number" min="1" max="240" value="1"
+											   size="6">
+									</td>
+									<td class="numeric_cell">
+										<input name="package[width]" type="number" min="1" max="200" value="1" size="6">
+									</td>
+									<td class="numeric_cell">
+										<input name="package[height]" type="number" min="0.1" max="200" step="0.1"
+											   value="0.1" size="6">
+									</td>
+									<td>
+										<select class="" name="package[type]">
+											<option value="parcel">{$txt.package_type_parcel}</option>
+											<option value="parcel_letter">{$txt.package_type_parcel_letter}</option>
+											<option value="letter">{$txt.package_type_letter}</option>
+											<option value="books">{$txt.package_type_books}</option>
+											<option value="bulk">{$txt.package_type_bulk}</option>
+											<option value="disposable_pallet">{$txt.package_type_disposable_pallet}</option>
+											<option value="euro_pallet">{$txt.package_type_euro_pallet}</option>
+										</select>
+									</td>
+									<td>
+										<button class="btn btn-success" type="submit" style="margin-bottom: 0">
+											<i class="fa fa-plus"></i> {$txt.add_package_template}
+										</button>
+									</td>
+								</tr>
+							</table>
+						</form>
+                    {/block}
+				</div>
+            {/block}
+		</div>
+    {/block}
+{/block}

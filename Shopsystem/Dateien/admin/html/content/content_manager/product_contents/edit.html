@@ -1,0 +1,80 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="content_manager"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+	
+	{block name="admin_content_manager_product_contents_edit"}
+		<div class="breakpoint-large" data-gx-controller="content_manager/type_selection">
+			{block name="admin_content_manager_product_contents_edit_type_selection"}
+				<div class="content-manager-form form-horizontal">
+					<fieldset>
+						<div class="form-group">
+							{block name="admin_content_manager_product_contents_edit_type_selection_label"}
+								<label class="col-md-2">{$txt.LABEL_PRODUCT_CONTENT_TYPE}:</label>
+							{/block}
+							{block name="admin_content_manager_product_contents_edit_type_selection_container"}
+								<div class="col-md-4">
+									{block name="admin_content_manager_product_contents_edit_type_selection_input"}
+										<select class="form-control content-manager-type-selection">
+											<option value="file" {if $content.contentType == 'file'}selected{/if}>{$txt.LABEL_PRODUCT_CONTENT_FILE}</option>
+											<option value="link" {if $content.contentType == 'link'}selected{/if}>{$txt.LABEL_PRODUCT_CONTENT_LINK}</option>
+											<option value="text" {if $content.contentType == 'text'}selected{/if}>{$txt.LABEL_PRODUCT_CONTENT_TEXT}</option>
+										</select>
+									{/block}
+								</div>
+							{/block}
+						</div>
+					</fieldset>
+				</div>
+			{/block}
+			
+			{block name="admin_content_manager_product_contents_edit_type_tabs"}
+				<div class="content-manager-type-selection-content product-contents-forms" data-gx-controller="content_manager/product_content/edit">
+					{block name="admin_content_manager_product_contents_edit_type_tabs_file"}
+						<div class="file">
+							{include file="get_usermod:content_manager/partial/product_content_form.html" content_manager=$content.content_manager type="file"}
+						</div>
+					{/block}
+					{block name="admin_content_manager_product_contents_edit_type_tabs_link"}
+						<div class="link">
+							{include file="get_usermod:content_manager/partial/product_content_form.html" content_manager=$content.content_manager type="link"}
+						</div>
+					{/block}
+					{block name="admin_content_manager_product_contents_edit_type_tabs_text"}
+						<div class="text">
+							{include file="get_usermod:content_manager/partial/product_content_form.html" content_manager=$content.content_manager type="text"}
+						</div>
+					{/block}
+				</div>
+			{/block}
+		</div>
+	{/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+
+	{block name="admin_content_manager_product_contents_edit_buttons"}
+		{block name="admin_content_manager_product_contents_edit_buttons_save"}
+			<button data-gx-controller="content_manager/save_bar"
+					type="submit"
+			        name="save"
+			        value="1"
+			        class="btn btn-primary pull-right">{$admin_buttons.BUTTON_SAVE}</button>
+		{/block}
+
+		{block name="admin_content_manager_product_contents_edit_buttons_back"}
+		<a href="./admin.php?do=ContentManagerProductContents{if isset($smarty.get.expert)}&expert{/if}"
+		   class="btn btn-default pull-right">{$admin_buttons.BUTTON_BACK}</a>
+		{/block}
+
+		{block name="admin_content_manager_product_contents_edit_buttons_update"}
+		<button data-gx-controller="content_manager/save_bar"
+		        type="submit"
+		        name="update"
+		        value="1"
+		        class="btn btn-default pull-right">{$admin_buttons.BUTTON_UPDATE}</button>
+		{/block}
+	{/block}
+{/block}

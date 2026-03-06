@@ -1,0 +1,79 @@
+{literal}
+	<script type="text/x-template" id="cronjobs-miscellaneous">
+		<div class="cronjob-miscellaneous cronjob-container">
+			<div class="row headline">
+				<div class="col-md-12">
+					<h3 class="title" v-text="lang.sub_title_miscellaneous" />
+				</div>
+			</div>
+
+
+			<form class="row element-container">
+				<ul class="cronjob-elements-list"
+					data-gx-extension="visibility_switcher"
+					data-visibility_switcher-rows=".cronjob-element"
+					data-visibility_switcher-selections=".miscellaneous-action-icons">
+
+					<li class="col-md-12 cronjob-element">
+								<span class="col-md-2 miscellaneous-label">
+									Status
+								</span>
+
+						<span class="col-md-10 miscellaneous-status">
+							<div v-if="meta.active">
+								<span class="status-badge active">
+									<span v-text="lang.status_active" />
+								</span>
+
+								<span class="status-description">
+									<span class="execution-info">{{ lang.last_executed }}:
+										<span v-if="meta.executedAt" v-text="meta.executedAt" />
+										<span v-else>-</span>
+									</span>
+								</span>
+							</div>
+							<div v-else>
+								<span class="status-badge error">
+									<span v-text="lang.status_inactive" />
+								</span>
+
+								<span class="status-description">
+									{{ lang.miscellaneous_cronjob_error }}
+
+									<span class="execution-info">{{ lang.last_executed }}:
+										<span v-if="meta.executedAt" v-text="meta.executedAt" />
+										<span v-else>-</span>
+									</span>
+								</span>
+							</div>
+						</span>
+					</li>
+
+					<li class="col-md-12 cronjob-element">
+							<span class="col-md-2 miscellaneous-label">
+								<label for="cron-url">Cronjob-URL</label>
+							</span>
+
+						<span class="col-md-7 cronjob-url">
+								<input id="cron-url" type="text" :value="meta.cronjobUrl" readonly>
+							</span>
+
+						<span class="col-md-3 miscellaneous-action-icons">
+							<a class="copy-to-clipboard"
+							   href="#"
+							   :title="lang.copy_to_clipboard"
+							   @click.prevent="copyUrl">
+								<i class="fa fa-copy"></i>
+							</a>
+							<span class="tooltip-icon"
+								  data-gx-widget="tooltip_icon"
+								  data-tooltip_icon-type="info">
+								{{ lang.cronjob_setup_description }}
+							</span>
+						</span>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</script>
+{/literal}

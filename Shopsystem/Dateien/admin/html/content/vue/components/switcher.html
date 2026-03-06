@@ -1,0 +1,12 @@
+{literal}
+	<script type="text/x-template" id="gx-switcher">
+		<div class="switcher" :class="{checked: input}" :title="title" @click="clickSwitcher">
+			<input type="checkbox" v-model="input">
+			<div class="switcher-toggler"></div>
+			<div class="switcher-inner">
+				<div class="switcher-state-on" v-html="onState" />
+				<div class="switcher-state-off" v-html="offState" />
+			</div>
+		</div>
+	</script>
+{/literal}

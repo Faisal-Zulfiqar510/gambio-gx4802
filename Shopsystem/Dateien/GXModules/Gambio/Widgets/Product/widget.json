@@ -1,0 +1,60 @@
+{
+  "id": "product",
+  "title": "productWidget.title",
+  "icon": {
+    "name": "Product",
+    "file": "icon.svg"
+  },
+  "author": {
+    "name": "Gambio GmbH",
+    "email": "info@gambio.de",
+    "url": "https://www.gambio.de"
+  },
+  "helpUrl": "https://www.gambio.de/help",
+  "description": "productWidget.description",
+  "cache": 0,
+  "version": "1.0.0",
+  "displayConfig": "sidebar",
+  "fieldsets": [
+    {
+      "title": "productWidget.options.general.title",
+      "options": [
+        {
+          "id": "id",
+          "label": "productWidget.options.general.options.id.label",
+          "type": "textbox",
+          "attributes": {
+            "placeholder": "productWidget.options.general.options.id.placeholder"
+          },
+          "default": "",
+          "from": "contentZoneWidget"
+        },
+        {
+          "id": "class",
+          "label": "productWidget.options.general.options.class.label",
+          "type": "textbox",
+          "attributes": {
+            "placeholder": "productWidget.options.general.options.class.placeholder"
+          },
+          "default": "",
+          "from": "contentZoneWidget"
+        }
+      ]
+    },
+    {
+      "title": "productWidget.options.product.title",
+      "options": [
+        {
+          "id": "productSearchBox",
+          "label": "productWidget.options.product.options.product.label",
+          "type": "productsearchbox",
+          "attributes": {
+            "placeholder": "productWidget.options.product.options.product.placeholder"
+          },
+          "default": "",
+          "from": "contentZoneWidget"
+        }
+      ]
+    }
+  ]
+}

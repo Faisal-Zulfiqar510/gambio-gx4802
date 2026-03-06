@@ -1,0 +1,420 @@
+{
+	"type": "category",
+	"title": "malibu.areas.footer.default.title",
+	"id": "footer-default-column-cat",
+	"basic": true,
+	"categories": [
+		{
+			"type": "category",
+			"id": "footer-default-footerHeader",
+			"title": "malibu.areas.footer.footerHeader.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.footer.footerHeader.title",
+					"options": [
+						{
+							"id": "gx-footer-header-min-height",
+							"type": "textbox",
+							"label": "malibu.areas.footer.footerHeader.options.gx-footer-header-min-height",
+							"default": "50px"
+						},
+						{
+							"id": "gx-footer-header-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.footer.footerHeader.options.gx-footer-header-color",
+							"default": "#000"
+						},
+						{
+							"id": "gx-footer-header-bg",
+							"type": "background",
+							"label": "malibu.areas.footer.footerHeader.options.gx-footer-header-bg",
+							"default": {
+								"color": "$brand-primary"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "footer-default-footerBody",
+			"title": "malibu.areas.footer.footerBody.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.footer.footerBody.title",
+					"options": [
+						{
+							"id": "gx-footer-min-height",
+							"type": "textbox",
+							"label": "malibu.areas.footer.footerBody.options.gx-footer-min-height",
+							"default": "300px"
+						},
+						{
+							"id": "gx-footer-height",
+							"type": "textbox",
+							"label": "malibu.areas.footer.footerBody.options.gx-footer-height",
+							"default": "300px"
+						},
+						{
+							"id": "gx-footer-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.footer.footerBody.options.gx-footer-color",
+							"default": "#666"
+						},
+						{
+							"id": "gx-footer-link-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.footer.footerBody.options.gx-footer-link-color",
+							"default": "#666"
+						},
+						{
+							"id": "gx-footer-link-hover-color",
+							"type": "colorpicker",
+							"label": "malibu.areas.footer.footerBody.options.gx-footer-link-hover-color",
+							"default": "#000"
+						},
+						{
+							"id": "gx-footer-line-height",
+							"type": "textbox",
+							"label": "malibu.areas.footer.footerBody.options.gx-footer-line-height",
+							"default": "2.3"
+						},
+						{
+							"id": "gx-footer-bg",
+							"type": "background",
+							"label": "malibu.areas.footer.footerBody.options.gx-footer-bg",
+							"default": {
+								"color": "#eee"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "footerColumn1",
+			"title": "malibu.areas.footer.footerColumn1.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.footer.footerColumn1.title",
+					"options": [
+						{
+							"id": "gx-hide-footer-col-1",
+							"type": "checkbox",
+							"label": "malibu.areas.footer.footerColumn1.options.gx-hide-footer-col-1",
+							"default": false
+						},
+						{
+							"id": "gx-footer-col-1-xs",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn1.options.gx-footer-col-1-xs",
+							"default": "12",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-footer-col-1-sm",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn1.options.gx-footer-col-1-sm",
+							"default": "6",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-footer-col-1-lg",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn1.options.gx-footer-col-1-lg",
+							"default": "3",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "footerColumn2",
+			"title": "malibu.areas.footer.footerColumn2.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.footer.footerColumn2.title",
+					"options": [
+						{
+							"id": "gx-hide-footer-col-2",
+							"type": "checkbox",
+							"label": "malibu.areas.footer.footerColumn2.options.gx-hide-footer-col-2",
+							"default": false
+						},
+						{
+							"id": "gx-footer-col-2-xs",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn2.options.gx-footer-col-2-xs",
+							"default": "12",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-footer-col-2-sm",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn2.options.gx-footer-col-2-sm",
+							"default": "6",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-footer-col-2-lg",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn2.options.gx-footer-col-2-lg",
+							"default": "3",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "footerColumn3",
+			"title": "malibu.areas.footer.footerColumn3.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.footer.footerColumn3.title",
+					"options": [
+						{
+							"id": "gx-hide-footer-col-3",
+							"type": "checkbox",
+							"label": "malibu.areas.footer.footerColumn3.options.gx-hide-footer-col-3",
+							"default": false
+						},
+						{
+							"id": "gx-footer-col-3-xs",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn3.options.gx-footer-col-3-xs",
+							"default": "12",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-footer-col-3-sm",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn3.options.gx-footer-col-3-sm",
+							"default": "6",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-footer-col-3-lg",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn3.options.gx-footer-col-3-lg",
+							"default": "3",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "category",
+			"id": "footerColumn4",
+			"title": "malibu.areas.footer.footerColumn4.title",
+			"fieldsets": [
+				{
+					"title": "malibu.areas.footer.footerColumn4.title",
+					"options": [
+						{
+							"id": "gx-hide-footer-col-4",
+							"type": "checkbox",
+							"label": "malibu.areas.footer.footerColumn4.options.gx-hide-footer-col-4",
+							"default": false
+						},
+						{
+							"id": "gx-footer-col-4-xs",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn4.options.gx-footer-col-4-xs",
+							"default": "12",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-footer-col-4-sm",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn4.options.gx-footer-col-4-sm",
+							"default": "6",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						},
+						{
+							"id": "gx-footer-col-4-lg",
+							"type": "dropdownselect",
+							"label": "malibu.areas.footer.footerColumn4.options.gx-footer-col-4-lg",
+							"default": "3",
+							"options": [
+								"0",
+								"1",
+								"2",
+								"3",
+								"4",
+								"5",
+								"6",
+								"7",
+								"8",
+								"9",
+								"10",
+								"11",
+								"12"
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

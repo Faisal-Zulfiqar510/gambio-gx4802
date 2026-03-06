@@ -1,0 +1,47 @@
+<div class="form-group visibility_switcher">
+	<label class="if $config.tooltip.text} col-sm-{math equation='x - 1' x=$config.grids_width[0]} {else} col-sm-{$config.grids_width[0]} {/if} control-label" for="{$field}">{$config.label}</label>
+	<ul class="col-sm-{$config.grids_width[1]} lang-select" role="tablist">
+        {foreach item=language name=tabs from=$adminLanguages}
+            {assign var=languageCode value=$language.code|lower}
+			<li role="presentation" {if $smarty.foreach.tabs.first} class="active"{/if}>
+				<a href="#tab-content-{$field}-{$languageCode}"
+				   data-language="{$languageCode}"
+				   aria-controls="home"
+				   role="tab"
+				   data-toggle="tab"
+				><span class="flag-icon flag-icon-{$languageCode}"></span></a>
+			</li>
+        {/foreach}
+	</ul>
+	<div class="{if $config.tooltip.text} col-sm-11 {else} col-sm-12 {/if}">
+
+
+
+        <div class="tab-content">
+            {foreach item=language name=panel from=$languages}
+                {assign var=languageCode value=$language.code|lower}
+                {if isset($config.default_value->{$languageCode})}
+                    {assign var=inputValue value=$config.default_value->{$languageCode}}
+                {elseif isset($config.default_value.{$languageCode})}
+                    {assign var=inputValue value=$config.default_value.{$languageCode}}
+                {elseif $config.default_value}
+                    {assign var=inputValue value=$config.default_value}
+                {/if}
+                 <div role="tabpanel" class="tab-pane {if $smarty.foreach.panel.first}active in{/if}"
+                     id="tab-content-{$field}-{$languageCode}" data-language="{$languageCode}">
+                    <div class="row">
+                        <input style="max-width: 100%" type="{$config.type}" id="{$field}[{$languageCode}]" name="{$field}[{$languageCode}]"
+                               class="form-control" max="{$config.max}" min="{$config.min}" step="{$config.step}"
+                               value="{$inputValue}" {if $config.required}required{/if} />
+                    </div>
+                </div>
+            {/foreach}
+        </div>
+	</div>
+	{if $config.tooltip.text}
+	<span class="col-sm-1 tooltip-icon"
+	      style="margin: 0px;"
+	      data-gx-widget="tooltip_icon"
+	      data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+	{/if}
+</div>

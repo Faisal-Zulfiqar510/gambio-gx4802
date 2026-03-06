@@ -1,0 +1,17 @@
+{
+	"name": "gambio/auto-updater",
+	"description": "AutoUpdater for the Gambio Shop.",
+	"minimum-stability": "dev",
+	"license": "GPL-2.0",
+	"require": {
+		"php": "^7.4 || ^8.0",
+		"ext-curl": "*",
+		"ext-json": "*",
+		"league/flysystem": "^2.0",
+		"league/flysystem-sftp": "^2.0",
+		"league/flysystem-ftp": "^2.0"
+	},
+	"scripts": {
+		"create-docs": "php phpdoc.phar -d ./src/GXMainComponents -t ./docs"
+	}
+}

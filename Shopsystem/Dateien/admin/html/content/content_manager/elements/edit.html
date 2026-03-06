@@ -1,0 +1,77 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="content_manager"}
+
+	{block name="admin_content_manager_elements_edit"}
+		<div class="breakpoint-large" data-gx-controller="content_manager/type_selection">
+			{block name="admin_content_manager_elements_edit_type_selection"}
+				<div class="content-manager-form form-horizontal type-selection-container">
+					<fieldset>
+						<div class="form-group">
+							{block name="admin_content_manager_elements_edit_type_selection_label"}
+								<label class="col-md-2">{$txt.ELEMENT_TYPE}:</label>
+							{/block}
+							{block name="admin_content_manager_elements_edit_type_selection_container"}
+								<div class="col-md-4">
+									{block name="admin_content_manager_elements_edit_type_selection_container_input"}
+										<select class="form-control content-manager-type-selection">
+											<option value="elements-content"
+													{if $content.contentManager.contentType == 'content'}selected{/if}>{$txt.ELEMENT_TYPE_INFO}</option>
+											<option value="elements-script"
+													{if $content.contentManager.contentType == 'file'}selected{/if}>{$txt.PAGE_TYPE_SCRIPT}</option>
+										</select>
+									{/block}
+								</div>
+							{/block}
+						</div>
+					</fieldset>
+				</div>
+			{/block}
+			
+			{block name="admin_content_manager_elements_edit_types_content"}
+				<div class="content-manager-type-selection-content">
+					{block name="admin_content_manager_elements_edit_types_content_content"}
+						<div class="elements-content">
+							{include file="get_usermod:content_manager/partial/contents_edit_form.html" content_manager=$content.contentManager type="elements-content"}
+						</div>
+					{/block}
+					{block name="admin_content_manager_elements_edit_types_content_script"}
+						<div class="elements-script">
+							{include file="get_usermod:content_manager/partial/contents_edit_form.html" content_manager=$content.contentManager type="elements-script"}
+						</div>
+					{/block}
+				</div>
+			{/block}
+		</div>
+	{/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	{load_language_text section="admin_buttons" name="admin_buttons"}
+
+	{block name="admin_content_manager_elements_edit_buttons"}
+		{block name="admin_content_manager_elements_edit_buttons_save"}
+			<button data-gx-controller="content_manager/save_bar"
+					type="submit"
+			        name="save"
+			        value="1"
+			        form="elements"
+			        class="btn btn-primary pull-right">{$admin_buttons.BUTTON_SAVE}</button>
+		{/block}
+
+		{block name="admin_content_manager_elements_edit_buttons_update"}
+		<button data-gx-controller="content_manager/save_bar"
+		        type="submit"
+		        name="update"
+		        value="1"
+		        form="elements"
+		        class="btn btn-default pull-right">{$admin_buttons.BUTTON_UPDATE}</button>
+		{/block}
+
+		{block name="admin_content_manager_elements_edit_buttons_back"}
+		<a href="./admin.php?do=ContentManagerElements{if isset($smarty.get.expert)}&expert{/if}"
+		   class="btn btn-default pull-right">{$admin_buttons.BUTTON_BACK}</a>
+		{/block}
+	{/block}
+{/block}

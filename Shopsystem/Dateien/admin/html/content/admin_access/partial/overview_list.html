@@ -1,0 +1,119 @@
+{*
+	Smarty block element for creating an admin access overview page.
+	
+	The following variables have to be given by	the including template to create the list elements:
+	- $title:               Title of this overview
+	- $action:              Data of an action that should be displayed above the overview
+	                        Has to contain the following keys:
+	                        	- text: Text that should be displayed inside the button
+	                        	- url:  URL for this action
+	                        	- icon: Font awesome icon for the button
+	                        If $action is empty no action is shown.
+	- $list_elements:       Array of elements that should be displayed in the list.
+	                        Has to contain the following keys:
+	                        	- name: Name of the entry
+	                        If $list_elements is empty a notification is shown instead.
+	- $elements_actions:    Array of actions that should be displayed for each list element.
+	                        Has to contain the following keys:
+	                        	- url:  URL for this action
+	                        	- icon: Icon for this action
+	                        Can contain the following keys:
+	                        	- class: CSS class for this action
+	                        If $list_actions is empty no actions are shown.
+    
+	Example:
+		{include file="get_usermod:admin_access/partial/overview_list.html"
+		         title=$title
+		         action=$content.listAction
+		         list_elements=$list_elements
+		         elements_actions=$elements_actions}
+*}
+
+{block name="admin_admin_access_partial_overview_list"}
+	{block name="admin_admin_access_partial_overview_list_heading"}
+		{if $title || $action}
+			<div class="row headline">
+				{block name="admin_admin_access_partial_overview_list_heading_title"}
+					<div class="{if $action}col-md-6{else}col-md-12{/if}">
+						{if $title}
+							<h3>{$title}</h3>
+						{/if}
+					</div>
+				{/block}
+				
+				{block name="admin_admin_access_partial_overview_list_heading_action_if"}
+					{if $action}
+						{block name="admin_admin_access_partial_overview_list_heading_action"}
+							<div class="col-md-6 text-right">
+								<a href="{$action.url}" class="btn btn-success {$action.class}"><i class="fa btn-icon {$action.icon}"></i> {$action.text}</a>
+							</div>
+						{/block}
+					{/if}
+				{/block}
+			</div>
+		{/if}
+	{/block}
+	
+	{if $list_elements}
+		{block name="admin_admin_access_partial_overview_list_container"}
+			<div class="row overview-list-container">
+				{block name="admin_admin_access_partial_overview_list_container_list"}
+					<ul class="overview-list"
+						data-gx-extension="visibility_switcher"
+						data-visibility_switcher-rows=".list-element"
+						data-visibility_switcher-selections=".list-element-actions"
+					>
+						{block name="admin_admin_access_partial_overview_list_container_list_foreach"}
+							{foreach item=element from=$list_elements}
+								{block name="admin_admin_access_partial_overview_list_container_list_element"}
+									<li class="col-md-12 list-element" data-list-element-id="{$element.id}">
+										{block name="admin_admin_access_partial_overview_list_container_list_element_title"}
+											<span class="list-element-text list-element-title {if $element_actions}col-md-8{else}col-md-12{/if}"
+											      {if $element.description}title="{$element.description}"{/if}
+											>
+												{$element.title}
+											</span>
+										{/block}
+										
+										{block name="admin_admin_access_partial_overview_list_container_list_element_actions"}
+											{if $element_actions}
+												<span class="col-md-4 list-element-actions">
+													{foreach item=action from=$element_actions}
+														{block name="admin_admin_access_partial_overview_list_container_list_element_actions_action"}
+															<a {if $action.class}
+																   class="{$action.class}"
+																   data-id="{$element.id}"
+															   {/if}
+															   href="{$action.url}{if empty($action.class)}&id={$element.id}{/if}"
+															><i class="fa {$action.icon}"></i></a>
+														{/block}
+													{/foreach}
+												</span>
+											{/if}
+										{/block}
+									</li>
+								{/block}
+							{/foreach}
+						{/block}
+					</ul>
+				{/block}
+			</div>
+		{/block}
+	{else}
+		{block name="admin_admin_access_partial_overview_list_container_empty_list"}
+			<div class="row overview-list-container empty">
+				<ul class="overview-list"
+				    data-gx-extension="visibility_switcher"
+				    data-visibility_switcher-rows=".list-element"
+				    data-visibility_switcher-selections=".list-element-actions"
+				>
+					{block name="admin_admin_access_partial_overview_list_container_empty_list_item"}
+						<li class="col-md-12 list-element">
+							<span class="title">{$txt.text_empty_overview_list}</span>
+						</li>
+					{/block}
+				</ul>
+			</div>
+		{/block}
+	{/if}
+{/block}

@@ -1,0 +1,44 @@
+{*
+	Log modal
+	==================
+
+	Is triggered when the user clicks on the show logs button.
+*}
+
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_cronjob_modals_logs"}
+	<div class="logs modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				{block name="admin_cronjob_modals_logs_header"}
+					<div class="modal-header">
+						{block name="admin_cronjob_modals_logs_header_close_button"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						{/block}
+						
+						{block name="admin_cronjob_modals_logs_header_title"}
+							<h4 class="modal-title">{$txt.title_log_modal} {* Put job name here *}</h4>
+						{/block}
+					</div>
+				{/block}
+				
+				{block name="admin_cronjob_modals_logs_body"}
+					<div class="modal-body">
+						{* Dynamic content *}
+					</div>
+				{/block}
+				
+				{block name="admin_cronjob_modals_logs_footer"}
+					<div class="modal-footer">
+						{block name="admin_cronjob_modals_logs_footer_cancel"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$admin_buttons.BUTTON_CLOSE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

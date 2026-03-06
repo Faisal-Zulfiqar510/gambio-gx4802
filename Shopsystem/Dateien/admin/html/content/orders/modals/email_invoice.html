@@ -1,0 +1,117 @@
+{*	Email Invoice Modal *}
+
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_orders_modals_email_invocie"}
+	<div class="email-invoice modal fade" tabindex="-1" role="dialog"
+		 data-gx-controller="orders/modals/email_invoice">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_orders_modals_email_invocie_header"}
+					<div class="modal-header">
+						{block name="admin_orders_modals_email_invocie_header_close"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_ClOSE}">
+								<span aria-hidden="true">&times;</span></button>
+						{/block}
+						{block name="admin_orders_modals_email_invocie_header_title"}
+							<h4 class="modal-title">{$gm_order_menu.TITLE_INVOICE}</h4>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_email_invocie_body"}
+					<div class="modal-body">
+						{block name="admin_orders_modals_email_invocie_body_question"}
+							<div class="form-group remove-border">
+								<span class="confirm-question">
+									{$gm_order_menu.TITLE_INVOICE_CONFIRM}
+									<span class="customer-info">{* Dynamic Content *}</span>
+									{$gm_order_menu.TITLE_INVOICE_CONFIRMED}
+								</span>
+							</div>
+						{/block}
+		
+						{block name="admin_orders_modals_email_invocie_body_alert_warning"}
+							<div class="alert alert-warning hidden no-invoice">{$gm_order_menu.TEXT_NO_INVOICE_INFO}</div>
+						{/block}
+						
+						<br>
+						
+						{block name="admin_orders_modals_email_invocie_body_form"}
+							<form class="form-horizontal">
+								<fieldset>
+									{block name="admin_orders_modals_email_invocie_body_form_invoices"}
+										<div class="form-group hidden invoice-numbers">
+											{block name="admin_orders_modals_email_invocie_body_form_invoices_label"}
+												<label for="invoice-subject" class="col-md-2 control-label">
+													{$gm_order_menu.TITLE_INVOICES}
+												</label>
+											{/block}
+											{block name="admin_orders_modals_email_invocie_body_form_invoices_input"}
+												<div class="col-md-10 invoice-numbers-checkboxes">
+													
+												</div>
+											{/block}
+										</div>
+									{/block}
+									
+									{* Subject Field*}
+									{block name="admin_orders_modals_email_invocie_body_form_subject"}
+										<div class="form-group">
+											{block name="admin_orders_modals_email_invocie_body_form_subject_label"}
+												<label for="invoice-subject" class="col-md-2 control-label">
+													{$gm_order_menu.TITLE_SUBJECT}
+												</label>
+											{/block}
+											{block name="admin_orders_modals_email_invocie_body_form_subject_input"}
+												<div class="col-md-10">
+													<input id="invoice-subject"
+														   type="text"
+														   class="subject form-control"
+														   name="gm_subject"
+														   value="MAIL_SUBJECT" />
+												</div>
+											{/block}
+										</div>
+									{/block}
+			
+									{* E-Mail Address Field *}
+									{block name="admin_orders_modals_email_invocie_body_form_email_adress_field"}
+										<div class="form-group">
+											{block name="admin_orders_modals_email_invocie_body_form_email_adress_field_label"}
+												<label for="invoice-email-address" class="col-md-2 control-label">
+													{$gm_order_menu.TITLE_MAIL}
+												</label>
+											{/block}
+											{block name="admin_orders_modals_email_invocie_body_form_email_adress_field_input"}
+												<div class="col-md-10">
+													<input id="invoice-email-address"
+														   type="text"
+														   class="email-address form-control"
+														   name="gm_mail"
+														   value="CUSTOMER_EMAIL_ADDRESS" />
+												</div>
+											{/block}
+										</div>
+									{/block}
+								</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_email_invocie_footer"}
+				<div class="modal-footer">
+					{block name="admin_orders_modals_email_invocie_footer_cancel"}
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							{$admin_buttons.BUTTON_CANCEL}</button>
+					{/block}
+					{block name="admin_orders_modals_email_invocie_footer_send"}
+						<button type="button" class="btn btn-primary send">{$admin_buttons.BUTTON_SEND}</button>
+					{/block}
+				</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

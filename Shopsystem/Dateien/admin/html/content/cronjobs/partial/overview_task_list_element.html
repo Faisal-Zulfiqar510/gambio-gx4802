@@ -1,0 +1,109 @@
+{* 
+   Smarty block element for creating Cronjob overview pages. Following variables have to be given by
+   the including template to create the list elements:
+   
+   - $list_elements: Array of elements that should be displayed in the list.
+     Has to contain following keys:
+     - task: Should be something like "deleteLogs", "deleteGuestAccounts", etc
+     - schedule: Information about the configured schedule
+     - name: Name of the entry
+     - status: Defines the status of the task. Can be something like "inactive", "active", "warning", "error"
+     If $list_elements is empty a notification is shown instead.
+     
+  Example: 
+  {include file="get_usermod:cronjobs/partial/overview_task_list_element.html" title = $title list_elements = $list_elements}
+*}
+
+{block name="admin_cronjob_partial_overview_list_element"}
+	<div class="cronjob-container">
+		{block name="admin_cronjob_partial_overview_list_element_heading"}
+			<div class="row headline">
+				{block name="admin_cronjob_partial_overview_list_element_heading_title"}
+					<div class="col-md-12">
+						<h3 class="title">{$txt.sub_title_tasks}</h3>
+					</div>
+				{/block}
+			</div>
+		{/block}
+
+		{if $cronjobs}
+			{block name="admin_cronjob_partial_overview_list_element_container"}
+				<div class="row element-container">
+					{block name="admin_cronjob_partial_overview_list_element_list"}
+						<ul class="cronjob-elements-list"
+							data-gx-widget="tooltip"
+							data-tooltip-style='{literal}{"classes": "gx-qtip info"}{/literal}'
+							data-gx-extension="visibility_switcher"
+							data-visibility_switcher-rows=".cronjob-element"
+							data-visibility_switcher-selections=".job-action-icons"
+						>
+							{foreach $cronjobs as $cronjob}
+								{block name="admin_cronjob_partial_overview_list_element_list_item"}
+									<li class="col-md-12 cronjob-element" data-task="{$cronjob.name}">
+										{block name="admin_cronjob_partial_overview_list_element_list_item_icon"}
+											<span class="col-md-1 job-icon" title="{$cronjob.interval}">
+												<i class="fa fa-clock-o"></i>
+											</span>
+										{/block}
+
+										{block name="admin_cronjob_partial_overview_list_element_list_item_name"}
+											<span class="col-md-7 job-name">
+												{$cronjob.title}
+
+												{if $cronjob.status === 'inactive'}
+													<span class="status-badge inactive pull-right" title="{$txt.status_inactive_description}">
+														<span>{$txt.status_inactive}</span>
+													</span>
+												{elseif $cronjob.status === 'active'}
+													<span class="status-badge active pull-right" title="{$txt.status_active_description}">
+														<span>{$txt.status_active}</span>
+													</span>
+												{elseif $cronjob.status === 'warning'}
+													<span class="status-badge active pull-right" title="{$txt.status_warning_description}">
+														<span>{$txt.status_active}</span>
+													</span>
+												{elseif $cronjob.status === 'error'}
+													<span class="status-badge error pull-right" title="{$txt.status_error_description}">
+														<span>{$txt.status_active}</span>
+													</span>
+												{else}
+													<span class="status-badge not-executed pull-right" title="{$txt.status_not_executed_description}">
+														<span>{$txt.status_active}</span>
+													</span>
+												{/if}
+											</span>
+										{/block}
+
+										{block name="admin_cronjob_partial_overview_list_element_list_item_actions"}
+											<span class="col-md-4 job-action-icons">
+												{block name="admin_cronjob_partial_overview_list_element_list_item_actions_show_logs"}
+													<a class="open-logs" href="#">
+														<i class="fa fa-eye"></i>
+													</a>
+												{/block}
+
+												{block name="admin_cronjob_partial_overview_list_element_list_item_actions_job_edit"}
+													<a class="open-configuration" href="#">
+														<i class="fa fa-pencil"></i>
+													</a>
+												{/block}
+											</span>
+										{/block}
+									</li>
+								{/block}
+							{/foreach}
+						</ul>
+					{/block}
+				</div>
+			{/block}
+		{else}
+			{block name="admin_cronjob_partial_overview_list_element_empty_list"}
+				<div class="row element-container empty">
+					<ul class="cronjob-elements-list">
+						<li class="col-md-12 cronjob-element">{$txt.no_jobs}</li>
+					</ul>
+				</div>
+			{/block}
+		{/if}
+	</div>
+{/block}

@@ -1,0 +1,107 @@
+@import "mixins";
+
+ul {
+	list-style-type: none;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+span {
+	&.match {
+		color: #FDF0E1;
+		background-color: #F5A623;
+	}
+	
+	&.key-match {
+		color: $brand-info;
+		text-decoration: underline $brand-info;
+	}
+}
+
+.listing {
+	width: 100%;
+	font-size: 14px;
+	
+	@include listing-padding();
+	
+	.categories {
+		display: flex;
+		flex-direction: column;
+		
+		.category > .title {
+			@include config-title();
+			margin: 1.75rem 0;
+		}
+		
+		.groups {
+			margin-bottom: 6rem;
+		}
+		
+		.group {
+			&:not(:last-child) {
+				margin-bottom: 3rem;
+			}
+			
+			& > .title {
+				color: $gambio-blue;
+				font-size: 16px;
+				font-weight: 700;
+				padding: 1rem;
+				background-color: #f3f3f3;
+			}
+		}
+	}
+	
+	.configurations {;
+		color: $text-color-light;
+		display: flex;
+		flex-direction: column;
+		
+		.configuration {
+			display: flex;
+			padding: 1rem;
+			min-height: 4rem;
+			
+			&.link {
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					
+					color: #ffffff;
+					background: $gambio-blue;
+					padding: 0 1rem;
+					
+					width: 75%;
+					height: 2rem;
+				}
+			}
+			
+			.label {
+				font-weight: normal;
+				width: 40%;
+				color: #002337;
+				padding-right: 1rem;
+				display: flex;
+				align-items: center;
+				
+				> span {
+					white-space: pre-wrap;
+				}
+			}
+			
+			.configuration-item {
+				width: 50%;
+				display: flex;
+				align-items: center;
+			}
+			
+			&:not(:last-of-type) {
+				border-bottom: 1px solid $border-color;
+			}
+		}
+	}
+}

@@ -1,0 +1,1040 @@
+{extends file="../layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="module_center_module"}
+    {load_language_text section="countries" name="countriestxt"}
+
+    {function dhlTextInput label='' fieldname='' id='' value='' maxlength=20 minlength=0 shortenedFrom='' tooltip='' required='false'}
+        <div class="form-group">
+            <label class="col-sm-7 control-label" for="{$id}">{$label}</label>
+            <div class="{if $tooltip}col-sm-4{else}col-sm-5{/if}">
+                <input maxlength="{$maxlength}" {if $minlength}minlength="{$minlength}"{/if} type="text"
+                       class="form-control" name="{$fieldname}" id="{$id}"
+                       value="{$value}" {if $required === 'true'}required{/if}>
+            </div>
+            {if $tooltip}
+                <div class="col-sm-1">
+                    <span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$tooltip}</span>
+                </div>
+            {/if}
+        </div>
+    {/function}
+    <div class="breakpoint-large">
+        {block name="admin_module_center_geschaeftskundenversand_configuration_form1"}
+            <form action="{$content.action_save_configuration}" method="POST" class="form-configuration">
+                <input type="hidden" name="pageToken" value="{$content.pageToken}">
+                <div class="form-horizontal grid">
+                    <div class="row">
+                        {block name="admin_module_center_geschaeftskundenversand_configuration_form1_credentials"}
+                            <div class="col-sm-6">
+                                <fieldset>
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_credentials_legend"}
+                                        <legend>{$txt.gkv_config_credentials}</legend>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_credentials_legend_user"}
+                                        <div class="form-group">
+                                            <label for="configuration[credentials/user]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_user}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[credentials/user]"
+                                                       name="configuration[credentials/user]"
+                                                       value="{$content.configuration['credentials/user']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_credentials_legend_password"}
+                                        <div class="form-group">
+                                            <label for="configuration[credentials/password]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_password}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[credentials/password]"
+                                                       name="configuration[credentials/password]"
+                                                       value="{$content.configuration['credentials/password']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_credentials_legend_ekp"}
+                                        <div class="form-group">
+                                            <label for="configuration[ekp]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_ekp}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[ekp]"
+                                                       name="configuration[ekp]"
+                                                       value="{$content.configuration.ekp}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                </fieldset>
+                            </div>
+                            {block name="admin_module_center_geschaeftskundenversand_configuration_form1_credentials_gkv_note_printerconfig"}
+                                <div class="col-sm-6">
+                                    <fieldset>
+                                        <legend>{$txt.gkv_note_printerconfig_heading}</legend>
+                                        <p>
+                                            <br>
+                                            {$txt.gkv_note_printerconfig}
+                                        </p>
+                                    </fieldset>
+                                </div>
+                            {/block}
+                        {/block}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper"}
+                                <fieldset>
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_legend"}
+                                        <legend>{$txt.gkv_config_shipper}</legend>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_name1"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/name1]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_name1}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/name1]"
+                                                       name="configuration[shipper/name1]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['shipper/name1']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_name2"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/name2]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_name2}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/name2]"
+                                                       name="configuration[shipper/name2]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['shipper/name2']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_name3"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/name3]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_name3}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/name3]"
+                                                       name="configuration[shipper/name3]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['shipper/name3']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_streetname"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/streetname]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_streetname}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/streetname]"
+                                                       name="configuration[shipper/streetname]"
+                                                       maxlength="35"
+                                                       value="{$content.configuration['shipper/streetname']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_streetnumber"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/streetnumber]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_streetnumber}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/streetnumber]"
+                                                       name="configuration[shipper/streetnumber]"
+                                                       maxlength="5"
+                                                       value="{$content.configuration['shipper/streetnumber']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_zip"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/zip]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_zip}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/zip]"
+                                                       name="configuration[shipper/zip]"
+                                                       maxlength="10"
+                                                       value="{$content.configuration['shipper/zip']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_city"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/city]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_city}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/city]"
+                                                       name="configuration[shipper/city]"
+                                                       maxlength="35"
+                                                       value="{$content.configuration['shipper/city']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_country"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/origincountry]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_origincountry}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control"
+                                                        id="configuration[shipper/origincountry]"
+                                                        name="configuration[shipper/origincountry]">
+                                                    {foreach from=$content.countries item=country}
+                                                        <option value="{$country->countries_iso_code_2}"
+                                                                {if $content.configuration['shipper/origincountry'] == $country->countries_iso_code_2}selected="selected"{/if}>
+                                                            {$countriestxt[$country->countries_iso_code_2]}
+                                                        </option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_email"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/email]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_email}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/email]"
+                                                       name="configuration[shipper/email]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['shipper/email']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipper_phone"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipper/phone]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipper_phone}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipper/phone]"
+                                                       name="configuration[shipper/phone]"
+                                                       maxlength="20"
+                                                       value="{$content.configuration['shipper/phone']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_shipperreference"}
+                                        <div class="form-group">
+                                            <label for="configuration[shipperreference]" class="col-sm-4 control-label">
+                                                {$txt.gkv_config_shipperreference}
+                                            </label>
+                                            <div class="col-sm-7">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[shipperreference]"
+                                                       name="configuration[shipperreference]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['shipperreference']}"/>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <span data-gx-widget="tooltip_icon"
+                                                      data-tooltip_icon-type="info">{$txt.gkv_config_shipperreference_note}</span>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                </fieldset>
+                            {/block}
+                        </div>
+
+                        <div class="col-sm-6">
+                            {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver"}
+                                <fieldset>
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_legend"}
+                                        <legend>{$txt.gkv_config_returnreceiver}</legend>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_name1"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/name1]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_name1}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/name1]"
+                                                       name="configuration[returnreceiver/name1]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['returnreceiver/name1']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_name2"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/name2]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_name2}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/name2]"
+                                                       name="configuration[returnreceiver/name2]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['returnreceiver/name2']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_name3"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/name3]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_name3}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/name3]"
+                                                       name="configuration[returnreceiver/name3]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['returnreceiver/name3']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_streetname"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/streetname]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_streetname}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/streetname]"
+                                                       name="configuration[returnreceiver/streetname]"
+                                                       maxlength="35"
+                                                       value="{$content.configuration['returnreceiver/streetname']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_streetnumber"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/streetnumber]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_streetnumber}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/streetnumber]"
+                                                       name="configuration[returnreceiver/streetnumber]"
+                                                       maxlength="5"
+                                                       value="{$content.configuration['returnreceiver/streetnumber']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_zip"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/zip]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_zip}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/zip]"
+                                                       name="configuration[returnreceiver/zip]"
+                                                       maxlength="10"
+                                                       value="{$content.configuration['returnreceiver/zip']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_city"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/city]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_city}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/city]"
+                                                       name="configuration[returnreceiver/city]"
+                                                       maxlength="35"
+                                                       value="{$content.configuration['returnreceiver/city']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_country"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/origincountry]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_origincountry}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control"
+                                                        id="configuration[returnreceiver/origincountry]"
+                                                        name="configuration[returnreceiver/origincountry]">
+                                                    {foreach from=$content.countries item=country}
+                                                        <option value="{$country->countries_iso_code_2}"
+                                                                {if $content.configuration['returnreceiver/origincountry'] == $country->countries_iso_code_2}selected="selected"{/if}>
+                                                            {$countriestxt[$country->countries_iso_code_2]}
+                                                        </option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_email"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/email]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_email}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/email]"
+                                                       name="configuration[returnreceiver/email]"
+                                                       maxlength="50"
+                                                       value="{$content.configuration['returnreceiver/email']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form1_returnreceiver_phone"}
+                                        <div class="form-group">
+                                            <label for="configuration[returnreceiver/phone]"
+                                                   class="col-sm-4 control-label">
+                                                {$txt.gkv_config_returnreceiver_phone}
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="configuration[returnreceiver/phone]"
+                                                       name="configuration[returnreceiver/phone]"
+                                                       maxlength="20"
+                                                       value="{$content.configuration['returnreceiver/phone']}"/>
+                                            </div>
+                                        </div>
+                                    {/block}
+                                </fieldset>
+                            {/block}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata"}
+                            <fieldset class="col-sm-6">
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata_legend"}
+                                    <legend>{$txt.gkv_config_bankdata}</legend>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata_accountowner"}
+                                    <div class="form-group">
+                                        <label for="configuration[bankdata/accountowner]"
+                                               class="col-sm-4 control-label">
+                                            {$txt.gkv_config_bankdata_accountowner}
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="configuration[bankdata/accountowner]"
+                                                   name="configuration[bankdata/accountowner]"
+                                                   maxlength="90"
+                                                   value="{$content.configuration['bankdata/accountowner']}"/>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata_bankname"}
+                                    <div class="form-group">
+                                        <label for="configuration[bankdata/bankname]" class="col-sm-4 control-label">
+                                            {$txt.gkv_config_bankdata_bankname}
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="configuration[bankdata/bankname]"
+                                                   name="configuration[bankdata/bankname]"
+                                                   maxlength="80"
+                                                   value="{$content.configuration['bankdata/bankname']}"/>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata_iban"}
+                                    <div class="form-group">
+                                        <label for="configuration[bankdata/iban]" class="col-sm-4 control-label">
+                                            {$txt.gkv_config_bankdata_iban}
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="configuration[bankdata/iban]"
+                                                   name="configuration[bankdata/iban]"
+                                                   maxlength="42"
+                                                   value="{$content.configuration['bankdata/iban']}"/>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata_bic"}
+                                    <div class="form-group">
+                                        <label for="configuration[bankdata/bic]" class="col-sm-4 control-label">
+                                            {$txt.gkv_config_bankdata_bic}
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="configuration[bankdata/bic]"
+                                                   name="configuration[bankdata/bic]"
+                                                   maxlength="11"
+                                                   value="{$content.configuration['bankdata/bic']}"/>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata_note1"}
+                                    <div class="form-group">
+                                        <label for="configuration[bankdata/note1]" class="col-sm-4 control-label">
+                                            {$txt.gkv_config_bankdata_note1}
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="configuration[bankdata/note1]"
+                                                   name="configuration[bankdata/note1]"
+                                                   maxlength="35"
+                                                   value="{$content.configuration['bankdata/note1']}"/>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata_note2"}
+                                    <div class="form-group">
+                                        <label for="configuration[bankdata/note2]" class="col-sm-4 control-label">
+                                            {$txt.gkv_config_bankdata_note2}
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="configuration[bankdata/note2]"
+                                                   name="configuration[bankdata/note2]"
+                                                   maxlength="35"
+                                                   value="{$content.configuration['bankdata/note2']}"/>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_bankdata_accountreference"}
+                                    <div class="form-group">
+                                        <label for="configuration[bankdata/accountreference]"
+                                               class="col-sm-4 control-label">
+                                            {$txt.gkv_config_bankdata_accountreference}
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="configuration[bankdata/accountreference]"
+                                                   name="configuration[bankdata/accountreference]"
+                                                   maxlength="35"
+                                                   value="{$content.configuration['bankdata/accountreference']}"/>
+                                        </div>
+                                    </div>
+                                {/block}
+                            </fieldset>
+                        {/block}
+                    </div>
+
+                    <div class="row">
+                        {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings"}
+                            <fieldset class="col-sm-6">
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_legend"}
+                                    <legend>{$txt.gkv_config_settings}</legend>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_order_status_after"}
+                                    <div class="form-group">
+                                        <label for="configuration[order_status_after_label]"
+                                               class="col-sm-7 control-label">
+                                            {$txt.gkv_order_status_after_label}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control"
+                                                    id="configuration[order_status_after_label]"
+                                                    name="configuration[order_status_after_label]">
+                                                <option value="-1"
+                                                        {if $content.configuration.order_status_after_label == 0}selected="selected"{/if}>
+                                                    {$txt.gkv_do_not_change}
+                                                </option>
+                                                {foreach from=$content.orders_statuses item=orders_status}
+                                                    <option value="{$orders_status->orders_status_id}"
+                                                            {if $orders_status->orders_status_id == $content.configuration.order_status_after_label}selected="selected"{/if}>
+                                                        {$orders_status->orders_status_name}
+                                                    </option>
+                                                {/foreach}
+                                            </select>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_open_labels_in_new_tab"}
+                                    <div class="form-group">
+                                        <label for="configuration[open_in_new_tab]" class="col-sm-7 control-label">
+                                            {$txt.gkv_open_labels_in_new_tab}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[open_in_new_tab]" value="0"/>
+                                            <input type="checkbox" id="configuration[open_in_new_tab]"
+                                                   name="configuration[open_in_new_tab]"
+                                                   class="form-control" {($content.configuration.open_in_new_tab == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_notify_customer"}
+                                    <div class="form-group">
+                                        <label for="configuration[notify_customer]" class="col-sm-7 control-label">
+                                            {$txt.gkv_notify_customer}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[notify_customer]" value="0"/>
+                                            <input type="checkbox" id="configuration[notify_customer]"
+                                                   name="configuration[notify_customer]"
+                                                   class="form-control" {($content.configuration.notify_customer == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_parcel_service"}
+                                    <div class="form-group">
+                                        <label for="configuration[parcel_service_id]" class="col-sm-7 control-label">
+                                            {$txt.gkv_parcel_service}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control"
+                                                    id="configuration[parcel_service_id]"
+                                                    name="configuration[parcel_service_id]">
+                                                <option value="0"
+                                                        {if $content.configuration.parcel_service_id == '0'}selected="selected"{/if}>{$txt.gkv_parcel_service_none}</option>
+                                                {foreach from=$content.parcel_services item=parcel_service}
+                                                    <option value="{$parcel_service->getId()}"
+                                                            {if $parcel_service->getId() == $content.configuration.parcel_service_id}selected="selected"{/if}>
+                                                        {$parcel_service->getName()}
+                                                    </option>
+                                                {/foreach}
+                                            </select>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_prefill_email"}
+                                    <div class="form-group">
+                                        <label for="configuration[prefill_email]" class="col-sm-7 control-label">
+                                            {$txt.gkv_prefill_email}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[prefill_email]" value="0"/>
+                                            <input type="checkbox" id="configuration[prefill_email]"
+                                                   name="configuration[prefill_email]"
+                                                   class="form-control" {($content.configuration.prefill_email == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_prefill_phone"}
+                                    <div class="form-group">
+                                        <label for="configuration[prefill_phone]" class="col-sm-7 control-label">
+                                            {$txt.gkv_prefill_phone}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[prefill_phone]" value="0"/>
+                                            <input type="checkbox" id="configuration[prefill_phone]"
+                                                   name="configuration[prefill_phone]"
+                                                   class="form-control" {($content.configuration.prefill_phone == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_create_return_label"}
+                                    <div class="form-group">
+                                        <label for="configuration[create_return_label]" class="col-sm-7 control-label">
+                                            {$txt.gkv_create_return_label}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[create_return_label]" value="0"/>
+                                            <input type="checkbox" id="configuration[create_return_label]"
+                                                   name="configuration[create_return_label]"
+                                                   class="form-control" {($content.configuration.create_return_label == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_return_shipment_account_number"}
+                                    <div class="form-group">
+                                        <label for="configuration[return_shipment_account_number]"
+                                               class="col-sm-7 control-label">
+                                            {$txt.gkv_return_shipment_account_number}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="configuration[return_shipment_account_number]"
+                                                   name="configuration[return_shipment_account_number]"
+                                                   maxlength="14"
+                                                   value="{$content.configuration['return_shipment_account_number']}"/>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_return_parcel_service"}
+                                    <div class="form-group">
+                                        <label for="configuration[return_parcel_service_id]"
+                                               class="col-sm-7 control-label">
+                                            {$txt.gkv_return_parcel_service}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control"
+                                                    id="configuration[return_parcel_service_id]"
+                                                    name="configuration[return_parcel_service_id]">
+                                                <option value="0"
+                                                        {if $content.configuration.return_parcel_service_id == '0'}selected="selected"{/if}>{$txt.gkv_parcel_service_none}</option>
+                                                {foreach from=$content.parcel_services item=parcel_service}
+                                                    <option value="{$parcel_service->getId()}"
+                                                            {if $parcel_service->getId() == $content.configuration.return_parcel_service_id}selected="selected"{/if}>
+                                                        {$parcel_service->getName()}
+                                                    </option>
+                                                {/foreach}
+                                            </select>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_combined_printing"}
+                                    <div class="form-group">
+                                        <label for="configuration[combined_printing]" class="col-sm-7 control-label">
+                                            {$txt.gkv_combined_printing}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[combined_printing]" value="0"/>
+                                            <input type="checkbox" id="configuration[combined_printing]"
+                                                   name="configuration[combined_printing]"
+                                                   class="form-control" {($content.configuration.combined_printing == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_label_format"}
+                                    <div class="form-group">
+                                        <label for="configuration[label_format]" class="col-sm-7 control-label">
+                                            {$txt.gkv_label_format}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control" name="configuration[label_format]"
+                                                    id="configuration[label_format]">
+                                                <option
+                                                    value="GUI"{if $content.configuration.label_format == 'GUI'} selected="selected"{/if}>{$txt.gkv_label_format_standard}</option>
+                                                <option
+                                                    value="A4"{if $content.configuration.label_format == 'A4'} selected="selected"{/if}>{$txt.gkv_label_format_a4}</option>
+                                                <option
+                                                    value="910-300-700"{if $content.configuration.label_format == '910-300-700'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_700}</option>
+                                                <option
+                                                    value="910-300-700-oZ"{if $content.configuration.label_format == '910-300-700-oZ'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_700_oZ}</option>
+                                                <option
+                                                    value="910-300-600"{if $content.configuration.label_format == '910-300-600'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_600}</option>
+                                                <option
+                                                    value="910-300-610"{if $content.configuration.label_format == '910-300-610'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_610}</option>
+                                                <option
+                                                    value="910-300-710"{if $content.configuration.label_format == '910-300-710'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_710}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_label_format_retoure"}
+                                    <div class="form-group">
+                                        <label for="configuration[label_format_retoure]" class="col-sm-7 control-label">
+                                            {$txt.gkv_label_format_retoure}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control" name="configuration[label_format_retoure]"
+                                                    id="configuration[label_format_retoure]">
+                                                <option
+                                                    value="GUI"{if $content.configuration.label_format_retoure == 'GUI'} selected="selected"{/if}>{$txt.gkv_label_format_standard}</option>
+                                                <option
+                                                    value="A4"{if $content.configuration.label_format_retoure == 'A4'} selected="selected"{/if}>{$txt.gkv_label_format_a4}</option>
+                                                <option
+                                                    value="910-300-700"{if $content.configuration.label_format_retoure == '910-300-700'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_700}</option>
+                                                <option
+                                                    value="910-300-700-oZ"{if $content.configuration.label_format_retoure == '910-300-700-oZ'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_700_oZ}</option>
+                                                <option
+                                                    value="910-300-600"{if $content.configuration.label_format_retoure == '910-300-600'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_600}</option>
+                                                <option
+                                                    value="910-300-610"{if $content.configuration.label_format_retoure == '910-300-610'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_610}</option>
+                                                <option
+                                                    value="910-300-710"{if $content.configuration.label_format_retoure == '910-300-710'} selected="selected"{/if}>{$txt.gkv_label_format_910_300_710}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                {/block}
+
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_add_packing_weight"}
+                                    <div class="form-group">
+                                        <label for="configuration[add_packing_weight]" class="col-sm-7 control-label">
+                                            {$txt.gkv_add_packing_weight}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[add_packing_weight]" value="0"/>
+                                            <input type="checkbox" id="configuration[add_packing_weight]"
+                                                   name="configuration[add_packing_weight]"
+                                                   class="form-control" {($content.configuration.add_packing_weight == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_age_check"}
+                                    <div class="form-group">
+                                        <label for="configuration[age_check]" class="col-sm-7 control-label">
+                                            {$txt.gkv_use_age_check}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control" name="configuration[age_check]"
+                                                    id="configuration[age_check]">
+                                                <option
+                                                    value="none"{if $content.configuration.age_check == 'none'} selected="selected"{/if}>{$txt.gkv_age_check_none}</option>
+                                                <option
+                                                    value="visualage18"{if $content.configuration.age_check == 'visualage18'} selected="selected"{/if}>{$txt.gkv_age_check_visualage18}</option>
+                                                <option
+                                                    value="identcheck18"{if $content.configuration.age_check == 'identcheck18'} selected="selected"{/if}>{$txt.gkv_age_check_identcheck18}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_intlpremium"}
+                                    <div class="form-group">
+                                        <label for="configuration[intlpremium]" class="col-sm-7 control-label">
+                                            {$txt.gkv_intlpremium}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control" name="configuration[intlpremium]"
+                                                    id="configuration[intlpremium]">
+                                                <option
+                                                    value="never"{if $content.configuration.intlpremium == 'never'} selected="selected"{/if}>{$txt.gkv_intlpremium_never}</option>
+                                                <option
+                                                    value="eu-only"{if $content.configuration.intlpremium == 'eu-only'} selected="selected"{/if}>{$txt.gkv_intlpremium_eu_only}</option>
+                                                <option
+                                                    value="always"{if $content.configuration.intlpremium == 'always'} selected="selected"{/if}>{$txt.gkv_intlpremium_always}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_intlendorsement"}
+                                    <div class="form-group">
+                                        <label for="configuration[endorsement]" class="col-sm-7 control-label">
+                                            {$txt.gkv_config_endorsement}
+                                        </label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control" name="configuration[endorsement]"
+                                                    id="configuration[endorsement]">
+                                                <option value="IMMEDIATE"
+                                                        {if $content.configuration.endorsement == 'IMMEDIATE'}selected="selected"{/if}>{$txt.gkv_config_endorsement_immediate}</option>
+                                                <option value="ABANDONMENT"
+                                                        {if $content.configuration.endorsement == 'ABANDONMENT'}selected="selected"{/if}>{$txt.gkv_config_endorsement_abandonment}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_checkout_preferences"}
+                                    {foreach $content.shipping_modules as $shipping_module}
+                                        <div class="form-group">
+                                            <label for="checkout_preferences_modules_{$shipping_module.code}"
+                                                   class="col-sm-7 control-label">
+                                                {$txt.gkv_checkout_preferences} ({$shipping_module.title})
+                                            </label>
+                                            <div class="col-sm-5" data-gx-widget="switcher">
+                                                <input type="hidden"
+                                                       name="checkout_preferences_modules[{$shipping_module.code}]"
+                                                       value="0"/>
+                                                <input type="checkbox"
+                                                       id="checkout_preferences_modules_{$shipping_module.code}"
+                                                       name="checkout_preferences_modules[{$shipping_module.code}]"
+                                                       class="form-control"
+                                                       {if (in_array($shipping_module.code, $content.checkout_preferences_modules))}checked{/if}>
+                                            </div>
+                                        </div>
+                                    {/foreach}
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_preferred_day_offset"}
+                                    <div class="form-group">
+                                        <label for="configuration[preferred_day_offset]" class="col-sm-7 control-label">
+                                            {$txt.gkv_config_preferred_day_offset}
+                                        </label>
+                                        <div class="col-sm-4">
+                                            <input
+                                                type="number"
+                                                value="{$content.configuration.preferred_day_offset}"
+                                                min="0"
+                                                class="form-control"
+                                                name="configuration[preferred_day_offset]"
+                                                id="configuration[preferred_day_offset]">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <span data-gx-widget="tooltip_icon"
+                                                  data-tooltip_icon-type="info">{$txt.gkv_config_preferred_day_offset_tooltip}</span>
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_use_preferred_neighbour"}
+                                    <div class="form-group">
+                                        <label for="configuration[use_preferred_neighbour]" class="col-sm-7 control-label">
+                                            {$txt.gkv_use_preferred_neighbour}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[use_preferred_neighbour]" value="0"/>
+                                            <input type="checkbox" id="configuration[use_preferred_neighbour]"
+                                                   name="configuration[use_preferred_neighbour]"
+                                                   class="form-control" {($content.configuration.use_preferred_neighbour == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_use_preferred_location"}
+                                    <div class="form-group">
+                                        <label for="configuration[use_preferred_location]" class="col-sm-7 control-label">
+                                            {$txt.gkv_use_preferred_location}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[use_preferred_location]" value="0"/>
+                                            <input type="checkbox" id="configuration[use_preferred_location]"
+                                                   name="configuration[use_preferred_location]"
+                                                   class="form-control" {($content.configuration.use_preferred_location == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_gkv_use_preferred_day"}
+                                    <div class="form-group">
+                                        <label for="configuration[use_preferred_day]" class="col-sm-7 control-label">
+                                            {$txt.gkv_use_preferred_day}
+                                        </label>
+                                        <div class="col-sm-5" data-gx-widget="switcher">
+                                            <input type="hidden" name="configuration[use_preferred_day]" value="0"/>
+                                            <input type="checkbox" id="configuration[use_preferred_day]"
+                                                   name="configuration[use_preferred_day]"
+                                                   class="form-control" {($content.configuration.use_preferred_day == '1') ? 'checked="checked"' : ''} />
+                                        </div>
+                                    </div>
+                                {/block}
+
+                                {block name="admin_module_center_geschaeftskundenversand_configuration_form1_settings_submit"}
+                                    <div class="col-sm-12">
+                                        <button type="submit"
+                                                class="btn btn-primary pull-right">{$txt.gkv_save_settings}</button>
+                                    </div>
+                                {/block}
+                            </fieldset>
+                        {/block}
+                    </div>
+
+
+                </div>
+            </form>
+        {/block}
+
+        {block name="admin_module_center_geschaeftskundenversand_configuration_form2"}
+            <form action="{$content.action_products}" method="POST" class="form-configuration">
+                <input type="hidden" name="pageToken" value="{$content.pageToken}">
+                <div class="grid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table"}
+                                <table class="table table-main table-striped">
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table_thead"}
+                                        <thead>
+                                        <tr>
+                                            {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table_thead_ths"}
+                                                <th>{$txt.gkv_config_product}</th>
+                                                <th>{$txt.gkv_config_attendance}</th>
+                                                <th>{$txt.gkv_product_alias}</th>
+                                                <th>&nbsp;</th>
+                                            {/block}
+                                        </tr>
+                                        </thead>
+                                    {/block}
+                                    {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table_tbody"}
+                                        <tbody>
+                                        {if $content.products}
+                                            {foreach from=$content.products key=product_index item=product}
+                                                {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table_row"}
+                                                    <tr>
+                                                        {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table_row_tds"}
+                                                            <td>{$content.product_names[$product->getType()]}</td>
+                                                            <td>{$product->getAttendance()}</td>
+                                                            <td>{$product->getAlias()}</td>
+                                                            <td>
+                                                                <button type="submit" class="btn" name="delete_product"
+                                                                        value="{$product_index}">
+                                                                    <i class="fa fa-trash" aria-hidden="true"
+                                                                       style="font-size: 1.2em;"></i>
+                                                                </button>
+                                                            </td>
+                                                        {/block}
+                                                    </tr>
+                                                {/block}
+                                            {/foreach}
+                                        {else}
+                                            {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table_row_no_attendance"}
+                                                <tr>
+                                                    <td colspan="3">{$txt.gkv_no_attendance}</td>
+                                                </tr>
+                                            {/block}
+                                        {/if}
+                                        {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table_row_input"}
+                                            <tr>
+                                                {block name="admin_module_center_geschaeftskundenversand_configuration_form2_table_row_input_tds"}
+                                                    <td>
+                                                        <select class="form-control" name="add_product_type">
+                                                            {foreach from=$content.product_types item=product_type}
+                                                                <option
+                                                                    value="{$product_type}">{$content.product_names[$product_type]}</option>
+                                                            {/foreach}
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" name="add_product_attendance"
+                                                               type="text" placeholder="01" value="01" maxlength="2">
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" name="add_product_alias" type="text"
+                                                               placeholder="{$txt.gkv_product_alias}" value="">
+                                                    </td>
+                                                    <td>
+                                                        <button type="submit" class="btn" name="add_product">
+                                                            <i class="fa fa-plus-circle" aria-hidden="true"
+                                                               style="font-size: 1.2em;"></i>
+                                                        </button>
+                                                    </td>
+                                                {/block}
+                                            </tr>
+                                        {/block}
+                                        </tbody>
+                                    {/block}
+                                </table>
+                            {/block}
+                        </div>
+                        <div class="col-sm-6">&nbsp;</div>
+                    </div>
+                </div>
+            </form>
+        {/block}
+
+    </div>
+{/block}

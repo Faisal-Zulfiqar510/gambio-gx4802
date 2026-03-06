@@ -1,0 +1,96 @@
+{load_language_text section="admin_quick_edit" name="admin_quick_edit"}
+
+{block name="admin_quick_edit_modals_special_prices"}
+	<div class="special-prices modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_quick_edit_modals_special_prices_header"}
+					<div class="modal-header">
+						<button type="button"
+								class="close"
+								data-dismiss="modal"
+								aria-label="{$btn.close}">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						{block name="admin_quick_edit_modals_special_prices_header_title"}
+							<h4 class="modal-title">{$admin_quick_edit.MODAL_TITLE_SPECIAL_PRICE}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_quick_edit_modals_special_prices_body"}
+					<div class="modal-body">
+						<div class="quick-edit special-price">
+							{block name="admin_quick_edit_modals_special_prices_body_table"}
+								<table class="table table-main table-striped table-row-{$content.active_row_height}"
+									   data-gx-controller="quick_edit/modals/special_prices/special_prices_init quick_edit/modals/special_prices/special_prices_actions
+														  quick_edit/modals/special_prices/special_prices_events quick_edit/modals/special_prices/special_prices_filter
+														  quick_edit/modals/special_prices/special_prices_edit quick_edit/modals/special_prices/special_prices_tooltips"
+									   data-gx-widget="single_checkbox switcher multi_select"
+									   data-gx-extension="datatable_checkbox_mapping datatable_custom_sorting
+									                      datatable_fixed_row_actions datatable_custom_pagination
+									                      datatable_normalize_overflow datatable_default_actions
+									                      datatable_responsive_columns"
+									   data-special_prices_init-special-price-active-columns="{$content.special_price_active_columns}"
+									   data-special_prices_init-page-length="{$content.page_length}"
+									   data-switcher-selector=".convert-to-switcher"
+									   data-single_checkbox-selector=".special-price-bulk-selection"
+									   data-datatable_checkbox_mapping-row-selection=".special-price-row-selection"
+									   data-datatable_checkbox_mapping-bulk-selection=".special-price-bulk-selection"
+									   data-datatable_checkbox_mapping-bulk-action=".special-price-bulk-action"
+									   data-datatable_loading_spinner-z-index-reference-selector=".special-prices.modal .modal-dialog"
+									   data-datatable_custom_pagination-page-navigation-selector=".special-price-page-navigation"
+									   data-datatable_custom_pagination-page-length-selector=".special-price-page-length"
+									   data-resize-layout="draw.dt">
+									{block name="admin_quick_edit_modals_special_prices_body_table_thead"}
+										<thead>
+											{include file="get_usermod:quick_edit/partial/special_prices/datatables_heading_row.html"}
+											{include file="get_usermod:quick_edit/partial/special_prices/datatables_filtering_row.html"}
+											{include file="get_usermod:quick_edit/partial/special_prices/datatables_editing_row.html"}
+										</thead>
+									{/block}
+									{block name="admin_quick_edit_modals_special_prices_body_table_tbody"}
+										<tbody>
+				
+										</tbody>
+									{/block}
+								</table>
+							{/block}
+						</div>
+					</div>
+				{/block}
+				{block name="admin_quick_edit_modals_special_prices_footer"}
+					<div class="modal-footer">
+						{* Button Dropdown *}
+						{block name="admin_quick_edit_modals_special_prices_footer_dropdown"}
+							<div class="special-price-bulk-action btn-group dropdown pull-left">
+								{block name="admin_quick_edit_modals_special_prices_footer_dropdown_buttons"}
+									<button type="button" class="btn btn-default disabled">{* Dynamic Content *}</button>
+									<button type="button" class="btn btn-default dropdown-toggle disabled" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">
+										<span class="caret"></span> <span class="sr-only">Toggle Dropdown</span>
+									</button>
+								{/block}
+								{block name="admin_quick_edit_modals_special_prices_footer_dropdown_ul"}
+									<ul class="dropdown-menu">
+										{* Dynamic Content *}
+									</ul>
+								{/block}
+							</div>
+						{/block}
+		
+						{block name="admin_quick_edit_modals_special_prices_footer_cancle"}
+							<button type="button"
+									class="btn btn-default"
+									data-dismiss="modal">{$admin_quick_edit.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_quick_edit_modals_special_prices_footer_save"}
+							<button type="button"
+									class="btn btn-primary save-special-price-edits"
+									data-product-id="">{$admin_quick_edit.BUTTON_SAVE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

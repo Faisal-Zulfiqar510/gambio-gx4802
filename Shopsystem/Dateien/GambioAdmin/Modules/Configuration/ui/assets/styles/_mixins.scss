@@ -1,0 +1,15 @@
+@import "variables";
+
+@mixin config-title() {
+	color: $config-title-color;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+@mixin listing-padding() {
+	padding: 0 $padding-listing-small;
+	@media (min-width: 1280px) {
+		padding: 0 $padding-listing-large;
+	}
+}

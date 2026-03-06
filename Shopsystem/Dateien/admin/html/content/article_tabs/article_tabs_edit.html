@@ -1,0 +1,26 @@
+{load_language_text section="article_tabs"}
+
+{block name="admin_article_tabs_edit"}
+	<div class="article_tabs_container" {$content_data.lightbox_parameters.editor_widget_attribute|rawurldecode} data-editor-init-event-type="editor:initialize">
+		{block name="admin_article_tabs_edit_headline"}
+			<div class="row">
+				{block name="admin_article_tabs_edit_headline_label"}
+					<label for="article_tab_headline">{$txt.article_tab_headline}:</label>
+				{/block}
+				{block name="admin_article_tabs_edit_headline_input"}
+					<input type="text" class="tab_headline" name="article_tab_headline" style="width: 798px;" />
+				{/block}
+			</div>
+		{/block}
+		{block name="admin_article_tabs_edit_content"}
+			<div class="row">
+				{block name="admin_article_tabs_edit_content_label"}
+					<label for="tab_content_{$content_data.lightbox_parameters.lightbox_identifier}">{$txt.article_tab_content}:</label>
+				{/block}
+				{block name="admin_article_tabs_edit_content_input"}
+					<textarea class="wysiwyg tab_content_{$content_data.lightbox_parameters.lightbox_identifier}" name="tab_content_{$content_data.lightbox_parameters.lightbox_identifier}" style="width: 798px; height: 300px;" data-editor-type="{$content_data.lightbox_parameters.editor_type}" data-editor-identifier="{$content_data.lightbox_parameters.editor_identifier}"></textarea>
+				{/block}
+			</div>
+		{/block}
+	</div>
+{/block}

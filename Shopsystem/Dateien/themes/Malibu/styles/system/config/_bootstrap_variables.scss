@@ -1,0 +1,103 @@
+/* Bootstrap Variables
+   ========================================================================== 
+
+  Use this section to override Bootstrap defaults. Find all possible
+  variables in styles/bootstrap/bootstrap/_variables.scss
+
+    !!!!!IMPORTANT!!!!!
+    Do not use this file to defined calculated variables
+    unless that the source variables (variables used on the calculation) are not overwritten by StyleEdit.
+    calculated variables for wich the source variables can be overwritten by styleEdit
+    must be defined on _bootstrap_variables_calculated.scss
+
+  */
+
+
+//== Grid system
+$grid-gutter-width: 30px !default;
+
+// Breakpoints
+$screen-lg: 1400px !default;
+$screen-sm: 768px !default;
+
+
+// Colors
+$brand-primary: #FFD200 !default;
+$gx-brand-secondary: #000000 !default;
+$gx-body-bg-color: #ffffff !default;
+$text-color: #333333 !default;
+
+
+// Links
+$link-hover-decoration: underline !default;
+
+
+// Buttons
+$btn-default-color: #666 !default;
+$btn-default-bg: #f3f3f3 !default;
+
+
+// Fonts
+$icon-font-path: $theme-base-path + "fonts/bootstrap/" !default;
+$font-family-sans-serif: "Fira Sans", Arial, sans-serif !default;
+$font-size-base: 13px !default;
+$line-height-base: 1.428571429 !default; // 20/14
+$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+
+// Headings
+$font-size-h1: 25px !default;
+$font-size-h2: 20px !default;
+$font-size-h3: 18px !default;
+$font-size-h4: 16px !default;
+$font-size-h5: 13px !default;
+$font-size-h6: 13px !default;
+$headings-font-weight: 400 !default;
+
+// Rounded Borders
+$border-radius-base: 2px !default;
+$border-radius-large: 6px !default;
+$border-radius-small: 0 !default;
+
+
+// Navbar
+$navbar-height: 48px !default;
+$navbar-collapse-max-height: 340px !default;
+$navbar-padding-vertical: 16px !default;
+
+$navbar-default-color: #fff !default;
+$gx-cat-navbar-bg-color: #393939 !default;
+$navbar-default-link-color: #000000 !default;
+$navbar-default-link-hover-color: $brand-primary !default;
+$navbar-default-link-active-color: #000000 !default;
+$navbar-default-link-disabled-color: #ccc !default;
+$navbar-default-link-disabled-bg: transparent !default;
+
+
+// Paddings
+$padding-base-vertical: 9px !default;
+$padding-base-horizontal: 12px !default;
+
+$padding-large-vertical: 10px !default;
+$padding-large-horizontal: 16px !default;
+
+$padding-small-vertical: 5px !default;
+$padding-small-horizontal: 10px !default;
+
+$padding-xs-vertical: 1px !default;
+$padding-xs-horizontal: 5px !default;
+
+
+// Forms
+$input-color-placeholder: #999 !default;
+
+
+// Brand colors
+$alert-success-bg: #00990b !default;
+$alert-success-text: #fff !default;
+$alert-info-text: #fff !default;
+$alert-warning-bg: #ffae00 !default;
+$alert-warning-text: #fff !default;
+$alert-danger-bg: #c20400 !default;
+$alert-danger-text: #fff !default;
+

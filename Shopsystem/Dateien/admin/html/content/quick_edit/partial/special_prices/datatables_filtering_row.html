@@ -1,0 +1,34 @@
+{load_language_text section="admin_quick_edit" name="admin_quick_edit"}
+
+{block name="admin_quick_edit_partial_special_prices_datatables_filtering_row"}
+	<tr role="row" class="special-price-filter">
+		<th data-column-name="checkbox">{* Empty Cell *}</th>
+	
+		{foreach $content.special_price_columns as $column}
+			<th data-column-name="{$column.name}">
+				{if $column.type == 'number'
+				|| ($column.type == 'string' && $column.source == '' && $column.options|@count == 0)}
+					<input type="text" class="{$column.name} form-control" title="{$column.tooltip.filter}" />
+				{elseif $column.type == 'string' && $column.options != ''}
+					<select class="{$column.name} form-control" multiple="multiple"
+							data-multi_select-instance>
+						{foreach $column.options as $option}
+							<option value="{$option.id}">{$option.value}</option>
+						{/foreach}
+					</select>
+				{elseif $column.type == 'date'}
+					<input type="text" class="{$column.name} form-control" data-jse-widget="daterangepicker" />
+				{/if}
+			</th>
+		{/foreach}
+	
+		<th data-column-name="actions">
+			{* Filter Actions *}
+			<button class="btn apply-special-price-filters">{$admin_quick_edit.BUTTON_FILTER}</button>
+			<button class="btn reset-special-price-filters">{$admin_quick_edit.BUTTON_RESET}</button>
+	
+			{* Pagination Length Controls *}
+			{include file="get_usermod:quick_edit/partial/special_prices/datatables_page_length.html"}
+		</th>
+	</tr>
+{/block}

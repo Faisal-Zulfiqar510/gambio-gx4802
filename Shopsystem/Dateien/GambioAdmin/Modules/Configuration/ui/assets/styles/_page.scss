@@ -1,0 +1,78 @@
+@import "variables";
+
+.gx-admin.collapse {
+	.configuration-page-container {
+		left: $menu-collapsed-width;
+	}
+}
+
+.configuration-page-container {
+	position: absolute;
+	top: 46px;
+	left: $menu-width;
+	overflow: hidden;
+	padding: 0 1rem;
+	
+	background-color: #eeeeee;
+	display: flex;
+	justify-content: center;
+	
+	.configuration-page {
+		display: grid;
+		grid-template-columns: 300px minmax(auto, 1000px);
+		grid-template-rows: 8rem 1fr;
+		grid-template-areas: "page-title search" "filter listing";
+		background-color: #FFFFFF;
+		
+		.page-title {
+			background-color: #eeeeee;
+			grid-area: page-title;
+			padding-left: $padding-filter;
+			display: flex;
+			align-items: center;
+			color: $gambio-blue;
+			
+			.title {
+				font-size: 24px;
+				font-weight: 400;
+			}
+		}
+		
+		.search-container {
+			background-color: #eeeeee;
+			grid-area: search;
+		}
+		
+		.filter-container {
+			grid-area: filter;
+			border-right: 1px solid $border-color;
+			
+			overflow-x: hidden;
+			overflow-y: auto;
+			scrollbar-width: none;
+			
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+		
+		.listing-container {
+			display: flex;
+			grid-area: listing;
+			
+			overflow: auto;
+		}
+		
+		.loading-spinner {
+			grid-area: filter / filter / filter / listing;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			i {
+				font-size: 80px;
+				color: $gambio-blue;
+			}
+		}
+	}
+}

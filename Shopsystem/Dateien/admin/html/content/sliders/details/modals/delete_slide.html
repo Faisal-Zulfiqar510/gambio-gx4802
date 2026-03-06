@@ -1,0 +1,41 @@
+{*
+	Delete Slide Modal
+
+	It is triggered when the user clicks on the delete button in the slide panel header.
+*}
+
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_sliders_details_modals_delete_slide"}
+	<div class="delete-slide modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_sliders_details_modals_delete_slide_header"}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						{block name="admin_sliders_details_modals_delete_slide_header_title"}
+							<h4 class="modal-title">{$txt.DELETE_SLIDE_MODAL_TITLE}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_sliders_details_modals_delete_slide_body"}
+					<div class="modal-body">
+						{$txt.DELETE_SLIDE_MODAL_TEXT}
+					</div>
+				{/block}
+				{block name="admin_sliders_details_modals_delete_slide_footer"}
+					<div class="modal-footer">
+						{block name="admin_sliders_details_modals_delete_slide_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_sliders_details_modals_delete_slide_footer_delete"}
+							<button type="button" class="btn btn-primary confirm">{$admin_buttons.BUTTON_DELETE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

@@ -1,0 +1,30 @@
+{
+	"name": "DeleteLogs",
+	"title": "cronjob_delete_logs.title",
+	"configuration": {
+		"active": {
+			"name": "active",
+			"type": "checkbox",
+			"label": "cronjob_delete_logs.label_activate",
+			"defaultValue": false
+		},
+		"olderThan": {
+			"name": "older-than",
+			"type": "number",
+			"label": "cronjob_delete_logs.label_number_of_days",
+			"defaultValue": "30"
+		},
+		"interval": {
+			"name": "interval",
+			"type": "hidden",
+			"label": "",
+			"defaultValue": "0 0 * * *"
+		},
+		"sortOrder": {
+			"name": "sort-order",
+			"type": "hidden",
+			"label": "",
+			"defaultValue": "20"
+		}
+	}
+}

@@ -1,0 +1,52 @@
+{extends file="./layouts/main/layout.html"}
+
+{block name="content"}
+{load_language_text section="file_manager" name="file_manager"}
+
+<div class="file-manager overview"
+     data-gx-controller="file_manager/file_manager"
+     data-base-directory="{$content.baseDirectory}"
+     data-sub-directory="{$content.subDirectory}"
+     data-content="{$content.content}"
+     data-max-upload-size="{$content.maxUploadSize}"
+     data-allow-upload="{$content.allowUpload}"
+     data-allow-direct-link="{$content.allowDirectLink}">
+	
+	<div id="top">
+		{if $content.allowUpload == true && $content.content != 'product_images'}
+		<form id="mkdir">
+			<label for="dirname">{$file_manager.CREATE_NEW_FOLDER}</label>
+			<input id="dirname" type="text" name="name" value="" />
+			<input type="button" id="do_mkdir" value="{$file_manager.CREATE}" />
+		</form>
+		{/if}
+		
+		{if $content.allowCreateFolder == true}
+		<div id="file_drop_target">
+			{$file_manager.DRAG_INFORMATION}<br/>
+			<input type="file" multiple />
+		</div>
+		{/if}
+		
+		<div id="breadcrumb"></div>
+	</div>
+	
+	<div id="upload_progress"></div>
+	
+	<table id="table" role="grid" class="table table-main table-striped table-row-large dataTable no-footer">
+		<thead>
+			<tr role="row">
+				<th style="width: 68px;" class="no_sort"></th>
+				<th>{$file_manager.FILENAME}</th>
+				<th>{$file_manager.SIZE}</th>
+				<th>{$file_manager.DATE_MODIFIED}</th>
+				<th class="no_sort">{$file_manager.ACTIONS}</th>
+			</tr>
+		</thead>
+		<tbody id="list">
+		
+		</tbody>
+	</table>
+	<footer>simple php filemanager by <a href="https://github.com/jcampbell1">jcampbell1</a></footer>
+</div>
+{/block}

@@ -1,0 +1,111 @@
+{extends file="./layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="gm_analytics"}
+    {load_language_text section="admin_menu" name="admin_menu"}
+	<style>
+		#tracking-codes-configuration textarea {
+			width: 100%;
+			max-width: 100%;
+			min-height: 30em;
+		}
+	</style>
+	<div class="breakpoint-large" id="tracking-codes-configuration">
+		<form action="{$content.action_save_configuration}" method="POST" class="form-configuration"
+			  id="trackingcodes-configuration-form">
+			<input type="hidden" name="pageToken" value="{$content.pageToken}">
+			<div class="form-horizontal">
+				<fieldset>
+					<legend>{$txt.note_syntax_head}</legend>
+					<div class="form-group">
+						<div class="col-sm-12">
+							{$txt.note_syntax}
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>{$txt.HEADING_TITLE_HEAD}</legend>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE_USE}</label>
+						<div class="col-sm-8" data-gx-widget="switcher">
+							<input name="GM_HEAD_TRACKING_CODE_USE" type="hidden" value="false">
+							<input name="GM_HEAD_TRACKING_CODE_USE" type="checkbox" class="form-control" id=""
+								   value="true"{if $content.GM_HEAD_TRACKING_CODE_USE} checked="checked"{/if}>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE_USE_SMARTY}</label>
+						<div class="col-sm-8" data-gx-widget="switcher">
+							<input name="GM_HEAD_TRACKING_CODE_USE_SMARTY" type="hidden" value="false">
+							<input name="GM_HEAD_TRACKING_CODE_USE_SMARTY" type="checkbox" class="form-control" id=""
+								   value="true"{if $content.GM_HEAD_TRACKING_CODE_USE_SMARTY} checked="checked"{/if}>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE}</label>
+						<div class="col-sm-8">
+							<textarea class="form-control"
+									  name="GM_HEAD_TRACKING_CODE">{$content.GM_HEAD_TRACKING_CODE}</textarea>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>{$txt.HEADING_TITLE_BODY}</legend>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE_USE}</label>
+						<div class="col-sm-8" data-gx-widget="switcher">
+							<input name="GM_ANALYTICS_CODE_USE" type="hidden" value="false">
+							<input name="GM_ANALYTICS_CODE_USE" type="checkbox" class="form-control" id=""
+								   value="true"{if $content.GM_ANALYTICS_CODE_USE} checked="checked"{/if}>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE_USE_SMARTY}</label>
+						<div class="col-sm-8" data-gx-widget="switcher">
+							<input name="GM_ANALYTICS_CODE_USE_SMARTY" type="hidden" value="false">
+							<input name="GM_ANALYTICS_CODE_USE_SMARTY" type="checkbox" class="form-control" id=""
+								   value="true"{if $content.GM_ANALYTICS_CODE_USE_SMARTY} checked="checked"{/if}>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE}</label>
+						<div class="col-sm-8">
+							<textarea class="form-control"
+									  name="GM_ANALYTICS_CODE">{$content.GM_ANALYTICS_CODE}</textarea>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>{$txt.HEADING_TITLE_CHECKOUT_SUCCESS}</legend>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE_USE}</label>
+						<div class="col-sm-8" data-gx-widget="switcher">
+							<input name="GM_TRACKING_CODE_CHECKOUT_SUCCESS_USE" type="hidden" value="false">
+							<input name="GM_TRACKING_CODE_CHECKOUT_SUCCESS_USE" type="checkbox" class="form-control" id=""
+								   value="true"{if $content.GM_TRACKING_CODE_CHECKOUT_SUCCESS_USE} checked="checked"{/if}>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE_USE_SMARTY}</label>
+						<div class="col-sm-8" data-gx-widget="switcher">
+							<input name="GM_TRACKING_CODE_CHECKOUT_SUCCESS_USE_SMARTY" type="hidden" value="false">
+							<input name="GM_TRACKING_CODE_CHECKOUT_SUCCESS_USE_SMARTY" type="checkbox" class="form-control" id=""
+								   value="true"{if $content.GM_TRACKING_CODE_CHECKOUT_SUCCESS_USE_SMARTY} checked="checked"{/if}>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.TRACKING_CODE}</label>
+						<div class="col-sm-8">
+							<textarea class="form-control"
+									  name="GM_TRACKING_CODE_CHECKOUT_SUCCESS">{$content.GM_TRACKING_CODE_CHECKOUT_SUCCESS}</textarea>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</form>
+	</div>
+{/block}
+{block name="bottom_save_bar"}
+	<button type="submit" class="btn btn-primary"
+			form="trackingcodes-configuration-form">{$txt.save_configuration}</button>
+{/block}

@@ -1,0 +1,85 @@
+{
+	"id": "code",
+	"title": "codeWidget.title",
+	"icon": {
+		"name": "Image",
+		"file": "code.svg"
+	},
+	"author": {
+		"name": "Gambio GmbH",
+		"email": "info@gambio.de",
+		"url": "https://www.gambio.de"
+	},
+	"helpUrl": "https://www.gambio.de/help",
+	"description": "codeWidget.description",
+	"cache": 0,
+	"version": "1.0.0",
+	"displayConfig": "modal",
+	"fieldsets": [
+		{
+			"title": "codeWidget.options.content.title",
+			"options": [
+				{
+					"id": "text",
+					"type": "sourcecode",
+					"translatable": true,
+					"contentGroup": null,
+					"useEditorContent": true,
+					"value": {
+						"en": {
+							"value": "",
+							"title": ""
+							
+						},
+						"de": {
+							"value": "",
+							"title": ""
+						}
+					},
+					"default": {
+						"en": {
+							"value": "",
+							"title": ""
+							
+						},
+						"de": {
+							"value": "",
+							"title": ""
+							
+						}
+					},
+					"label": "codeWidget.options.text.label",
+					"attributes": {
+						"placeholder": "codeWidget.options.text.placeholder"
+					}
+				}
+			]
+		},
+    {
+      "title": "textWidget.options.general.title",
+      "options": [
+  
+        {
+          "id": "id",
+          "default": "",
+          "type": "textbox",
+          "value": "",
+          "attributes": {
+            "placeholder": "codeWidget.options.id.placeholder"
+          },
+          "label": "codeWidget.options.id.label"
+        },
+        {
+          "id": "class",
+          "default": "",
+          "type": "textbox",
+          "value": "",
+          "attributes": {
+            "placeholder": "codeWidget.options.class.placeholder"
+          },
+          "label": "codeWidget.options.class.label"
+        }
+      ]
+    }
+	]
+}

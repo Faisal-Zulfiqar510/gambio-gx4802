@@ -1,0 +1,192 @@
+/* --------------------------------------------------------------
+	internetmarke.css 2019-08-01
+	Gambio GmbH
+	http://www.gambio.de
+	Copyright (c) 2016 Gambio GmbH
+	Released under the GNU General Public License (Version 2)
+	[http://www.gnu.org/licenses/gpl-2.0.html]
+	--------------------------------------------------------------
+*/
+
+/* old $gambio-blue: #2196F3; */
+/* new $gambio-blue: #002337; */
+
+#inetmarke_single_container p {
+	background: green;
+}
+
+#inetmarke_single_form fieldset.with-padding-right {
+	padding-right: 24px;
+}
+
+#inetmarke_single_form .heading {
+	font-weight:   bold;
+	margin-bottom: 12px;
+	color:         #737373;
+	padding:       0 0px 9px 0px;
+	border-bottom: 3px solid #002337;
+}
+
+#inetmarke_single_form label {
+	min-width: 9em;
+}
+
+#inetmarke_single_form  #pagepos_widget {}
+
+#inetmarke_single_form #pagepos_table td {
+	border: 1px solid #000;
+	width: 20px;
+	height: 20px;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+#inetmarke_single_form #pagepos_table td span {
+	display: none;
+}
+
+#inetmarke_single_form #pagepos_table td.selected {
+	background-color: #002337;
+}
+
+#inetmarke_single_form #pagepos_table {
+	border-collapse: collapse;
+}
+
+#inetmarke_single_form .control-group select {
+	max-width: 423px;
+	display: table-cell;
+}
+
+#inetmarke_single_form select[name="productCode"] option:disabled {
+	color: #bbbbbb;
+}
+
+#inetmarke_single_container .balance-ok {
+	color: green;
+}
+
+#inetmarke_single_container .balance-low {
+	color: red;
+	font-weight: bolder;
+}
+
+#inetmarke_single_container .balance-too-low {
+	text-align: center;
+	font-size: 1.2em;
+}
+
+table.sc_labellist {
+	font-size: 12px;
+	background: red;
+}
+
+#inetmarke_modal_content.inetmarke_loading {
+	background: transparent url("../images/ajax-loader.gif") no-repeat scroll 50% 50%;
+	width: 100%;
+	height: 300px;
+}
+
+#inetmarke_modal_content {
+	font-size: 12px;
+}
+
+div.internetmarke-modal div.ui-dialog-buttonset button {
+	margin: 0 3px !important;
+}
+
+div.inetmarke_vouchers div.voucher {
+	background: #fbfbfb;
+	border: 1px solid #e5e5e5;
+	border-radius: 2px;
+	padding: 5px;
+	margin: 1px;
+}
+
+div.inetmarke_vouchers h1 {
+	font-size: 22px;
+	margin-bottom: 12px;
+	color: #002337;
+}
+
+.inetmarke_preview_span {
+	background-color: #F9F9F9;
+}
+
+#inetmarke_preview {
+	padding: 10px;
+	display: none;
+	text-align: center;
+}
+
+#inetmarke_preview_area {
+	width: 500px;
+	position: relative;
+	margin: auto;
+}
+
+#inetmarke_preview img {
+	width: 500px;
+}
+
+#inetmarke_preview_area .sender_line {
+	position: absolute;
+	top: 17px;
+	left: 23px;
+	font-size: 12px;
+}
+
+#inetmarke_preview_area .receiver_block {
+	position: absolute;
+	top: 140px;
+	left: 23px;
+	font-size: 14px;
+	line-height: 17px;
+}
+
+#inetmarke_config input[type="radio"] {
+	display: none;
+}
+
+#inetmarke_config input[type="radio"] ~ label img {
+	border: 2px solid white; opacity: 0.5;
+}
+
+#inetmarke_config input[type="radio"]:checked ~ label img {
+	border-color: #002337; opacity: 1.0;
+}
+
+#inetmarke_config div.imglist {
+	display: none;
+}
+
+#inetmarke_config div.imgcat {
+	cursor: pointer;
+	display: block;
+	background-color: #e8e8e8;
+	padding: 1px 12px;
+	margin: 1px;
+	border-radius: 2px;
+	/* width: 15em; */
+}
+
+#inetmarke_config div.imgcat.open {
+	display: block;
+	background-color: #F9F9F9;
+	margin-bottom: 0;
+	font-weight: bold;
+}
+
+#inetmarke_config div.imgcat.open ~ div.imglist {
+	background-color: #F9F9F9;
+	text-align: center;
+	padding: 4px;
+}
+
+#inetmarke_config img.stampthumb {
+	max-width: 80px;
+}
+
+.internetmarke_orderdetails {
+	display: none;
+}

@@ -1,0 +1,22 @@
+@import "menu_variables";
+@import "menu_mixins";
+
+&.expand-all .menu-group-item, &.expand .menu-group-item.active {
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid $border-color;
+	
+	> .menu-group-link {
+		@include menu-group-link();
+		background-color: $bg-active-item;
+	}
+	
+	.menu-entry-list {
+		border-top: 1px solid $border-color;
+		position: relative;
+		
+		.menu-entry-item {
+			@include menu-entry-item();
+		}
+	}
+}

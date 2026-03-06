@@ -1,0 +1,99 @@
+{extends file="../layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="responsivefilemanager"}
+
+    {block name="admin_module_center_responsivefilemanager_configuration"}
+        <form action="{$content.form_action}" method="POST" class="form-configuration breakpoint-small" id="responsivefilemanager-configuration-form">
+            <input type="hidden" name="page_token" value="{$pageToken}">
+            <div class="form-horizontal">
+                <fieldset>
+                    {block name="admin_module_center_responsivefilemanager_configuration_use_in_ckeditor"}
+                        <div class="form-group">
+                            <label class="col-sm-8 control-label" for="use_in_ckeditor">{$txt.config_use_in_ckeditor}</label>
+                            <div class="col-sm-4" data-gx-widget="switcher">
+                                <input type="hidden" name="use_in_ckeditor" value="0" />
+                                <input type="checkbox" name="use_in_ckeditor" id="use_in_ckeditor" class="form-control" value="1" {($content.use_in_ckeditor == '1') ? 'checked="checked"' : ''} />
+                            </div>
+                        </div>
+                    {/block}
+                    {block name="admin_module_center_responsivefilemanager_configuration_use_in_product_and_category_pages"}
+                        <div class="form-group">
+                            <label class="col-sm-8 control-label" for="use_in_product_and_category_pages">{$txt.config_use_in_product_and_category_pages}</label>
+                            <div class="col-sm-4" data-gx-widget="switcher">
+                                <input type="hidden" name="use_in_product_and_category_pages" value="0" />
+                                <input type="checkbox" name="use_in_product_and_category_pages" id="use_in_product_and_category_pages" class="form-control" value="1" {($content.use_in_product_and_category_pages == '1') ? 'checked="checked"' : ''} />
+                            </div>
+                        </div>
+                    {/block}
+                    {block name="admin_module_center_responsivefilemanager_configuration_use_in_manufacturer_pages"}
+                        <div class="form-group">
+                            <label class="col-sm-8 control-label" for="use_in_manufacturer_pages">{$txt.config_use_in_manufacturer_pages}</label>
+                            <div class="col-sm-4" data-gx-widget="switcher">
+                                <input type="hidden" name="use_in_manufacturer_pages" value="0" />
+                                <input type="checkbox" name="use_in_manufacturer_pages" id="use_in_manufacturer_pages" class="form-control" value="1" {($content.use_in_manufacturer_pages == '1') ? 'checked="checked"' : ''} />
+                            </div>
+                        </div>
+                    {/block}
+                    {block name="admin_module_center_responsivefilemanager_configuration_use_in_content_manager_pages"}
+                        <div class="form-group">
+                            <label class="col-sm-8 control-label" for="use_in_content_manager_pages">{$txt.config_use_in_content_manager_pages}</label>
+                            <div class="col-sm-4" data-gx-widget="switcher">
+                                <input type="hidden" name="use_in_content_manager_pages" value="0" />
+                                <input type="checkbox" name="use_in_content_manager_pages" id="use_in_content_manager_pages" class="form-control" value="1" {($content.use_in_content_manager_pages == '1') ? 'checked="checked"' : ''} />
+                            </div>
+                        </div>
+                    {/block}
+                    {block name="admin_module_center_responsivefilemanager_configuration_use_in_attribute_pages"}
+                        <div class="form-group">
+                            <label class="col-sm-8 control-label" for="use_in_attribute_pages">{$txt.config_use_in_attribute_pages}</label>
+                            <div class="col-sm-4" data-gx-widget="switcher">
+                                <input type="hidden" name="use_in_attribute_pages" value="0" />
+                                <input type="checkbox" name="use_in_attribute_pages" id="use_in_attribute_pages" class="form-control" value="1" {($content.use_in_attribute_pages == '1') ? 'checked="checked"' : ''} />
+                            </div>
+                        </div>
+                    {/block}
+	                {block name="admin_module_center_responsivefilemanager_configuration_use_in_property_pages"}
+	                <div class="form-group">
+		                <label class="col-sm-8 control-label" for="use_in_property_pages">{$txt.config_use_in_property_pages}</label>
+		                <div class="col-sm-4" data-gx-widget="switcher">
+			                <input type="hidden" name="use_in_property_pages" value="0" />
+			                <input type="checkbox" name="use_in_property_pages" id="use_in_property_pages" class="form-control" value="1" {($content.use_in_property_pages == '1') ? 'checked="checked"' : ''} />
+		                </div>
+	                </div>
+	                {/block}
+	                {block name="admin_module_center_responsivefilemanager_configuration_use_in_banner_manager_pages"}
+		                <div class="form-group">
+			                <label class="col-sm-8 control-label" for="use_in_banner_manager_pages">{$txt.config_use_in_banner_manager_pages}</label>
+			                <div class="col-sm-4" data-gx-widget="switcher">
+				                <input type="hidden" name="use_in_banner_manager_pages" value="0" />
+				                <input type="checkbox" name="use_in_banner_manager_pages" id="use_in_banner_manager_pages" class="form-control" value="1" {($content.use_in_banner_manager_pages == '1') ? 'checked="checked"' : ''} />
+			                </div>
+		                </div>
+	                {/block}
+                    {block name="admin_module_center_responsivefilemanager_configuration_use_in_shipping_status_pages"}
+                    <div class="form-group">
+                        <label class="col-sm-8 control-label" for="use_in_shipping_status_pages">{$txt.config_use_in_shipping_status_pages}</label>
+                        <div class="col-sm-4" data-gx-widget="switcher">
+                            <input type="hidden" name="use_in_shipping_status_pages" value="0" />
+                            <input type="checkbox" name="use_in_shipping_status_pages" id="use_in_shipping_status_pages" class="form-control" value="1" {($content.use_in_shipping_status_pages == '1') ? 'checked="checked"' : ''} />
+                        </div>
+                    </div>
+                    {/block}
+	                {block name="admin_module_center_responsivefilemanager_configuration_use_in_email_pages"}
+		                <div class="form-group">
+			                <label class="col-sm-8 control-label" for="use_in_email_pages">{$txt.config_use_in_email_pages}</label>
+			                <div class="col-sm-4" data-gx-widget="switcher">
+				                <input type="hidden" name="use_in_email_pages" value="0" />
+				                <input type="checkbox" name="use_in_email_pages" id="use_in_email_pages" class="form-control" value="1" {($content.use_in_email_pages == '1') ? 'checked="checked"' : ''} />
+			                </div>
+		                </div>
+	                {/block}
+                </fieldset>
+            </div>
+        </form>
+    {/block}
+{/block}
+{block name="bottom_save_bar"}
+    <button type="submit" class="btn btn-primary" form="responsivefilemanager-configuration-form">{$txt.button_submit}</button>
+{/block}

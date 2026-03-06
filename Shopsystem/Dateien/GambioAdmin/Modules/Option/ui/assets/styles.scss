@@ -1,0 +1,109 @@
+.gx-admin{
+    &.collapse {
+        grid-template-columns: 45px minmax(0, 1fr);
+    }
+    
+    &:not(.collapse) {
+        grid-template-columns: 200px minmax(0, 1fr);
+    }
+}
+
+#gx-main {
+	background-color: #eeeeee;
+}
+
+#message-stack {
+	max-width: 1350px;
+	padding: 20px 36px 0 20px;
+	
+	.message-content {
+		display: block;
+		font-size: 12px;
+		width: 100%;
+	}
+}
+
+.btn-danger,
+.btn-success {
+	color: #fff !important;
+}
+
+.btn-default {
+	&:hover {
+		background-color: #002237 !important;
+		color: #fff !important;
+	}
+}
+
+.page-head {
+	margin-bottom: 2rem;
+}
+.page-title {
+	float: left;
+	margin: 0;
+}
+.options-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	li {
+
+	}
+}
+
+
+.alert {
+	&-white {
+		border-radius: 0 !important;
+		img {
+			width: 100%;
+			max-width: 10rem;
+		}
+		h4 {
+			color: #3a3a3a
+		}
+	}
+}
+
+.modal-lg, .modal-xl {
+	max-width: 900px !important;
+}
+
+.form-label {
+    margin-bottom: 0.25rem !important;
+    font-weight: 600;
+}
+
+.content-header {
+	position: sticky;
+	top: 46px;
+	margin-left: -1px;
+	width: calc(100% + 1px);
+	z-index: 100;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.text-break-all {
+    word-break: break-all;
+}
+
+body {
+    &.dragging {
+        .gx-admin-header,
+        .content-header,
+        .gx-admin-footer {
+            pointer-events: none !important;
+        }
+    }
+}

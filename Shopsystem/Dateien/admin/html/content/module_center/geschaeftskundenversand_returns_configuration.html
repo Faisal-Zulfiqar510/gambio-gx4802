@@ -1,0 +1,95 @@
+{extends file="../layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="module_center_module"}
+    {load_language_text section="countries" name="countriestxt"}
+
+	{function dhlTextInput label='' fieldname='' id='' value='' maxlength=20 minlength=0 shortenedFrom='' tooltip='' required='false'}
+		<div class="form-group">
+			<label class="col-sm-7 control-label"for="{$id}">{$label}</label>
+			<div class="{if $tooltip}col-sm-4{else}col-sm-5{/if}">
+				<input maxlength="{$maxlength}" {if $minlength}minlength="{$minlength}"{/if} type="text" class="form-control" name="{$fieldname}" id="{$id}" value="{$value}" {if $required === 'true'}required{/if}>
+			</div>
+            {if $tooltip}
+				<div class="col-sm-1">
+					<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$tooltip}</span>
+				</div>
+            {/if}
+		</div>
+	{/function}
+
+	<div class="breakpoint-large">
+        {block name="admin_module_center_geschaeftskundenversand_configuration_returns_form"}
+			<form action="{$content.action_save_configuration}" method="POST" class="form-configuration">
+				<input type="hidden" name="pageToken" value="{$content.pageToken}">
+				<div class="form-horizontal grid">
+					<div class="row">
+						<fieldset class="col-sm-6">
+							<legend>{$txt.gkv_config_settings} Retouren</legend>
+                            {dhlTextInput value=$content.configuration['returns/user'] fieldname="configuration[returns/user]" label=$txt.returns_user}
+                            {dhlTextInput value=$content.configuration['returns/password'] fieldname="configuration[returns/password]" label=$txt.returns_password}
+                            {dhlTextInput value=$content.configuration['returns/email'] fieldname="configuration[returns/email]" label=$txt.returns_email maxlength=70}
+                            {dhlTextInput value=$content.configuration['returns/telephone'] fieldname="configuration[returns/telephone]" label=$txt.returns_telephone maxlength=35}
+                            {block name="admin_module_center_geschaeftskundenversand_configuration_form2_settings_returns_parcel_service"}
+                                <div class="form-group">
+                                    <label for="configuration[returns/parcel_service_id]" class="col-sm-7 control-label">
+                                        {$txt.returns_parcel_service}
+                                    </label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control"
+                                                id="configuration[returns/parcel_service_id]"
+                                                name="configuration[returns/parcel_service_id]">
+                                            <option value="0"
+                                                    {if $content.configuration.returns.parcel_service_id == '0'}selected="selected"{/if}>{$txt.gkv_parcel_service_none}</option>
+                                            {foreach from=$content.parcel_services item=parcel_service}
+                                                <option value="{$parcel_service->getId()}"
+                                                        {if $parcel_service->getId() == $content.configuration['returns/parcel_service_id']}selected="selected"{/if}>
+                                                    {$parcel_service->getName()}
+                                                </option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                </div>
+                            {/block}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/bel'] fieldname="configuration[returns/receiver_id/bel]" label="Receiver-Id {$countriestxt.BE}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/bgr'] fieldname="configuration[returns/receiver_id/bgr]" label="Receiver-Id {$countriestxt.BG}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/dnk'] fieldname="configuration[returns/receiver_id/dnk]" label="Receiver-Id {$countriestxt.DK}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/deu'] fieldname="configuration[returns/receiver_id/deu]" label="Receiver-Id {$countriestxt.DE}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/est'] fieldname="configuration[returns/receiver_id/est]" label="Receiver-Id {$countriestxt.EE}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/fin'] fieldname="configuration[returns/receiver_id/fin]" label="Receiver-Id {$countriestxt.FI}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/fra'] fieldname="configuration[returns/receiver_id/fra]" label="Receiver-Id {$countriestxt.FR}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/grc'] fieldname="configuration[returns/receiver_id/grc]" label="Receiver-Id {$countriestxt.GR}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/gbr'] fieldname="configuration[returns/receiver_id/gbr]" label="Receiver-Id {$countriestxt.GB}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/irl'] fieldname="configuration[returns/receiver_id/irl]" label="Receiver-Id {$countriestxt.IE}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/ita'] fieldname="configuration[returns/receiver_id/ita]" label="Receiver-Id {$countriestxt.IT}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/hrv'] fieldname="configuration[returns/receiver_id/hrv]" label="Receiver-Id {$countriestxt.HR}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/lva'] fieldname="configuration[returns/receiver_id/lva]" label="Receiver-Id {$countriestxt.LV}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/ltu'] fieldname="configuration[returns/receiver_id/ltu]" label="Receiver-Id {$countriestxt.LT}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/lux'] fieldname="configuration[returns/receiver_id/lux]" label="Receiver-Id {$countriestxt.LU}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/mlt'] fieldname="configuration[returns/receiver_id/mlt]" label="Receiver-Id {$countriestxt.MT}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/nld'] fieldname="configuration[returns/receiver_id/nld]" label="Receiver-Id {$countriestxt.NL}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/aut'] fieldname="configuration[returns/receiver_id/aut]" label="Receiver-Id {$countriestxt.AT}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/pol'] fieldname="configuration[returns/receiver_id/pol]" label="Receiver-Id {$countriestxt.PL}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/prt'] fieldname="configuration[returns/receiver_id/prt]" label="Receiver-Id {$countriestxt.PT}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/rou'] fieldname="configuration[returns/receiver_id/rou]" label="Receiver-Id {$countriestxt.RO}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/swe'] fieldname="configuration[returns/receiver_id/swe]" label="Receiver-Id {$countriestxt.SE}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/che'] fieldname="configuration[returns/receiver_id/che]" label="Receiver-Id {$countriestxt.CH}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/svk'] fieldname="configuration[returns/receiver_id/svk]" label="Receiver-Id {$countriestxt.SK}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/svn'] fieldname="configuration[returns/receiver_id/svn]" label="Receiver-Id {$countriestxt.SI}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/esp'] fieldname="configuration[returns/receiver_id/esp]" label="Receiver-Id {$countriestxt.ES}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/cze'] fieldname="configuration[returns/receiver_id/cze]" label="Receiver-Id {$countriestxt.CZ}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/hun'] fieldname="configuration[returns/receiver_id/hun]" label="Receiver-Id {$countriestxt.HU}" maxlength=30}
+                            {dhlTextInput value=$content.configuration['returns/receiver_id/cyp'] fieldname="configuration[returns/receiver_id/cyp]" label="Receiver-Id {$countriestxt.CY}" maxlength=30}
+
+							<div class="col-sm-12">
+								<button type="submit" class="btn btn-primary pull-right">{$txt.gkv_save_settings}</button>
+							</div>
+						</fieldset>
+						<div class="col-sm-6">&nbsp;</div>
+					</div>
+				</div>
+			</form>
+        {/block}
+	</div>
+
+{/block}

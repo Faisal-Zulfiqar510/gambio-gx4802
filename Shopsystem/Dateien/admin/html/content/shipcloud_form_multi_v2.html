@@ -1,0 +1,225 @@
+{* --------------------------------------------------------------
+	shipcloud_form_multi.html 2021-08-24
+	Gambio GmbH
+	http://www.gambio.de
+	Copyright (c) 2021 Gambio GmbH
+	Released under the GNU General Public License (Version 2)
+	[http://www.gnu.org/licenses/gpl-2.0.html]
+	--------------------------------------------------------------
+*}
+
+{block name="admin_shipcloud_form_multi_v2"}
+	<div class="gx-container" id="sc_multi_container">
+		{block name="admin_shipcloud_form_multi_v2_form"}
+			<form id="sc_multi_form" action="#" method="POST" class="container">
+				<div class="col-md-6">
+					{block name="admin_shipcloud_form_multi_v2_receiver"}
+						<fieldset class="container-fluid">
+							{block name="admin_shipcloud_form_multi_v2_receiver_heading"}
+								<div class="row heading">##receivers_data ({$orders|@count})</div>
+							{/block}
+							<div class="sc_orders row">
+								{foreach from=$orders item=order key=orders_id}
+									{block name="admin_shipcloud_form_multi_v2_receiver_item"}
+										<div class="sc_order col-md-6">
+											<input type="hidden" name="orders[]" value="{$orders_id}">
+											<div class="sc_multi_orders_id">{$orders_id} ({$orders_weights[$orders_id]} kg)</div>
+											{if $order->delivery.company}<div class="sc_multi_company">{$order->delivery.company}</div>{/if}
+											<div class="sc_multi_name">{$order->delivery.lastname}, {$order->delivery.firstname}</div>
+											{if $order->delivery.additional_address_info}<div class="sc_care_of">{$order->delivery.additional_address_info}</div>{/if}
+											<div class="sc_multi_street">{$order->delivery.street_address}{if $order->delivery.house_number} {$order->delivery.house_number}{/if}</div>
+											<div class="sc_multi_cpc">
+												{$order->delivery.country_iso_code_2} {$order->delivery.postcode}
+												{$order->delivery.city}{if $order->delivery.state}, {$order->delivery.state}{/if}
+											</div>
+											{if $transport_conditions[$orders_id] !== 'declined'}
+												{if $prefill_email == true}<div class="sc_multi_email">{$order->customer.email_address}</div>{/if}
+												{if $prefill_phone == true}<div class="sc_multi_phone">{$order->customer.telephone}</div>{/if}
+											{/if}
+											{if $descriptions[$orders_id]}
+                                                <input type="hidden" name="descriptions[{$orders_id}]" value="{$descriptions[$orders_id]}">
+												<div class="sc_multi_description">{$descriptions[$orders_id]}</div>
+											{/if}
+										</div>
+										<div class="sc_order col-md-6">
+											<div class="sc_multi_quote" id="sc_multi_quote_{$orders_id}"></div>
+										</div>
+									{/block}
+								{/foreach}
+							</div>
+						</fieldset>
+					{/block}
+				</div>
+		
+				<div class="col-md-6">
+					{block name="admin_shipcloud_form_multi_v2_package"}
+						<fieldset class="form-horizontal">
+							{block name="admin_shipcloud_form_multi_v2_package_heading"}
+								<div class="row heading">##package_data</div>
+							{/block}
+							{block name="admin_shipcloud_form_multi_v2_package_individual_values"}
+								<div class="form-group">
+									<label class="col-md-3">##template</label>
+									<div class="col-md-9">
+										<select class="form-control" name="package_template" id="sc_package_template">
+											<option value="-1">##individual_values</option>
+											{foreach from=$package_templates.packages item=ptemplate key=pt_id}
+											<option
+												value="{$pt_id}"
+												{if $pt_id == $default_package_template}selected="selected"{/if}
+												data-weight="{$ptemplate.weight}"
+												data-height="{$ptemplate.height}"
+												data-width="{$ptemplate.width}"
+												data-length="{$ptemplate.length}"
+												data-type="{if $ptemplate.type}{$ptemplate.type}{else}parcel{/if}">
+												{$ptemplate.name}
+											</option>
+											{/foreach}
+										</select>
+									</div>
+								</div>
+							{/block}
+							{block name="admin_shipcloud_form_multi_v2_package_weight"}
+								<div class="form-group">
+									<label class="col-md-3">##package_weight</label>
+									<div class="col-md-9">
+										<input class="form-control price_value template_value" type="number" min="0.001" max="1000" step="0.001" name="package[weight]" value="{$package.weight}">
+									</div>
+								</div>
+							{/block}
+							{block name="admin_shipcloud_form_multi_v2_package_dimensions"}
+								<div class="form-group">
+									<label class="col-md-3">##package_dimensions</label>
+									<div class="col-md-3">
+										<input class="form-control price_value template_value package_dimensions" type="number" min="1" max="240" name="package[length]" value="{$package.length}">
+									</div>
+									<div class="col-md-3">
+										<input class="form-control price_value template_value package_dimensions" type="number" min="1" max="200" name="package[width]" value="{$package.width}">
+									</div>
+									<div class="col-md-3">
+										<input class="form-control price_value template_value package_dimensions" type="number" min="0.1" max="200" step="0.1" name="package[height]" value="{$package.height}">
+									</div>
+								</div>
+							{/block}
+							{block name="admin_shipcloud_form_multi_v2_package_type"}
+								<div class="form-group">
+									<label class="col-md-3">##package_type</label>
+									<div class="col-md-9">
+										<select class="form-control package_type" name="package[type]">
+											<option value="parcel">##package_type_parcel</option>
+											<option value="parcel_letter">##package_type_parcel_letter</option>
+											<option value="letter">##package_type_letter</option>
+											<option value="books">##package_type_books</option>
+											<option value="bulk">##package_type_bulk</option>
+											<option value="disposable_pallet">##package_type_disposable_pallet</option>
+											<option value="euro_pallet">##package_type_euro_pallet</option>
+										</select>
+									</div>
+								</div>
+							{/block}
+							{block name="admin_shipcloud_form_multi_v2_package_services"}
+								<div class="form-group">
+									<label class="col-md-3">##service</label>
+									<div class="col-md-9">
+										<select class="form-control" name="service">
+											<option value="standard" {($service == 'standard') ? 'selected' : ''}>##service_standard</option>
+											<option value="returns" {($service == 'returns') ? 'selected' : ''}>##service_returns</option>
+											<option value="one_day" {($service == 'one_day') ? 'selected' : ''}>##service_one_day</option>
+											<option value="one_day_early" {($service == 'one_day_early') ? 'selected' : ''}>##service_one_day_early</option>
+											<option value="same_day" {($service == 'same_day') ? 'selected' : ''}>##service_same_day</option>
+											<option value="ups_expedited" {($service == 'ups_expedited') ? 'selected' : ''}>##service_ups_expedited</option>
+											<option value="ups_express_1200" {($service == 'ups_express_1200') ? 'selected' : ''}>##service_ups_express_1200</option>
+											<option value="dpag_warenpost" {($service == 'dpag_warenpost') ? 'selected' : ''}>##service_dpag_warenpost</option>
+											<option value="dhl_europaket" {($service == 'dhl_europaket') ? 'selected' : ''}>##service_dhl_europaket</option>
+											<option value="cargo_international_express" {($service == 'cargo_international_express') ? 'selected' : ''}>##service_cargo_international_express</option>
+											<option value="gls_express_0800" {($service == 'gls_express_0800') ? 'selected' : ''}>##service_gls_express_0800</option>
+											<option value="gls_express_0900" {($service == 'gls_express_0900') ? 'selected' : ''}>##service_gls_express_0900</option>
+											<option value="gls_express_1000" {($service == 'gls_express_1000') ? 'selected' : ''}>##service_gls_express_1000</option>
+											<option value="gls_express_1200" {($service == 'gls_express_1200') ? 'selected' : ''}>##service_gls_express_1200</option>
+										</select>
+									</div>
+								</div>
+							{/block}
+							{block name="admin_shipcloud_form_multi_v2_pickup"}
+								<div class="form-group">
+									<label class="col-md-3">##pickup_time ##pickup_between</label>
+									<div class="col-md-4">
+										<input
+												class="form-control"
+												name="pickup[pickup_time][earliest]"
+												type="text"
+												value="{$pickup_earliest}"
+												placeholder="YYYY-MM-DD HH:MM"
+												data-gx-widget="datetimepicker"
+												data-datetimepicker-lang="de"
+												data-datetimepicker-format="Y-m-d H:i"
+												data-datetimepicker-day-of-week-start="1"
+												data-datetimepicker-min-date="{$pickup_mindate}"
+												data-datetimepicker-max-date="{$pickup_maxdate}"
+										>
+									</div>
+									<div class="col-md-1">##pickup_and</div>
+									<div class="col-md-4">
+										<input
+												class="form-control"
+												name="pickup[pickup_time][latest]"
+												type="text"
+												value="{$pickup_latest}"
+												placeholder="YYYY-MM-DD HH:MM"
+												data-gx-widget="datetimepicker"
+												data-datetimepicker-lang="de"
+												data-datetimepicker-format="Y-m-d H:i"
+												data-datetimepicker-day-of-week-start="1"
+												data-datetimepicker-min-date="{$pickup_mindate}"
+												data-datetimepicker-max-date="{$pickup_maxdate}"
+										>
+									</div>
+								</div>
+							{/block}
+							{block name="admin_shipcloud_form_multi_v2_package_table"}
+								<table class="row carriers" data-gx-widget="checkbox">
+									{block name="admin_shipcloud_form_multi_v2_package_table_thead"}
+										<thead>
+											<tr>
+												<th class="col-md-1">&nbsp;</th>
+												<th class="col-md-7">##carrier</th>
+												<th class="col-md-2">##price</th>
+												<th class="col-md-2">&nbsp;</th>
+											</tr>
+										</thead>
+									{/block}
+									{block name="admin_shipcloud_form_multi_v2_package_table_tbody"}
+										<tbody>
+											{foreach from=$carriers item=carrier}
+												{if $preselected_carriers.preselected_carriers[$carrier->name] == 1}
+													{block name="admin_shipcloud_form_multi_v2_package_table_row"}
+														<tr>
+															<td class="col-md-1">
+																<input
+																	{if $checked_carriers.checked_carriers[$carrier->name] == 1}checked="checked"{/if}
+																	type="checkbox"
+																	name="quote_carriers[]"
+																	value="{$carrier->name}"
+																	id="quote_carrier_{$carrier->name}"
+																	data-single_checkbox
+																	>
+															</td>
+															<td class="col-md-7"><label for="quote_carrier_{$carrier->name}">{$carrier->display_name}</label></td>
+															<td class="col-md-2"><div id="sc_quote_{$carrier->name}" class="sc_quote">&nbsp;</div></td>
+															<td class="col-md-2"><input class="create_label btn btn-primary" type="submit" name="{$carrier->name}" value="##create_label"></td>
+														</tr>
+													{/block}
+												{/if}
+											{/foreach}
+										</tbody>
+									{/block}
+								</table>
+							{/block}
+							<input type="hidden" name="carrier" value="">
+						</fieldset>
+					{/block}
+				</div>
+			</form>
+		{/block}
+	</div>
+{/block}

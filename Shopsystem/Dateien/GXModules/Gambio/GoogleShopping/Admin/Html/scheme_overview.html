@@ -1,0 +1,163 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+	
+{block name="content"}
+	{load_language_text section="google_shopping"}
+	{load_language_text section="admin_buttons" name="buttons"}
+	
+	<div class="breakpoint-small schemes-overview"
+	     data-gxmodules-namespace="{$base_url}/GXModules/Gambio/GoogleShopping/Build/Admin/Javascript"
+	     data-gxmodules-controller="scheme_overview" data-scheme_overview-show-account-form="{$content.show_account_form}">
+
+		{if $content.authSuccess}
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				{$txt.authorization_success}
+			</div>
+		{/if}
+
+		{block name="admin_google_shopping_schemes_overview_toolbar"}
+			<div class="row toolbar">
+				<div class="col-md-6 col-md-offset-6">
+					{block name="admin_google_shopping_schemes_overview_create_scheme_button"}
+						<a class="btn btn-success btn-create" href="admin.php?do=GoogleShopping/createScheme">
+							<i class="fa fa-plus btn-icon"></i> {$buttons.BUTTON_CREATE}
+						</a>
+					{/block}
+				</div>
+			</div>
+		{/block}
+
+		{block name="admin_google_shopping_schemes_overview_table"}
+			<table class="table table-main table-striped"
+				   data-gx-extension="visibility_switcher"
+				   data-visibility_switcher-rows=".scheme-data-row"
+				   data-visibility_switcher-selections=".actions-container">
+				{block name="admin_google_shopping_schemes_overview_table_head"}
+					<thead>
+						{block name="admin_google_shopping_schemes_overview_scheme_table_head_row"}
+							<tr>
+								{block name="admin_google_shopping_schemes_overview_scheme_table_head_name"}
+									<th class="scheme-name">{$txt.provider}</th>
+								{/block}
+
+								{block name="admin_google_shopping_schemes_overview_scheme_table_head_last_export"}
+									<th class="last-export">{$txt.last_export}</th>
+								{/block}
+
+								{block name="admin_google_shopping_schemes_overview_scheme_table_head_actions"}
+									<th class="actions"></th>
+								{/block}
+							</tr>
+						{/block}
+					</thead>
+				{/block}
+
+				{block name="admin_google_shopping_schemes_overview_table_body"}
+					<tbody>
+						{if $content.schemes|count > 0}
+							{foreach from=$content.schemes item=scheme}
+								{block name="admin_google_shopping_schemes_overview_scheme_table_body_row"}
+									<tr class="scheme-data-row">
+										{block name="admin_google_shopping_schemes_overview_scheme_table_body_name"}
+											<td>
+												<a class="scheme-name"
+												   href="admin.php?do=GoogleShopping/editScheme&id={$scheme.scheme_id}"
+												   title="{$txt.edit_scheme}">
+													{$scheme.scheme_name}
+												</a>
+											</td>
+										{/block}
+										{block name="admin_google_shopping_schemes_overview_scheme_table_body_last_export"}
+											<td class="last-export">
+												{if $scheme.date_last_export !== '0000-00-00 00:00:00' && $scheme.date_last_export !== '1000-01-01 00:00:00'}
+													<a class="download-export" href="#" data-scheme-id="{$scheme.scheme_id}">
+														{$scheme.date_last_export}
+													</a>
+												{else}
+													-
+												{/if}
+											</td>
+										{/block}
+										{block name="admin_google_shopping_schemes_overview_scheme_table_body_actions"}
+											<td class="actions">
+											<span class="actions-container">
+												{block name="admin_google_shopping_schemes_overview_scheme_action_download"}
+													{if $scheme.date_last_export !== '0000-00-00 00:00:00' && $scheme.date_last_export !== '1000-01-01 00:00:00'}
+														<a class="download-export-button"
+														   href="#"
+														   data-scheme-id="{$scheme.scheme_id}">
+															<i class="fa fa-download"></i>
+														</a>
+													{/if}
+												{/block}
+
+												{block name="admin_google_shopping_schemes_overview_scheme_action_export"}
+													<a class="start-export"
+													   href="#"
+													   title="{$txt.export_scheme}"
+													   data-scheme-id="{$scheme.scheme_id}">
+														<i class="fa fa-play-circle"></i>
+													</a>
+												{/block}
+
+												{block name="admin_google_shopping_schemes_overview_scheme_action_edit"}
+													<a class="edit-scheme"
+													   href="admin.php?do=GoogleShopping/editScheme&id={$scheme.scheme_id}"
+													   title="{$txt.edit_scheme}">
+														<i class="fa fa-pencil"></i>
+													</a>
+												{/block}
+
+												{block name="admin_google_shopping_schemes_overview_scheme_action_delete"}
+													<a class="delete-scheme" href="#"
+													   data-scheme-id="{$scheme.scheme_id}"
+													   title="{$txt.delete_scheme}">
+														<i class="fa fa-trash-o"></i>
+													</a>
+												{/block}
+
+												{block name="admin_google_shopping_schemes_overview_scheme_action_copy"}
+													<a class="copy-scheme"
+													   href="admin.php?do=GoogleShopping/copyScheme&id={$scheme.scheme_id}"
+													   title="{$txt.copy_scheme}">
+														<i class="fa fa-clone"></i>
+													</a>
+												{/block}
+											</span>
+											</td>
+										{/block}
+									</tr>
+								{/block}
+							{/foreach}
+						{else}
+							<tr>
+								<td class="empty-table" colspan="3">{$txt.no_schemes}</td>
+							</tr>
+						{/if}
+					</tbody>
+				{/block}
+			</table>
+		{/block}
+	</div>
+
+	{block name="admin_google_shopping_schemes_overview_empty_table_template"}
+		<script id="empty-table" type="text/template">
+			<tr>
+				<td class="empty-table" colspan="3">{$txt.no_schemes}</td>
+			</tr>
+		</script>
+	{/block}
+
+	{block name="admin_google_shopping_schemes_overview_delete_modal_include"}
+		{include file="get_usermod:Gambio/GoogleShopping/Admin/Html/modals/delete_scheme_modal.html"}
+	{/block}
+	{block name="admin_google_shopping_schemes_overview_export_modal_include"}
+		{include file="get_usermod:Gambio/GoogleShopping/Admin/Html/modals/export_scheme_modal.html"}
+	{/block}
+
+	<div data-gx_google_oauth-namespace="../GXModules/Gambio/GoogleOAuth/Build/Admin/Javascript"
+		 data-gx_google_oauth-widget="google_connection_modal"
+		 data-google_connection_modal-from="GoogleShopping"
+		 data-google_connection_modal-error="{$content.error}"
+	></div>
+{/block}

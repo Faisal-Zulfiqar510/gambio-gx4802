@@ -1,0 +1,78 @@
+{load_language_text section="admin_buttons" name="buttons"}
+
+{block name="admin_google_shopping_schemes_fields_configuration"}
+	{block name="admin_google_shopping_schemes_fields_configuration_headline_container"}
+		<div class="row fields-configuration-headline">
+			{block name="admin_google_shopping_schemes_fields_headline"}
+				<div class="col-md-6 headline">
+					{$txt.tab_fields}
+				</div>
+			{/block}
+
+			{block name="admin_google_shopping_schemes_fields_create_field_button"}
+				<div class="col-md-6 button-container">
+					<a class="btn btn-success btn-create create-field" href="admin.php?GoogleShopping/createField">
+						<i class="fa fa-plus btn-icon"></i> {$buttons.BUTTON_CREATE}
+					</a>
+				</div>
+			{/block}
+		</div>
+	{/block}
+
+	{block name="admin_google_shopping_schemes_fields_configuration_fields_container"}
+		<ul class="row fields-list"
+		    data-gx-extension="visibility_switcher"
+		    data-visibility_switcher-rows=".scheme-field"
+		    data-visibility_switcher-selections=".actions-container">
+			{foreach from=$data.scheme.fields item=field}
+				{block name="admin_google_shopping_schemes_fields_configuration_field"}
+					<li class="scheme-field" data-field-id="{$field.id}">
+						{block name="admin_google_shopping_schemes_fields_configuration_field_name"}
+							<span class="col-md-5 field-name">{$field.name}</span>
+						{/block}
+		
+						{block name="admin_google_shopping_schemes_fields_configuration_field_status"}
+							<span class="col-md-2 status">
+								<span class="gx-container" data-gx-widget="switcher">
+									<input type="checkbox"
+									       class="field-status"
+									       data-field-id="{$field.id}"
+										   name="{$field.name}_status"
+										   value="1" {if $field.status === 1}checked{/if}/>
+								</span>
+							</span>
+						{/block}
+		
+						{block name="admin_google_shopping_schemes_fields_configuration_field_actions"}
+							<span class="col-md-5 actions">
+								<span class="actions-container">
+									{block name="admin_google_shopping_schemes_fields_configuration_field_action_edit"}
+										<a class="edit-field" href="#" data-field-id="{$field.id}">
+											<i class="fa fa-pencil"></i>
+										</a>
+									{/block}
+		
+									{block name="admin_google_shopping_schemes_fields_configuration_field_action_delete"}
+										<a class="delete-field" href="#" data-field-id="{$field.id}">
+											<i class="fa fa-trash-o"></i>
+										</a>
+									{/block}
+		
+									{block name="admin_google_shopping_schemes_fields_configuration_field_sort"}
+										<a class="sort-handle">
+											<i class="fa fa-sort"></i>
+										</a>
+									{/block}
+								</span>
+							</span>
+						{/block}
+					</li>
+				{/block}
+			{/foreach}
+		</ul>
+	{/block}
+
+	{block name="admin_google_shopping_schemes_fields_configuration_field_modal_include"}
+		{include file="get_usermod:Gambio/GoogleShopping/Admin/Html/modals/field_modal.html"}
+	{/block}
+{/block}

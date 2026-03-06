@@ -1,0 +1,29 @@
+{load_language_text section="checkout_shipping_options"}
+
+<div id="shipping_options_wrapper" class="frame-wrapper">
+    <div class="frame-head">
+        <label class="title pull-left">
+            {$txt.order_shipping_options_title}
+        </label>
+    </div>
+    <div class="frame-content gx-container table-content">
+        <table class="order_shipping_options">
+            <thead>
+            <tr>
+                <th>{$txt.option_name}</th>
+                <th>{$txt.option_value}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $content_data.shipping_options as $shipping_option}
+                {if $shipping_option->getValue() !== ''}
+                    <tr>
+                        <td class="shipping_option_name">{$txt["shipping_option_{$shipping_option->getKey()}"]}</td>
+                        <td class="shipping_option_value">{$shipping_option->getValue()}</td>
+                    </tr>
+                {/if}
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+</div>

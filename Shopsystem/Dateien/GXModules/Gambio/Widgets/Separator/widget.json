@@ -1,0 +1,62 @@
+{
+	"id": "separator",
+	"title": "SeparatorWidget.title",
+	"icon": {
+		"name": "Image",
+		"file": "separator.svg"
+	},
+	"author": {
+		"name": "Gambio GmbH",
+		"email": "info@gambio.de",
+		"url": "https://www.gambio.de"
+	},
+	"helpUrl": "https://www.gambio.de/help",
+	"description": "SeparatorWidget.description",
+	"cache": 0,
+	"version": "1.0.0",
+	"displayConfig": "sidebar",
+	"fieldsets": [
+		{
+			"title": "SeparatorWidget.options.general.title",
+			"options": [
+				{
+					"id": "id",
+					"label": "SeparatorWidget.options.id.label",
+					"type": "textbox",
+					"placeholder": "SeparatorWidget.options.id.placeholder",
+					"default": ""
+				},
+				{
+					"id": "margin",
+					"label": "SeparatorWidget.options.margin.label",
+					"type": "margin",
+					"placeholder": "SeparatorWidget.options.id.placeholder",
+					"default": {
+						"top": "0px",
+						"right": "0px",
+						"bottom": "0px",
+						"left": "0px"
+					}
+				}
+			]
+		},
+		{
+			"title": "SeparatorWidget.options.border.title",
+			"options": [
+				{
+					"id": "border",
+					"type": "border",
+					"placeholder": "SeparatorWidget.options.id.placeholder",
+					"items": {
+						"top": "1px",
+						"right": "0px",
+						"bottom": "0px",
+						"left": "0px",
+						"style": "solid",
+						"color": "#888888"
+					}
+				}
+			]
+		}
+	]
+}

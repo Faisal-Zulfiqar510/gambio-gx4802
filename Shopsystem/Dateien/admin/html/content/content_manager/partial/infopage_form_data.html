@@ -1,0 +1,132 @@
+{block name="admin_content_manager_partial_infopage_form_data"}
+	<fieldset>
+		{block name="admin_content_manager_partial_infopage_form_data_name"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_infopage_form_data_name_label"}
+					<label class="col-md-2">{$txt.LABEL_NAME}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_infopage_form_data_name_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_infopage_form_data_name_input"}
+							<input class="form-control"
+								   type="text"
+								   name="content_manager[infopage][content_name][{$languageCode}]"
+								   value="{$content_manager.infopage.content_name.$languageCode}"
+								   {if $content_manager.infopage.protected.$languageCode == '1' && !isset($smarty.get.expert)}readonly{/if}>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		{block name="admin_content_manager_partial_infopage_form_data_title"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_infopage_form_data_title_label"}
+					<label class="col-md-2">{$txt.LABEL_TITLE}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_infopage_form_data_title_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_infopage_form_data_title_input"}
+							<input class="form-control"
+							       type="text"
+							       name="content_manager[infopage][content_title][{$languageCode}]"
+							       value="{$content_manager.infopage.content_title.$languageCode}">
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		{block name="admin_content_manager_partial_infopage_form_data_heading"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_infopage_form_data_heading_label"}
+					<label class="col-md-2">{$txt.TEXT_HEADING}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_infopage_form_data_heading_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_infopage_form_data_heading_input"}
+							<input class="form-control"
+								   type="text"
+								   name="content_manager[infopage][content_heading][{$languageCode}]"
+								   value="{$content_manager.infopage.content_heading.$languageCode}">
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		{block name="admin_content_manager_partial_infopage_form_data_status"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_infopage_form_data_status_label"}
+					<label class="col-md-2">{$txt.TEXT_STATUS}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_infopage_form_data_status_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_infopage_form_data_status_input"}
+							<div class="gx-container" data-gx-widget="checkbox">
+								<input type="checkbox"
+									   name="content_manager[infopage][content_status][{$languageCode}]"
+									   value="1" {if $content_manager.infopage.content_status.$languageCode == '1'}checked{/if}/>
+							</div>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		
+			{if $content_manager.infopage.content_group.$languageCode == "2"
+			|| $content_manager.infopage.content_group.$languageCode == "3"
+			|| $content_manager.infopage.content_group.$languageCode == "3889895"}
+				{block name="admin_content_manager_partial_infopage_form_data_version"}
+					<div class="form-group">
+						{block name="admin_content_manager_partial_infopage_form_data_version_label"}
+							<label class="col-md-2">{$txt.TITLE_CONTENT_VERSION}:</label>
+						{/block}
+						{block name="admin_content_manager_partial_infopage_form_data_version_container"}
+							<div class="col-md-4">
+								{block name="admin_content_manager_partial_infopage_form_data_version_input"}
+									<input class="form-control"
+									       type="text"
+									       name="content_manager[infopage][content_version][{$languageCode}]"
+									       value="{$content_manager.infopage.content_version.$languageCode}">
+								{/block}
+							</div>
+						{/block}
+					</div>
+				{/block}
+			{/if}
+		{/block}
+		{block name="admin_content_manager_partial_infopage_form_data_content"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_infopage_form_data_content_label"}
+					<label class="col-md-12">{$txt.TEXT_CONTENT}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_infopage_form_data_content_container"}
+					<div class="col-md-12">
+						{block name="admin_content_manager_partial_infopage_form_data_content_input"}
+							<textarea name="content_manager[infopage][content_text][{$languageCode}]"
+									  data-editor-type="{$content_manager.infopage.ckeditor.type.$languageCode}"
+									  data-editor-identifier="{$content_manager.infopage.ckeditor.identifier.$languageCode}"
+									  class="wysiwyg">{$content_manager.infopage.content_text.$languageCode}</textarea>
+						{/block}
+					</div>
+				{/block}
+				
+				<input type="hidden" name="content_manager[infopage][content_type][{$languageCode}]" value="content">
+			</div>
+		{/block}
+
+		{include file="get_usermod:content_manager/partial/download_files_form.html" type="infopage"}
+
+		{if $content_manager.infopage.content_group.$languageCode == "3889891"}
+			{block name="admin_content_manager_partial_infopage_form_data_shipping_matrix"}
+				<div class="form-group">
+					<div class="col-md-12">
+						<button type="button"
+								class="btn btn-default"
+								data-toggle="modal"
+								data-target=".payment-shipping-matrix-modal">{$txt.CREATE_MATRIX}</button>
+					</div>
+				</div>
+			{/block}
+		{/if}
+		
+		{include file="get_usermod:content_manager/partial/meta_data_form.html" type="infopage"}
+	</fieldset>
+{/block}

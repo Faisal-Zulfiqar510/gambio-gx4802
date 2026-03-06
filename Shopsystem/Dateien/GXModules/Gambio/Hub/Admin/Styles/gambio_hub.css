@@ -1,0 +1,141 @@
+/* --------------------------------------------------------------
+   gambio_hub.css 2017-03-02
+   Gambio GmbH
+   http://www.gambio.de
+   Copyright (c) 2017 Gambio GmbH
+   Released under the GNU General Public License (Version 2)
+   [http://www.gnu.org/licenses/gpl-2.0.html]
+   --------------------------------------------------------------
+*/
+
+/* Styling for the admin pages of Gambio Hub module */
+
+.hub-iframe-container {
+	margin-top: 34px;
+}
+
+.hub-iframe {
+	width: 100%;
+	border: none;
+}
+
+/* 
+	jQuery UI Dialog Widget
+    ========================================================================== 
+
+	Additional styling for the jQuery UI dialog. 
+	
+*/
+
+.ui-widget-overlay {
+	z-index: 1050;
+}
+
+.ui-widget-overlay.ui-front {
+	background-color: #000000;
+	opacity:          0.5;
+}
+
+.ui-dialog.ui-widget {
+	padding:               0;
+	border:                none;
+	font-family:           "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:             12px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius:    2px;
+	border-radius:         2px;
+	-webkit-box-shadow:    0px 0px 8px rgba(0, 0, 0, 0.4);
+	box-shadow:            0px 0px 8px rgba(0, 0, 0, 0.4);
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header {
+	height:           48px;
+	padding:          12px 24px;
+	background-color: #FAFAFA;
+	border:           none;
+	border-bottom:    1px solid #E7E7E7;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header span.ui-dialog-title {
+	color:       #212121;
+	font-size:   1.3em;
+	font-weight: normal;
+	margin:      0;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header button.ui-dialog-titlebar-close {
+	border:           none;
+	background-color: transparent;
+	float:            right;
+	margin:           3px 0 0 0;
+	right:            inherit;
+	padding:          0;
+	position:         initial;
+	top:              inherit;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header button.ui-dialog-titlebar-close:before {
+	content:     "×";
+	font-size:   18px;
+	font-weight: bold;
+	line-height: 1;
+	color:       #000000;
+	text-shadow: 0 1px 0 #FFFFFF;
+	opacity:     0.2;
+	filter:      alpha(opacity=20);
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header button.ui-dialog-titlebar-close:before:hover, .ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header button.ui-dialog-titlebar-close:before:focus {
+	color:           #000000;
+	text-decoration: none;
+	cursor:          pointer;
+	opacity:         0.5;
+	filter:          alpha(opacity=50);
+}
+
+.ui-dialog.ui-widget .ui-dialog-content.ui-widget-content {
+	padding: 24px;
+}
+
+.ui-dialog.ui-widget .ui-dialog-content.ui-widget-content .modal-info-text {
+	margin: 0 0 24px 0;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content {
+	border-top: 1px solid #E7E7E7;
+	clear:      both;
+	height:     48px;
+	margin:     0;
+	padding:    8px 24px;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content button {
+	border:           1px solid transparent;
+	margin:           0;
+	padding:          6px 12px;
+	font-size:        12px;
+	line-height:      1.42857;
+	border-radius:    2px;
+	background-image: linear-gradient(whitesmoke, #EBEBEB);
+	border-color:     #DEDEDE #DEDEDE #CFCFCF;
+	color:            #777777;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content button:hover {
+	background-image: linear-gradient(#F0F0F0, #E3E3E3);
+	border-color:     gainsboro gainsboro #CCCCCC;
+	color:            #777777;
+}
+
+#account-modal.modal .modal-dialog {
+	width: 1048px;
+}
+
+#account-modal.modal .modal-dialog .modal-content .modal-body {
+	padding-top: 0;
+}
+
+.modal .modal-dialog .modal-content .modal-body {
+	max-height: 80vh;
+	overflow:   auto;
+}

@@ -1,0 +1,113 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="module_center"}
+	{load_language_text section="buttons" name="button"}
+
+	{block name="admin_module_center"}
+		<div class="gx-compatibility no-p">
+
+            {block name="admin_module_center_alert-gambio"}
+            {if $content.showGambioAlert}
+                <div class="alert alert-gambio">
+                    <div class="alert-actions">
+                        <!-- <a href="#" target="_blank" class="btn btn-secondary">Learn more <i class="fa fa-external-link"></i></a> -->
+                        <!-- <button type="button" class="btn btn-primary">Open Module</button> -->
+                    </div>
+                    <strong>{$txt.module_center_alert_headline}</strong>
+                    <p>
+                        {$txt.module_center_alert_text}
+                        <a href="{$txt.module_center_alert_link}" target="_blank">{$txt.module_center_learn_more} <i class="fa fa-external-link"></i></a>
+                    </p>
+                </div>
+            {/if}
+            {/block}
+
+			<div class="gx-container" data-gx-controller="module_center/module_center">
+				{block name="admin_module_center_table"}
+					<table class="gx-modules-table left-table remove-margin">
+						{block name="admin_module_center_table_thead"}
+							<thead>
+								<tr>
+									{block name="admin_module_center_table_thead_ths"}
+										<th>{$txt.module_name}</th>
+										<th style="width: 250px">{$txt.module_status}</th>
+										<th style="width: 100px"></th>
+									{/block}
+								</tr>
+							</thead>
+						{/block}
+
+						{block name="admin_module_center_table_tbody"}
+							<tbody>
+								{foreach item=module from=$content.modules->getArray()}
+									{block name="admin_module_center_table_row"}
+										<tr class="dataTableRow{if $module->getName() == $smarty.get.module} active{/if}" data-gx-extension="link" data-link-url="admin.php?do=ModuleCenter#{$module->getName()}">
+											{block name="admin_module_center_table_row_tds"}
+												<td class="dataTableContent">{$module->getTitle()}</td>
+												<td class="dataTableContent">
+													<span class="badge badge-success {if $module->isInstalled()}active{/if}">{$txt.module_status_installed}</span>
+												</td>
+												<td class="dataTableContent"></td>
+											{/block}
+										</tr>
+									{/block}
+								{/foreach}
+							</tbody>
+						{/block}
+					</table>
+				{/block}
+
+				{block name="admin_module_center_configuration_container"}
+					<div class="gx-configuration-box gx-container fix-top">
+						<div class="configuration-box-content">
+							{block name="admin_module_center_configuration_container_header"}
+								<div class="configuration-box-header">
+									{block name="admin_module_center_configuration_container_header_title"}
+										<h2></h2>
+									{/block}
+								</div>
+							{/block}
+
+							{block name="admin_module_center_configuration_container_body"}
+								<div class="configuration-box-body">
+									{block name="admin_module_center_configuration_container_body_description"}
+										<div class="configuration-box-description">
+											<p></p>
+										</div>
+									{/block}
+									{block name="admin_module_center_configuration_container_body_form"}
+										<div class="configuration-box-form"></div>
+									{/block}
+								</div>
+							{/block}
+						</div>
+					</div>
+				{/block}
+				{block name="admin_module_center_destroy"}
+					<div id="module-center-confirmation-dialog" class="hidden" style="display: none;">
+						<form class="grid" name="delete_module" method="post" action="admin.php?do=ModuleCenter/Destroy">
+							<fieldset class="span12">
+								<p class="modal-info-text"></p>
+								<input type="hidden" name="module" value="" />
+							</fieldset>
+						</form>
+					</div>
+				{/block}
+			</div>
+		</div>
+	{/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	<form action="#" method="post">
+        {block name="admin_module_center_configuration_container_footer_buttons"}
+			<div class="button-container">
+				<button name="install" value="install" class="btn btn-primary btn-install pull-right">{$button.install}</button>
+				<a href="#" class="btn btn-primary btn-edit pull-right">{$button.edit}</a>
+				<button name="uninstall" value="uninstall" class="btn btn-uninstall pull-right">{$button.uninstall}</button>
+			</div>
+        {/block}
+		<input type="hidden" name="module" value=""/>
+	</form>
+{/block}

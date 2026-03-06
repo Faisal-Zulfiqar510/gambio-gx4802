@@ -1,0 +1,13 @@
+// last changed 2018-10-12
+
+.box-login-links {
+	margin: 15px 0 0;
+	padding: 0;
+	list-style: none;
+
+	> li > a {
+		display: block;
+		padding: 5px 0;
+		color: #333;
+	}
+}

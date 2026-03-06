@@ -1,0 +1,133 @@
+{block name="admin_content_manager_partial_contents_edit"}
+    {block name="admin_content_manager_edit_js"}
+        {if $type == 'elements-content' }
+            {literal}
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+
+                        let submitButtonSelector = '#main-footer > div.info.row > div.bottom-save-bar > button.btn.btn-primary.pull-right';
+                        let $submitButton = $(submitButtonSelector);
+
+                        let $internalNameInputs = $('.form-control').filter('#internal-name')
+                        $internalNameInputs = $internalNameInputs.slice(0, $internalNameInputs.length / 2);
+
+                        let checkInternalNamesLength = function () {
+
+                            let allInternalNamesNoneEmpty = true;
+
+                            $internalNameInputs.each(function() {
+
+                                if ($(this).val().length === 0) {
+
+                                    allInternalNamesNoneEmpty = false;
+                                }
+                            });
+
+                            $submitButton.prop('disabled', !allInternalNamesNoneEmpty);
+                        };
+
+                        $internalNameInputs.keyup(checkInternalNamesLength);
+                        checkInternalNamesLength();
+
+                    }, false);
+                </script>
+            {/literal}
+        {/if}
+    {/block}
+	<div class="content-manager-container">
+		{block name="admin_content_manager_partial_contents_edit_form"}
+			<form method="post"
+				  id="{$type}"
+				  class="form-horizontal content-manager-form"
+				  enctype="multipart/form-data"
+				  action="{$content_manager.{$type}.form_action}{if isset($smarty.get.expert)}&expert{/if}"
+					{if $smarty.const.USE_WYSIWYG == 'true' && ($type == 'infopage' || $type == 'scriptpage' || $type == 'elements-content' || $type == 'elements-script')}
+						data-gx-widget="editor"
+						data-editor-event-target="form"
+						data-editor-event-type="submit"
+						data-editor-selector="textarea.wysiwyg"
+					{/if}
+			>
+				<input name="content_manager[selected_language]" class="content-manager-selected-language hidden">
+				<input type="hidden" name="content_manager[slider_id]" class="content-manager-slider-id">
+				<input type="hidden" name="page_token" value="{$content_manager.page_token}" />
+	
+				{if isset($smarty.get.expert)}
+					{block name="admin_content_manager_partial_contents_edit_form_content_group_id"}
+						<fieldset>
+							<div class="form-group">
+								{block name="admin_content_manager_partial_contents_edit_form_content_group_id_label"}
+									<label class="col-md-2">{$txt.CONTENT_GROUP_ID}:</label>
+								{/block}
+								{block name="admin_content_manager_partial_contents_edit_form_content_group_id_container"}
+									<div class="col-md-4">
+										{block name="admin_content_manager_partial_contents_edit_form_content_group_id_input"}
+											<input class="form-control" type="text"
+												   name="content_manager[content_group_id]"
+												   value="{$smarty.get.id}">
+										{/block}
+									</div>
+								{/block}
+							</div>
+						</fieldset>
+					{/block}
+					<br />
+				{/if}
+	
+				{block name="admin_content_manager_partial_contents_edit_form_languages"}
+					<ul class="nav nav-tabs" role="tablist">
+						{foreach item=language name=tabs from=$adminLanguages}
+							{block name="admin_content_manager_partial_contents_edit_form_languages_tab"}
+								<li role="presentation" {if $content_manager.{$type}.selected_language == strtolower($language.code) || (!isset($content_manager.{$type}.selected_language) && $smarty.foreach.tabs.first)} class="active"{/if}>
+									<a href="#{$type}-{$language.code|lower}"
+									   data-language="{$language.code|lower}"
+									   aria-controls="home"
+									   role="tab"
+									   data-toggle="tab"
+									   onclick="$('.content-manager-selected-language').val('{$language.code|lower}')"
+									> <span class="flag-icon flag-icon-{$language.code|lower}"></span> </a>
+								</li>
+							{/block}
+						{/foreach}
+					</ul>
+				{/block}
+	
+				{block name="admin_content_manager_partial_contents_edit_form_tabs"}
+					<div class="tab-content">
+						{foreach item=language name=panel from=$adminLanguages}
+							{block name="admin_content_manager_partial_contents_edit_form_tabs_tab"}
+								<div role="tabpanel"
+									 class="tab-pane fade {if $content_manager.{$type}.selected_language == strtolower($language.code) || (!isset($content_manager.{$type}.selected_language) && $smarty.foreach.panel.first)}active in{/if}"
+									 id="{$type}-{$language.code|lower}"
+									 data-language="{$language.code|lower}"
+								>
+									{if $type == 'infopage'}
+										{include file="get_usermod:content_manager/partial/infopage_form_data.html" languageCode=$language.code|upper}
+									{elseif $type == 'scriptpage'}
+										{include file="get_usermod:content_manager/partial/scriptpage_form_data.html" languageCode=$language.code|upper}
+									{elseif $type == 'linkpage'}
+										{include file="get_usermod:content_manager/partial/linkpage_form_data.html" languageCode=$language.code|upper}
+									{else}
+										{include file="get_usermod:content_manager/partial/elements_form_data.html" languageCode=$language.code|upper}
+									{/if}
+			
+									{* TODO: replace above with this include, when newer Smarty version is ready
+										{include file="get_usermod:content_manager/partial/{$type}_form_data.html" languageCode=$language.code}
+									*}
+								</div>
+							{/block}
+						{/foreach}
+					</div>
+				{/block}
+	
+				{block name="admin_content_manager_partial_contents_edit_form_group_check"}
+					<div data-gx-widget="group_check"
+						 data-group_check-user="{$smarty.session.customer_id}"
+						 data-group_check-section="content_manager_{$type}"
+						 data-group_check-selected="{$content_manager.groupCheck}"
+						 data-group_check-name="content_manager[group_check]"></div>
+				{/block}
+			</form>
+		{/block}
+	</div>
+{/block}

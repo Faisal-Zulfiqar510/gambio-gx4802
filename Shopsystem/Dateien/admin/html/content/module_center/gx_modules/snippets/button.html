@@ -1,0 +1,15 @@
+<div class="form-group visibility_switcher">
+	<label class="col-sm-7 control-label" for="{$field}">{$config.label}</label>
+	<div class="col-sm-4">
+		<button class="form-control btn {if $config.modal}GXModuleModalButton{else}GXModuleConfigButton{/if} {if $config.color}btn-{$config.color}{else}btn-default{/if}"
+		        name="{$field}"
+		        {if $config.modal}
+		            data-target="#{$config.modal}"
+		        {else}
+		            data-message="{$config.action.message|htmlspecialchars}"
+		            data-controller="{$config.action.controller}"
+		            data-action="{$config.action.method}"
+		        {/if}>{$config.text}</button>
+	</div>
+	<span class="col-sm-1 tooltip-icon" style="margin: 0px;" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+</div>

@@ -1,0 +1,59 @@
+{*
+Main app menu generation. The data come from the from the AdminMenuContentView class (same as the old menu)
+and they are imported to the template from the AdminLayoutHttpControllerResponse.
+*}
+
+{block name="admin_layouts_main_menu"}
+	{block name="admin_layouts_main_menu_nav"}
+		<nav data-gx-controller="layouts/main/menu/menu">
+			<ul class="{$menuVisibility}">
+				{foreach $menu as $entry}
+					{block name="admin_layouts_main_menu_item"}
+						<li class="
+								{if defined('UNFOLD_FAVS_BOX') && $smarty.const.UNFOLD_FAVS_BOX == 'true' && $entry.title === 'Favs'}active{/if}
+								{if $entry.brand != ''}brand-{$entry.brand}{/if}
+								{if $entry.type != ''}type-{$entry.type}{/if}
+								{if $entry.isActive}active{/if}
+							">
+							{if !empty($entry.menuitems)}
+								{block name="admin_layouts_main_menu_item_title"}
+									<a href="{$entry.menuitems[0].link}">
+										<i class="icon {$entry.class}"></i>
+										<span class="title">{$entry.title}</span>
+									</a>
+								{/block}
+								{block name="admin_layouts_main_menu_item_sublist"}
+									<ul>
+										{foreach $entry.menuitems as $item}
+											{block name="admin_layouts_main_menu_item_sublist_item"}
+												<li{if $item.isActive} class="active"{/if}>
+													{block name="admin_layouts_main_menu_item_sublist_item_title"}
+														<a id="{$item.id}"
+														   href="{$item.link}"
+														   class="fav-drag-item {$item.class}">{$item.title}</a>
+													{/block}
+												</li>
+											{/block}
+										{/foreach}
+									</ul>
+								{/block}
+							{else}
+								{block name="admin_layouts_main_menu_empty"}
+									<i class="icon {$entry.class}"></i>
+									<span class="title">{$entry.title}</span>
+								{/block}
+							{/if}
+						</li>
+					{/block}
+				{/foreach}
+			</ul>
+		</nav>
+	{/block}
+	
+	<div data-gx-extension="session_timeout" hidden></div>
+	
+	{* Scroll To Top *}
+	{block name="admin_layouts_main_menu_scroll_to_top_dpl"}
+		{include file="get_usermod:layouts/main/menu/scroll_to_top.html"}
+	{/block}
+{/block}

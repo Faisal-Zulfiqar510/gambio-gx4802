@@ -1,0 +1,121 @@
+#create_account {
+	#captcha {
+		padding-left: 0;
+	}
+	
+	.password-note {
+		margin-top: 24px;
+		margin-bottom: 24px;
+	}
+	
+	.email-no-match {
+		display: none;
+	};
+	
+	fieldset.password-fields {
+		.password-no-match {
+			display: none;
+		}
+	}
+	
+	fieldset.password-optional {
+		background-color: rgba($brand-primary, 0.1);
+		padding: 24px 24px 9px;
+		color: $brand-primary;
+		
+		@media (max-width: $screen-md-max) {
+			padding-right: 24px;
+		}
+		
+		.password-option-margin {
+			margin-left: 50px;
+		}
+		
+		span.password-option-margin {
+			display: inline-block;
+		}
+		
+		.row.password-option-margin {
+			margin-left: 35px;
+		}
+		
+		input[type="checkbox"] {
+			display: inline;
+			margin: 0 5px 0 0;
+		}
+		
+		i.green-check {
+			color: #008000;
+			margin-right: 12px;
+		}
+		
+		label.headline {
+			display: inline;
+			color: $gx-checkout-headline-color;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		
+		.password-no-match {
+			display: none;
+		}
+	}
+}
+
+.page-account {
+	.account-options-container {
+		ul {
+			list-style: none;
+			padding-left: 0;
+
+			li {
+				border-bottom: 1px transparent;
+				border-top: 1px solid #EEEEEE;
+				padding: 3px 0 3px;
+
+				&:last-of-type {
+					border-bottom: 1px solid #EEEEEE;
+				}
+
+				a {
+					color: #333333;
+					display: inline-block;
+					font-size: 14px;
+					line-height: 37px;
+				}
+
+				&.send-gift {
+					.current-balance {
+						display: block;
+						margin-bottom: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	td {
+		&.downloads {
+			max-width: 100px;
+		}
+
+		ul {
+			&.download-products-list {
+				list-style: none;
+				padding-left: 0;
+				margin: 0;
+
+				li {
+					padding-bottom: 10px;
+
+					span {
+						&.download-info {
+							display: block;
+							padding: 6px 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

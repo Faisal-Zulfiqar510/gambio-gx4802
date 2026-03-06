@@ -1,0 +1,67 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="buttons" name="button"}
+	{load_language_text section="admin_labels" name="label"}
+	{load_language_text section="admin_general" name="general"}
+	{load_language_text section="manufacturers" name="manufacturers"}
+	
+	{block name="admin_manufacturers_overview"}
+		<div class="breakpoint-small" data-gx-controller="manufacturer/overview">
+			{block name="admin_manufacturers_overview_create_button_container"}
+				<div class="row">
+					<div class="col-md-12">
+						{block name="admin_manufacturers_overview_create_button"}
+							<a class="btn btn-success btn-create pull-right" data-toggle="modal" data-target=".creation-modal"> 
+								<i class="fa fa-plus"></i> {$button.create}
+							</a>
+						{/block}
+					</div>
+				</div>
+			{/block}
+
+			{block name="admin_manufacturers_overview_table"}
+				<table class="manufacturer-table table table-striped">
+					{block name="admin_manufacturers_overview_table_head"}
+						<thead>
+							<tr>
+								<th colspan="2">{$manufacturers.HEADING_TITLE}</th>
+							</tr>
+						</thead>
+					{/block}
+
+					{block name="admin_manufacturers_overview_table_body"}
+						<tbody>
+							{foreach $content.manufacturers as $manufacturer}
+								{block name="admin_manufacturers_overview_table_body_row"}
+									<tr>
+										{block name="admin_manufacturers_overview_table_body_name_column"}
+											<td>{$manufacturer->getName()} (ID: {$manufacturer->getId()})</td>
+										{/block}
+										
+										{block name="admin_manufacturers_overview_table_body_actions_column"}
+											<td class="actions">
+												{block name="admin_manufacturers_overview_table_body_actions_column_actions"}
+													<div class="pull-right action-list visible-on-hover">
+														<i data-id="{$manufacturer->getId()}" class="fa fa-pencil edit" data-toggle="modal" data-target=".edit-modal"></i>
+														<i data-id="{$manufacturer->getId()}" class="fa fa-trash-o delete" data-toggle="modal" data-target=".remove-confirmation-modal"></i>
+													</div>
+												{/block}
+											</td>
+										{/block}
+									</tr>
+								{/block}
+							{/foreach}
+						</tbody>
+					{/block}
+				</table>
+			{/block}
+			
+			{block name="admin_manufacturers_overviw_modal_includes"}
+				{include file="get_usermod:manufacturer/modals/creation_modal.html"}
+				{include file="get_usermod:manufacturer/modals/remove_confirmation_modal.html"}
+				{include file="get_usermod:manufacturer/modals/edit_modal.html"}
+			{/block}
+		</div>
+	{/block}
+{/block}

@@ -1,0 +1,230 @@
+{load_language_text section="combis" name="combis"}
+
+{block name="admin_properties_combis_delete"}
+	<div class="lightbox_properties lightbox_properties_combis_delete">
+	    <div class="lightbox_properties_combis_delete_content">
+		    {block name="admin_properties_combis_delete_heading"}
+		        <div class="row">
+					{$combis.want_to_delete_combis}
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_list"}
+		        {foreach item=item_array from=$content_data.combis.admin_select}
+				    {block name="admin_properties_combis_delete_item"}
+				        <div class="row">
+					        <div class="span_1_4">
+						        {block name="admin_properties_combis_delete_item_label"}
+									{if $item_array.properties_admin_name}
+								        <label>{$item_array.properties_admin_name}:</label>
+								    {else}
+								        <label>{$item_array.properties_name}:</label>
+								    {/if}
+						        {/block}
+					        </div>
+					        <div class="span_3_4">
+						        {block name="admin_properties_combis_delete_item_select"}
+								    <select disabled="disabled">
+										{foreach key=key2 item=item from=$item_array.properties_values}
+											{if in_array($key2|replace:"pv_id-":"", $content_data.combis.combis_values_ids)}
+												<option>{$item}</option>
+											{/if}
+										{/foreach}
+									</select>
+						        {/block}
+					        </div>
+					        <div class="clear_both"> <!-- &nbsp; --> </div>
+				        </div>
+				    {/block}
+		        {/foreach}
+		    {/block}
+		    {block name="admin_properties_combis_delete_sort_order"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_sort_order_label"}
+							<label>{$combis.sort_order}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_delete_sort_order_input"}
+					        <input type="text" value="{$content_data.combis.sort_order}" disabled="disabled" />
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_products_model"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_products_model_label"}
+					        <label>{$combis.products_model}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_delete_products_model_input"}
+					        <input type="text" value="{$content_data.combis.combi_model}" disabled="disabled" />
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_ean"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_ean_label"}
+					        <label>{$combis.ean}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_delete_ean_input"}
+					        <input type="text" value="{$content_data.combis.combi_ean}" disabled="disabled" />
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_quantity"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_quantity_label"}
+					        <label>{$combis.quantity}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_delete_quantity_input"}
+					        <input type="text" value="{$content_data.combis.combi_quantity}" disabled="disabled" />
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_weight"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_weight_label"}
+					        <label>{$combis.weight}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_delete_weight_input"}
+					        <input type="text" value="{$content_data.combis.combi_weight}" disabled="disabled" />
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_price_type"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_price_type_label"}
+					        <label>{$combis.price_type}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_delete_price_type_input"}
+					        <select disabled="disabled" id="combi_price_type">
+						        <option value="calc">{$combis.calculate_price_from_properties}</option>
+						        {if $content_data.combis.combi_price_type == "fix"}
+						        <option value="fix" selected="selected">{$combis.fix_price}</option>
+						        {else}
+						        <option value="fix">{$combis.fix_price}</option>
+						        {/if}
+					        </select>
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_price"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_price_label"}
+					        <label>{$combis.price}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_delete_price_input"}
+					        <input type="text" value="{$content_data.combis.combi_price|string_format:"%.2f"}" disabled="disabled" />
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_packing_unit"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_packing_unit_label"}
+					        <label class="col_1_3">{$combis.packing_unit}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        <div class="span_2_5">
+					        {block name="admin_properties_combis_delete_packing_unit_value_input"}
+					            <input type="text" value="{$content_data.combis.vpe_value|string_format:"%.2f"}" disabled="disabled"  size="20" />
+					        {/block}
+				        </div>
+				        <div class="span_1_5">
+					        &nbsp;
+				        </div>
+				        <div class="span_2_5">
+					        {block name="admin_properties_combis_delete_packing_unit_vpe_input"}
+						        <select disabled="disabled">
+							        <option value="0"></option>
+							        {foreach item=item_array2 from=$content_data.combis.products_vpe}
+							        {if $item_array2.products_vpe_id == $content_data.combis.products_vpe_id}
+							        <option value="{$item_array2.products_vpe_id}" selected="selected">{$item_array2.products_vpe_name}</option>
+							        {else}
+							        <option value="{$item_array2.products_vpe_id}">{$item_array2.products_vpe_name}</option>
+							        {/if}
+							        {/foreach}
+						        </select>
+					        {/block}
+				        </div>
+				        <div class="clear_both"> <!-- &nbsp; --> </div>
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+		    {block name="admin_properties_combis_delete_shipping_time"}
+		        <div class="row">
+			        <div class="span_1_4">
+				        {block name="admin_properties_combis_delete_shipping_time_label"}
+					        <label>{$combis.shipping_time}:</label>
+				        {/block}
+			        </div>
+			        <div class="span_3_4">
+				        {block name="admin_properties_combis_delete_shipping_time_input"}
+					        <select disabled="disabled">
+						        <option value="0"></option>
+						        {foreach item=item_array2 from=$content_data.combis.shipping_status}
+						        {if $item_array2.shipping_status_id == $content_data.combis.combi_shipping_status_id}
+						        <option selected="selected">{$item_array2.shipping_status_name}</option>
+						        {/if}
+						        {/foreach}
+					        </select>
+				        {/block}
+			        </div>
+			        <div class="clear_both"> <!-- &nbsp; --> </div>
+		        </div>
+		    {/block}
+			{if $content_data.combis.combi_image != ""}
+			    {block name="admin_properties_combis_delete_image"}
+					<div class="row">
+						<div class="span_1_4">
+							{block name="admin_properties_combis_delete_image_label"}
+								<label>{$combis.image}:</label>
+							{/block}
+						</div>
+						<div class="span_3_4">
+							{block name="admin_properties_combis_delete_image_input"}
+								<input type="text" disabled="disabled" value="100000" style="display: none;" />
+								<div style="float: left; line-height: 25px;"><a href="../images/product_images/properties_combis_images/{$content_data.combis.combi_image}" style="font-size: 11px; display: block; width: 80px; float: left;" target="blank"><img src="html/assets/images/legacy/icons/icon_jpg.jpg" style="width: 11px; border: 0;" /> {$combis.open}</a><span style="clear: both; display: block;"> <!-- --> </span></div>
+							{/block}
+						</div>
+						<div class="clear_both"> <!-- &nbsp; --> </div>
+					</div>
+			    {/block}
+			{/if}
+	        <div class="clear_both"> <!-- &nbsp; --> </div>
+	    </div>
+	</div>
+{/block}

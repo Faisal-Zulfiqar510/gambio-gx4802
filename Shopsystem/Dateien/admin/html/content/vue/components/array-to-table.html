@@ -1,0 +1,27 @@
+{literal}
+	<script type="text/x-template" id="array-to-table">
+		<div class="array-to-table">
+			<table>
+				<tr v-for="(value, key) in data">
+					<th @click="showMoreDetails(key)" :class="isCollapsible(value)? 'collapsible' : ''">
+						{{key}}:
+						<span v-if="isCollapsible(value) && moreDetails[key]">
+							<i class="fa fa-caret-down" />
+						</span>
+						<span v-if="isCollapsible(value) && !moreDetails[key]">
+							<i class="fa fa-caret-right" />
+						</span>
+					</th>
+					
+					<td>
+						<pre v-if="!isObject(value)">{{value}}</pre>
+						<div v-if="isCollapsible(value)">
+							<gx-array-to-table :data="value" v-if="moreDetails[key]"/>
+							<span v-if="!moreDetails[key]">...</span>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</script>
+{/literal}

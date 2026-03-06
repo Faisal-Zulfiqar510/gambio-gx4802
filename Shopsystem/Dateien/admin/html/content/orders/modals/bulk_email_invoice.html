@@ -1,0 +1,110 @@
+{* Bulk E-Mail Invoice Modal *}
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_orders_modals_bulk_email_invoice"}
+	<div class="bulk-email-invoice modal fade" tabindex="-1" role="dialog" data-gx-widget="tooltip"
+		 data-gx-controller="orders/modals/bulk_email_invoice">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_orders_modals_bulk_email_invoice_header"}
+					<div class="modal-header">
+						{block name="admin_orders_modals_bulk_email_invoice_header_close"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_ClOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						{/block}
+						{block name="admin_orders_modals_bulk_email_invoice_header_title"}
+							<h4 class="modal-title">{$gm_order_menu.TITLE_INVOICE}</h4>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_bulk_email_invoice_body"}
+					<div class="modal-body">
+						{block name="admin_orders_modals_bulk_email_invoice_body_form"}
+							<form class="form-horizontal" data-gx-widget="single_checkbox">
+								<fieldset>
+									{* Subject Field *}
+									{block name="admin_orders_modals_bulk_email_invoice_body_form_subject"}
+										<div class="form-group">
+											{block name="admin_orders_modals_bulk_email_invoice_body_form_subject_label"}
+												<label for="bulk-order-subject" class="col-sm-4 control-label force-text-left">
+													{$gm_order_menu.TITLE_SUBJECT}
+												</label>
+											{/block}
+											{block name="admin_orders_modals_bulk_email_invoice_body_form_subject_input"}
+												<div class="col-sm-7">
+													<input type="text" id="bulk-order-subject" class="subject form-control"
+														   value='{$content.bulk_email_invoice_subject}'>
+												</div>
+											{/block}
+
+											{block name="admin_orders_modals_bulk_email_invoice_body_question_tooltip"}
+												<span class="info info-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+													<p>{$gm_order_menu.TEXT_BULK_INVOICE_NUM_SUBJECT_INFO}</p>
+													<p>{$gm_order_menu.TEXT_BULK_INVOICE_DATE_SUBJECT_INFO}</p>
+													<p>{$gm_order_menu.TEXT_BULK_ORDER_ID_SUBJECT_INFO}</p>
+												</span>
+											{/block}
+										</div>
+									{/block}
+									
+									{* Create missing invoices *}
+									{block name="admin_orders_modals_bulk_email_invoice_body_form_create_missing_invoices"}
+										<div class="form-group">
+											{block name="admin_orders_modals_bulk_email_invoice_body_form_create_missing_invoices_label"}
+												<label for="create-missing-invoices" class="col-md-4">{$gm_order_menu.TITLE_BULK_INVOICE_CREATE_MISSING_INVOICES}</label>
+											{/block}
+											{block name="admin_orders_modals_bulk_email_invoice_body_form_create_missing_invoices_input"}
+												<div class="col-md-8">
+													<input type="checkbox" id="create-missing-invoices" class="create-missing-invoices" />
+												</div>
+											{/block}
+										</div>
+									{/block}
+								</fieldset>
+			
+								<br>
+			
+								<fieldset>
+									{* Email Address list *}
+									{block name="admin_orders_modals_bulk_email_invoice_body_form_email_address_list_heading"}
+										<div class="row">
+											<div class="col-sm-3">
+												<span class="force-text-color-light text-bold">{$gm_order_menu.TITLE_ORDER}</span>
+											</div>
+											<div class="col-sm-3">
+												<span class="force-text-color-light text-bold">{$gm_order_menu.TITLE_INVOICE}</span>
+											</div>
+											<div class="col-sm-6">
+												<span class="force-text-color-light text-bold">{$gm_order_menu.TITLE_MAIL}</span>
+											</div>
+										</div>
+									{/block}
+			
+									<br>
+			
+									{block name="admin_orders_modals_bulk_email_invoice_body_form_email_address_list"}
+										<div class="email-list"></div>
+									{/block}
+								</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+	
+				{block name="admin_orders_modals_bulk_email_invoice_footer"}
+					<div class="modal-footer">
+						{block name="admin_orders_modals_bulk_email_invoice_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_orders_modals_bulk_email_invoice_footer_send"}
+							<button type="button" class="btn btn-primary send">{$admin_buttons.BUTTON_SEND}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

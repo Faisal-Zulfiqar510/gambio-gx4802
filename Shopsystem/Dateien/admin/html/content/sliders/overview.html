@@ -1,0 +1,61 @@
+{*
+	Sliders Overview Page Layout 
+*}
+
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="sliders" name="txt"}
+	{load_language_text section="buttons" name="btn"}
+
+	{block name="admin_sliders_overviewv"}
+		<div class="slider overview breakpoint-small"
+			 data-gx-controller="sliders/overview/sliders_start_page sliders/overview/sliders_delete">
+			{block name="admin_sliders_overview_toolbar"}
+				<div class="toolbar">
+					{block name="admin_sliders_overview_toolbar_create"}
+						<a href="admin.php?do=SlidersDetails" class="btn btn-success btn-create">
+							<i class="fa fa-plus"></i>
+							{$btn.create}
+						</a>
+					{/block}
+				</div>
+			{/block}
+	
+			{block name="admin_sliders_overview_table"}
+				<table class="table table-main table-striped" data-gx-widget="switcher">
+					{block name="admin_sliders_overview_table_thead"}
+						<thead>
+							{block name="admin_sliders_overview_table_thead_ths"}
+								<th width="35%">{$txt.NAME}</th>
+								<th width="10%">{$txt.IS_ON_STARTPAGE}</th>
+								<th width="20%" class="actions"></th>
+							{/block}
+						</thead>
+					{/block}
+					{block name="admin_sliders_overview_table_tbody"}
+						<tbody>
+							{if count($content.sliders) > 0}
+								{foreach $content.sliders as $slider}
+									{include file="get_usermod:sliders/overview/table_row.html" slider=$slider}
+								{/foreach}
+							{else}
+								{include file="get_usermod:sliders/overview/table_row_empty.html"}
+							{/if}
+						</tbody>
+					{/block}
+				</table>
+			{/block}
+		</div>
+	{/block}
+	
+	{* Include Modal Templates *}
+	{include file="get_usermod:sliders/overview/modals/delete_slider.html"}
+
+	{* Templates for JavaScript *}
+	{block name="admin_sliders_overview_javascript"}
+		<script id="template-table-row-empty" type="text/template">
+			{include file="get_usermod:sliders/overview/table_row_empty.html"}
+		</script>
+	{/block}
+{/block}

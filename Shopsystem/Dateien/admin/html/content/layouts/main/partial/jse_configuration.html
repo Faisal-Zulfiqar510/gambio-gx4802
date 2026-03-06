@@ -1,0 +1,29 @@
+{block name="admin_layouts_main_partial_jse_configuration"}
+	<script>
+		window.JSEngineConfiguration = {
+			environment  : '{$environment}',
+			appUrl       : '{$baseUrl}',
+			appVersion   : '{$shopVersion}',
+			languageCode : '{$languageCode}',
+			pageToken    : '{$pageToken}',
+			cacheToken   : '{$cacheToken}',
+			bustFiles    : {$bust_files},
+			vue          : {
+				el: '.vue-instance'
+			},
+			{literal}
+				collections  : [
+					{name: 'controllers', attribute: 'controller'},
+					{name: 'extensions', attribute: 'extension'},
+					{name: 'widgets', attribute: 'widget'},
+					{name: 'compatibility', attribute: 'compatibility'}
+				],
+			{/literal}
+			translations : {$jseTranslations nofilter},
+			registry	 : {
+				userId: {$_SESSION.customer_id},
+				languageId: {$_SESSION.languages_id}
+			}
+		};
+	</script>
+{/block}

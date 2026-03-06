@@ -1,0 +1,41 @@
+{load_language_text section="db_backup"}
+{load_language_text section="lightbox_buttons" name="lightbox"}
+
+{block name="admin_db_backup_create"}
+	<div id="db_backup_lightbox">
+		{block name="admin_db_backup_create_message"}
+			<div class="db_backup_lightbox_message">
+				{$txt.create_backup_hint}
+			</div>
+		{/block}
+		{block name="admin_db_backup_create_error_massage"}
+			<div class="db_backup_lightbox_error_message"></div>
+		{/block}
+		{block name="admin_db_backup_create_process"}
+			<div class="db_backup_lightbox_process">
+				<div class="progress_job">{$txt.backup_in_process}</div>
+				<div class="progress_bar">
+					<div class="progress_marker"> <!-- &nbsp; --> </div>
+				</div>
+				<div class="progress_text">0%</div>
+			</div>
+		{/block}
+	
+		{block name="admin_db_backup_create_buttons"}
+			<div class="button_container">
+				<div class="button_left_container">
+					{block name="admin_db_backup_create_buttons_left"}
+						<a onclick="return false;" class="admin_button lightbox_close" href="#" title="{$lightbox.cancel}">{$lightbox.cancel}</a>
+					{/block}
+				</div>
+				<div class="button_right_container">
+					{block name="admin_db_backup_create_buttons_right"}
+						<a onclick="return false;" class="admin_button green confirm_db_backup_create" href="#" title="{$txt.create_backup}">{$txt.create_backup}</a>
+						<a onclick="return false;" style="display: none;" class="admin_button green lightbox_close" href="#" title="{$lightbox.close}">{$lightbox.close}</a>
+					{/block}
+				</div>
+				<div class="clear_both"> <!-- &nbsp; --> </div>
+			</div>
+		{/block}
+	</div>
+{/block}

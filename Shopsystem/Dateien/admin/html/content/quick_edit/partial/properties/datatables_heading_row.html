@@ -1,0 +1,24 @@
+{load_language_text section="admin_quick_edit" name="admin_quick_edit"}
+
+{block name="admin_quick_edit_partial_properties_datatables_heading_row"}
+	<tr role="row">
+		<th data-column-name="checkbox"><input type="checkbox" class="properties-bulk-selection" /></th>
+	
+		{foreach $content.properties_columns as $column}
+			<th data-column-name="{$column.name}">{$column.title}</th>
+		{/foreach}
+	
+		<th data-column-name="actions">
+			<div class="properties-page-mode form-inline">
+				<div class="form-group pull-left">
+					<label class="control-label">{$admin_quick_edit.TEXT_MODE} &nbsp;</label>
+					<select class="select-properties-page-mode form-control">
+						<option value="filter-mode" selected>{$admin_quick_edit.TEXT_FILTER_MODE}</option>
+						<option value="edit-mode">{$admin_quick_edit.TEXT_EDIT_MODE}</option>
+					</select>
+				</div>
+			</div>
+			{include file="get_usermod:quick_edit/partial/properties/datatables_page_navigation.html"}
+		</th>
+	</tr>
+{/block}

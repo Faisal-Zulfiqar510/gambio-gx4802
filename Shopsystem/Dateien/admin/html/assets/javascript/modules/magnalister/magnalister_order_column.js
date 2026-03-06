@@ -1,0 +1,14 @@
+'use strict';
+
+$(function () {
+    'use strict';
+
+    jse.libs.orders_overview_columns = jse.libs.orders_overview_columns || {};
+
+    jse.libs.orders_overview_columns.magnalister = {
+        data: 'magnalister',
+        minWidth: '90px',
+        widthFactor: 0.9
+    };
+});
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hZ25hbGlzdGVyX29yZGVyX2NvbHVtbi5qcyJdLCJuYW1lcyI6WyIkIiwianNlIiwibGlicyIsIm9yZGVyc19vdmVydmlld19jb2x1bW5zIiwibWFnbmFsaXN0ZXIiLCJkYXRhIiwibWluV2lkdGgiLCJ3aWR0aEZhY3RvciJdLCJtYXBwaW5ncyI6Ijs7QUFBQUEsRUFBRSxZQUFZO0FBQ1Y7O0FBRUFDLFFBQUlDLElBQUosQ0FBU0MsdUJBQVQsR0FBbUNGLElBQUlDLElBQUosQ0FBU0MsdUJBQVQsSUFBb0MsRUFBdkU7O0FBRUFGLFFBQUlDLElBQUosQ0FBU0MsdUJBQVQsQ0FBaUNDLFdBQWpDLEdBQStDO0FBQzNDQyxjQUFNLGFBRHFDO0FBRTNDQyxrQkFBVSxNQUZpQztBQUczQ0MscUJBQWE7QUFIOEIsS0FBL0M7QUFLSCxDQVZEIiwiZmlsZSI6Im1hZ25hbGlzdGVyX29yZGVyX2NvbHVtbi5qcyIsInNvdXJjZXNDb250ZW50IjpbIiQoZnVuY3Rpb24gKCkge1xuICAgICd1c2Ugc3RyaWN0JztcblxuICAgIGpzZS5saWJzLm9yZGVyc19vdmVydmlld19jb2x1bW5zID0ganNlLmxpYnMub3JkZXJzX292ZXJ2aWV3X2NvbHVtbnMgfHwge307XG5cbiAgICBqc2UubGlicy5vcmRlcnNfb3ZlcnZpZXdfY29sdW1ucy5tYWduYWxpc3RlciA9IHtcbiAgICAgICAgZGF0YTogJ21hZ25hbGlzdGVyJyxcbiAgICAgICAgbWluV2lkdGg6ICc5MHB4JyxcbiAgICAgICAgd2lkdGhGYWN0b3I6IDAuOVxuICAgIH07XG59KTsiXX0=

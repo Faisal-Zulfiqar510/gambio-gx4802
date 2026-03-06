@@ -1,0 +1,95 @@
+{load_language_text section="product_image_lists" name="product_image_list"}
+
+{include file="get_usermod:product_image_list/edit_image_modal.html" languages=$content_data.admin_languages}
+{include file="get_usermod:product_image_list/edit_collection_modal.html"}
+{include file="get_usermod:product_image_list/confirm_modal.html"}
+
+<div id="product-image-list-wrapper">
+    <div class="row clearfix">
+        <div class="span_3_4 col-md-4" style="padding: 0;">
+            <div class="create-edit-collection-wrapper">
+                <div class="row clearfix" style="padding: 0;">
+                    <div class="span_1 col-md-12" style="padding: 0;">
+                        <div class="select-collection">
+                            <div class="row clearfix" style="padding: 0;">
+                                <div class="span_3_4 col-md-4" style="padding-left: 0;">
+                                    <select id="combi_image_collection" name="combi_image"></select>
+                                </div>
+                                <div class="span_1_4 col-md-6" style="padding-right: 0;">
+                                    <div class="row clearfix" style="padding: 0;">
+                                        <div class="span_1_2 col-md-6" style="padding-left: 0;">
+                                            <button class="btn btn-primary edit-collection"
+                                                    style="min-width: unset; width: 100%; margin: 0;"><i
+                                                    class="fa fa-pencil"></i></button>
+                                        </div>
+                                        <div class="span_1_2 col-md-6" style="padding-right: 0;">
+                                            <button class="btn btn-danger delete-collection"
+                                                    style="min-width: unset; width: 100%; margin: 0;"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="create-collection" style="display: none;">
+                            <div class="row clearfix" style="padding: 0;">
+                                <div class="span_3_4 col-md-4" style="padding-left: 0;">
+                                    <input name="new-collection-name"
+                                           placeholder="{$product_image_list.COLLECTION_NAME_PLACEHOLDER}"
+                                           style="height: 31px;" type="text">
+                                </div>
+                                <div class="span_1_4 col-md-6" style="padding-right: 0;">
+                                    <button class="btn btn-success create-new-collection"
+                                            style="margin: 0; width: 100%;">
+                                        {$product_image_list.CREATE_BUTTON}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span_1_4 col-md-6" style="padding-right: 0;">
+            <button class="btn btn-success pull-right" href="javascript:;" id="create-new-collection"
+                    style="width: 100%; margin-bottom: 0; text-align: center;">
+                <i class="fa fa-plus" style="margin-right: 3px;"></i>
+                {$product_image_list.NEW_COLLECTION_BUTTON}
+            </button>
+            <button class="btn btn-primary pull-right" href="javascript:;" id="select-collection"
+                    style="display: none; width: 100%; margin-bottom: 0; text-align: center;">
+                <i class="fa fa-bars" style="margin-right: 3px;"></i>
+                {$product_image_list.SELECT_COLLECTION_BUTTON}
+            </button>
+        </div>
+    </div>
+    <div class="selected-collection-wrapper" data-gx-controller="product/product_image_list"
+         data-product_image_list-axis="x"
+         data-product_image_list-items="div.collection-image-wrapper:not(.fixed)"
+         data-product_image_list-placeholder="collection-image-wrapper list-element sort-placeholder"
+         data-product_image_list-selected-list="{$content_data.product_image_list_id}"
+         data-product_image_list-sortable-list="div.collection-images-wrapper"
+         data-product_image_list-use-file-manager="{$content_data.useFileManager|intval}"
+    >
+        {if $content_data.modifierId}
+        <input name="modifierId" type="hidden" value="{$content_data.modifierId}">
+        {/if}
+        {if $content_data.modifierType}
+            <input name="modifierType" type="hidden" value="{$content_data.modifierType}">
+        {/if}
+        {if $content_data.currentParentId}
+            <input name="currentParentId" type="hidden" value="{$content_data.currentParentId}">
+        {/if}
+        <div class="collection-image-wrapper image-placeholder">
+            <a class="add-image" href="javascript:;">
+            <span class="action-label">
+                <i class="fa fa-plus"></i>
+                {$product_image_list.ADD_IMAGE_BUTTON}
+            </span>
+            </a>
+        </div>
+        <div class="collection-images-wrapper" style="display: none;">
+        </div>
+    </div>
+</div>
+<div class="request-status-wrapper" style="display: none;"></div>

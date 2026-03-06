@@ -1,0 +1,181 @@
+{* 
+   Smarty block element for creating Content Manager overview pages. Following variables have to be given by
+   the including template to create the list elements:
+   
+   - $title: Title of the section
+   
+   - $list_elements: Array of elements that should be displayed in the list.
+     Has to contain following keys: 
+     - description: Explanation of a content manager entry.
+     - type: Defines which icon should be displayed for the entry in the list overview. Expected values are 'link',
+       'page' or 'code'
+     - name: Name of the entry
+     If $list_elements is empty a notification is shown instead.
+     
+   - $page_type: Defines the type of the page. Expects following strings: 'pages' or 'elements'. 
+     Is used to hide specific action icons on the 'elements' page.
+
+   - $custom_id: Custom CSS ID definition.
+     
+  Example: 
+  {include file="get_usermod:content_manager/partial/overview_list_element.html" title = $title list_elements = $list_elements page_type = 'pages|elements'}
+*}
+
+{block name="admin_content_manager_partial_overview_list_element"}
+	<div class="content-manager-container" {if $custom_id}id="{$custom_id}"{/if}>
+		{block name="admin_content_manager_partial_overview_list_element_heading"}
+			<div class="row headline">
+				{block name="admin_content_manager_partial_overview_list_element_heading_title"}
+					<div class="col-md-6">
+						<h3 class="title">{$title}</h3>
+					</div>
+				{/block}
+				
+				{block name="admin_content_manager_partial_overview_list_element_heading_buttons"}
+					<div class="col-md-6">
+						{if $page_type == 'pages'}
+							{block name="admin_content_manager_partial_overview_list_element_heading_buttons_pages"}
+								<div data-gx-widget="button_dropdown"
+								     data-button_dropdown-user_id="{$smarty.session.customer_id}"
+								>
+									<div data-use-button_dropdown="true"
+									     data-custom_caret_btn_class="btn-success"
+									     class="pull-right"
+									>
+										<button data-gx-extension="link" data-link-url="{$create}&contentType=content{if isset($smarty.get.expert)}&expert{/if}" class="btn btn-success">
+											<i class="fa fa-plus btn-icon"></i> {$buttons.BUTTON_NEW_PREFIX} {$txt.PAGE_TYPE_INFO}
+										</button>
+										<ul>
+											<li><span data-gx-extension="link" data-link-url="{$create}&contentType=link{if isset($smarty.get.expert)}&expert{/if}">{$buttons.BUTTON_NEW_PREFIX} {$txt.PAGE_TYPE_LINK}</span></li>
+											<li><span data-gx-extension="link" data-link-url="{$create}&contentType=file{if isset($smarty.get.expert)}&expert{/if}">{$buttons.BUTTON_NEW_PREFIX} {$txt.PAGE_TYPE_SCRIPT}</span></li>
+										</ul>
+									</div>
+								</div>
+							{/block}
+						{/if}
+						{if $page_type == 'elements'}
+							{block name="admin_content_manager_partial_overview_list_element_heading_buttons_elements"}
+                                {if $create !== false}
+									<div data-gx-widget="button_dropdown" data-button_dropdown-user_id="{$smarty.session.customer_id}">
+										<div data-use-button_dropdown="true" data-custom_caret_btn_class="btn-success" class="pull-right">
+											<button data-gx-extension="link" data-link-url="{$create}&contentType=content{if isset($smarty.get.expert)}&expert{/if}" class="btn btn-success">
+												<i class="fa fa-plus btn-icon"></i> {$buttons.BUTTON_NEW_PREFIX} {$txt.PAGE_TYPE_INFO}
+											</button>
+											<ul>
+												<li><span data-gx-extension="link" data-link-url="{$create}&contentType=file{if isset($smarty.get.expert)}&expert{/if}">{$buttons.BUTTON_NEW_PREFIX} {$txt.PAGE_TYPE_SCRIPT}</span></li>
+											</ul>
+										</div>
+									</div>
+								{/if}
+							{/block}
+						{/if}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		
+		{if $list_elements}
+			{block name="admin_content_manager_partial_overview_list_element_container"}
+				<div class="row element-container">
+					{block name="admin_content_manager_partial_overview_list_element_list"}
+						<ul class="content-manager-elements-list"
+							data-gx-extension="visibility_switcher"
+							data-visibility_switcher-rows=".content-manager-element"
+							data-visibility_switcher-selections=".content-action-icons"
+						>
+							{foreach item=element from=$list_elements}
+								{block name="admin_content_manager_partial_overview_list_element_list_item"}
+									<li class="col-md-12 content-manager-element" data-sorting-id="{$element.id}" title="{$txt.TEXT_GROUP}: {$element.id}">
+										{block name="admin_content_manager_partial_overview_list_element_list_item_icon"}
+											<span class="col-md-1 content-type-icon" title="{$element.description} {$txt.TEXT_GROUP}: {$element.id}">
+												{if $element.type == 'link'}
+													<i class="fa fa-link fa-flip-horizontal"></i>
+												{elseif $element.type == 'content'}
+													<i class="fa fa-file-o"></i>
+												{else}
+													<i class="fa fa-file-code-o"></i>
+												{/if}
+											</span>
+										{/block}
+										
+										{block name="admin_content_manager_partial_overview_list_element_list_item_name"}
+											<span class="col-md-7 content-name">
+												{$element.name} {if isset($smarty.get.expert)}({$txt.TEXT_GROUP}: {$element.id}){/if}
+												{if $content_status[$element.id] === 0}
+													<span class="status-not-active-badge pull-right">
+														<span>{$txt.BADGE_STATUS_NOT_ACTIVE}</span>
+													</span>
+												{elseif $content_status[$element.id] < count($languages)}
+													<span class="status-some-active-badge pull-right">
+														<span>{$txt.BADGE_STATUS_SOME_ACTIVE}</span>
+													</span>
+												{/if}
+											</span>
+										{/block}
+										
+										{block name="admin_content_manager_partial_overview_list_element_list_item_actions"}
+											<span class="col-md-4 content-action-icons">
+												{if $page_type == 'pages'}
+													{if $element.type == 'link' || $element.type == 'content'}
+														{block name="admin_content_manager_partial_overview_list_element_list_item_actions_pages_preview"}
+															<a class="open-preview"
+															   href="{if $element.type == 'link' && $element.link !== ''}{$element.link}{else}#{/if}"
+															   data-content-id="{$element.contentId}" data-content-link="{$element.public_link}"><i class="fa fa-eye"></i></a>
+														{/block}
+													{/if}
+													
+													{block name="admin_content_manager_partial_overview_list_element_list_item_actions_pages_edit"}
+														<a href="admin.php?do=ContentManagerPages/edit&id={$element.id}{if isset($smarty.get.expert)}&expert{/if}"><i class="fa fa-pencil"></i></a>
+													{/block}
+													
+													{if $element.deletable}
+														{block name="admin_content_manager_partial_overview_list_element_list_item_actions_pages_delete"}
+															<a class="delete-content page"
+															   href="#"
+															   data-content-id="{$element.contentId}"
+															   data-group-id="{$element.id}"><i class="fa fa-trash-o"></i></a>
+														{/block}
+													{/if}
+						
+													{block name="admin_content_manager_partial_overview_list_element_list_item_actions_pages_sort_handle"}
+														<a><i class="fa fa-sort sort-handle"></i></a>
+													{/block}
+												{else}
+													{block name="admin_content_manager_partial_overview_list_element_list_item_actions_elements_preview"}
+														<a class="open-preview" href="#" data-content-id="{$element.contentId}"><i class="fa fa-eye"></i></a>
+													{/block}
+													{block name="admin_content_manager_partial_overview_list_element_list_item_actions_elements_edit"}
+														<a href="admin.php?do=ContentManagerElements/edit&id={$element.id}{if isset($smarty.get.expert)}&expert{/if}"><i class="fa fa-pencil"></i></a>
+													{/block}
+													{if $element.deletable}
+														{block name="admin_content_manager_partial_overview_list_element_list_item_actions_elements_delete"}
+															<a class="delete-content element"
+															   href="#"
+															   data-content-id="{$element.contentId}"
+															   data-group-id="{$element.id}"><i class="fa fa-trash-o"></i></a>
+														{/block}
+													{/if}
+												{/if}
+											</span>
+										{/block}
+									</li>
+								{/block}
+							{/foreach}
+						</ul>
+					{/block}
+				</div>
+			{/block}
+		{else}
+			{block name="admin_content_manager_partial_overview_list_element_empty_list"}
+				<div class="row element-container empty">
+					<ul class="content-manager-elements-list"
+						data-gx-extension="visibility_switcher"
+						data-visibility_switcher-rows=".content-manager-element"
+						data-visibility_switcher-selections=".content-action-icons">
+						<li class="col-md-12 content-manager-element">{$txt.TEXT_NO_CONTENT}</li>
+					</ul>
+				</div>
+			{/block}
+		{/if}
+	</div>
+{/block}

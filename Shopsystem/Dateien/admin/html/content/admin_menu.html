@@ -1,0 +1,38 @@
+{block name="admin_admin_menu"}
+	{foreach item=group from=$content_data.DATA}
+		{block name="admin_admin_menu_title"}
+			  <div class="leftmenu_head{if $group.active_class && $group.title !== "Favs"} {$group.active_class}{elseif $group.title == "Favs" && (defined('UNFOLD_FAVS_BOX') && $smarty.const.UNFOLD_FAVS_BOX == 'true' || $page_url|strpos:"/start.php") && $group.menuitems} current{/if} {if $group.brand != ''}brand-{$group.brand}{/if} {if $group.type != ''}type-{$group.type}{/if}">
+			      <div class="icon"><i class="{$group.class}"></i></div>
+				  <span>{$group.title}</span>
+			  </div>
+		{/block}
+		{block name="admin_admin_menu_collapse_opened"}
+			  <div class="leftmenu_collapse leftmenu_collapse_opened"> </div>
+		{/block}
+		{block name="admin_admin_menu_list"}
+			{if $group.menuitems|count > 0}
+				<ul class="leftmenu_box{if $group.active_class && $group.title !== "Favs"} {$group.active_class}{elseif $group.title == "Favs" && (defined('UNFOLD_FAVS_BOX') && $smarty.const.UNFOLD_FAVS_BOX == 'true' || $page_url|strpos:"/start.php") && $group.menuitems} current{/if}{if $group.active_class === 'current'} active{/if}" id="{$group.id}">
+					{foreach item=item from=$group.menuitems}
+					{block name="admin_admin_list_item"}
+					    {if $group.title == "Favs"}
+							{block name="admin_admin_menu_item_fav"}
+							      <li class="leftmenu_body_item{if $item.class} {$item.class}{/if}"><a class="fav_content_item" id="{$item.id}" href="{$item.link}">
+								      <!-- <i class="fa fa-angle-right"></i> -->
+								      {$item.title}</a></li>
+							{/block}
+					    {else}
+							{block name="admin_admin_menu_item_no_fav"}
+							      <li class="leftmenu_body_item{if $item.class} {$item.class}{/if}"><a class="fav_drag_item" id="{$item.id}" href="{$item.link}">
+								      <!-- <i class="fa fa-angle-right"></i> -->
+								      {$item.title}</a></li>
+							{/block}
+					    {/if}
+					{/block}
+			  {/foreach}
+			  </ul>
+			{/if}
+		{/block}
+	{/foreach}
+
+	<div data-gx-extension="session_timeout" hidden></div>
+{/block}

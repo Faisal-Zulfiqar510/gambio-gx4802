@@ -1,0 +1,10 @@
+Dear {if $GENDER == 'm'}Mr {elseif $GENDER == 'f'}Miss/Ms/Mrs {/if}{$NAME},
+
+we created an account for you. You can sign in in our shop available under {$URL}.
+
+{if $COMMENTS}Comments:{$COMMENTS}{/if}
+
+Login with following account/password:
+
+Mail: {$EMAIL}
+Password: {$PASSWORD}

@@ -1,0 +1,424 @@
+/* Layout
+   ========================================================================== */
+
+body, html {
+	height: 100%;
+}
+
+body {
+	@include background($gx-body-bg-color,
+			$gx-body-bg-image-url,
+			$gx-body-bg-image-position,
+			$gx-body-bg-image-repeat,
+			$gx-body-bg-image-size,
+			$gx-body-bg-image-attachment,
+			$gx-body-bg-image-enabled,   
+			$gx-body-bg-gradient-enabled,
+			$gx-body-bg-gradient-color1, 
+			$gx-body-bg-gradient-color2, 
+			$gx-body-bg-gradient-type,   
+			$gx-body-bg-gradient-angle); 
+
+	#outer-wrapper {
+		@include background($gx-wrapper-bg-color,
+				$gx-wrapper-bg-image-url,
+				$gx-wrapper-bg-image-position,
+				$gx-wrapper-bg-image-repeat,
+				$gx-wrapper-bg-image-size,
+				$gx-wrapper-bg-image-attachment,
+				$gx-wrapper-bg-image-enabled,   
+				$gx-wrapper-bg-gradient-enabled,
+				$gx-wrapper-bg-gradient-color1, 
+				$gx-wrapper-bg-gradient-color2, 
+				$gx-wrapper-bg-gradient-type,   
+				$gx-wrapper-bg-gradient-angle); 
+
+		@media (min-width: $grid-float-breakpoint) {
+			margin-top: $gx-body-padding-top;
+			margin-bottom: $gx-body-padding-bottom;
+		}
+	}
+
+	@if ($gx-body-wrap) {
+		#outer-wrapper {
+			@extend .container;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			@include border-radius($gx-wrapper-border-radius);
+
+			#header {
+				border-top-left-radius: $gx-wrapper-border-radius;
+				border-top-right-radius: $gx-wrapper-border-radius;
+			}
+
+			#footer {
+				border-bottom-left-radius: $gx-wrapper-border-radius;
+				border-bottom-right-radius: $gx-wrapper-border-radius;
+			}
+		}
+	} @else {
+		@if ($gx-header-fixed) {
+			padding-top: $gx-header-height-mobile;
+			@media (min-width: $grid-float-breakpoint) {
+				padding-top: $gx-header-height;
+			}
+			@if ($gx-stage-below-header) {
+				#stage {
+					margin-top: makeNegative($gx-header-height-mobile);
+					@media (min-width: $grid-float-breakpoint) {
+						margin-top: makeNegative($gx-header-height);
+					}
+				}
+			}
+		}
+
+		#wrapper {
+			@extend .container;
+		}
+	}
+
+}
+
+#wrapper { /* Wrapper for page content to push down footer */
+	min-height: 100%;
+	height: auto;
+	margin-bottom: makeNegative($gx-footer-min-height); /* Negative indent footer by its height */
+	padding-bottom: $gx-footer-min-height; /* Pad bottom by footer height */
+	@include clearfix();
+	@if ($gx-body-wrap) {
+		@extend .container;
+		> .row {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+
+		.container {
+			width: 100%;
+		}
+	}
+
+	#main {
+		@include make-sm-column($gx-main-col-sm);
+		@if ($gx-left-col-sm > 0) {
+			@include make-sm-column-push($gx-left-col-sm);
+		}
+		@include make-md-column($gx-main-col-md);
+		@if ($gx-left-col-md > 0) {
+			@include make-md-column-push($gx-left-col-md);
+		}
+		@include make-lg-column($gx-main-col-lg);
+		@if ($gx-left-col-lg > 0) {
+			@include make-lg-column-push($gx-left-col-lg);
+		}
+
+		.main-inside {
+			padding-top: ($grid-gutter-width / 2);
+			padding-bottom: 120px;
+			min-height: 800px;
+			@extend .clearfix;
+		}
+	}
+
+	#left {
+		@include make-sm-column(12);
+		@if ($gx-left-col-sm > 0) {
+			@include make-sm-column($gx-left-col-sm);
+			@if ($gx-left-col-sm < 12) {
+				@include make-sm-column-pull($gx-main-col-sm);
+			}
+		}
+		@include make-md-column(12);
+		@if ($gx-left-col-md > 0) {
+			@include make-md-column($gx-left-col-md);
+			@if ($gx-left-col-md < 12) {
+				@include make-md-column-pull($gx-main-col-md);
+			}
+		}
+		@include make-lg-column(12);
+		@if ($gx-left-col-lg > 0) {
+			@include make-lg-column($gx-left-col-lg);
+			@if ($gx-left-col-lg < 12) {
+				@include make-lg-column-pull($gx-main-col-lg);
+			}
+		}
+		padding-top: floor($grid-gutter-width / 2);
+
+		clear: left;
+
+		// remove padding left
+
+		@media (min-width: $grid-float-breakpoint) {
+			padding-left: 0;
+			clear: none;
+		}
+	}
+
+	#right {
+		@include make-sm-column(12);
+		@if ($gx-right-col-sm > 0) {
+			@include make-sm-column($gx-right-col-sm);
+		}
+		@include make-md-column(12);
+		@if ($gx-right-col-md > 0) {
+			@include make-md-column($gx-right-col-md);
+		}
+		@include make-lg-column(12);
+		@if ($gx-right-col-lg > 0) {
+			@include make-lg-column($gx-right-col-lg);
+		}
+		padding-top: floor($grid-gutter-width / 2);
+	}
+}
+
+#footer {
+	min-height: $gx-footer-min-height;
+
+	@if ($gx-body-wrap != true) {
+		@if ($gx-footer-wrap) { /* wrap footer content in container */
+			.inside {
+				@extend .container;
+			}
+		}
+	}
+
+	@if ($gx-body-wrap) {
+		.inside {
+			@include make-xs-column(12);
+		}
+	}
+}
+
+// full width pages
+
+@if ($gx-index-full-width == true) {
+	body.page-index {
+		#wrapper #left,
+		#wrapper #right {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+body.page-index {
+	&:not(.page-index-type-manufacturers_id):not(.page-index-type-filter_categories_id):not(.page-index-type-is-filtering) {
+		#wrapper {
+			width: 100%;
+		}
+	}
+}
+
+@if ($gx-advanced-search-result-full-width == true) {
+	body.page-advanced-search-result {
+		#wrapper #left,
+		#wrapper #right {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+@if ($gx-shop-content-full-width == true) {
+	body.page-shop-content {
+		#wrapper #left,
+		#wrapper #right {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+@if ($gx-product-info-full-width == true) {
+	body.page-product-info {
+		#wrapper #left,
+		#wrapper #right {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+@if ($gx-product-listing-full-width == true) {
+	body.page-specials,
+	body.page-products-new {
+		#wrapper #left,
+		#wrapper #right {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+
+	body.page-index-type-is-filtering,
+	body.page-index-type-filter_categories_id,
+	body.page-index-type-cat {
+		#wrapper #main {
+			width: 100%;
+			left: auto;
+		}
+
+		#wrapper #left {
+			display: block;
+			right: auto;
+			width: 100%;
+			padding: 0;
+		}
+
+		#wrapper #right {
+			display: none;
+		}
+	}
+}
+
+@if ($gx-shopping-cart-full-width == true) {
+	body.page-shopping-cart {
+		#wrapper #left,
+		#wrapper #right {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+@if ($gx-wishlist-full-width == true) {
+	body.page-wish-list {
+		#wrapper #left,
+		#wrapper #right {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+@if ($gx-checkout-full-width == true) {
+	body.page-shop.page-checkout-started,
+	body.page-checkout-shipping,
+	body.page-checkout-shipping-address,
+	body.page-checkout-payment,
+	body.page-checkout-payment-address,
+	body.page-checkout-confirmation,
+	body.page-checkout-success {
+		#wrapper #left {
+			display: none;
+		}
+
+		#wrapper #main {
+			left: 0;
+			width: 100%;
+			@include make-lg-column(10);
+			@include make-lg-column-offset(1);
+		}
+	}
+}
+
+@if ($gx-account-full-width == true) {
+	body.page-account,
+	body.page-account-edit,
+	body.page-address-book,
+	body.page-account-password,
+	body.page-gm-account-delete,
+	body.page-password-double-opt,
+	body.page-login {
+		#wrapper #left {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+@if ($gx-create-account-full-width == true) {
+	body.page-shop-createregistree,
+	body.page-shop-createguest {
+		#wrapper #left {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+@if ($gx-newsletter-full-width == true) {
+	body.page-newsletter {
+		#wrapper #left {
+			display: none;
+		}
+
+		#wrapper #main {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+// content spacing on home
+// important for content manager text
+
+.content-page-index {
+	margin-bottom: $grid-gutter-width;
+}
+
+// show 5 per row if full width
+
+body.page-index-type-cat {
+	@media (min-width: $screen-lg-min) {
+		.product-listing-full-width {
+			.swiper-container .product-container {
+				width: 20%;
+			}
+			.productlist-viewmode-grid {
+				.product-container {
+					@include make-xs-column($gx-product-listing-col-xs);
+					@include make-sm-column($gx-product-listing-col-sm);
+					@include make-md-column($gx-product-listing-col-md);
+					@include make-lg-column($gx-product-listing-col-lg);
+
+					&:nth-of-type(5n+0) {
+						border-right-color: transparent;
+					}
+				}
+			}
+		}
+	}
+}
+
+.product-listing-sidebar {
+	padding-left: 0;
+	padding-right: 0;
+	@media (min-width: $grid-float-breakpoint) {
+		border-right: 1px solid #eee;
+	}
+}

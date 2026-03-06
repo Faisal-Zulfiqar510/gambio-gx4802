@@ -1,0 +1,25 @@
+{extends file="get_usermod:layouts/main/partial/tooltip.html"}
+
+{block name="content"}
+	{block name="admin_orders_tooltips_customer_memos"}
+		<table class="customer-memos">
+			<tbody>
+				{foreach $memos as $memo}
+					{block name="admin_orders_tooltips_customer_memos_row"}
+						<tr class="memo">
+							{block name="admin_orders_tooltips_customer_memos_row_tds"}
+								<td>
+									{$memo.creation_date|date_format:"d.m.Y"}<br/>
+									<span class="poster">{$memo.poster_name}</span>
+								</td>
+								<td>
+									{$memo.text}
+								</td>
+							{/block}
+						</tr>
+					{/block}
+				{/foreach}
+			</tbody>
+		</table>
+	{/block}
+{/block}

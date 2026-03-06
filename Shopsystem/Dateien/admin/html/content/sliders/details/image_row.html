@@ -1,0 +1,100 @@
+{*
+	Slide image setting row
+
+	Represents a slide image setting row.
+
+	Parameters:
+		- $label {String} Title
+		- $name {String} Field name
+		- $areas {Array} Image map array
+		- $value {String} Selected value (optional)
+		- $options {String[]} Available values
+		- $classes {String} Additional CSS classes (optional)
+		- $attributes {String} Additional attributes (optional)
+*}
+
+{block name="admin_sliders_details_image_row"}
+	<div class="row form-group {if $classes}{$classes}{/if}" {if $attributes}{$attributes}{/if}>
+		{block name="admin_sliders_details_image_row_label"}
+			<div class="col-md-3">
+				{if $label === 'XS'}
+					<label class="control-label">
+						<span class="col-md-1"><i class="fa fa-mobile fa-lg"></i></span> {$txt.BREAKPOINT_XS}
+					</label>
+				{elseif $label === 'SM'}
+					<label class="control-label">
+						<span class="col-md-1"><i class="fa fa-tablet fa-lg"></i></span> {$txt.BREAKPOINT_SM}
+					</label>
+				{elseif $label === 'MD'}
+					<label class="control-label">
+						<span class="col-md-1 landscape"><i class="fa fa-tablet fa-rotate-90 fa-lg"></i></span> {$txt.BREAKPOINT_MD}
+					</label>
+				{elseif $label === 'LG'}
+					<label class="control-label">
+						<span class="col-md-1"><i class="fa fa-desktop fa-lg"></i></span> {$txt.BREAKPOINT_LG}
+					</label>
+				{else}
+					<label class="control-label">{$txt.THUMBNAIL}</label>
+				{/if}
+			</div>
+		{/block}
+	
+		{block name="admin_sliders_details_image_row_wrapper"}
+			<div class="col-md-5">
+				{block name="admin_sliders_details_image_row_do_not_use"}
+					<select class="form-control dropdown-input" name="{$name}">
+						<option value="" {if not isset($value)}selected{/if}>{$txt.DO_NOT_USE}</option>
+			
+						{if isset($options)}
+							{foreach $options as $option}
+								<option value="{$option}" {if isset($value) && $option eq $value} selected{/if}>{$option}</option>
+							{/foreach}
+						{/if}
+					</select>
+				{/block}
+		
+		
+				{block name="admin_sliders_details_image_row_file_upload"}
+					<input class="file-input"
+						   id="{$name}_file_upload"
+						   type="file"
+						   accept="image/gif,image/png,image/x-png,image/jpg,image/jpeg,image/gif,image/pjpeg"
+					>
+				{/block}
+			</div>
+		{/block}
+	
+		{block name="admin_sliders_details_image_row_action_list"}
+			<div class="col-md-4 action-list">
+				{block name="admin_sliders_details_image_row_action_list_upload"}
+					<i class="fa fa-upload action-icon upload"></i>
+				{/block}
+		
+				{block name="admin_sliders_details_image_row_action_list_delete"}
+					<i class="fa fa-trash-o action-icon delete"></i>
+				{/block}
+		
+				{if $name != 'thumbnail'}
+					{block name="admin_sliders_details_image_row_action_list_image_map"}
+						<i class="fa fa-external-link action-icon image-map"></i>
+					{/block}
+				{/if}
+			</div>
+		{/block}
+	
+		{block name="admin_sliders_details_image_row_image_map_list"}
+			<ul class="image-map-data-list">
+				{foreach $areas as $area}
+					{block name="admin_sliders_details_image_row_image_map_item"}
+						<li data-id="{$area.id}"
+							data-link-title="{$area.link_title}"
+							data-link-url="{$area.link_url}"
+							data-link-target="{$area.link_target}"
+							data-coordinates="{$area.coordinates}">
+						</li>
+					{/block}
+				{/foreach}
+			</ul>
+		{/block}
+	</div>
+{/block}

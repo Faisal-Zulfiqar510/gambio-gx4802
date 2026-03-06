@@ -1,0 +1,152 @@
+{block name="meta_data_form"}
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_META_TITLE}:</label>
+		<div class="col-md-4">
+			<input class="form-control"
+				   type="text"
+				   name="content_manager[{$type}][contents_meta_title][{$languageCode}]"
+				   value="{$content_manager.{$type}.contents_meta_title.$languageCode}">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_META_KEYWORDS}:</label>
+		<div class="col-md-4">
+				<textarea class="form-control"
+						  rows="3"
+						  name="content_manager[{$type}][contents_meta_keywords][{$languageCode}]">{$content_manager.{$type}.contents_meta_keywords.$languageCode}</textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_META_DESCRIPTION}:</label>
+		<div class="col-md-4">
+				<textarea class="form-control"
+						  rows="3"
+						  name="content_manager[{$type}][contents_meta_description][{$languageCode}]">{$content_manager.{$type}.contents_meta_description.$languageCode}</textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_URL_KEYWORDS}:</label>
+		<div class="col-md-4">
+			<input class="form-control"
+			       type="text"
+			       name="content_manager[{$type}][gm_url_keywords][{$languageCode}]"
+			       value="{$content_manager.{$type}.gm_url_keywords.$languageCode}">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_TEXT_URL_REWRITE}:</label>
+		<div class="col-md-4">
+			<div class="input-group">
+				<div class="input-group-addon">info/</div>
+				<input type="text"
+					   class="form-control"
+					   name="content_manager[{$type}][url_rewrite][{$languageCode}]"
+					   value="{$content_manager.{$type}.url_rewrite.$languageCode}">
+				<div class="input-group-addon">.html</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">
+				{$txt.GM_TEXT_URL_REWRITE_CONTENT_INFO}
+			</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_SITEMAP_ENTRY}:</label>
+		<div class="col-md-4">
+			<div class="gx-container" data-gx-widget="checkbox">
+				<input type="checkbox"
+					   name="content_manager[{$type}][gm_sitemap_entry][{$languageCode}]"
+					   value="1" {if $content_manager.{$type}.gm_sitemap_entry.$languageCode == '1'}checked{/if}/>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_SITEMAP_PRIORITY}:</label>
+		<div class="col-md-3">
+			<select class="form-control" name="content_manager[{$type}][gm_priority][{$languageCode}]">
+				<option value="0.0"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.0'}selected{/if}>0.0
+				</option>
+				<option value="0.1"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.1'}selected{/if}>0.1
+				</option>
+				<option value="0.2"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.2'}selected{/if}>0.2
+				</option>
+				<option value="0.3"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.3'}selected{/if}>0.3
+				</option>
+				<option value="0.4"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.4'}selected{/if}>0.4
+				</option>
+				<option value="0.5"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.5'}selected{/if}>0.5
+				</option>
+				<option value="0.6"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.6'}selected{/if}>0.6
+				</option>
+				<option value="0.7"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.7'}selected{/if}>0.7
+				</option>
+				<option value="0.8"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.8'}selected{/if}>0.8
+				</option>
+				<option value="0.9"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '0.9'}selected{/if}>0.9
+				</option>
+				<option value="1.0"
+						{if $content_manager.{$type}.gm_priority.$languageCode == '1.0'}selected{/if}>1.0
+				</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_SITEMAP_CHANGEFREQ}:</label>
+		<div class="col-md-3">
+			<select class="form-control" name="content_manager[{$type}][gm_changefreq][{$languageCode}]">
+				<option value="always"
+						{if $content_manager.{$type}.gm_changefreq.$languageCode == 'always'}selected{/if}>{$txt.TITLE_ALWAYS}</option>
+				<option value="hourly"
+						{if $content_manager.{$type}.gm_changefreq.$languageCode == 'hourly'}selected{/if}>{$txt.TITLE_HOURLY}</option>
+				<option value="daily"
+						{if $content_manager.{$type}.gm_changefreq.$languageCode == 'daily'}selected{/if}>{$txt.TITLE_DAILY}</option>
+				<option value="weekly"
+						{if $content_manager.{$type}.gm_changefreq.$languageCode == 'weekly'}selected{/if}>{$txt.TITLE_WEEKLY}</option>
+				<option value="monthly"
+						{if $content_manager.{$type}.gm_changefreq.$languageCode == 'monthly'}selected{/if}>{$txt.TITLE_MONTHLY}</option>
+				<option value="yearly"
+						{if $content_manager.{$type}.gm_changefreq.$languageCode == 'yearly'}selected{/if}>{$txt.TITLE_YEARLY}</option>
+				<option value="never"
+						{if $content_manager.{$type}.gm_changefreq.$languageCode == 'never'}selected{/if}>{$txt.TITLE_NEVER}</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">{$txt.GM_ROBOTS_ENTRY}:</label>
+		<div class="col-md-4">
+			<div class="gx-container" data-gx-widget="checkbox">
+				<input type="checkbox"
+					   name="content_manager[{$type}][gm_robots_entry][{$languageCode}]"
+					   value="1" {if $content_manager.{$type}.gm_robots_entry.$languageCode == '1'}checked{/if}/>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2">
+			{$txt.OPENGRAPH_IMAGE}:
+		</label>
+		<div class="col-md-4">
+			{if $content_manager.filemanager_available}
+				<div data-gx-widget="filemanager"
+					 data-filemanager-name="content_manager[{$type}][opengraph_image][{$languageCode}]"
+					 data-filemanager-type="all"
+					 data-filemanager-content-directory="images"
+					 data-filemanager-previous-file="{$content_manager.$type.opengraph_image.$languageCode}"
+					 data-filemanager-page="content_manager_pages"
+					 data-filemanager-page-active="{$content_manager.filemanager_available}">
+				</div>
+			{/if}
+		</div>
+	</div>
+{/block}

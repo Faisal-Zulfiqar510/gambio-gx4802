@@ -1,0 +1,37 @@
+Sehr geehrter Kunde,
+
+folgenden Widerruf haben wir erhalten und werden ihn schnellstmöglich bearbeiten:
+
+Widerruf an:
+
+{$smarty.const.COMPANY_NAME}
+{$smarty.const.TRADER_FIRSTNAME} {$smarty.const.TRADER_NAME}
+{$smarty.const.TRADER_STREET} {$smarty.const.TRADER_STREET_NUMBER}
+{$smarty.const.TRADER_ZIPCODE} {$smarty.const.TRADER_LOCATION}
+{$smarty.const.STORE_COUNTRY_NAME}
+
+{if $smarty.const.TRADER_FAX != ''}Fax: {$smarty.const.TRADER_FAX}{/if}
+
+{if $smarty.const.STORE_OWNER_EMAIL_ADDRESS != ''}E-Mail: {$smarty.const.STORE_OWNER_EMAIL_ADDRESS}{/if}
+
+
+
+Ihre Daten:
+
+{if $CUSTOMER_GENDER === 'm'}Herr
+{elseif $CUSTOMER_GENDER === 'f'}Frau
+{/if}{$CUSTOMER_NAME}
+{$CUSTOMER_STREET_ADDRESS}
+{$CUSTOMER_POSTCODE} {$CUSTOMER_CITY}
+{$CUSTOMER_COUNTRY}
+
+{if $ORDER_DATE}Bestelldatum: {$ORDER_DATE}{/if}
+{if $DELIVERY_DATE}Lieferdatum: {$DELIVERY_DATE}{/if}
+
+Widerrufsdatum: {$WITHDRAWAL_DATE}
+
+Widerruf:
+{$WITHDRAWAL_CONTENT}
+
+
+{$EMAIL_SIGNATURE_TEXT}

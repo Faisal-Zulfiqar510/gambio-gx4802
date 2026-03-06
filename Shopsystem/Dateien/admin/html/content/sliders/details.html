@@ -1,0 +1,41 @@
+{*
+	Slider details page layout
+	==========================
+*}
+
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="sliders" name="txt"}
+
+	{block name="admin_sliders_details"}
+		<div class="sliders-details breakpoint-small">
+			{block name="admin_sliders_details_form"}
+				<form
+					class="form-horizontal"
+					action="admin.php?do=SlidersDetails/save"
+					data-gx-controller="sliders/details/slider_form"
+				    data-slider_form-redirect-url="admin.php?do=SlidersOverview"
+				    data-slider_form-images-upload-url="admin.php?do=SlidersDetailsAjax/UploadImages"
+				    data-slider_form-images-delete-url="admin.php?do=SlidersDetailsAjax/DeleteImages"
+				    data-id="{$content.id}"
+				>
+					{include file="get_usermod:sliders/details/master_data_panel.html"}
+					{include file="get_usermod:sliders/details/slides_container.html"}
+		
+					{* Holds the images that should be deleted *}
+					<select id="delete_images" class="hidden"></select>
+				</form>
+			{/block}
+		</div>
+	{/block}
+
+	{* Include Modal Templates *}
+	{include file="get_usermod:sliders/details/modals/delete_slide.html"}
+	{include file="get_usermod:sliders/details/modals/delete_image.html"}
+	{include file="get_usermod:sliders/details/modals/image_map.html"}
+{/block}
+
+{block name="bottom_save_bar"}
+{include file="get_usermod:sliders/details/toolbar.html"}
+{/block}

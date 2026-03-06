@@ -1,0 +1,63 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{* Replacing a block from partial/overview_list.html*}
+	{block name="admin_admin_access_partial_overview_list_container_list_foreach" prepend}
+		<li class="col-md-12 list-headline">
+			<span class="list-element-text col-md-12">
+				{$txt.headline_roles_overview_name}
+			</span>
+		</li>
+	{/block}
+	{block name="admin_admin_access_partial_overview_list_container_empty_list_item"}
+		<li class="col-md-12 list-headline">
+			<span class="list-element-text col-md-12">
+				{$txt.headline_roles_overview_name}
+			</span>
+		</li>
+		<li class="col-md-12 list-element">
+			<span class="title">{$txt.text_empty_roles_overview_list}</span>
+		</li>
+	{/block}
+	{block name="admin_admin_access_partial_overview_list_container_list_element_title"}
+		<span class="list-element-text list-element-title col-md-8" title="{$element.description}">
+			{$element.title}
+		</span>
+	{/block}
+	{block name="admin_admin_access_partial_overview_list_container_list_element_actions"}
+		<span class="col-md-4 list-element-actions">
+			{if !$element.protected}
+				<a class="edit-role" data-id="{$element.id}" href="#">
+					<i class="fa fa-pencil"></i>
+				</a>
+				<a href="admin.php?do=AdminAccess/managePermissions&id={$element.id}">
+					<i class="fa fa-cog"></i>
+				</a>
+				<a class="delete-role" data-id="{$element.id}" href="#">
+					<i class="fa fa-trash-o"></i>
+				</a>
+			{/if}
+			<a class="sort-handle" data-id="{$element.id}" href="#">
+				<i class="fa fa-sort"></i>
+			</a>
+		</span>
+	{/block}
+{* *}
+
+{block name="content"}
+	{load_language_text section="admin_access"}
+	
+	{block name="admin_admin_access_overview_roles"}
+		<div class="admin_access_container breakpoint-small"
+		     data-gx-controller="admin_access/admin_access_roles"
+		>
+			{include file="get_usermod:admin_access/partial/overview_list.html"
+			         title=$content.list.title
+			         action=$content.list.action
+			         list_elements=$content.list.elements
+			         element_actions=$content.list.elementActions}
+		</div>
+	{/block}
+	
+	{include file="get_usermod:admin_access/modal/create_edit_role.html"}
+	{include file="get_usermod:admin_access/modal/delete_role.html"}
+{/block}

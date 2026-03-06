@@ -1,0 +1,11 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{block name="admin_embedded_module"}
+		<div class="gx-compatibility">
+			<div class="boxCenterWrapper">
+				<iframe class="embedded_module" src="{$content.module}" data-gx-compatibility="iframe_resizer"></iframe>
+			</div>
+		</div>
+	{/block}
+{/block}

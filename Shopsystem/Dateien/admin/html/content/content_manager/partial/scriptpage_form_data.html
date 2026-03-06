@@ -1,0 +1,161 @@
+{block name="admin_content_manager_partial_scriptpage_form_data"}
+	<fieldset>
+		{block name="admin_content_manager_partial_scriptpage_form_data_name"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_scriptpage_form_data_name_label"}
+					<label class="col-md-2">{$txt.LABEL_NAME}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_scriptpage_form_data_name_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_scriptpage_form_data_name_input"}
+							<input class="form-control"
+								   type="text"
+								   name="content_manager[scriptpage][content_name][{$languageCode}]"
+								   value="{$content_manager.scriptpage.content_name.$languageCode}"
+								   {if $content_manager.scriptpage.protected.$languageCode == '1' && !isset($smarty.get.expert)}readonly{/if}>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+		
+		{block name="admin_content_manager_partial_scriptpage_form_data_title"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_scriptpage_form_data_title_label"}
+					<label class="col-md-2">{$txt.LABEL_TITLE}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_scriptpage_form_data_title_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_scriptpage_form_data_title_input"}
+							<input class="form-control"
+							       type="text"
+							       name="content_manager[scriptpage][content_title][{$languageCode}]"
+							       value="{$content_manager.scriptpage.content_title.$languageCode}">
+						{/block}
+					</div>
+				{/block}
+			</div>
+		{/block}
+
+		{block name="admin_content_manager_partial_scriptpage_form_data_status"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_scriptpage_form_data_status_label"}
+					<label class="col-md-2">{$txt.TEXT_STATUS}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_scriptpage_form_data_status_container"}
+					<div class="col-md-4">
+						{block name="admin_content_manager_partial_scriptpage_form_data_status_input"}
+							<div class="gx-container" data-gx-widget="checkbox">
+								<input type="checkbox"
+									   name="content_manager[scriptpage][content_status][{$languageCode}]"
+									   value="1" {if $content_manager.scriptpage.content_status.$languageCode == '1'}checked{/if}/>
+							</div>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		
+			{if $content_manager.infopage.content_group.$languageCode == "2"
+			|| $content_manager.infopage.content_group.$languageCode == "3"
+			|| $content_manager.infopage.content_group.$languageCode == "3889895"}
+				{block name="admin_content_manager_partial_infopage_form_data_version"}
+				<div class="form-group">
+					{block name="admin_content_manager_partial_infopage_form_data_version_label"}
+						<label class="col-md-2">{$txt.TITLE_CONTENT_VERSION}:</label>
+					{/block}
+					{block name="admin_content_manager_partial_infopage_form_data_version_container"}
+						<div class="col-md-4">
+							{block name="admin_content_manager_partial_infopage_form_data_version_input"}
+								<input class="form-control"
+								       type="text"
+								       name="content_manager[scriptpage][content_version][{$languageCode}]"
+								       value="{$content_manager.scriptpage.content_version.$languageCode}">
+							{/block}
+						</div>
+					{/block}
+				</div>
+				{/block}
+			{/if}
+		{/block}
+		
+		{block name="admin_content_manager_partial_scriptpage_form_data_content"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_scriptpage_form_data_content_label"}
+					<label class="col-md-12">{$txt.TEXT_CONTENT}:</label>
+				{/block}
+				{block name="admin_content_manager_partial_scriptpage_form_data_content_container"}
+					<div class="col-md-12">
+						{block name="admin_content_manager_partial_scriptpage_form_data_content_input"}
+							<textarea name="content_manager[scriptpage][content_text][{$languageCode}]"
+									  data-editor-type="{$content_manager.scriptpage.ckeditor.type.$languageCode}"
+									  data-editor-identifier="{$content_manager.scriptpage.ckeditor.identifier.$languageCode}"
+									  class="wysiwyg">{$content_manager.scriptpage.content_text.$languageCode}</textarea>
+						{/block}
+					</div>
+				{/block}
+
+				<input type="hidden" name="content_manager[scriptpage][content_type][{$languageCode}]" value="content">
+			</div>
+		{/block}
+
+		{if $content_manager.filemanager_available === false}
+			{block name="admin_content_manager_partial_scriptpage_form_data_choose_file"}
+				<div class="form-group">
+					{block name="admin_content_manager_partial_scriptpage_form_data_choose_file_label"}
+						<label class="col-md-2">{$txt.TEXT_CHOOSE_FILE}:</label>
+					{/block}
+					{block name="admin_content_manager_partial_scriptpage_form_data_choose_file_container"}
+						<div class="col-md-4">
+							{block name="admin_content_manager_partial_scriptpage_form_data_choose_file_input"}
+								<select class="form-control"
+										name="content_manager[scriptpage][content_file][{$languageCode}]">
+									{foreach $content_manager.scriptpage.filelist as $file => $text}
+										<option value="{$file}"  {if $content_manager.scriptpage.content_file.$languageCode == $file}selected{/if}>{$text}</option>
+									{/foreach}
+								</select>
+							{/block}
+						</div>
+					{/block}
+				</div>
+			{/block}
+		{/if}
+		
+		{block name="admin_content_manager_partial_scriptpage_form_data_upload_file"}
+			<div class="form-group">
+				{block name="admin_content_manager_partial_scriptpage_form_data_upload_file_label"}
+					<label class="col-md-2">
+						{if $content_manager.filemanager_available === false}
+							{$txt.TEXT_UPLOAD_FILE}:
+						{else}
+							{$txt.TEXT_CHOOSE_FILE}:
+						{/if}
+					</label>
+				{/block}
+				{block name="admin_content_manager_partial_scriptpage_form_data_upload_file_container"}
+					<div class="col-md-4 {if $content_manager.scriptpage.error =='upload_file'}error{/if}">
+						{block name="admin_content_manager_partial_scriptpage_form_data_upload_file_input"}
+							<div data-gx-widget="filemanager"
+							     data-filemanager-name="content_manager[scriptpage][content_file][{$languageCode}]"
+							     data-filemanager-type="all"
+							     data-filemanager-content-directory="media/content"
+							     data-filemanager-previous-file="{$content_manager.scriptpage.content_file.$languageCode}"
+								 data-filemanager-page="content_manager_pages"
+								 data-filemanager-page-active="{$content_manager.filemanager_available}">
+							</div>
+						{/block}
+						{if $content_manager.scriptpage.error =='upload_file'}
+							{block name="admin_content_manager_partial_scriptpage_form_data_upload_file_error"}
+								<span class="error-message">{$txt.ERROR_FILE}</span>
+							{/block}
+						{/if}
+					</div>
+				{/block}
+				<input type="hidden" name="content_manager[scriptpage][content_type][{$languageCode}]" value="file">
+			</div>
+		{/block}
+
+		{include file="get_usermod:content_manager/partial/download_files_form.html" type="scriptpage"}
+		
+		{include file="get_usermod:content_manager/partial/meta_data_form.html" type="scriptpage"}
+	</fieldset>
+{/block}

@@ -1,0 +1,848 @@
+{
+    "id": "footer-columns",
+    "type": "content-zone",
+    "rows": [
+        {
+            "columnsLayout": {
+                "id": "radioimage-ttpjftkmj",
+                "type": "radioimage",
+                "from": "widget",
+                "options": [
+                    {
+                        "id": "fullwidth",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/100.png"
+                    },
+                    {
+                        "id": "fifty-fifty",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/50-50.png"
+                    },
+                    {
+                        "id": "thirty-three-sixty-six",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-66.png"
+                    },
+                    {
+                        "id": "sixty-six-thirty-three",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/66-33.png"
+                    },
+                    {
+                        "id": "twenty-five-seventy-five",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-75.png"
+                    },
+                    {
+                        "id": "seventy-five-twenty-five",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/75-25.png"
+                    },
+                    {
+                        "id": "three-thirty-three",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/33-33-33.png"
+                    },
+                    {
+                        "id": "four-twenty-five",
+                        "thumbnail": "..\/..\/..\/..\/GXModules\/Gambio\/ContentZones\/Images\/25-25-25-25.png"
+                    }
+                ],
+                "default": "fifty-fifty",
+                "value": "four-twenty-five"
+            },
+            "contentAlign": {
+                "id": "checkbox-i0libiu8m",
+                "type": "checkbox",
+                "label": "Inhalt wrappen",
+                "value": false,
+                "from": "widget",
+                "labelId": "StyleEdit.contentZone.row.alignment.label"
+            },
+            "responsive": {
+                "id": "responsive-to4gmki6b",
+                "type": "responsive",
+                "from": "widget",
+                "items": {
+                    "hiddenXs": false,
+                    "hiddenSm": false,
+                    "hiddenMd": false,
+                    "hiddenLg": false
+                }
+            },
+            "background": {
+                "id": "background-6cjnnlxzz",
+                "type": "background",
+                "label": "Hintergrund",
+                "items": {
+                    "color": "rgba(255, 255, 255, 0)",
+                    "image": {
+                        "color": "rgba(255, 255, 255, 0)",
+                        "enabled": false,
+                        "url": "",
+                        "position": "right center",
+                        "attachment": "fixed",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                    },
+                    "gradient": {
+                        "enabled": false,
+                        "color1": "#ffffff",
+                        "color2": "#000000",
+                        "gradientType": "radial",
+                        "angle": "90deg"
+                    }
+                },
+                "labelId": "StyleEdit.contentZone.background.label",
+                "value": null
+            },
+            "border": {
+                "id": "border-w2gyg4r8b",
+                "type": "border",
+                "label": "Rahmen",
+                "items": {
+                    "top": "0px",
+                    "right": "0px",
+                    "bottom": "0px",
+                    "left": "0px",
+                    "style": "none",
+                    "color": "red"
+                },
+                "labelId": "StyleEdit.contentZone.border.label"
+            },
+            "class": {
+                "id": "textbox-jl2ahnt72",
+                "type": "textbox",
+                "label": "Klasse",
+                "value": "textbox-9xpyn6dqd",
+                "from": "widget",
+                "labelId": "StyleEdit.contentZone.class.label"
+            },
+            "id": {
+                "id": "textbox-51zw1iyg5",
+                "type": "textbox",
+                "label": "ID",
+                "value": "textbox-mi37heo64",
+                "from": "widget"
+            },
+            "cols": [
+                {
+                    "widgets": [
+                        {
+                            "id": "code",
+                            "title": "HTML",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Code\/code.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach Code in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "version": "1.0.0",
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "sourcecode",
+                                            "translatable": true,
+                                            "value": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": "Footer column 1"
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": "Footer Spalte 1"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4321009,
+                                            "contentAlias": "Footer-column-1",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "codeyuysi0k74",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Class",
+                                            "attributes": {
+                                                "placeholder": "Class"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "code",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "",
+                                "label": "Class",
+                                "attributes": {
+                                    "placeholder": "Class"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-f8pkgp2it",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "attachment": "fixed"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "default": {
+                            "color": null,
+                            "image": {
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "attachment": "fixed"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        }
+                    },
+                    "border": {
+                        "id": "border-fut7n99rq",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "labelId": "StyleEdit.contentZone.border.label"
+                    },
+                    "responsive": {
+                        "id": "responsive-1eqcl6066",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-z680ra3wy",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "value": "",
+                        "from": "widget",
+                        "labelId": "StyleEdit.contentZone.class.label"
+                    },
+                    "id": {
+                        "id": "textbox-p8clrpwkk",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-rrhkvlqxt",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                },
+                {
+                    "widgets": [
+                        {
+                            "id": "code",
+                            "title": "HTML",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Code\/code.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach Code in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "version": "1.0.0",
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "sourcecode",
+                                            "translatable": true,
+                                            "value": {
+                                                "de": {
+                                                    "value": "<p>Diesen Text kannst du im Gambio Admin unter Content Manager -&gt; Elemente -&gt; Footer -&gt; Footer Spalte 2 bearbeiten.<\/p>",
+                                                    "title": "Footer Spalte 2"
+                                                },
+                                                "en": {
+                                                    "value": "<p>This text can be edited at Content Manager -&gt; Elements -&gt; Footer -&gt; Footer column 2 in the backend.<\/p>",
+                                                    "title": "Footer column 2"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4321005,
+                                            "contentAlias": "Footer-column-2",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "codewxr4ngyip",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Class",
+                                            "attributes": {
+                                                "placeholder": "Class"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "code",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "",
+                                "label": "Class",
+                                "attributes": {
+                                    "placeholder": "Class"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-sqty1dlxg",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "attachment": "fixed"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "default": {
+                            "color": null,
+                            "image": {
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "attachment": "fixed"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        }
+                    },
+                    "border": {
+                        "id": "border-qvq8enmp5",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "labelId": "StyleEdit.contentZone.border.label"
+                    },
+                    "responsive": {
+                        "id": "responsive-yrrmzrm6g",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-yll9p7rs4",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "value": "",
+                        "from": "widget",
+                        "labelId": "StyleEdit.contentZone.class.label"
+                    },
+                    "id": {
+                        "id": "textbox-r7ffrclcf",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-ujps7svj4",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                },
+                {
+                    "widgets": [
+                        {
+                            "id": "code",
+                            "title": "HTML",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Code\/code.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach Code in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "version": "1.0.0",
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "sourcecode",
+                                            "translatable": true,
+                                            "value": {
+                                                "de": {
+                                                    "value": "<p>Diesen Text kannst du im Gambio Admin unter Content Manager -&gt; Elemente -&gt; Footer -&gt; Footer Spalte 3 bearbeiten.<\/p>",
+                                                    "title": "Footer Spalte 3"
+                                                },
+                                                "en": {
+                                                    "value": "<p>This text can be edited at Content Manager -&gt; Elements -&gt; Footer -&gt; Footer column 3 in the backend.<\/p>",
+                                                    "title": "Footer column 3"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4321006,
+                                            "contentAlias": "Footer-column-3",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "code73fgie621",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Class",
+                                            "attributes": {
+                                                "placeholder": "Class"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "code",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "",
+                                "label": "Class",
+                                "attributes": {
+                                    "placeholder": "Class"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-e4m50jgrw",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "attachment": "fixed"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "default": {
+                            "color": null,
+                            "image": {
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "attachment": "fixed"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        }
+                    },
+                    "border": {
+                        "id": "border-w9mip6a5s",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "labelId": "StyleEdit.contentZone.border.label"
+                    },
+                    "responsive": {
+                        "id": "responsive-gvvkpgk8k",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-okx2gjcb4",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "value": "",
+                        "from": "widget",
+                        "labelId": "StyleEdit.contentZone.class.label"
+                    },
+                    "id": {
+                        "id": "textbox-2ansgffp1",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-mln75okoz",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                },
+                {
+                    "widgets": [
+                        {
+                            "id": "code",
+                            "title": "HTML",
+                            "icon": {
+                                "name": "Image",
+                                "file": "GXModules\/Gambio\/Widgets\/Code\/code.svg"
+                            },
+                            "author": {
+                                "name": "Gambio GmbH",
+                                "email": "info@gambio.de",
+                                "url": "https:\/\/www.gambio.de"
+                            },
+                            "helpUrl": "https:\/\/www.gambio.de\/help",
+                            "description": "Mit Hilfe dieses Widgets k\u00f6nnen Sie ganz einfach Code in Ihren Shop einf\u00fcgen.",
+                            "cache": 0,
+                            "version": "1.0.0",
+                            "displayConfig": "modal",
+                            "fieldsets": [
+                                {
+                                    "title": "Inhalt",
+                                    "options": [
+                                        {
+                                            "id": "text",
+                                            "default": {
+                                                "en": {
+                                                    "value": "",
+                                                    "title": ""
+                                                },
+                                                "de": {
+                                                    "value": "",
+                                                    "title": ""
+                                                }
+                                            },
+                                            "type": "sourcecode",
+                                            "translatable": true,
+                                            "value": {
+                                                "de": {
+                                                    "value": "<p>Diesen Text kannst du im Gambio Admin unter Content Manager -&gt; Elemente -&gt; Footer -&gt; Footer Spalte 4 bearbeiten.<\/p>",
+                                                    "title": "Footer Spalte 4"
+                                                },
+                                                "en": {
+                                                    "value": "<p>This text can be edited at Content Manager -&gt; Elements -&gt; Footer -&gt; Footer column 4 in the backend.<\/p>",
+                                                    "title": "Footer column 4"
+                                                }
+                                            },
+                                            "label": "Inhaltsname",
+                                            "attributes": {
+                                                "placeholder": "Inhaltsname"
+                                            },
+                                            "contentGroup": 4321007,
+                                            "contentAlias": "Footer-column-4",
+                                            "useEditorContent": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Allgemein",
+                                    "options": [
+                                        {
+                                            "id": "id",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "code7dsbmhaxz",
+                                            "label": "HTML ID",
+                                            "attributes": {
+                                                "placeholder": "HTML ID"
+                                            }
+                                        },
+                                        {
+                                            "id": "class",
+                                            "default": "",
+                                            "type": "textbox",
+                                            "value": "",
+                                            "label": "Class",
+                                            "attributes": {
+                                                "placeholder": "Class"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "code",
+                            "class": {
+                                "id": "class",
+                                "default": "",
+                                "type": "textbox",
+                                "value": "",
+                                "label": "Class",
+                                "attributes": {
+                                    "placeholder": "Class"
+                                }
+                            }
+                        }
+                    ],
+                    "background": {
+                        "id": "background-5v89fkoij",
+                        "type": "background",
+                        "label": "Hintergrund",
+                        "items": {
+                            "color": "rgba(255, 255, 255, 0)",
+                            "image": {
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "attachment": "fixed"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        },
+                        "default": {
+                            "color": null,
+                            "image": {
+                                "enabled": false,
+                                "url": "",
+                                "position": "right center",
+                                "repeat": "no-repeat",
+                                "size": "cover",
+                                "attachment": "fixed"
+                            },
+                            "gradient": {
+                                "enabled": false,
+                                "color1": "#ff0000",
+                                "color2": "#0000ff",
+                                "gradientType": "radial",
+                                "angle": "90deg"
+                            }
+                        }
+                    },
+                    "border": {
+                        "id": "border-xzsjs2h60",
+                        "type": "border",
+                        "label": "Rahmen",
+                        "items": {
+                            "top": "0px",
+                            "right": "0px",
+                            "bottom": "0px",
+                            "left": "0px",
+                            "style": "none",
+                            "color": "red"
+                        },
+                        "from": "widget",
+                        "labelId": "StyleEdit.contentZone.border.label"
+                    },
+                    "responsive": {
+                        "id": "responsive-bj7s4zv8t",
+                        "type": "responsive",
+                        "items": {
+                            "hiddenXs": false,
+                            "hiddenSm": false,
+                            "hiddenMd": false,
+                            "hiddenLg": false
+                        },
+                        "from": "widget"
+                    },
+                    "class": {
+                        "id": "class-00vag0n2j",
+                        "type": "textbox",
+                        "label": "Klasse",
+                        "value": "",
+                        "from": "widget",
+                        "labelId": "StyleEdit.contentZone.class.label"
+                    },
+                    "id": {
+                        "id": "textbox-na3iy23w8",
+                        "type": "textbox",
+                        "label": "ID",
+                        "value": "column-id-i99z2ih62",
+                        "from": "widget"
+                    },
+                    "type": "contentZoneColumn"
+                }
+            ],
+            "type": "contentZoneRow"
+        }
+    ],
+    "value": null,
+    "shopVersion": "4.3_develop"
+}

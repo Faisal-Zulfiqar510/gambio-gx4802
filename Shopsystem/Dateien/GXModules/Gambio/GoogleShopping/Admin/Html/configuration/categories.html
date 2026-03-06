@@ -1,0 +1,49 @@
+{load_language_text section="google_shopping"}
+
+{block name="admin_google_shopping_categories_form"}
+	<div class="google-export-categories"
+		  data-gxmodules-namespace="{$base_url}/GXModules/Gambio/GoogleShopping/Build/Admin/Javascript"
+		  data-gxmodules-controller="scheme_categories"
+		  data-scheme_categories-scheme-id="{$data.scheme.id}"
+		  data-gx-widget="checkbox">
+		{block name="admin_google_shopping_categories_form_options"}
+			<fieldset>
+				<div class="form-group">
+
+					{block name="admin_google_shopping_categories_export_options"}
+						<label class="col-md-8" for="export-new-categories">{$txt.export_all_new_categories}</label>
+	
+						<div class="col-md-4">
+							<input type="checkbox" id="export-new-categories" name="export_new_categories" {if $data.scheme.export_new_categories == '1'}checked{/if}/>
+						</div>
+					{/block}
+					
+					<div class="col-md-12 categories-selection">
+						{block name="admin_google_shopping_categories_list_options"}
+							<input type="checkbox" id="select-all-categories" class="select-all-categories" name="select_all_categories" data-single_checkbox />
+							<label for="select-all-categories">{$txt.select_all}</label>
+						{/block}
+						
+						{block name="admin_google_shopping_categories_form_list"}
+							<ul class="first subtree">
+								{foreach item=category from=$data.scheme.categories}
+									{block name="admin_google_shopping_categories_form_list_item"}
+										<li>
+											<span class="category-checkbox {$category.state}_checked"></span>
+											<span class="category-folder folded" data-category-id="{$category.categories_id}">
+												<i class="fa fa-folder fa-lg"></i> {$category.categories_name}
+											</span>
+											<input type="hidden" class="category-state" name="categories[{$category.categories_id}]" value="{$category.state}"/>
+											<input type="hidden" class="bequeathing-state" name="bequeathing_categories[{$category.categories_id}]" value="{$category.state}"/>
+											<ul class="subtree"></ul>
+										</li>
+									{/block}
+								{/foreach}
+							</ul>
+						{/block}
+					</div>
+				</div>
+			</fieldset>
+		{/block}
+	</div>
+{/block}

@@ -1,0 +1,206 @@
+{load_language_text section="combis" name="combis"}
+
+{block name="admin_properties_combis_main"}
+    {block name="admin_properties_combis_main_wrapper"}
+        <div id="box_properties_combis" class="product_{$content_data.combis_main.products_id}">
+            {block name="admin_properties_combis_main_area_top"}
+                <div id="area_top">
+                    <div class="box">
+                        <span id="combi_defaults"><a href="properties/combis_defaults.html?products_id={$content_data.combis_main.products_id}" title="{$combis.combis_defaults}" class="lightbox_open">{$combis.combis_defaults}</a></span>
+                        <span id="switch_view"><a href="#">{$combis.change_allocation}</a></span>
+                        <span id="settings"><a href="properties/combis_settings.html?products_id={$content_data.combis_main.products_id}" title="{$combis.settings}" class="lightbox_open">{$combis.settings}</a></span>
+	                    <div class="title_view_1">{$combis.properties_combis_create}</div><div class="title_view_2" style="display: none">{$combis.properties_combis}</div><br />{$combis.product}: <a href="{$content_data.combis_main.products_path}">{$content_data.combis_main.products_name|htmlspecialchars}</a><br />
+                    </div>
+                    <div style="clear: both;"> <!-- --> </div>
+                </div>
+            {/block}
+        
+            {block name="admin_properties_combis_main_area_content"}
+                <div id="area_content">
+                    {block name="admin_properties_combis_main_area_content_properties_view1"}
+                        <div class="properties_view1" style="display: none;">
+                            {block name="admin_properties_combis_main_area_content_properties_view1_heading"}
+                                <div class="properties_table_headline">{$combis.please_select_properties}</div>
+                            {/block}
+                            {block name="admin_properties_combis_main_area_content_properties_view1_list"}
+                                {foreach item=propertie from=$content_data.combis_main.properties}
+                                    {if !empty($propertie.properties_values)}
+                                        {block name="admin_properties_combis_main_area_content_properties_view1_item"}
+                                            <div class="properties_table_content{$propertie.class}">
+                                                {block name="admin_properties_combis_main_area_content_properties_view1_item_heading"}
+                                                    <div class="properties_container_headline">
+                                                        <a href="#" class="properties_button button_display_container"></a>
+                                                        {if $propertie.properties_names[$languages_id].properties_admin_name}
+                                                            <div class="properties_container_headline_text lang_{$language_code}">{$propertie.properties_names[$languages_id].properties_admin_name}</div>
+                                                        {else}
+                                                            <div class="properties_container_headline_text lang_{$language_code}">{$propertie.properties_names[$languages_id].properties_name}</div>
+                                                        {/if}
+                                                        <div class="properties_checkbox"><input type="checkbox" value="{$propertie.properties_id}" /></div>
+                                                        <div style="clear: both;"> <!-- --> </div>
+                                                    </div>
+                                                {/block}
+                                                {block name="admin_properties_combis_main_area_content_properties_view1_item_container"}
+                                                <div class="properties_container_content">
+                                                    {block name="admin_properties_combis_main_area_content_properties_view1_item_container_heading"}
+                                                        <p class="properties_container_content_headline">{$combis.values}:</p>
+                                                    {/block}
+                                                    {block name="admin_properties_combis_main_area_content_properties_view1_item_container_input"}
+                                                        <select name="" size="10" multiple>
+                                                            {foreach item=propertie_value from=$propertie.properties_values}
+                                                                <option value="{$propertie_value.properties_values_id}">{$propertie_value.values_names[$languages_id].values_name}</option>
+                                                            {/foreach}
+                                                        </select>
+                                                    {/block}
+                                                </div>
+                                                {/block}
+                                            </div>
+                                        {/block}
+                                    {/if}
+                                {/foreach}
+                            {/block}
+                            {block name="admin_properties_combis_main_area_content_properties_view1_buttons"}
+                                <div class="properties_buttons">
+                                    {block name="admin_properties_combis_main_area_content_properties_view1_buttons_add_manually"}
+                                        <a href="#" class="button startConfiguration" rel="manual" style="float: left;">{$combis.add_combis_manually}</a>
+                                    {/block}
+                                    {block name="admin_properties_combis_main_area_content_properties_view1_buttons_add_automatically"}
+                                        <a href="#" class="button startConfiguration" rel="automatic" style="float: right;">{$combis.add_combis_automatically}</a>
+                                    {/block}
+                                    <div style="clear: both;"> <!-- --> </div>
+                                </div>
+                            {/block}
+                        </div>
+                    {/block}
+                    
+                    {block name="admin_properties_combis_main_area_content_properties_view2"}
+                        <div class="properties_view2" style="display: none;">
+                            {block name="admin_properties_combis_main_area_content_properties_view2_combis"}
+                                <div style="margin: 0 0 10px 0;">
+                                    {block name="admin_properties_combis_main_area_content_properties_view2_combis_heading"}
+                                        <span>{$combis.page}: </span>
+                                    {/block}
+                                    {block name="admin_properties_combis_main_area_content_properties_view2_combis_sections"}
+                                        {section name=page_number start=1 loop=$content_data.combis_main.max_page_number+1}
+                                            {block name="admin_properties_combis_main_area_content_properties_view2_combis_section"}
+                                                {if $smarty.section.page_number.iteration == $content_data.combis_main.current_page}
+                                                    <span><strong>{$smarty.section.page_number.iteration}</strong></span>
+                                                {else}
+                                                    <a href="properties_combis.php?cPath={$content_data.combis_main.cPath}&products_id={$content_data.combis_main.products_id}&action=edit_category&page={$smarty.section.page_number.iteration}" style="color: #888;">{$smarty.section.page_number.iteration}</a>
+                                                {/if}
+                                                {if !$smarty.section.page_number.last}
+                                                    <span> - </span>
+                                                {/if}
+                                            {/block}
+                                        {/section}
+                                    {/block}
+                                </div>
+                            {/block}
+                            {block name="admin_properties_combis_main_area_content_properties_view2_combis_table"}
+                                <table cellpadding="2" cellspacing="0">
+                                    {block name="admin_properties_combis_main_area_content_properties_view2_combis_table_thead"}
+                                        <tr>
+                                            {block name="admin_properties_combis_main_area_content_properties_view2_combis_table_thead_ths"}
+                                                <th><span class="combination_mode"> <!-- --> </span><span style="float: left;"> {$combis.combination}</span></th>
+                                                <th class="properties_table_sortnr">#</th>
+                                                <th class="properties_table_artnr">{$combis.products_model_short}</th>
+                                                <th class="properties_table_ean">{$combis.ean}</th>
+                                                <th class="properties_table_quantity">{$combis.quantity}</th>
+                                                <th class="properties_table_weight">{$combis.weight}</th>
+                                                <th class="properties_table_price">{$combis.price}</th>
+                                                <th class="properties_table_price_type">{$combis.price_type_short}</th>
+                                                <th class="properties_table_vpe">{$combis.packing_unit}</th>
+                                                <th class="properties_table_shipping_time">{$combis.shipping_time}</th>
+                                                <th class="properties_table_button">&nbsp;</th>
+                                                <th class="properties_table_button">&nbsp;</th>
+                                                <th class="properties_table_button"><input type="checkbox" name="check_all" value="check_all" id="check_all" /></th>
+                                            {/block}
+                                        </tr>
+                                    {/block}
+                                    
+                                    {block name="admin_properties_combis_main_area_content_properties_view2_combis_table_tbody"}
+                                        {foreach item=combi from=$content_data.combis_main.combis}
+                                            {block name="admin_properties_combis_main_area_content_properties_view2_combis_table_row"}
+                                                <tr id="box_properties_combis_row_{$combi.products_properties_combis_id}" class="box_properties_combis_row" valign="top">
+                                                    {block name="admin_properties_combis_main_area_content_properties_view2_combis_table_row_tds"}
+                                                        <td class="properties_table_combination">
+                                                        {foreach item=combi_value from=$combi.combis_values name=combis_values}
+                                                            {if !$smarty.foreach.combis_values.first}
+                                                                <div class="combi_name_placeholder">/</div>
+                                                            {/if}
+                                                            <div class="combi_name_container">
+                                                                {if $combi_value.properties_admin_name}
+                                                                    <div class="combi_name_text">{$combi_value.properties_admin_name}:</div>
+                                                                {else}
+                                                                    <div class="combi_name_text">{$combi_value.properties_name}:</div>
+                                                                {/if}
+                                                                <div class="combi_name_value">{$combi_value.values_name}</div>
+                                                            </div>
+                                                        {/foreach}
+                                                        </td>
+                                                        <td class="properties_table_sortnr">{$combi.sort_order}&nbsp;</td>
+                                                        <td class="properties_table_artnr">{$combi.combi_model}&nbsp;</td>
+                                                        <td class="properties_table_ean">{$combi.combi_ean}&nbsp;</td>
+                                                        <td class="properties_table_quantity">{$combi.combi_quantity}&nbsp;{$content_data.combis_main.products_quantity_unit_name}</td>
+                                                        <td class="properties_table_weight">{$combi.combi_weight|string_format:"%.2f"} kg</td>
+                                                        <td class="properties_table_price">{$combi.combi_price_formatted}&nbsp;</td>
+                                                        <td class="properties_table_price_type">{if $combi.combi_price_type == 'calc'}+{else}={/if}</td>
+                                                        <td class="properties_table_vpe">{$combi.vpe_value|string_format:"%.2f"}&nbsp;{$content_data.combis_main.products_vpe[$combi.products_vpe_id].products_vpe_name}</td>
+                                                        <td class="properties_table_shipping_time">{$content_data.combis_main.shipping_status[$combi.combi_shipping_status_id].shipping_status_name|escape:'html'}&nbsp;</td>
+                                                        <td class="properties_table_button"><a href="properties/properties_combis_edit.html?products_id={$content_data.combis_main.products_id}&amp;products_properties_combis_id={$combi.products_properties_combis_id}" title="{$combis.edit_combination}" class="properties_button button_propertie_combi_edit button_edit_pencil lightbox_open"> <!-- --> </a></td>
+                                                        <td class="properties_table_button"><a href="properties/properties_combis_delete.html?products_id={$content_data.combis_main.products_id}&amp;products_properties_combis_id={$combi.products_properties_combis_id}" title="{$combis.delete_combination}" class="properties_button button_propertie_combi_delete button_cancel_red_cross lightbox_open"> <!-- --> </a></td>
+                                                        <td class="properties_table_button"><input type="checkbox" name="check_propertie[]" value="{$combi.products_properties_combis_id}" class="check_propertie" /></td>
+                                                    {/block}
+                                                </tr>
+                                            {/block}
+                                        {/foreach}
+                                    {/block}
+                                </table>
+                            {/block}
+                            {block name="admin_properties_combis_main_area_content_properties_view2_combis2"}
+                                <div style="margin: 10px 0 10px 0;">
+                                    {block name="admin_properties_combis_main_area_content_properties_view2_combis2_heading"}
+                                        <span>{$combis.page}: </span>
+                                    {/block}
+                                    {block name="admin_properties_combis_main_area_content_properties_view2_combis2_selections"}
+                                        {section name=page_number start=1 loop=$content_data.combis_main.max_page_number+1}
+                                            {block name="admin_properties_combis_main_area_content_properties_view2_combis2_selection"}
+                                                {if $smarty.section.page_number.iteration == $content_data.combis_main.current_page}
+                                                    <span><strong>{$smarty.section.page_number.iteration}</strong></span>
+                                                {else}
+                                                    <a href="properties_combis.php?cPath={$content_data.combis_main.cPath}&products_id={$content_data.combis_main.products_id}&action=edit_category&page={$smarty.section.page_number.iteration}" style="color: #888;">{$smarty.section.page_number.iteration}</a>
+                                                {/if}
+                                                {if !$smarty.section.page_number.last}
+                                                    <span> - </span>
+                                                {/if}
+                                            {/block}
+                                        {/section}
+                                    {/block}
+                                </div>
+                            {/block}
+                            {block name="admin_properties_combis_main_area_content_properties_view2_buttons"}
+                                <div class="properties_buttons">
+                                    {block name="admin_properties_combis_main_area_content_properties_view2_buttons_add_combination"}
+                                        <a href="properties/properties_combis_edit.html?products_id={$content_data.combis_main.products_id}&products_properties_combis_id=0" title="{$combis.add_combination}" class="lightbox_open button button_propertie_combi_add lightbox_plugin_open" style="float: left;">{$combis.add_combination}</a>
+                                    {/block}
+                                    {block name="admin_properties_combis_main_area_content_properties_view2_buttons_delete_selected_combinations"}
+                                        <a href="#" class="button delete_selected" title="{$combis.delete_selected_combinations}" style="float: right; display: none;">{$combis.delete_selected_combinations}</a>
+                                    {/block}
+                                    <div style="clear: both;"> <!-- --> </div>
+                                </div>
+                            {/block}
+                        </div>
+                    {/block}
+                </div>
+                {block name="admin_properties_combis_main_bottom_area"}
+                    <div id="area_bottom"></div>
+                {/block}
+            </div>
+        {/block}
+    {/block}
+    
+    {block name="admin_properties_combis_main_javascript"}
+        {literal}
+           <script type="text/javascript" src="html/assets/javascript/legacy/properties/combis_main.js"></script>
+        {/literal}
+    {/block}
+{/block}

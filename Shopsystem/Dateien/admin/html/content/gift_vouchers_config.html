@@ -1,0 +1,74 @@
+{extends file="./layouts/main/layout.html"}
+
+{block name="content"}
+{load_language_text section="gift_vouchers_config"}
+	<style>
+		.checkbox-switch-list-row label {
+			vertical-align: bottom;
+		}
+	</style>
+	<div class="breakpoint-small" id="tracking-codes-configuration">
+		<form action="{$content.action_save_configuration}" method="POST" class="form-configuration"
+			  id="trackingcodes-configuration-form">
+			<input type="hidden" name="pageToken" value="{$content.pageToken}">
+			<div class="form-horizontal">
+				<fieldset>
+					<legend>{$txt.technical_parameters}</legend>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.code_length}</label>
+						<div class="col-sm-7">
+							<input class="form-control" type="number" min="5" max="16" name="security_code_length" value="{$content.securityCodeLength}">
+						</div>
+						<div class="col-sm-1">
+							<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.code_length_tt}</span>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>{$txt.welcome_voucher_coupon}</legend>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.welcome_voucher_value}</label>
+						<div class="col-sm-7">
+							<input class="form-control" type="number" min="0.00" max="1000" step="0.01" name="new_signup_gift_voucher_amount" value="{$content.newSignupGiftVoucherAmount}">
+						</div>
+						<div class="col-sm-1">
+							<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.welcome_voucher_value_tt}</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.welcome_coupon_code}</label>
+						<div class="col-sm-7">
+							<input class="form-control" type="text" name="new_signup_discount_coupon" value="{$content.newSignupDiscountCoupon}">
+						</div>
+						<div class="col-sm-1">
+							<span data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.welcome_coupon_code_tt}</span>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>{$txt.heading_automatic_release_emails}</legend>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">{$txt.orders_statuses_for_release}</label>
+						<div class="col-sm-8" data-gx-widget="checkbox">
+							{foreach $content.orderStatuses as $orderStatus}
+								<div class="checkbox-switch-list-row row">
+									<div class="col-xs-2">
+										<input type="checkbox" name="release_status[]" value="{$orderStatus->getId()}"
+											   id="release_status_{$orderStatus->getId()}"
+                                               {if in_array($orderStatus->getId(), $content.releaseOrderStatuses)}checked{/if}>
+									</div>
+									<label class="col-xs-8" style="line-height: 29px;"
+										   for="release_status_{$orderStatus->getId()}">{$orderStatus->getName($content.languageCode)}</label>
+								</div>
+                            {/foreach}
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</form>
+	</div>
+{/block}
+{block name="bottom_save_bar"}
+	<button type="submit" class="btn btn-primary"
+			form="trackingcodes-configuration-form">{$txt.save_configuration}</button>
+{/block}

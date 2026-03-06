@@ -1,0 +1,48 @@
+{extends file="get_usermod:layouts/main/partial/tooltip.html"}
+
+{block name="content"}
+	{load_language_text section="orders" name="orders"}
+	
+	{block name="admin_invoices_tooltips_status_history"}
+		<div class="order-status-history">
+			{block name="admin_invoices_tooltips_status_history_table"}
+				<table>
+					{block name="admin_invoices_tooltips_status_history_table_thead"}
+						<thead>
+							<tr>
+								{block name="admin_invoices_tooltips_status_history_table_thead_ths"}
+									<th>{$orders.TEXT_DATE}</th>
+									<th>{$orders.TABLE_HEADING_CUSTOMER_NOTIFIED}</th>
+									<th>{$orders.TABLE_HEADING_STATUS}</th>
+									<th>{$orders.TABLE_HEADING_COMMENTS}</th>
+								{/block}
+							</tr>
+						</thead>
+					{/block}
+					{block name="admin_invoices_tooltips_status_history_table_tbody"}
+						<tbody>
+							{foreach $status_history as $entry}
+								{block name="admin_invoices_tooltips_status_history_table_row"}
+									<tr>
+										{block name="admin_invoices_tooltips_status_history_table_row_tds"}
+											<td>{$entry.date_added}</td>
+						
+											{if $entry.is_customer_notified}
+												<td class="center"><i class="fa fa-check fa-lg"></i></td>
+											{else}
+												<td class="center"><i class="fa fa-times fa-lg"></i></td>
+											{/if}
+						
+											<td>{$entry.status_name}</td>
+											<td>{$entry.comment|truncate:30:"..."}</td>
+										{/block}
+									</tr>
+								{/block}
+							{/foreach}
+						</tbody>
+					{/block}
+				</table>
+			{/block}
+		</div>
+	{/block}
+{/block}

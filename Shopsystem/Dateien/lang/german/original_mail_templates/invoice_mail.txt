@@ -1,0 +1,9 @@
+{if $CUSTOMER_GENDER == 'f'}Sehr geehrte Frau{elseif $CUSTOMER_GENDER == 'm'}Sehr geehrter Herr{else}Guten Tag{/if} {$CUSTOMER},
+
+{if $INVOICE_NUMBERS && $INVOICE_NUMBERS|@count > 0}Sie erhalten mit dieser E-Mail die folgenden Rechnungen zu Ihrer Bestellung Nr. {$ORDER_ID} vom {$DATE}:
+
+{foreach from=$INVOICE_NUMBERS item=invoice_number}{$invoice_number.number} vom {$invoice_number.date}
+{/foreach}
+{else}Sie erhalten mit dieser E-Mail Ihre Rechnung Nr. {$INVOICE_ID} zu Ihrer Bestellung Nr. {$ORDER_ID} vom {$DATE}.{/if}
+
+{$EMAIL_SIGNATURE}

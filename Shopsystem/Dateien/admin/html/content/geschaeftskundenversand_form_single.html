@@ -1,0 +1,1266 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="module_center_module"}
+    {load_language_text section="countries" name="txt_countries"}
+
+    {block name="admin_geschaeftskundenversand_form_single"}
+		<div class="gx-container gkv-label-prepare" data-gx-widget="checkbox">
+            {if $content.shipments}
+                {block name="admin_geschaeftskundenversand_form_single_shipments"}
+					<table class="gkv-shipments">
+                        {block name="admin_geschaeftskundenversand_form_single_shipments_thead"}
+							<thead>
+							<tr>
+								<th>{$txt.gkv_shipmentnumber}</th>
+								<th>{$txt.gkv_labels}</th>
+								<th>{$txt.gkv_delete}</th>
+							</tr>
+							</thead>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_shipments_tbody"}
+							<tbody>
+                            {foreach from=$content.shipments item=shipment}
+                                {block name="admin_geschaeftskundenversand_form_single_shipments_row"}
+									<tr>
+                                        {block name="admin_geschaeftskundenversand_form_single_shipments_row_number"}
+											<td>
+                                                {$shipment['shipmentnumber']}
+												({$shipment['last_modified']})
+											</td>
+                                        {/block}
+                                        {block name="admin_geschaeftskundenversand_form_single_shipments_row_links"}
+											<td>
+                                                {if $shipment['labelurl']}<a class="btn" target="{$content.label_target}"
+																			 href="{$shipment['labelurl']}">{$txt.gkv_shippinglabel}</a>{/if}
+                                                {if $shipment['returnlabelurl']}
+													<br>
+													<a class="btn"target="{$content.label_target}"
+													   href="{$shipment['returnlabelurl']}">{$txt.gkv_returnlabel}</a>{/if}
+                                                {if $shipment['exportlabelurl']}
+													<br>
+													<a class="btn"target="{$content.label_target}"
+													   href="{$shipment['exportlabelurl']}">{$txt.gkv_exportlabel}</a>{/if}
+                                                {if $shipment['codlabelurl']}
+													<br>
+													<a class="btn" target="{$content.label_target}"
+													   href="{$shipment['codlabelurl']}">{$txt.gkv_codlabel}</a>{/if}
+											</td>
+                                        {/block}
+                                        {block name="admin_geschaeftskundenversand_form_single_shipments_row_delete"}
+											<td>
+												<form action="{$content.action_delete_label}" method="POST">
+													<input type="hidden" name="pageToken" value="{$pageToken}">
+													<input type="hidden" name="orders_id" value="{$content.orders_id}">
+													<input type="hidden" name="shipmentnumber"
+														   value="{$shipment['shipmentnumber']}">
+													<button class="btn">{$txt.gkv_delete}</button>
+												</form>
+											</td>
+                                        {/block}
+									</tr>
+                                {/block}
+                            {/foreach}
+							</tbody>
+                        {/block}
+					</table>
+                {/block}
+            {/if}
+            {block name="admin_geschaeftskundenversand_form_single_form"}
+				<form action="{$content.action_create_label}" method="POST" novalidate>
+					<input type="hidden" name="pageToken" value="{$pageToken}">
+					<input type="hidden" name="orders_id" value="{$content.orders_id}">
+					<input type="hidden" name="extd_view" value="{$content.extd_view}" id="extd_view">
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_extend_button"}
+						<div class="grid">
+							<div class="span12 text-right">
+                                {if $content.isAdultContent}<span class="gkv-fsk18">{$txt.gkv_note_adultcontent}</span>{/if}
+								<a class="btn" href="" id="toggle-extd-view">{$txt.gkv_config_extd_view}</a>
+								<a class="btn" href="{$content.order_url}">{$txt.gkv_back_to_order}</a>
+								<a class="btn" href="{$content.returns_url}">{$txt.gkv_returns_button}</a>
+							</div>
+						</div>
+                    {/block}
+
+                    {* == SHIPPER ============================================================================================ *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_shipper"}
+						<div class="extd-view">
+						{if $content.configuration['shipperreference']}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipperreference"}
+								<div class="grid small-margin">
+									<div class="span3"><span class="blocklabel">{$txt.gkv_config_shipper}</span></div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipperreference}</div>
+									<div class="span7">
+										<input type="text" name="shipperreference" value="{$content.configuration['shipperreference']}" readonly>
+									</div>
+								</div>
+                            {/block}
+						{else}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_config"}
+								<div class="grid small-margin customize-shipper-button">
+                                    {block name="admin_geschaeftskundenversand_form_single_form_shipper_config_label"}
+										<div class="span3"><span class="blocklabel">{$txt.gkv_config_shipper}</span>
+										</div>
+                                    {/block}
+                                    {block name="admin_geschaeftskundenversand_form_single_form_shipper_config_button"}
+										<div class="span9">
+											<button class="btn"
+													id="customize_shipper">{$txt.gkv_customize_shipper}</button>
+										</div>
+                                    {/block}
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_name"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3"><span class="blocklabel">{$txt.gkv_config_shipper}</span></div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_name1}</div>
+									<div class="span7">
+										<input type="text" name="shipper/name1" value="{$content.shipper_name1}" maxlength="35">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_name2"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_name2}</div>
+									<div class="span7">
+										<input type="text" name="shipper/name2" value="{$content.shipper_name2}" maxlength="35">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_name3"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_name3}</div>
+									<div class="span7">
+										<input type="text" name="shipper/name3" value="{$content.shipper_name3}" maxlength="35">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_streetname"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_streetname}</div>
+									<div class="span7">
+										<input type="text" name="shipper/streetname" value="{$content.shipper_streetname}" maxlength="50">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_streetnumber"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_streetnumber}</div>
+									<div class="span7">
+										<input type="text" name="shipper/streetnumber" value="{$content.shipper_streetnumber}" maxlength="10">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_addressaddition"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_addressaddition}</div>
+									<div class="span7">
+										<input type="text" name="shipper/addressaddition" value="{$content.shipper_addressaddition}" maxlength="35">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_zip"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_zip}</div>
+									<div class="span7">
+										<input type="text" name="shipper/zip" value="{$content.shipper_zip}" maxlength="17">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_city"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_city}</div>
+									<div class="span7">
+										<input type="text" name="shipper/city" value="{$content.shipper_city}" maxlength="50">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_country"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_origincountry}</div>
+									<div class="span7">
+										<select name="shipper/origincountry" class="country shipper_country">
+                                            {foreach from=$content.countries item=country}
+												<option value="{$country.countries_iso_code_2}" {if $content.shipper_origincountry == $country.countries_iso_code_2}selected="selected"{/if}>
+                                                    {$txt_countries[$country.countries_iso_code_2]}
+												</option>
+                                            {/foreach}
+										</select>
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_email"}
+								<div class="grid small-margin customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_email}</div>
+									<div class="span7">
+										<input type="text" name="shipper/email" value="{$content.shipper_email}" maxlength="50">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_shipper_phone"}
+								<div class="grid customize-shipper">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_shipper_phone}</div>
+									<div class="span7">
+										<input type="text" name="shipper/phone" value="{$content.shipper_phone}" maxlength="20">
+									</div>
+								</div>
+                            {/block}
+						{/if}{* if shipperreference *}
+						</div>
+                    {/block}
+
+                    {* == RETURNRECEIVER ===================================================================================== *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver"}
+						<div class="extd-view">
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_config"}
+								<div class="grid small-margin customize-returnreceiver-button">
+									<div class="span3"><span class="blocklabel">{$txt.gkv_config_returnreceiver}</span>
+									</div>
+									<div class="span9">
+										<button class="btn"
+												id="customize_returnreceiver">{$txt.gkv_customize_returnreceiver}</button>
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_name"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3"><span class="blocklabel">{$txt.gkv_config_returnreceiver}</span>
+									</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_name1}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/name1" value="{$content.returnreceiver_name1}" maxlength="35">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_name2"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_name2}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/name2" value="{$content.returnreceiver_name2}" maxlength="35">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_name3"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_name3}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/name3" value="{$content.returnreceiver_name3}" maxlength="35">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_streetname"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_streetname}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/streetname" value="{$content.returnreceiver_streetname}" maxlength="50">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_streetnumber"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_streetnumber}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/streetnumber" value="{$content.returnreceiver_streetnumber}" maxlength="10">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_addressaddition"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_addressaddition}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/addressaddition" value="{$content.returnreceiver_addressaddition}" maxlength="35">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_zip"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_zip}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/zip" value="{$content.returnreceiver_zip}" maxlength="17">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_city"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_city}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/city" value="{$content.returnreceiver_city}" maxlength="50">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_country"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_origincountry}</div>
+									<div class="span7">
+										<select name="returnreceiver/origincountry"
+												class="country returnreceiver_country">
+                                            {foreach from=$content.countries item=country}
+											<option value="{$country.countries_iso_code_2}" {if $content.returnreceiver_origincountry == $country.countries_iso_code_2}selected="selected"{/if}>
+                                                    {$txt_countries[$country.countries_iso_code_2]}
+												</option>
+                                            {/foreach}
+										</select>
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_email"}
+								<div class="grid small-margin customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_email}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/email" value="{$content.returnreceiver_email}" maxlength="50">
+									</div>
+								</div>
+                            {/block}
+                            {block name="admin_geschaeftskundenversand_form_single_form_returnreceiver_phone"}
+								<div class="grid customize-returnreceiver">
+									<div class="span3">&nbsp;</div>
+									<div class="span2 linelabel">{$txt.gkv_config_returnreceiver_phone}</div>
+									<div class="span7">
+									<input type="text" name="returnreceiver/phone" value="{$content.returnreceiver_phone}" maxlength="20">
+									</div>
+								</div>
+                            {/block}
+						</div>
+                    {/block}
+
+                    {* == RECEIVER =========================================================================================== *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_receiver"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_receiver_name1"}
+							<div class="grid small-margin">
+								<div class="span3"><span class="blocklabel">Empfänger</span></div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_name1}</div>
+								<div class="span7">
+								<input type="text" name="receiver/name1" value="{$content.receiver_name1}" maxlength="50">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_receiver_type"}
+							<div class="grid">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_receiver_type}</div>
+								<div class="span7">
+									<select name="receiver_type" id="receiver_type">
+										<option value="address"
+                                                {if $content.receiver_type == 'packstation'}selected{/if}>
+											{$txt.gkv_receiver_type_address}
+										</option>
+										<option value="packstation"
+                                                {if $content.receiver_type == 'packstation'}selected{/if}>
+											{$txt.gkv_receiver_type_packstation}
+										</option>
+										<option value="postfiliale"
+                                                {if $content.receiver_type == 'postfiliale'}selected{/if}>
+											{$txt.gkv_receiver_type_postfiliale}
+										</option>
+										<option value="parcelshop"
+                                                {if $content.receiver_type == 'parcelshop'}selected{/if}>
+											{$txt.gkv_receiver_type_parcelshop}
+										</option>
+									</select>
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+                    {* -- Address -------------------------------------------------------------------------------------------- *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_address"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_address_name2"}
+							<div class="grid receiver_data receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_name2}</div>
+								<div class="span7">
+								<input type="text" name="receiver_address/name2" value="{$content.receiver_address_name2}" maxlength="35">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_address_name3"}
+							<div class="grid receiver_data receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_name3}</div>
+								<div class="span7">
+								<input type="text" name="receiver_address/name3" value="{$content.receiver_address_name3}" maxlength="35">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_address_streetname"}
+							<div class="grid receiver_data receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_streetname}</div>
+								<div class="span7">
+								<input type="text" name="receiver_address/streetname" value="{$content.receiver_address_streetname}" maxlength="50">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_address_streetnumber"}
+							<div class="grid receiver_data receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_streetnumber}</div>
+								<div class="span7">
+								<input type="text" name="receiver_address/streetnumber" value="{$content.receiver_address_streetnumber}" maxlength="10">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_address_addressaddition"}
+							<div class="grid receiver_data receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_addressaddition}</div>
+								<div class="span6">
+								<input type="text" name="receiver_address/addressaddition"  value="{$content.receiver_address_addressaddition}" maxlength="35">
+								</div>
+								<div class="span1">
+									<span data-gx-widget="tooltip_icon"
+										  data-tooltip_icon-type="info">{$txt.gkv_addressaddition_note}</span>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_address_zip"}
+							<div class="grid receiver_data receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_zip}</div>
+								<div class="span7">
+								<input type="text" name="receiver_address/zip" value="{$content.receiver_address_zip}" maxlength="17">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_address_city"}
+							<div class="grid receiver_data receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_city}</div>
+								<div class="span7">
+								<input type="text" name="receiver_address/city" value="{$content.receiver_address_city}" maxlength="50">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_address_country"}
+							<div class="grid receiver_data receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_origincountry}</div>
+								<div class="span7">
+									<select name="receiver_address/origincountry" class="country receiver_country">
+                                        {foreach from=$content.countries item=country}
+											<option value="{$country.countries_iso_code_2}"
+                                                    {if $content.receiver_address_origincountry == $country.countries_iso_code_2}selected="selected"{/if}>
+                                                {$txt_countries[$country.countries_iso_code_2]}
+											</option>
+                                        {/foreach}
+									</select>
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+                    {* -- Packstation ---------------------------------------------------------------------------------------- *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_packstation"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_packstation_postnumber"}
+							<div class="grid receiver_data receiver_packstation small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_postnumber}</div>
+								<div class="span7">
+								<input type="text" name="receiver_packstation/postnumber" value="{$content.receiver_packstation_postnumber}" maxlength="10">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_packstation_packstationnumber"}
+							<div class="grid receiver_data receiver_packstation small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_packstationnumber}</div>
+								<div class="span7">
+								<input type="text" name="receiver_packstation/packstationnumber" value="{$content.receiver_packstation_packstationnumber}" maxlength="3">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_packstation_zip"}
+							<div class="grid receiver_data receiver_packstation small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_zip}</div>
+								<div class="span7">
+								<input type="text" name="receiver_packstation/zip"           value="{$content.receiver_packstation_zip}" maxlength="10">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_packstation_city"}
+							<div class="grid receiver_data receiver_packstation small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_city}</div>
+								<div class="span7">
+								<input type="text" name="receiver_packstation/city"          value="{$content.receiver_packstation_city}" maxlength="35">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_packstation_country"}
+							<div class="grid receiver_data receiver_packstation small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_origincountry}</div>
+								<div class="span7">
+									<select name="receiver_packstation/origincountry" class="country receiver_country">
+                                        {foreach from=$content.countries item=country}
+											<option value="{$country.countries_iso_code_2}"
+                                                    {if $content.receiver_packstation_origincountry == $country.countries_iso_code_2}selected="selected"{/if}>
+                                                {$txt_countries[$country.countries_iso_code_2]}
+											</option>
+                                        {/foreach}
+									</select>
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+                    {* -- Postfiliale ---------------------------------------------------------------------------------------- *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_postfiliale"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_postfiliale_postnumber"}
+							<div class="grid receiver_data receiver_postfiliale small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_postnumber}</div>
+								<div class="span7">
+								<input type="text" name="receiver_postfiliale/postnumber" value="{$content.receiver_postfiliale_postnumber}" maxlength="10">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_postfiliale_postfilialnumber"}
+							<div class="grid receiver_data receiver_postfiliale small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_postfilialnumber}</div>
+								<div class="span7">
+								<input type="text" name="receiver_postfiliale/postfilialnumber" value="{$content.receiver_postfiliale_postfilialnumber}" maxlength="3">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_postfiliale_zip"}
+							<div class="grid receiver_data receiver_postfiliale small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_zip}</div>
+								<div class="span7">
+								<input type="text" name="receiver_postfiliale/zip"           value="{$content.receiver_postfiliale_zip}" maxlength="10">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_postfiliale_city"}
+							<div class="grid receiver_data receiver_postfiliale small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_city}</div>
+								<div class="span7">
+								<input type="text" name="receiver_postfiliale/city"          value="{$content.receiver_postfiliale_city}" maxlength="35">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_postfiliale_country"}
+							<div class="grid receiver_data receiver_postfiliale small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_origincountry}</div>
+								<div class="span7">
+									<select name="receiver_postfiliale/origincountry" class="country receiver_country">
+                                        {foreach from=$content.countries item=country}
+										<option value="{$country.countries_iso_code_2}" {if $content.receiver_postfiliale_origincountry == $country.countries_iso_code_2}selected="selected"{/if}>
+                                                {$txt_countries[$country.countries_iso_code_2]}
+											</option>
+                                        {/foreach}
+									</select>
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+                    {* -- Parcelshop ---------------------------------------------------------------------------------------- *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_parcelshop"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_parcelshop_parcelshopnumber"}
+							<div class="grid receiver_data receiver_parcelshop small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_parcelshopnumber}</div>
+								<div class="span7">
+								<input type="text" name="receiver_parcelshop/parcelshopnumber" value="{$content.receiver_parcelshop_parcelshopnumber}" maxlength="3">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_parcelshop_streetname"}
+							<div class="grid receiver_data receiver_parcelshop small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_streetname}</div>
+								<div class="span7">
+								<input type="text" name="receiver_parcelshop/streetname"    value="{$content.receiver_parcelshop_streetname}" maxlength="35">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_parcelshop_streetnumber"}
+							<div class="grid receiver_data receiver_parcelshop small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_streetnumber}</div>
+								<div class="span7">
+								<input type="text" name="receiver_parcelshop/streetnumber"  value="{$content.receiver_parcelshop_streetnumber}" maxlength="5">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_parcelshop_zip"}
+							<div class="grid receiver_data receiver_parcelshop small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_zip}</div>
+								<div class="span7">
+								<input type="text" name="receiver_parcelshop/zip"           value="{$content.receiver_parcelshop_zip}" maxlength="10">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_parcelshop_city"}
+							<div class="grid receiver_data receiver_parcelshop small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_city}</div>
+								<div class="span7">
+								<input type="text" name="receiver_parcelshop/city"          value="{$content.receiver_parcelshop_city}" maxlength="35">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_parcelshop_country"}
+							<div class="grid receiver_data receiver_parcelshop small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_origincountry}</div>
+								<div class="span7">
+									<select name="receiver_parcelshop/origincountry" class="country receiver_country">
+                                        {foreach from=$content.countries item=country}
+										<option value="{$country.countries_iso_code_2}" {if $content.receiver_parcelshop_origincountry == $country.countries_iso_code_2}selected="selected"{/if}>
+                                                {$txt_countries[$country.countries_iso_code_2]}
+											</option>
+                                        {/foreach}
+									</select>
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+                    {* -- Communication -------------------------------------------------------------------------------------- *}
+                    {block name="admin_geschaeftskundenversand_form_single_form_communication"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_communication_email"}
+							<div class="grid receiver_address small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_email}</div>
+								<div class="span7">
+									<input type="text" name="receiver/email" value="{$content.receiver_email}"
+										   maxlength="50">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_communication_phone"}
+							<div class="grid receiver_address">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_config_shipper_phone}</div>
+								<div class="span7">
+									<input type="text" name="receiver/phone" value="{$content.receiver_phone}"
+										   maxlength="20">
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+                    {* ======================================================================================================= *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_order"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_order_products"}
+							<div class="grid">
+								<div class="span3">
+									<label for="gkv_product_index">Produkt</label>
+								</div>
+								<div class="span9">
+									<select name="product_index" id="gkv_product_index">
+                                        {foreach from=$content.products item=product key=product_index}
+											<option
+													value="{$product_index}"
+                                                    {if $content.products_default == $product_index}selected="selected"{/if}
+													data-dhl_product="{$product->getType()}"
+													data-dhl_targetarea="{$product->getTargetArea()}">
+                                                {$product->getAlias()} ({$content.product_names[$product->getType()]}
+												/{$product->getAttendance()})
+                                                {if $product->isDeprecated()} -- {$txt.gkv_product_deprecated}{/if}
+											</option>
+                                        {/foreach}
+									</select>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_order_shipping_weight"}
+							<div class="grid">
+								<div class="span3"><label for="gkv_weight">{$txt.gkv_shipping_weight}</label></div>
+								<div class="span9">
+									<input type="number" name="shipping_weight" id="gkv_weight"
+										   value="{$content.shipping_weight}" min="0.100" max="31.5" step="0.001">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_order_shipment_date"}
+							<div class="grid extd-view">
+								<div class="span3"><label for="gkv_shipment_date">{$txt.gkv_shipment_date}</label></div>
+								<div class="span9">
+									<input
+											type="date"
+											name="shipment_date"
+											id="gkv_shipment_date"
+											value="{$content.shipment_date}"
+											min="{$content.shipment_date}"
+											placeholder="YYYY-MM-DD"
+											data-gx-widget="datetimepicker"
+											data-datetimepicker-lang="de"
+											data-datetimepicker-format="Y-m-d"
+											data-datetimepicker-day-of-week-start="1"
+											data-datetimepicker-min-date="{$content.shipment_date}"
+											data-datetimepicker-timepicker="false"
+									>
+								</div>
+							</div>
+                        {/block}
+
+                        {block name="admin_geschaeftskundenversand_form_single_form_order_customer_reference"}
+							<div class="grid extd-view">
+								<div class="span3"><label
+											for="gkv_customer_reference">{$txt.gkv_customer_reference}</label>
+								</div>
+								<div class="span9">
+									<input type="text" name="customer_reference" id="gkv_customer_reference"
+										   value="{$content.customer_reference}" maxlength="35">
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+                    {* == EXPORT ============================================================================================= *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_export"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_type"}
+							<div class="grid exportdoc">
+								<div class="span3"><label>{$txt.gkv_export_data}</label></div>
+								<div class="span2 linelabel">{$txt.gkv_export_type}</div>
+								<div class="span7">
+									<select name="exportdoc/exporttype">
+										<!-- <option value="NONE"             >{$txt.gkv_exporttype_none}             </option> -->
+										<option value="EU"
+											{if $content.exportdoc_exporttype == 'EU'}selected{/if}>{$txt.gkv_exporttype_eu}
+										</option>
+										<option value="COMMERCIAL_GOODS"
+											{if $content.exportdoc_exporttype == 'COMMERCIAL_GOODS'}selected{/if}>{$txt.gkv_exporttype_commercial_goods}
+										</option>
+										<option value="OTHER"
+											{if $content.exportdoc_exporttype == 'OTHER'}selected{/if}>{$txt.gkv_exporttype_other}
+										</option>
+										<option value="PRESENT"
+											{if $content.exportdoc_exporttype == 'PRESENT'}selected{/if}>{$txt.gkv_exporttype_present}
+										</option>
+										<option value="COMMERCIAL_SAMPLE"
+											{if $content.exportdoc_exporttype == 'COMMERCIAL_SAMPLE'}selected{/if}>{$txt.gkv_exporttype_commercial_sample}
+										</option>
+										<option value="DOCUMENT"
+											{if $content.exportdoc_exporttype == 'DOCUMENT'}selected{/if}>{$txt.gkv_exporttype_document}
+										</option>
+										<option value="RETURN_OF_GOODS"
+										   {if $content.exportdoc_exporttype == 'RETURN_OF_GOODS'}selected{/if}>{$txt.gkv_exporttype_return_of_goods}
+										</option>
+									</select>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_description"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_export_type_description}</div>
+								<div class="span7">
+								<input type="text" name="exportdoc/exporttypedescription" maxlength="256" value="{$content.exportdoc_exporttypedescription}">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_invoicenumber"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_export_invoicenumber}</div>
+								<div class="span7">
+								<input type="text" name="exportdoc/invoicenumber" maxlength="35" value="{$content.exportdoc_invoicenumber}">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_termsoftrade"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_export_termsoftrade}</div>
+								<div class="span7">
+									<select name="exportdoc/termsoftrade">
+									<option value=""    {if $content.exportdoc_termsoftrade == ''}selected{/if}>-</option>
+									<option value="DDP" {if $content.exportdoc_termsoftrade == 'DDP'}selected{/if}>{$txt.gkv_export_termsoftrade_ddp}</option>
+									<option value="DXV" {if $content.exportdoc_termsoftrade == 'DXV'}selected{/if}>{$txt.gkv_export_termsoftrade_dxv}</option>
+									<option value="DDU" {if $content.exportdoc_termsoftrade == 'DDU'}selected{/if}>{$txt.gkv_export_termsoftrade_ddu}</option>
+									<option value="DDX" {if $content.exportdoc_termsoftrade == 'DDX'}selected{/if}>{$txt.gkv_export_termsoftrade_ddx}</option>
+									</select>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_placeofcommital"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_export_placeofcommital}</div>
+								<div class="span7">
+								<input type="text" name="exportdoc/placeofcommital" maxlength="35" value="{$content.exportdoc_placeofcommittal}">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_additionalfee"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_export_additionalfee}</div>
+								<div class="span7">
+								<input type="text" name="exportdoc/additionalfee" maxlength="10" value="{$content.exportdoc_additionalfee}">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_permitnumber"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_export_permitnumber}</div>
+								<div class="span7">
+								<input type="text" name="exportdoc/permitnumber" maxlength="10" value="{$content.exportdoc_permitnumber}">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_attestation_number"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_export_attestationnumber}</div>
+								<div class="span7">
+								<input type="text" name="exportdoc/attestationnumber" maxlength="35" value="{$content.exportdoc_attestationnumber}">
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_with_electronic_export_ntfctn"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">&nbsp;</div>
+                                <div class="span7">
+                                    <input type="hidden" name="exportdoc/withelectronicexportntfctn" value="0">
+                                    <input type="checkbox" id="gkv_withelectronicexportntfctn"
+                                           name="exportdoc/withelectronicexportntfctn" value="1" data-single_checkbox
+                                           {if $content.exportdoc_withelectronicexportntfctn}checked{/if}>
+                                    <label
+                                        for="gkv_withelectronicexportntfctn">{$txt.gkv_export_withelectronicexportntfctn}</label>
+                                </div>
+                            </div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_pddp"}
+                            <div class="grid exportdoc small-margin">
+                                <div class="span3">&nbsp;</div>
+                                <div class="span2 linelabel">&nbsp;</div>
+                                <div class="span7">
+                                    <input type="hidden" name="pddp" value="0">
+                                    <input type="checkbox" name="pddp" id="gkv_pddp" value="1" data-single_checkbox
+                                           {if $content.pddp}checked{/if}>
+                                    <label for="gkv_pddp">{$txt.gkv_pddp}</label>
+                                </div>
+                            </div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_add_postions"}
+							<div class="grid exportdoc small-margin">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_export_positions}</div>
+								<div class="span6">
+									<button id="add_export_position">{$txt.gkv_add_export_position}</button>
+								</div>
+								<div class="span1">
+									<span data-gx-widget="tooltip_icon"
+										  data-tooltip_icon-type="info">{$txt.gkv_exportposition_note}</span>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_export_positions"}
+							<div class="grid exportdoc">
+								<div class="span3">&nbsp;</div>
+								<div class="span9">
+                                    {block name="admin_geschaeftskundenversand_form_single_form_export_positions_table"}
+										<table class="exportpositions">
+                                            {block name="admin_geschaeftskundenversand_form_single_form_export_positions_table_thead"}
+												<thead>
+												<tr>
+													<th>{$txt.gkv_export_description}</th>
+													<th>{$txt.gkv_export_countrycodeorigin}</th>
+													<th>{$txt.gkv_export_customstariffnumber}</th>
+													<th>{$txt.gkv_export_amount}</th>
+													<th>{$txt.gkv_export_netweightkg}</th>
+													<th>{$txt.gkv_export_customsvalue}</th>
+													<th>&nbsp;</th>
+												</tr>
+												</thead>
+                                            {/block}
+                                            {block name="admin_geschaeftskundenversand_form_single_form_export_positions_table_tbody"}
+												<tbody>
+                                                {block name="admin_geschaeftskundenversand_form_single_form_export_positions_table_tbody_template_now"}
+													<tr class="template_row">
+														<td><input name="exportpos_x_description" type="text" maxlength="256" value="" disabled></td>
+														<td>
+															<select name="exportpos_x_countrycodeorigin" disabled>
+                                                                {foreach from=$content.countries item=country}
+																	<option value="{$country.countries_iso_code_2}"
+                                                                            {if $content.configuration['shipper/origincountry'] == $country.countries_iso_code_2}selected="selected"{/if}>
+                                                                        {$country.countries_iso_code_2}
+																	</option>
+                                                                {/foreach}
+															</select>
+														</td>
+														<td><input name="exportpos_x_customstariffnumber"  type="text" maxlength="10" disabled></td>
+														<td><input name="exportpos_x_amount"               type="number" min="0" max="1000"  step="0.001" value="1" disabled></td>
+														<td><input name="exportpos_x_netweightkg"          type="number" min="0" max="1000"  step="0.001" value="0.000" disabled></td>
+														<td><input name="exportpos_x_customsvalue"         type="number" min="0" max="10000" step="0.01" value="0.00" disabled></td>
+														<td><button class="remove_row"><i class="fa fa-trash" aria-hidden="true" style="font-size: 1.2em;"></i></button></td>
+													</tr>
+                                                {/block}
+                                                {foreach from=$content.export_positions item=position key=posindex}
+                                                    {block name="admin_geschaeftskundenversand_form_single_form_export_positions_table_tbody_row"}
+														<tr class="exportpos">
+															<td><input name="exportpos_{$posindex}_description" type="text" maxlength="256" value="{$position.name}"></td>
+															<td>
+																<select name="exportpos_{$posindex}_countrycodeorigin">
+                                                                    {foreach from=$content.countries item=country}
+																		<option value="{$country.countries_iso_code_2}"
+                                                                                {if $position.countrycodeorigin == $country.countries_iso_code_2}selected="selected"{/if}>
+                                                                            {$country.countries_iso_code_2}
+																		</option>
+                                                                    {/foreach}
+																</select>
+															</td>
+															<td><input name="exportpos_{$posindex}_customstariffnumber"  type="text" maxlength="10" value="{$position.customstariffnumber}"></td>
+															<td><input name="exportpos_{$posindex}_amount"               type="number" min="0" max="1000"  step="0.001" value="{$position.amount}"></td>
+															<td><input name="exportpos_{$posindex}_netweightkg"          type="number" min="0" max="1000"  step="0.001" value="{$position.netweightkg}"></td>
+															<td><input name="exportpos_{$posindex}_customsvalue"         type="number" min="0" max="10000" step="0.01" value="{$position.customsvalue}"></td>
+															<td><button class="remove_row"><i class="fa fa-trash" aria-hidden="true" style="font-size: 1.2em;"></i></button></td>
+														</tr>
+                                                    {/block}
+                                                {/foreach}
+												</tbody>
+                                            {/block}
+										</table>
+                                    {/block}
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+
+                    {* == SERVICES =========================================================================================== *}
+
+                    {* -- Kernleistungen ------------------------------------------------------------------------------------- *}
+                    {block name="admin_geschaeftskundenversand_form_single_form_services_core_services"}
+						<div class="grid extd-view">
+							<div class="span12"><h2>{$txt.gkv_services_core}</h2></div>
+						</div>
+						<div class="grid dhl_service dhl_paket dhl_paket_tag dhl_warenpost extd-view">
+							<div class="span3"><label for="gkv_preferredlocation">{$txt.gkv_preferredlocation}</label>
+							</div>
+							<div class="span9">
+                                <input name="preferredlocation" type="text" maxlength="100" value="{$content.preferredlocation}">
+							</div>
+						</div>
+						<div class="grid dhl_service dhl_paket dhl_paket_tag dhl_warenpost extd-view">
+							<div class="span3"><label for="gkv_preferredneighbour">{$txt.gkv_preferredneighbour}</label>
+							</div>
+							<div class="span9">
+                                <input name="preferredneighbour" type="text" maxlength="100" value="{$content.preferredneighbour}">
+							</div>
+						</div>
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_dayofdelivery"}
+                            <div class="grid dhl_service dhl_paket dhl_paket_tag extd-view">
+                                <div class="span3"><label for="gkv_preferredday">{$txt.gkv_preferredday}</label></div>
+                                <div class="span9">
+                                    <input name="preferredday" type="date" value="{$content.preferredday}">
+                                </div>
+                            </div>
+                        {/block}
+						<div class="grid extd-view">
+							<div class="span3"><span class="blocklabel">{$txt.gkv_notification_address}</span></div>
+							<div class="span9">
+							<input type="text" name="notification" value="{$content.notification}" maxlength="50">
+							</div>
+						</div>
+                    {/block}
+
+                    {* -- Personenbezogene Zustellvorgaben ------------------------------------------------------------------- *}
+                    {block name="admin_geschaeftskundenversand_form_single_form_services_personal_services"}
+						<div class="grid extd-view">
+							<div class="span12"><h2>{$txt.gkv_services_personal}</h2></div>
+						</div>
+						<div class="grid dhl_service dhl_paket dhl_paket_tag extd-view">
+							<div class="span3"><label for="gkv_visualcheckofage">{$txt.gkv_visualcheckofage}</label>
+							</div>
+							<div class="span9">
+								<select name="visualcheckofage" id="gkv_visualcheckofage">
+								<option value=""    {if $content.visualcheckofage == ''} selected="selected"{/if}>{$txt.gkv_no_selection}</option>
+								<option value="a16" {if $content.visualcheckofage == 'a16'} selected="selected"{/if}>{$txt.gkv_visualcheckofage_a16}</option>
+								<option value="a18" {if $content.visualcheckofage == 'a18'} selected="selected"{/if}>{$txt.gkv_visualcheckofage_a18}</option>
+								</select>
+							</div>
+						</div>
+						<div class="extd-view">
+							<div class="grid dhl_service dhl_paket dhl_paket_tag">
+								<div class="span3"><label for="gkv_identcheck">{$txt.gkv_identcheck}</label></div>
+								<div class="span9">
+									<input type="hidden" name="identcheck" value="0">
+									<input type="checkbox" name="identcheck" value="1" data-single_checkbox{if $content.identcheck} checked="checked"{/if}>
+								</div>
+							</div>
+							<div class="grid dhl_service dhl_service_identcheck dhl_paket dhl_paket_tag">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_identcheck_surname}</div>
+								<div class="span7">
+								<input type="text" name="identcheck_surname" value="{$content.identcheck_surname}" maxlength="255">
+								</div>
+							</div>
+							<div class="grid dhl_service dhl_service_identcheck dhl_paket dhl_paket_tag">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_identcheck_givenname}</div>
+								<div class="span7">
+								<input type="text" name="identcheck_givenname" value="{$content.identcheck_givenname}" maxlength="255">
+								</div>
+							</div>
+							<div class="grid dhl_service dhl_service_identcheck dhl_paket dhl_paket_tag">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_identcheck_dateofbirth}</div>
+								<div class="span7">
+									<input
+											type="date"
+											name="identcheck_dateofbirth"
+											id="gkv_identcheck_dateofbirth"
+											value="{$content.identcheck_dob}"
+											min="1900-01-01"
+											placeholder="YYYY-MM-DD"
+											data-gx-widget="datetimepicker"
+											data-datetimepicker-lang="de"
+											data-datetimepicker-format="Y-m-d"
+											data-datetimepicker-day-of-week-start="1"
+											data-datetimepicker-min-date="1900-01-01"
+											data-datetimepicker-timepicker="false"
+									>
+								</div>
+							</div>
+							<div class="grid dhl_service dhl_service_identcheck dhl_paket dhl_paket_tag">
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_identcheck_minimumage}</div>
+								<div class="span7">
+									<select name="identcheck_minimumage">
+										<option value="" {if $content.identcheck_minimumage === ''}selected{/if}>{$txt.gkv_no_selection}</option>
+										<option value="A16" {if $content.identcheck_minimumage === 'A16'}selected{/if}>{$txt.gkv_visualcheckofage_a16}</option>
+										<option value="A18" {if $content.identcheck_minimumage === 'A18'}selected{/if}>{$txt.gkv_visualcheckofage_a18}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="grid dhl_service dhl_paket dhl_paket_tag extd-view">
+							<div class="span3"><label for="gkv_namedpersononly">{$txt.gkv_namedpersononly}</label></div>
+							<div class="span9">
+								<input type="hidden" name="namedpersononly" value="0">
+								<input type="checkbox" name="namedpersononly" value="1" {if $content.namedpersononly}checked{/if} data-single_checkbox>
+							</div>
+						</div>
+                    {/block}
+
+                    {* -- Zeitliche und örtliche Zustellvorgaben ------------------------------------------------------------- *}
+                    {block name="admin_geschaeftskundenversand_form_single_form_services"}
+						<div class="grid extd-view">
+							<div class="span12"><h2>{$txt.gkv_services_timeandplace}</h2></div>
+						</div>
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_preferred_no_neight_delivery"}
+							<div class="grid dhl_service dhl_paket dhl_paket_tag extd-view">
+								<div class="span3"><label
+											for="gkv_noneighbourdelivery">{$txt.gkv_noneighbourdelivery}</label></div>
+								<div class="span9">
+									<input type="hidden" name="noneighbourdelivery" value="0">
+									<input type="checkbox" name="noneighbourdelivery" value="1" {if $content.noneighbourdelivery}checked{/if} data-single_checkbox>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_parceloutletrouting"}
+							<div class="grid dhl_service dhl_paket dhl_paket_tag dhl_warenpost extd-view">
+								<div class="span3"><label
+											for="gkv_parceloutletrouting">{$txt.gkv_parceloutletrouting}</label></div>
+								<div class="span9">
+									<input type="hidden" name="parceloutletrouting" value="0">
+									<input type="checkbox" name="parceloutletrouting" value="1" {if $content.parceloutletrouting}checked{/if} data-single_checkbox>
+								</div>
+								<div class="span3">&nbsp;</div>
+								<div class="span2 linelabel">{$txt.gkv_parceloutletrouting_email}</div>
+								<div class="span7">
+									<input type="text" name="parceloutletrouting_email" maxlength="100"
+										   value="{$content.parceloutletrouting_email}"
+										   placeholder="{$txt.gkv_parceloutletrouting_email_required}">
+								</div>
+							</div>
+                        {/block}
+
+                        {* -- Weitere Services und Leistungen -------------------------------------------------------------------- *}
+						<div class="grid extd-view">
+							<div class="span12"><h2>{$txt.gkv_services_misc}</h2></div>
+						</div>
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_packaging_return"}
+							<div class="grid dhl_service dhl_paket dhl_paket_tag extd-view">
+								<div class="span3"><label for="gkv_packagingreturn">{$txt.gkv_packagingreturn}</label>
+								</div>
+								<div class="span9">
+									<input type="hidden" name="packagingreturn" value="0">
+									<input type="checkbox" name="packagingreturn" value="1"
+                                           {if $content.packagingreturn}checked{/if} data-single_checkbox>
+									<span data-gx-widget="tooltip_icon"
+										  data-tooltip_icon-type="info">{$txt.gkv_packagingreturn_note}</span>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_return_immediately"}
+							<div class="grid dhl_service dhl_paket_tag extd-view">
+								<div class="span3"><label
+											for="gkv_returnimmediately">{$txt.gkv_returnimmediately}</label></div>
+								<div class="span9">
+									<input type="hidden" name="returnimmediately" value="0">
+									<input type="checkbox" name="returnimmediately" value="1"
+                                           {if $content.returnimmediately}checked{/if} data-single_checkbox>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_premiun"}
+							<div class="grid dhl_service dhl_paket_intl dhl_warenpost_intl extd-view">
+								<div class="span3"><label for="gkv_premium">{$txt.gkv_premium}</label></div>
+								<div class="span9">
+									<input type="hidden" name="premium" value="0">
+									<input type="checkbox" name="premium" value="1" data-single_checkbox
+                                           {if $content.premium}checked{/if}>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_cdp"}
+                            <div class="grid dhl_service dhl_paket_intl dhl_warenpost_intl extd-view">
+                                <div class="span3"><label for="gkv_cdp">{$txt.gkv_cdp}</label></div>
+                                <div class="span9">
+                                    <input type="hidden" name="cdp" value="0">
+                                    <input type="checkbox" name="cdp" value="1" data-single_checkbox
+                                           {if $content.cdp}checked{/if}>
+                                </div>
+                            </div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_bulkgoods"}
+							<div class="grid dhl_service dhl_paket dhl_paket_tag dhl_paket_intl dhl_paket_at dhl_paket_connect dhl_paket_at_intl extd-view">
+								<div class="span3"><label for="gkv_bulkygoods">{$txt.gkv_bulkygoods}</label></div>
+								<div class="span9">
+									<input type="hidden" name="bulkygoods" value="0">
+									<input type="checkbox" name="bulkygoods" value="1" {if $content.bulkygoods}checked{/if} data-single_checkbox>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_cash_on_delivery"}
+							<div class="grid dhl_service dhl_paket dhl_paket_tag dhl_paket_intl dhl_paket_at dhl_paket_connect">
+								<div class="span3"><label for="gkv_cashondelivery">{$txt.gkv_cashondelivery}</label>
+								</div>
+								<div class="span9">
+									<input type="number" name="cashondelivery" id="gkv_cashondelivery" min="0.00"
+										   max="100000" step="0.01" value="{if $content.is_cod}{$content.cod_amount}{/if}">
+                                    {$content.order->info['currency']}
+									<button id="cod_helper" class="btn btn-xs" data-cod_amount="{$content.cod_amount}"><i
+												class="fa fa-arrow-left"
+												aria-hidden="true"></i> {$content.cod_amount} {$content.order->info['currency']} {$txt.gkv_cod_helper}
+									</button>
+								</div>
+							</div>
+                        {/block}
+                        {block name="admin_geschaeftskundenversand_form_single_form_services_additional_insurance"}
+							<div class="grid dhl_service dhl_paket dhl_paket_tag dhl_paket_intl dhl_europaket dhl_kurier_tag dhl_kurier_wunsch dhl_paket_at dhl_paket_connect dhl_paket_at_intl extd-view">
+								<div class="span3"><label
+											for="gkv_additionalinsurance">{$txt.gkv_additionalinsurance}</label></div>
+								<div class="span9">
+									<input type="hidden" name="additionalinsurance" value="0">
+									<input type="checkbox" name="additionalinsurance" id="gkv_additionalinsurance"
+										   value="{$content.insurance_amount}"
+										   {if $content.additionalinsurance}checked{/if}
+										   data-single_checkbox>
+									<span data-gx-widget="tooltip_icon"
+										  data-tooltip_icon-type="info">{$txt.gkv_additionalinsurance_note}</span>
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+
+                    {* ======================================================================================================= *}
+
+                    {block name="admin_geschaeftskundenversand_form_single_form_submit_wrapper"}
+                        {block name="admin_geschaeftskundenversand_form_single_form_submit_wrapper_only_if_codeable"}
+							<div class="grid">
+								<div class="span3"><label for="gkv_only_if_codeable">{$txt.gkv_only_if_codeable}</label>
+								</div>
+								<div class="span9">
+									<input type="hidden" name="only_if_codeable" value="0">
+									<input type="checkbox" name="only_if_codeable" value="1"
+										   {if $content.only_if_codeable}checked{/if}
+										   data-single_checkbox>
+								</div>
+							</div>
+                        {/block}
+                        
+                        {block name="admin_geschaeftskundenversand_form_single_form_submit_wrapper_ignore_warnings"}
+                            <div class="grid">
+                                <div class="span3"><label for="gkv_ignore_warnings">{$txt.gkv_ignore_warnings}</label>
+                                </div>
+                                <div class="span9">
+                                    <input type="hidden" name="ignore_warnings" value="0">
+                                    <input type="checkbox" name="ignore_warnings" value="1"
+                                           data-single_checkbox>
+                                </div>
+                            </div>
+                        {/block}
+						<div class="grid">
+							<div class="span3">
+							</div>
+							<div class="span9">
+							</div>
+						</div>
+                        {block name="admin_geschaeftskundenversand_form_single_form_submit_wrapper_submit"}
+							<div class="grid">
+								<div class="span9">
+									&nbsp;
+								</div>
+								<div class="span3">
+									<input type="submit" value="{$txt.gkv_create_label}" class="pull-right btn btn-primary">
+								</div>
+							</div>
+                        {/block}
+                    {/block}
+				</form>
+
+            {/block}
+
+			{block name="admin_geschaeftskundenversand_form_single_form_reset"}
+				<form action="{$content.action_reset_inputs}" method="POST">
+					<input type="hidden" name="pageToken" value="{$pageToken}">
+					<input type="hidden" name="orders_id" value="{$content.orders_id}">
+					<div class="grid">
+						<div class="span9">
+							&nbsp;
+						</div>
+						<div class="span3">
+							<input type="submit" value="{$txt.gkv_reset_inputs}" class="pull-right btn btn-secondary">
+						</div>
+					</div>
+				</form>
+			{/block}
+            {if $smarty.get.debug}<pre>{$content.failed_data|print_r:true}</pre>{/if}
+		</div>
+    {/block}
+{/block}

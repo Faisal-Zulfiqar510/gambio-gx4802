@@ -1,0 +1,13 @@
+<div class="form-group visibility_switcher">
+	<label class="col-sm-7 control-label" for="{$field}">{$config.label}</label>
+	<div class="col-sm-4">
+		<input type="email"
+		       id="{$field}"
+		       name="{$field}"
+		       class="form-control"
+		       value="{$config.default_value}"
+		       {if $config.required} required{/if}
+		/>
+	</div>
+	<span class="col-sm-1 tooltip-icon" style="margin: 0px;" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+</div>

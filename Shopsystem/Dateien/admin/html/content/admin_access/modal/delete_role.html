@@ -1,0 +1,64 @@
+{*
+	Role modal for deleting
+	=======================
+
+	Is triggered when the user clicks the create or edit role button.
+*}
+
+{load_language_text section="admin_access"}
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_admin_access_modal_delete_role"}
+	<div class="delete-role-modal modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_admin_access_modal_delete_role_header"}
+					<div class="modal-header">
+						{block name="admin_admin_access_modal_delete_role_header_close_button"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						{/block}
+						{block name="admin_admin_access_modal_delete_role_header_title"}
+							<h4 class="modal-title">{$txt.role_modal_delete_title}</h4>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_admin_access_modal_delete_role_body"}
+					<div class="modal-body">
+						{block name="admin_admin_access_modal_delete_role_body_form"}
+							<form class="form-horizontal" data-gx-widget="switcher">
+								{$txt.role_modal_delete_body}
+								<input class="hidden" type="hidden" name="roleId">
+								<fieldset>
+									{block name="admin_admin_access_modal_delete_role_body_form_name"}
+										<div class="form-group">
+											<label class="col-md-3">{$txt.role_modal_name} ({$language_code|upper}):</label>
+											<div class="col-md-9 role-name form-text"></div>
+										</div>
+									{/block}
+									{block name="admin_admin_access_modal_delete_role_body_form_description"}
+										<div class="form-group">
+											<label class="col-md-3">{$txt.role_modal_description} ({$language_code|upper}):</label>
+											<div class="col-md-9 role-description form-text"></div>
+										</div>
+									{/block}
+								</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+				{block name="admin_admin_access_modal_delete_role_footer"}
+					<div class="modal-footer">
+						{block name="admin_admin_access_modal_delete_role_footer_cancle"}
+							<button type="button" class="btn btn-default" data-dismiss="modal">{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_admin_access_modal_delete_role_footer_delete"}
+							<button type="button" class="btn btn-primary confirm">{$admin_buttons.BUTTON_DELETE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

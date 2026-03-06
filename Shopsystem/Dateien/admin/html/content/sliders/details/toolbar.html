@@ -1,0 +1,32 @@
+{*
+	Sliders Details Page Toolbar
+
+	Contains a save and an abort button.
+*}
+
+{load_language_text section="buttons" name="btn"}
+
+{block name="admin_sliders_details_toolbar"}
+	<div class="bottom-save-bar-content">
+		{block name="admin_sliders_details_toolbar_dropdown"}
+			<div class="btn-group dropup submit-button-group pull-right">
+				{block name="admin_sliders_details_toolbar_dropdown_buttons"}
+					<button type="button" class="btn btn-primary btn-margin save">{$btn.save}</button>
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+				{/block}
+				{block name="admin_sliders_details_toolbar_dropdown_ul"}
+					<ul class="dropdown-menu">
+						<li class="refresh"><a>{$btn.refresh}</a></li>
+					</ul>
+				{/block}
+			</div>
+		{/block}
+		
+		{block name="admin_sliders_details_toolbar_abort"}
+			<a href="admin.php?do=SlidersOverview" class="btn abort pull-right">{$btn.abort}</a>
+		{/block}
+	</div>
+{/block}

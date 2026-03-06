@@ -1,0 +1,81 @@
+{
+	"type": "category",
+	"title": "malibu.areas.product.variants.classic.title",
+	"id": "product-classic",
+	"basic": true,
+	"fieldsets": [
+		{
+			"title": "malibu.areas.product.variants.general.title",
+			"options": [
+				{
+					"id": "gx-product-info-details-bg",
+					"type": "background",
+					"label": "malibu.areas.products.productDetailBox.gx-product-info-details-bg",
+					"default": {
+						"color": "transparent"
+					}
+				},
+				{
+					"id": "gx-product-info-details-color",
+					"type": "colorpicker",
+					"label": "malibu.areas.products.productDetailBox.gx-product-info-details-color",
+					"default": "$text-color"
+				},
+				{
+					"id": "gx-product-info-details-note-color",
+					"type": "colorpicker",
+					"label": "malibu.areas.products.productDetailBox.gx-product-info-details-note-color",
+					"default": "$gray-light"
+				},
+				{
+					"id": "gx-product-info-details-border-width",
+					"type": "textbox",
+					"label": "malibu.areas.products.productDetailBox.gx-product-info-details-border-width",
+					"default": "0"
+				},
+				{
+					"id": "gx-product-info-details-border-style",
+					"type": "dropdownselect",
+					"label": "malibu.areas.products.productDetailBox.gx-product-info-details-border-style",
+					"default": "none",
+					"options": [
+						"none",
+						"dotted",
+						"dashed",
+						"solid",
+						"double",
+						"groove",
+						"ridge",
+						"inset",
+						"outset"
+					]
+				},
+				{
+					"id": "gx-product-info-details-border-color",
+					"type": "colorpicker",
+					"label": "malibu.areas.products.productDetailBox.gx-product-info-details-border-color",
+					"default": "transparent"
+				},
+				{
+					"id": "gx-product-info-hide-quantity-input",
+					"type": "checkbox",
+					"label": "malibu.areas.products.productDetailBox.gx-product-info-hide-quantity-input",
+					"requiresReload": true,
+					"default": true
+				}
+			]
+		},
+		{
+			"title": "malibu.areas.product.variants.general.title",
+			"hidden": true,
+			"options": [
+				{
+					"id": "gx-product-info-details-sticky",
+					"type": "checkbox",
+					"label": "malibu.areas.products.productDetailBox.gx-product-info-details-sticky",
+					"default": false
+				}
+			]
+		}
+	]
+}

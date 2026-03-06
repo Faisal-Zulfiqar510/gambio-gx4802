@@ -1,0 +1,528 @@
+{block name="admin_google_shopping_configuration_tabs_contents_settings_general_settings_heading"}
+    <h3>{$txt.heading_general_settings}</h3>
+{/block}
+
+<fieldset>
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_profile_name"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_profile_name_label"}
+                <label for="name" class="col-md-6">
+                    {$txt.general_label_profile_name}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_profile_name_input"}
+                <div class="col-md-4">
+                    <input type="text" id="name" class="form-control" name="scheme[name]" value="{$data.scheme.name}">
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_profile_name_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_profile_name}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_filename"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_filename_label"}
+                <label for="filename" class="col-md-6">
+                    {$txt.general_label_filename}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_filename_input"}
+                <div class="col-md-4">
+                    <input type="text" id="filename" name="scheme[filename]" class="form-control" value="{$data.scheme.filename}">
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_filename_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_filename}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_separator"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_separator_label"}
+                <label for="separator" class="col-md-6">
+                    {$txt.general_label_seperator}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_separator_input"}
+                <div class="col-md-4">
+                    <input type="text" id="separator" class="form-control" name="scheme[separator]" value="{$data.scheme.separator}">
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_separator_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_seperator}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_quotes"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_quotes_label"}
+                <label for="quotes" class="col-md-6">
+                    {$txt.general_label_quotes}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_quotes_input"}
+                <div class="col-md-4">
+                    <input type="text" id="quotes" name="scheme[quotes]" class="form-control" value="{$data.scheme.quotes}">
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_quotes_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_quotes}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_currency"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_currency_label"}
+                <label for="currency_id" class="col-md-6">
+                    {$txt.general_label_currency}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_currency_input"}
+                <div class="col-md-4">
+                    <select class="form-control" name="scheme[currency_id]" id="currency_id">
+                        {foreach key=id item=code from=$data.currencies}
+                            <option value="{$id}" {if $id == $data.scheme.currency_id}selected="selected"{/if} >{$code}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_currency_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_currency}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_language"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_language_label"}
+                <label for="language_id" class="col-md-6">
+                    {$txt.general_label_language}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_language_input"}
+            <div class="col-md-4">
+                <select class="form-control" name="scheme[language_id]" id="language_id">
+                    {foreach key=id item=code from=$data.languages}
+                        <option value="{$id}" {if $id == $data.scheme.language_id}selected="selected"{/if}>{$code}</option>
+                    {/foreach}
+                </select>
+            </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_language_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_language}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_additional_image_count"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_additional_image_count_label"}
+                <label for="additional_image_count" class="col-md-6">
+                    {$txt.general_label_additional_images}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_additional_image_count_input"}
+                <div class="col-md-4">
+                    <input type="text" id="additional_image_count" name="scheme[additional_image_count]" class="form-control" value="{$data.scheme.additional_image_count}">
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_additional_image_count_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_additional_images}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_customer_group"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_customer_group_label"}
+                <label for="customer_group_id" class="col-md-6">
+                    {$txt.general_label_customers_status}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_customer_group_input"}
+                <div class="col-md-4">
+                    <select class="form-control" name="scheme[customer_group_id]" id="customer_group_id">
+                        {foreach key=id item=status from=$data.customer_statuses}
+                            <option value="{$id}" {if $id == $data.scheme.customer_group_id}selected="selected"{/if} >{$status}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_customer_group_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_customers_status}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_campaign"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_campaign_label"}
+                <label for="campaign_id" class="col-md-6">
+                    {$txt.general_label_campaign}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_campaign_input"}
+                <div class="col-md-4">
+                    <select class="form-control" name="scheme[campaign_id]" id="campaign_id">
+                        <option value="0" {if $data.scheme.campaign_id == 0}selected="selected"{/if}>{$txt.general_no_campaign}</option>
+                        {foreach key=id item=campaign from=$data.campaigns}
+                            <option value="{$campaign.campaigns_refID}" {if $campaign.campaigns_refID == $data.scheme.campaign_id}selected="selected"{/if} >{$campaign.campaigns_name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_campaign_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_campaign}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_shipping_free_minimum"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_shipping_free_minimum_label"}
+                <label for="shipping_free_minimum" class="col-md-6">
+                    {$txt.general_label_shipping_free_minimum}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_shipping_free_minimum_input"}
+                <div class="col-md-4">
+                    <input type="text" id="shipping_free_minimum" name="scheme[shipping_free_minimum]" class="form-control" value="{$data.scheme.shipping_free_minimum}">
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_shipping_free_minimum_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_shipping_free_minimum}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_quantity_minimum"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_quantity_minimum_label"}
+                <label for="quantity_minimum" class="col-md-6">
+                    {$txt.general_label_quantity_minimum}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_quantity_minimum_input"}
+                <div class="col-md-4">
+                    <input type="text" id="quantity_minimum" name="scheme[quantity_minimum]" class="form-control" value="{$data.scheme.quantity_minimum}">
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_quantity_minimum_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_quantity_minimum}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_export_attributes"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_attributes_label"}
+                <label for="export_attributes" class="col-md-6">
+                    {$txt.general_label_export_attributes}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_attributes_input"}
+                <div class="col-md-4">
+                    <div data-gx-widget="switcher">
+                        <input type="hidden" value="0" name="scheme[export_attributes]" />
+                        <input type="checkbox" value="1" name="scheme[export_attributes]" class="form-control" id="export_attributes" {if $data.scheme.export_attributes}checked="checked"{/if} />
+                    </div>
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_attributes_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_export_attributes}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_export_properties"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_properties_label"}
+                <label for="export_properties" class="col-md-6">
+                    {$txt.general_label_export_properties}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_properties_input"}
+                <div class="col-md-4">
+                    <div data-gx-widget="switcher">
+                        <input type="hidden" value="0" name="scheme[export_properties]" />
+                        <input type="checkbox" value="1" name="scheme[export_properties]" class="form-control" id="export_properties" {if $data.scheme.export_properties}checked="checked"{/if} />
+                    </div>
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_properties_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_export_properties}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_export_property_image"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_property_image_label"}
+                <label for="export_property_image" class="col-md-6">
+                    {$txt.general_label_prefer_property_image}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_property_image_input"}
+                <div class="col-md-4">
+                    <div data-gx-widget="switcher">
+                        <input type="hidden" value="0" name="scheme[export_property_image]" />
+                        <input type="checkbox" value="1" name="scheme[export_property_image]" class="form-control" id="export_property_image" {if $data.scheme.export_property_image}checked="checked"{/if} />
+                    </div>
+                </div>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_property_image_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_prefer_property_image}</span>
+                </div>
+            {/block}
+        </div>
+    {/block}
+</fieldset>
+
+<br />
+<br />
+
+{block name="admin_google_shopping_configuration_tabs_contents_settings_export_settings_heading"}
+    <h3>{$txt.heading_export_settings}</h3>
+{/block}
+
+<fieldset>
+    {block name="admin_google_shopping_configuration_tabs_contents_settings_export_url"}
+        <div class="form-group visibility_switcher">
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_url_label"}
+                <label for="export_url" class="col-md-6">
+                    {$txt.general_label_export_url}
+                </label>
+            {/block}
+
+            {block name="admin_google_shopping_configuration_tabs_contents_settings_export_url_input"}
+                <div class="col-md-4">
+                    <input type="text" id="export_url" name="scheme[export_url]" class="form-control" value="{$data.scheme.export_url}" readonly>
+                </div>
+            {/block}
+        </div>
+    {/block}
+
+
+	{block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_url"}
+        <div class="form-group visibility_switcher">
+			{block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_url_label"}
+                <label for="cronjob_url" class="col-md-6">
+					{$txt.general_label_cronjob_url}
+                </label>
+			{/block}
+
+			{block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_url_input"}
+                <div class="col-md-4">
+                    <input type="text"
+                           id="cronjob_url"
+                           name="scheme[cronjob_url]"
+                           class="form-control"
+                           value="{$data.cronjob_url}"
+                           readonly>
+                </div>
+			{/block}
+
+			{block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_url_icon"}
+                <div class="col-md-2">
+                    <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_cronjob_url}</span>
+                </div>
+			{/block}
+        </div>
+	{/block}
+
+    {if $content.connected}
+        {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_allowed"}
+            <div class="form-group visibility_switcher">
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_allowed_label"}
+                    <label for="cronjob_allowed" class="col-md-6">
+                        {$txt.general_label_export_cronjob}
+                    </label>
+                {/block}
+    
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_allowed_input"}
+                    <div class="col-md-4">
+                        <div data-gx-widget="switcher">
+                            <input type="hidden" value="0" name="scheme[cronjob_allowed]" />
+                            <input type="checkbox" value="1" name="scheme[cronjob_allowed]" class="form-control" id="cronjob_allowed" {if $data.scheme.cronjob_allowed}checked="checked"{/if} />
+                        </div>
+                    </div>
+                {/block}
+    
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_allowed_icon"}
+                    <div class="col-md-2">
+                        <span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_export_cronjob}</span>
+                    </div>
+                {/block}
+            </div>
+        {/block}
+    
+        {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_days"}
+            <div class="form-group visibility_switcher">
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_days_label"}
+                    <label class="col-md-6">
+                        {$txt.general_label_weekdays}
+                    </label>
+                {/block}
+    
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_days_input"}
+                    <div class="col-md-4">
+                        <div data-gx-widget="switcher" data-switcher-on-state="{$txt.general_weekdays_short_monday}" data-switcher-off-state="{$txt.general_weekdays_short_monday}">
+                            <input type="checkbox" name="scheme[cronjob_days][]" value="Mon" class="form-control" {if in_array('Mon', $data.scheme.cronjob_days)}checked="checked"{/if} />
+                        </div>
+                        <div data-gx-widget="switcher" data-switcher-on-state="{$txt.general_weekdays_short_tuesday}" data-switcher-off-state="{$txt.general_weekdays_short_tuesday}">
+                            <input type="checkbox" name="scheme[cronjob_days][]" value="Tue" class="form-control" {if in_array('Tue', $data.scheme.cronjob_days)}checked="checked"{/if} />
+                        </div>
+                        <div data-gx-widget="switcher" data-switcher-on-state="{$txt.general_weekdays_short_wednesday}" data-switcher-off-state="{$txt.general_weekdays_short_wednesday}">
+                            <input type="checkbox" name="scheme[cronjob_days][]" value="Wed" class="form-control" {if in_array('Wed', $data.scheme.cronjob_days)}checked="checked"{/if} />
+                        </div>
+                        <div data-gx-widget="switcher" data-switcher-on-state="{$txt.general_weekdays_short_thursday}" data-switcher-off-state="{$txt.general_weekdays_short_thursday}">
+                            <input type="checkbox" name="scheme[cronjob_days][]" value="Thu" class="form-control" {if in_array('Thu', $data.scheme.cronjob_days)}checked="checked"{/if} />
+                        </div>
+                        <div data-gx-widget="switcher" data-switcher-on-state="{$txt.general_weekdays_short_friday}" data-switcher-off-state="{$txt.general_weekdays_short_friday}">
+                            <input type="checkbox" name="scheme[cronjob_days][]" value="Fri" class="form-control" {if in_array('Fri', $data.scheme.cronjob_days)}checked="checked"{/if} />
+                        </div>
+                        <div data-gx-widget="switcher" data-switcher-on-state="{$txt.general_weekdays_short_saturday}" data-switcher-off-state="{$txt.general_weekdays_short_saturday}">
+                            <input type="checkbox" name="scheme[cronjob_days][]" value="Sat" class="form-control" {if in_array('Sat', $data.scheme.cronjob_days)}checked="checked"{/if} />
+                        </div>
+                        <div data-gx-widget="switcher" data-switcher-on-state="{$txt.general_weekdays_short_sunday}" data-switcher-off-state="{$txt.general_weekdays_short_sunday}">
+                            <input type="checkbox" name="scheme[cronjob_days][]" value="Sun" class="form-control" {if in_array('Sun', $data.scheme.cronjob_days)}checked="checked"{/if} />
+                        </div>
+                    </div>
+                {/block}
+    
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_days_icon"}{/block}
+            </div>
+        {/block}
+        
+        {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_hour_interval_selection"}
+			<div class="form-group visibility_switcher">
+				{block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_hour_interval_selection_label"}
+					<label for="cronjob-hour-interval-selection" class="col-md-6">
+						{$txt.general_label_cronjob_type}
+					</label>
+				{/block}
+
+				{block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_hour_interval_selection_input"}
+					<div class="col-md-4">
+						<select class="form-control" 
+								name="cronjob-hour-interval-selection" 
+								id="cronjob-hour-interval-selection">
+							<option value="hour" {if $data.scheme.cronjob_interval == 0 && $data.scheme.cronjob_hour}selected="selected"{/if}>{$txt.general_label_start_time}</option>
+							<option value="interval" {if $data.scheme.cronjob_interval != 0}selected="selected"{/if}>{$txt.general_label_interval}</option>
+						</select>
+					</div>
+				{/block}
+				
+				{block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_hour_interval_selection_icon"}
+					<div class="col-md-2">
+						<span class="tooltip-icon" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.general_tooltip_cronjob_type}</span>
+					</div>
+				{/block}
+			</div>
+        {/block}
+    
+        {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_hour"}
+            <div class="form-group visibility_switcher">
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_hour_label"}
+                    <label for="cronjob-hour" class="col-md-6">
+                        {$txt.general_label_start_time}
+                    </label>
+                {/block}
+    
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_hour_input"}
+                    <div class="col-md-4">
+                        <select class="form-control" name="scheme[cronjob_hour]" id="cronjob-hour">
+                            {foreach key=hour item=hour_text from=$data.hours}
+                                <option value="{$hour}" {if $hour == $data.scheme.cronjob_hour}selected="selected"{/if} >{$hour_text}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                {/block}
+    
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_hour_icon"}{/block}
+            </div>
+        {/block}
+    
+        {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_interval"}
+            <div class="form-group visibility_switcher">
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_interval_label"}
+                    <label for="cronjob-interval" class="col-md-6">
+                        <strong>{$txt.general_label_or}</strong> {$txt.general_label_interval}
+                    </label>
+                {/block}
+    
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_interval_input"}
+                    <div class="col-md-4">
+                        <select class="form-control" name="scheme[cronjob_interval]" id="cronjob-interval">
+                            {foreach key=interval item=interval_text from=$data.intervals}
+                                <option value="{$interval}" {if $interval == $data.scheme.cronjob_interval}selected="selected"{/if} >{$interval_text}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                {/block}
+    
+                {block name="admin_google_shopping_configuration_tabs_contents_settings_cronjob_interval_icon"}{/block}
+            </div>
+        {/block}
+    {/if}
+</fieldset>

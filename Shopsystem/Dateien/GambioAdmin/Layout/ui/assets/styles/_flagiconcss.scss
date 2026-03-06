@@ -1,0 +1,11 @@
+$flag-icon-css-path: "../../../../../../node_modules/flag-icon-css/flags";
+$include: 'gb', 'de';
+@import "~flag-icon-css/sass/flag-icon.scss";
+
+div.current-language,
+div.language-selection {
+	span.flag-icon {
+		font-size: 19px;
+		vertical-align: top;
+	}
+}

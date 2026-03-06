@@ -1,0 +1,425 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="emails"}
+    {load_language_text section="buttons" name="button"}
+    {load_language_text section="admin_labels" name="label"}
+    {load_language_text section="admin_general" name="general"}
+    {load_language_text section="admin_menu" name="menu"}
+
+    {block name="admin_emails"}
+        <div class="gx-compatibility">
+            <div class="gx-container  breakpoint-large">
+                <!--
+                    MAIN PAGE TOOLBAR
+
+                    Main control-actions for the page.
+                -->
+                {block name="admin_emails_toolbar"}
+                <div id="emails-toolbar" data-gx-controller="emails/emails_toolbar">
+                    <div class="grid">
+                        <div class="span4">
+                            {block name="admin_emails_toolbar_form"}
+                            <form id="quick-search" class="control-group remove-padding">
+                                <label for="search-keyword">{$label.search}</label>
+                                <input type="text" id="search-keyword"/>
+                            </form>
+                            {/block}
+                        </div>
+
+                        <div class="span8 remove-padding">
+                            {block name="admin_emails_toolbar_button"}
+                            <button id="create-new-email" class="btn btn-success pull-right">
+                                <i class="fa fa-plus"></i>
+                                {$button.new_mail}
+                            </button>
+                            {/block}
+                        </div>
+                    </div>
+                </div>
+                {/block}
+
+                <!--
+                    MAIN TABLE
+
+                    DataTable is initialized in JS controller.
+                -->
+                {block name="admin_emails_table"}
+                <table id="emails-table" data-gx-controller="emails/emails_table">
+                    {block name="admin_emails_table_thead"}
+                    <thead>
+                    <tr>
+                        {block name="admin_emails_table_thead_ths"}
+                        <th><input type="checkbox" id="select-all-rows"/></th>
+                        <th>#</th>
+                        <th>{$txt.table_creation}</th>
+                        <th>{$txt.email_sent}</th>
+                        <th>{$txt.email_sender}</th>
+                        <th>{$txt.email_recipient}</th>
+                        <th>{$txt.email_subject}</th>
+                        <th>{$txt.table_status}</th>
+                        <th>{$txt.table_actions}</th>
+                        {/block}
+                    </tr>
+                    </thead>
+                    {/block}
+                    {block name="admin_emails_table_tbody"}
+                    <tbody> <!-- Dynamic Content --> </tbody>
+                    {/block}
+                </table>
+                {/block}
+
+                <!--
+                    MAIN TABLE PAGINATOR
+
+                    Table paginator div will be parsed by JavaScript (see emails_table.js initialization). It
+                    will be mixed with the DataTables HTML output.
+                -->
+                {block name="admin_emails_pagination"}
+                <div class="paginator grid"
+                     data-gx-controller="emails/emails_paginator"
+                     data-gx-widget="button_dropdown"
+                     data-button_dropdown-user_id="{$content.userId}"
+                >
+                    <div class="span5">
+                        {block name="admin_emails_pagination_bulk"}
+                        <div class="bulk-action"
+                             data-icon="check-square-o fa-fw"
+                             data-use-button_dropdown="true"
+                             data-config_key="emailMultiDropdownBtn"
+                             data-config_value="{$content.emailMultiDropdownBtn}">
+                            <button></button>
+                            <ul></ul>
+                        </div>
+                        {/block}
+
+
+                        {block name="admin_emails_pagination_refresh"}
+                        <button id="refresh-table" class="btn">{$button.refresh}</button>
+                        {/block}
+                    </div>
+                    <div class="span7 datatable-components remove-padding">
+                        {block name="admin_emails_pagination_select"}
+                        <select id="display-records" class="pull-left input-small">
+                            <option value="20" selected>20 {$general.PER_PAGE}</option>
+                            <option value="30">30 {$general.PER_PAGE}</option>
+                            <option value="50">50 {$general.PER_PAGE}</option>
+                            <option value="100">100 {$general.PER_PAGE}</option>
+                        </select>
+                        {/block}
+
+                        <!-- Will dynamically filled (see emails_table.js). -->
+                    </div>
+                </div>
+                {/block}
+
+                <!--
+                     HANDLE ATTACHMENTS MODAL
+
+                     Contains the elements for the old attachments manipulation.
+                -->
+                {block name="admin_emails_attachments_modal"}
+                <div id="attachments-modal" class="hidden simple-container" data-gx-controller="emails/attachments_modal">
+                    {block name="admin_emails_attachments_modal_description"}
+                    <p>{$txt.message_delete_old_attachments_description}</p>
+                    <p>{$txt.size} <span id="attachments-size"><i class="fa fa-spinner fa-spin"></i> {$txt.attachments_size_loading}</span></p>
+
+                    {/block}
+                    <br>
+                    {block name="admin_emails_attachments_modal_removal_date"}
+                    <div class="grid control-group">
+                        <div class="span5">
+                            <label for="removal-date">{$txt.removal_date}</label>
+                        </div>
+                        <div class="span7 remove-padding">
+                            <input type="text" id="removal-date" class="cursor-pointer"/>
+                        </div>
+                    </div>
+                    {/block}
+                    <br>
+                    {block name="admin_emails_attachments_modal_old_attachments"}
+                    <div class="control-group grid">
+                        <button id="delete-old-attachments" class="btn btn-primary pull-right">{$txt.delete_old_attachments}
+                        </button>
+                        <button id="close-modal" class="btn btn-default pull-right remove-margin">{$button.close}</button>
+                    </div>
+                    {/block}
+                </div>
+                {/block}
+
+                <!--
+                     HANDLE DELETE OLD EMAILS MODAL
+
+                     Contains the elements for the delete old emails modal.
+                -->
+                {block name="admin_emails_delete_old_emails_modal"}
+                <div id="delete-old-emails-modal" class="hidden simple-container"
+                     data-gx-controller="emails/delete_old_emails_modal">
+                    {block name="admin_emails_delete_old_emails_modal_description"}
+                    <p>{$txt.message_delete_old_emails_description}</p>
+                    <p>{$txt.message_delete_old_emails_notice}</p>
+                    {/block}
+                    <br>
+                    {block name="admin_emails_delete_old_emails_modal_removal_date"}
+                    <div class="grid control-group">
+                        <div class="span5">
+                            <label for="email-removal-date">{$txt.removal_date}</label>
+                        </div>
+                        <div class="span7 remove-padding">
+                            <input type="text" id="email-removal-date" class="cursor-pointer"/>
+                        </div>
+                    </div>
+                    {/block}
+                    <br>
+                    {block name="admin_emails_delete_old_emails_modal_old_attachments"}
+                    <div class="control-group grid">
+                        <button id="delete-old-emails" class="btn btn-primary pull-right">{$txt.delete_old_emails}</button>
+                        <button id="close-old-email-modal" class="btn btn-default pull-right remove-margin">{$button.close}</button>
+                    </div>
+                    {/block}
+                </div>
+                {/block}
+
+                <!--
+                    MAIN EMAILS MODAL
+
+                    Will be used for displaying the email modal.
+                -->
+                {block name="admin_emails_emails_modal"}
+                <div id="emails-modal" class="hidden" data-gx-controller="emails/emails_modal" data-jse-extension="validator">
+                    <div data-gx-widget="tabs">
+                        {block name="admin_emails_emails_modal_headline"}
+                        <div class="tab-headline-wrapper">
+                            <a class="tab-headline details active">{$txt.modal_details}</a>
+                            <a class="tab-headline bcc-cc">BCC & CC</a>
+                            <a class="tab-headline attachments">{$txt.modal_attachments}</a>
+                        </div>
+                        {/block}
+                        {block name="admin_emails_emails_modal_wrapper"}
+                        <div class="tab-content-wrapper">
+                            <!--
+                                Email Details Tab
+                            -->
+                            {block name="admin_emails_emails_modal_details_tab"}
+                            <div class="details tab-content">
+                                <input type="hidden" id="email-id"/>
+                                <input type="hidden" id="is-pending"/>
+                                <input type="hidden" id="creation-date"/>
+                                <input type="hidden" id="sent-date"/>
+
+                                <!-- Subject -->
+                                {block name="admin_emails_emails_modal_details_tab_subject"}
+                                <div class="grid">
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <label for="subject">{$txt.email_subject} *</label>
+                                            <input type="text" id="subject" name="subject" class="validate"
+                                                   data-validator-validate="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/block}
+
+                                <!-- Sender -->
+                                {block name="admin_emails_emails_modal_details_tab_sender"}
+                                <div class="grid sender">
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <label for="sender-email">{$txt.email_sender} *</label>
+                                            <input type="text" id="sender-email" name="sender-email"
+                                                   placeholder="{$txt.modal_contact_email}" class="validate"
+                                                   data-validator-validate="required email"/>
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <input type="text" id="sender-name" name="sender-name"
+                                                   placeholder="{$txt.modal_contact_name}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/block}
+
+                                <!-- Recipient -->
+                                {block name="admin_emails_emails_modal_details_tab_recipient"}
+                                <div class="grid recipient">
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <label for="recipient-email">{$txt.email_recipient} *</label>
+                                            <input type="text" id="recipient-email" name="recipient-email"
+                                                   placeholder="{$txt.modal_contact_email}" class="validate"
+                                                   data-validator-validate="required email"/>
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <input type="text" id="recipient-name" name="recipient-name"
+                                                   placeholder="{$txt.modal_contact_name}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/block}
+
+                                <!-- Reply To -->
+                                {block name="admin_emails_emails_modal_details_tab_reply_to"}
+                                <div class="grid reply-to">
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <label for="reply-to-email">{$txt.email_reply_to}</label>
+                                            <input type="text" id="reply-to-email" name="reply-to-email"
+                                                   placeholder="{$txt.modal_contact_email}" class="validate"
+                                                   data-validator-validate="email"/>
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div class="control-group">
+                                            <input type="text" id="reply-to-name" name="reply-to-name"
+                                                   placeholder="{$txt.modal_contact_name}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/block}
+
+                                <!-- Content -->
+                                {block name="admin_emails_emails_modal_details_tab_content"}
+                                <div class="content" data-gx-widget="tabs">
+                                    <div class="tab-headline-wrapper">
+                                        <a class="tab-headline content-html active">{$txt.email_html}</a>
+                                        <a class="tab-headline content-plain">{$txt.email_plain}</a>
+                                    </div>
+                                    <div class="tab-content-wrapper">
+                                        <div>
+                                            <textarea id="content-html" name="content-html" rows="5"></textarea>
+                                        </div>
+                                        <div>
+                                            <div class="control-group remove-margin">
+                                                <textarea id="content-plain" name="content-plain" rows="20"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/block}
+                            </div>
+                            {/block}
+
+                            <!--
+                                BCC & CC Contacts Tab
+                            -->
+                            {block name="admin_emails_emails_modal_wrapper_contacts_tab"}
+                            <div class="grid bcc-cc tab-content">
+                                <div class="grid">
+                                    {block name="admin_emails_emails_modal_wrapper_contacts_tab_email"}
+                                    <div class="span4">
+                                        <div class="control-group">
+                                            <label for="contact-email">{$txt.modal_contact_email} *</label>
+                                            <input type="text" id="contact-email" name="contact-email" class="validate"
+                                                   data-validator-validate="required email"/>
+                                        </div>
+                                    </div>
+                                    {/block}
+
+                                    {block name="admin_emails_emails_modal_wrapper_contacts_tab_name"}
+                                    <div class="span4">
+                                        <div class="control-group">
+                                            <label for="contact-name">{$txt.modal_contact_name}</label>
+                                            <input type="text" id="contact-name" name="contact-name"/>
+                                        </div>
+                                    </div>
+                                    {/block}
+
+
+                                    {block name="admin_emails_emails_modal_wrapper_contacts_tab_type"}
+                                    <div class="span2">
+                                        <div class="control-group">
+                                            <label for="contact-type">{$txt.modal_contact_type}</label>
+                                            <select id="contact-type" name="contact-type">
+                                                <option value="bcc">BCC</option>
+                                                <option value="cc">CC</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {/block}
+                                    {block name="admin_emails_emails_modal_wrapper_contacts_tab_add_button"}
+                                    <div class="span2 remove-padding">
+                                        <button id="add-contact" class="pull-right">{$button.add}</button>
+                                    </div>
+                                    {/block}
+                                </div>
+
+                                {block name="admin_emails_emails_modal_wrapper_contacts_tab_table"}
+                                <table id="contacts-table">
+                                    {block name="admin_emails_emails_modal_wrapper_contacts_tab_table_thead"}
+                                    <thead>
+                                    <th>{$txt.modal_contact_email}</th>
+                                    <th>{$txt.modal_contact_name}</th>
+                                    <th>{$txt.modal_contact_type}</th>
+                                    <th class="disable-sort">{$txt.table_actions}</th>
+                                    </thead>
+                                    {/block}
+                                    {block name="admin_emails_emails_modal_wrapper_contacts_tab_table_tbody"}
+                                    <tbody></tbody>
+                                    {/block}
+                                </table>
+                                {/block}
+                            </div>
+                            {/block}
+
+                            <!--
+                                File Attachments Tab
+                            -->
+                            {block name="admin_emails_emails_modal_attachments_tab"}
+                            <div class="grid attachments tab-content">
+                                {block name="admin_emails_emails_modal_attachments_tab_upload"}
+                                <div class="control-group">
+                                    <label for="upload-attachment">{$txt.modal_upload_attachment}</label>
+                                    {if $content.responsiveFileManager}
+                                    <div class="span5"
+                                         data-gx-widget="filemanager"
+                                         data-filemanager-name="upload-attachment"
+                                         data-filemanager-type="all"
+                                         data-filemanager-content-directory="uploads/tmp"
+                                         data-filemanager-page-active="{$content.responsiveFileManager}">
+                                    </div>
+                                    {else}
+                                    <input type="file" id="upload-attachment" name="upload-attachment"
+                                           data-gx-extension="ajax_file_upload"
+                                           data-ajax_file_upload-url="admin.php?do=Emails/UploadAttachment&pageToken={$content.pageToken}"/>
+                                    {/if}
+                                </div>
+                                {/block}
+
+                                {block name="admin_emails_emails_modal_attachments_tab_table"}
+                                <table id="attachments-table">
+                                    {block name="admin_emails_emails_modal_attachments_tab_table_thead"}
+                                    <thead>
+                                    <tr>
+                                        <th class="sort-asc">{$txt.modal_path}</th>
+                                        <th class="disable-sort">{$txt.table_actions}</th>
+                                    </tr>
+                                    </thead>
+                                    {/block}
+                                    {block name="admin_emails_emails_modal_attachments_tab_table_tbody"}
+                                    <tbody></tbody>
+                                    {/block}
+                                </table>
+                                {/block}
+                            </div>
+                            {/block}
+
+                        </div>
+                        {/block}
+                    </div>
+                </div>
+                {/block}
+            </div>
+        </div>
+    {/block}
+{/block}
+{block name="bottom_save_bar"}
+	<button id="handle-old-emails" class="btn pull-right">
+		{$txt.handle_old_emails}
+	</button>
+	<button id="handle-attachments" class="btn pull-right">
+		{$txt.handle_attachments}
+	</button>
+{/block}

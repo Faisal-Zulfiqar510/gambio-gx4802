@@ -1,0 +1,22 @@
+@import "variables";
+
+.gx-admin-header {
+	
+	header {
+		color: #ffffff;
+		display: flex;
+		width: 100%;
+		height: $header-height;
+		z-index: 999;
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+		
+		background-color: $gambio-blue;
+		
+		@import "logo";
+		@import "search";
+		@import "actions";
+	}
+}

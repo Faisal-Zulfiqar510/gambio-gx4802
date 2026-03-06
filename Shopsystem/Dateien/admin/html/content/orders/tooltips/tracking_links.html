@@ -1,0 +1,21 @@
+{extends file="get_usermod:layouts/main/partial/tooltip.html"}
+{load_language_text section="parcel_services"}
+
+{block name="content"}
+	{block name="admin_orders_tooltips_trackings_links"}
+		<div class="tracking-links">
+			{foreach $tracking_links as $tracking_link}
+				{block name="admin_orders_tooltips_trackings_links_link"}
+					<div class="tracking-link">
+						<a href="{$tracking_link.url}" target="_blank">
+                            {$tracking_link.service} #{$tracking_link.code}
+                        </a>
+                        {if $tracking_link.isReturnDelivery}
+                            &nbsp;({$txt.return_delivery})
+                        {/if}
+					</div>
+				{/block}
+			{/foreach}
+		</div>
+	{/block}
+{/block}

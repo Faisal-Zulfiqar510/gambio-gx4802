@@ -1,0 +1,133 @@
+{* Orders Cancel Modal *}
+{load_language_text section="admin_buttons" name="admin_buttons"}
+
+{block name="admin_orders_modals_cancel"}
+	<div class="cancel modal fade" tabindex="-1" role="dialog" data-gx-controller="orders/modals/cancel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{block name="admin_orders_modals_cancel_header"}
+					<div class="modal-header">
+						{block name="admin_orders_modals_cancel_header_close"}
+							<button type="button" class="close" data-dismiss="modal" aria-label="{$admin_buttons.BUTTON_CLOSE}">
+								<span aria-hidden="true">&times;</span></button>
+						{/block}
+						{block name="admin_orders_modals_cancel_header_title"}
+							<h4 class="modal-title">{$orders.TEXT_INFO_HEADING_MULTI_CANCEL_ORDER}</h4>
+						{/block}
+					</div>
+				{/block}
+				
+				{block name="admin_orders_modals_cancel_body"}
+					<div class="modal-body">
+						{block name="admin_orders_modals_cancel_body_intro"}
+							<p>{$orders.TEXT_INFO_MULTI_CANCEL_INTRO}</p>
+						{/block}
+		
+						<br>
+						
+						{block name="admin_orders_modals_cancel_body_form"}
+							<form class="form-horizontal" data-gx-widget="single_checkbox">
+								<fieldset>
+									{* Selected Order IDs *}
+									{block name="admin_orders_modals_cancel_body_form_selected_orders"}
+										<div class="form-group">
+											<label class="col-md-7">{$orders.TEXT_SELECTED_ORDERS}</label>
+											<div class="col-md-5 selected-orders">
+												{* Dynamic Content *}
+											</div>
+										</div>
+									{/block}
+									
+									{* Re-stock Products *}
+									{block name="admin_orders_modals_cancel_body_form_restock_product_quantity"}
+										<div class="form-group">
+											<label for="re-stock" class="col-md-7">{$orders.TEXT_INFO_RESTOCK_PRODUCT_QUANTITY}</label>
+											<div class="col-md-5">
+												<input type="checkbox" class="re-stock" />
+											</div>
+										</div>
+									{/block}
+									
+									{* Re-ship Products *}
+									{block name="admin_orders_modals_cancel_body_form_info_reship"}
+										<div class="form-group">
+											<label for="re-ship" class="col-md-7">{$orders.TEXT_INFO_RESHIPP}</label>
+											<div class="col-md-5">
+												<input type="checkbox" class="re-ship" />
+											</div>
+										</div>
+									{/block}
+			
+									{* Re-activate Product *}
+									{block name="admin_orders_modals_cancel_body_form_info_reactivatearticle"}
+										<div class="form-group">
+											<label for="re-activate" class="col-md-7">{$orders.TEXT_INFO_REACTIVATEARTICLE}</label>
+											<div class="col-md-5">
+												<input type="checkbox" class="re-activate" />
+											</div>
+										</div>
+									{/block}
+			
+									{if $content.is_pdf_creator_installed}
+										{* Create cancellation invoice *}
+										{block name="admin_orders_modals_cancel_body_form_cancel_invoice"}
+											<div class="form-group">
+												<label for="cancel-invoice" class="col-md-7">{$orders.TEXT_INFO_CANCEL_INVOICE}</label>
+												<div class="col-md-5">
+													<input type="checkbox" class="cancel-invoice" />
+												</div>
+											</div>
+										{/block}
+									{/if}
+			
+									{* Notify Customer *}
+									{block name="admin_orders_modals_cancel_body_form_notify_customer"}
+										<div class="form-group">
+											<label for="notify-customer" class="col-md-7">{$orders.ENTRY_NOTIFY_CUSTOMER}</label>
+											<div class="col-md-5">
+												<input type="checkbox" class="notify-customer" />
+											</div>
+										</div>
+									{/block}
+			
+									{* Send Comments *}
+									{block name="admin_orders_modals_cancel_body_form_notify_comments"}
+										<div class="form-group">
+											<label for="send-comments" class="col-md-7">{$orders.ENTRY_NOTIFY_COMMENTS}</label>
+											<div class="col-md-5">
+												<input type="checkbox" class="send-comments" />
+											</div>
+										</div>
+									{/block}
+			
+									{* Cancellation Comments *}
+									{block name="admin_orders_modals_cancel_body_form_heading_comments"}
+										<div class="form-group">
+											<label for="cancellation-comments" class="col-md-7">{$orders.TABLE_HEADING_COMMENTS}</label>
+											<div class="col-md-5">
+												<textarea class="cancellation-comments form-control"></textarea>
+											</div>
+										</div>
+									{/block}
+								</fieldset>
+							</form>
+						{/block}
+					</div>
+				{/block}
+				
+				{block name="admin_orders_modals_cancel_footer"}
+					<div class="modal-footer">
+						{block name="admin_orders_modals_cancel_footer_cancel"}
+							<button type="button"
+									class="btn btn-default"
+									data-dismiss="modal">{$admin_buttons.BUTTON_CANCEL}</button>
+						{/block}
+						{block name="admin_orders_modals_cancel_footer_save"}
+							<button type="button" class="btn btn-primary send">{$admin_buttons.BUTTON_SAVE}</button>
+						{/block}
+					</div>
+				{/block}
+			</div>
+		</div>
+	</div>
+{/block}

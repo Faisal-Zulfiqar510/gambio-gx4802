@@ -1,0 +1,14 @@
+[
+    {
+        "name": "gx-body-wrap",
+        "value": true,
+        "type": "checkbox",
+        "group": "template"
+    },
+    {
+        "name": "gx-stage-below-header",
+        "value": false,
+        "type": "checkbox",
+        "group": "template"
+    }
+]

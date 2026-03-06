@@ -1,0 +1,39 @@
+{load_language_text section="export_schemes"}
+{load_language_text section="lightbox_buttons" name="buttons"}
+
+{block name="admin_export_scheme_export"}
+	<div class="export_scheme_export">
+		{block name="admin_export_scheme_export_content"}
+			<div style="text-align: center; margin: 10px 0 0 0; font-size: 11px;">
+				<div class="export_message">{$txt.export_working_text}</div>
+				<br />
+				<br />
+				<span class="export_job">{$txt.process_is_started}</span>
+				{block name="admin_export_scheme_export_content_progress"}
+					<div class="export_progress_bar">
+						<div class="export_progress_marker"> <!-- &nbsp; --> </div>
+					</div>
+					<span class="export_progress_text">1%</span>
+				{/block}
+				<br />
+				<br />
+			</div>
+		{/block}
+	
+		{block name="admin_export_scheme_export_buttons"}
+			<div class='button_container'>
+				<div class='button_left_container'>
+					{block name="admin_export_scheme_export_buttons_left"}
+					{/block}
+				</div>
+				<div class='button_right_container'>
+					{block name="admin_export_scheme_export_buttons_right"}
+						<a href="#" class="admin_button red cancel" onclick="return false;">{$buttons.cancel}</a>
+						<a href="#" class="admin_button green close" onclick="return false;" style="display: none;">{$buttons.close}</a>
+					{/block}
+				</div>
+				<div class='clear_both'> <!-- &nbsp; --> </div>
+			</div>
+		{/block}
+	</div>
+{/block}

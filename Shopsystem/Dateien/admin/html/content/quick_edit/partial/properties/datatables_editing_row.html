@@ -1,0 +1,30 @@
+{load_language_text section="admin_quick_edit" name="admin_quick_edit"}
+
+{block name="admin_quick_edit_partial_properties_datatables_editing_row"}
+	<tr role="row" class="properties-edit" hidden>
+		<th data-column-name="checkbox">{* Empty Cell *}</th>
+	
+		{foreach $content.properties_columns as $column}
+			<th data-column-name="{$column.name}">
+				{if $column.name == 'id' || $column.name == 'productsName' || $column.name == 'combiName' || $column.name == 'combiModel' || $column.name == 'combiEan'}
+					<input type="text" class="{$column.name} form-control" disabled />
+				{elseif $column.type == 'number'
+				|| ($column.type == 'string' && $column.source == '' && $column.options|@count == 0)}
+					<input type="text" class="{$column.name} form-control" title="{$column.tooltip.edit}" />
+				{elseif $column.type == 'string' && $column.options != ''}
+					<select class="{$column.name} form-control" data-single_select-instance>
+						{foreach $column.options as $option}
+							<option value="{$option.id}">{$option.value|escape:'html'}</option>
+						{/foreach}
+					</select>
+				{/if}
+			</th>
+		{/foreach}
+	
+		<th data-column-name="actions">
+			{* Filter Actions *}
+			<button class="btn apply-properties-edits">{$admin_quick_edit.BUTTON_SAVE}</button>
+			<button class="btn cancel-properties-edits">{$admin_quick_edit.BUTTON_CANCEL}</button>
+		</th>
+	</tr>
+{/block}

@@ -1,0 +1,3098 @@
+{
+    "id": "Malibu",
+    "title": "Malibu",
+    "thumbnail": "screenshot.png",
+    "author": "Gambio GmbH",
+    "version": "2.0.0",
+    "colorPalette": [
+        "brand-primary",
+        "text-color"
+    ],
+    "fonts": [
+        {
+            "name": "Roboto",
+            "url": "xxx",
+            "fallback": "sans-serif"
+        },
+        {
+            "name": "Lato",
+            "url": "xxx",
+            "fallback": "sans-serif"
+        }
+    ],
+    "config": {
+        "basics": {
+            "id": "basics",
+            "fieldsets": [
+                {
+                    "title": "malibu.basics.general.title",
+                    "options": [
+                        {
+                            "id": "brand-primary",
+                            "type": "colorpicker",
+                            "label": "malibu.basics.general.options.brand-primary",
+                            "default": "#FFD200",
+                            "group": "bootstrap"
+                        },
+                        {
+                            "id": "gx-brand-secondary",
+                            "type": "colorpicker",
+                            "label": "malibu.basics.general.options.brand-secondary",
+                            "default": "#000000",
+                            "group": "bootstrap"
+                        },
+                        {
+                            "id": "gx-logo",
+                            "type": "gx-logo",
+                            "label": "malibu.basics.general.options.gx-logo",
+                            "selector": "#main-header-logo",
+                            "holder": "img",
+                            "default": ""
+                        }
+                    ]
+                },
+                {
+                    "title": "malibu.basics.typo.title",
+                    "options": [
+                        {
+                            "id": "font-family-sans-serif",
+                            "type": "fontfamily",
+                            "label": "malibu.basics.typo.options.font-family-sans-serif",
+                            "options": [
+                                "Roboto",
+                                "Open Sans",
+                                "Lato",
+                                "Slabo",
+                                "Oswald",
+                                "Source Sans Pro",
+                                "Montserrat",
+                                "Raleway"
+                            ],
+                            "default": "\"Fira Sans\", Arial, sans-serif",
+                            "group": "bootstrap"
+                        },
+                        {
+                            "id": "text-color",
+                            "type": "colorpicker",
+                            "label": "malibu.basics.typo.options.text-color",
+                            "default": "#333333",
+                            "group": "bootstrap"
+                        },
+                        {
+                            "id": "font-size-base",
+                            "type": "textbox",
+                            "label": "malibu.basics.typo.options.font-size-base",
+                            "default": "14px",
+                            "group": "bootstrap"
+                        },
+                        {
+                            "id": "gx-font-import-url",
+                            "type": "url",
+                            "label": "malibu.basics.typo.options.gx-font-import-url",
+                            "default": "https:\/\/fonts.googleapis.com\/css?family=Fira+Sans:300,400,700,900"
+                        }
+                    ]
+                },
+                {
+                    "title": "malibu.areas.general.background.title",
+                    "options": [
+                        {
+                            "id": "gx-body-bg",
+                            "type": "background",
+                            "label": "malibu.areas.general.background.options.gx-body-bg",
+                            "default": {
+                                "color":"#ffffff",
+                                "image": {
+                                    "url": "",
+                                    "position": "50% 50%",
+                                    "repeat": "no-repeat",
+                                    "size": "auto",
+                                    "attachment": "scroll"
+                                }
+                            },
+                            "group": "bootstrap"
+                        },
+                        {
+                            "id": "gx-wrapper-bg",
+                            "type": "background",
+                            "label": "malibu.areas.general.background.options.gx-wrapper-bg",
+                            "default": {
+                                "color": "#ffffff",
+                                "image": {
+                                    "url": "",
+                                    "position": "50% 50%",
+                                    "repeat": "no-repeat",
+                                    "size": "auto",
+                                    "attachment": "scroll"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "malibu.basics.navigationMenu.title",
+                    "options": [
+                        {
+                            "id": "gx-cat-navbar-bg",
+                            "type": "background",
+                            "label": "malibu.areas.categories.menuItems.options.gx-cat-navbar-bg",
+                            "default": {
+                                "color": "#393939"
+                            }
+                        },
+                        {
+                            "id": "navbar-default-link-color",
+                            "type": "colorpicker",
+                            "label": "malibu.basics.navigationMenu.options.navbar-default-link-color",
+                            "selector": "body",
+                            "default": "#000"
+                        }
+                    ]
+                }
+            ]
+        },
+        "areas": {
+            "id": "areas",
+            "categories": [
+                {
+                    "type": "category",
+                    "title": "malibu.areas.general.title",
+                    "id": "general",
+                    "basic": true,
+                    "categories": [
+                        {
+                            "type": "category",
+                            "id": "layout",
+                            "title": "malibu.areas.general.layout.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.layout.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-body-wrap",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-body-wrap",
+                                            "default": false
+                                        },
+                                        {
+                                            "id": "gx-topbar-wrap",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-topbar-wrap",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-categories-wrap",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-categories-wrap",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-center-categories",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-center-categories",
+                                            "default": false
+                                        },
+                                        {
+                                            "id": "gx-header-fixed",
+                                            "type": "checkbox",
+                                            "requiresReload": true,
+                                            "label": "malibu.areas.general.layout.options.gx-header-fixed",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-header-wrap",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-header-wrap",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-stage-wrap",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-stage-wrap",
+                                            "default": false
+                                        },
+                                        {
+                                            "id": "gx-footer-wrap",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-footer-wrap",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-stage-below-header",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-stage-below-header",
+                                            "default": false
+                                        },
+                                        {
+                                            "id": "screen-lg",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.general.layout.options.screen-lg",
+                                            "default": "1400px",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "gx-body-padding-top",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.general.layout.options.gx-body-padding-top",
+                                            "default": "0px"
+                                        },
+                                        {
+                                            "id": "gx-body-padding-bottom",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.general.layout.options.gx-body-padding-bottom",
+                                            "default": "0px"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "colors",
+                            "title": "malibu.areas.general.colors.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.colors.title",
+                                    "options": [
+                                        {
+                                            "id": "brand-primary",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.colors.options.brand-primary",
+                                            "default": "#FFD200",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "text-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.colors.options.text-color",
+                                            "default": "#333333",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "link-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.colors.options.link-color",
+                                            "default": "$brand-primary",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "gx-breadcrumb-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.colors.options.gx-breadcrumb-color",
+                                            "default": "#999999"
+                                        },
+                                        {
+                                            "id": "gx-no-rating-hint-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.colors.options.gx-no-rating-hint-color",
+                                            "default": "$text-color"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "background",
+                            "title": "malibu.areas.general.background.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.background.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-body-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.background.options.gx-body-bg",
+                                            "default": {
+                                                "color":"#ffffff",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            },
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "gx-wrapper-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.background.options.gx-wrapper-bg",
+                                            "default": {
+                                                "color": "#ffffff",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "font",
+                            "title": "malibu.areas.general.font.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.font.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-font-import-url",
+                                            "type": "url",
+                                            "label": "malibu.areas.general.font.options.gx-font-import-url",
+                                            "default": "https:\/\/fonts.googleapis.com\/css?family=Fira+Sans:300,400,700,900"
+                                        },
+                                        {
+                                            "id": "font-size-base",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.font.options.font-size-base",
+                                            "default": "14px"
+                                        },
+                                        {
+                                            "id": "font-size-h1",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.font.options.font-size-h1",
+                                            "default": "25px",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "font-size-h2",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.font.options.font-size-h2",
+                                            "default": "20px",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "font-size-h3",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.font.options.font-size-h3",
+                                            "default": "18px",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "font-size-h4",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.font.options.font-size-h4",
+                                            "default": "16px",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "font-size-h5",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.font.options.font-size-h5",
+                                            "default": "13px",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "font-size-h6",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.font.options.font-size-h6",
+                                            "default": "13px",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "headings-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.font.options.headings-color",
+                                            "default": "$text-color",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "headings-font-weight",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.general.font.options.headings-font-weight",
+                                            "default": "400",
+                                            "options": [
+                                                "100",
+                                                "200",
+                                                "300",
+                                                "400",
+                                                "500",
+                                                "600",
+                                                "700",
+                                                "800",
+                                                "900"
+                                            ],
+                                            "group": "bootstrap"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "roundedCorners",
+                            "title": "malibu.areas.general.roundedCorners.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.roundedCorners.title",
+                                    "options": [
+                                        {
+                                            "id": "border-radius-base",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.roundedCorners.options.border-radius-base",
+                                            "default": "2px"
+                                        },
+                                        {
+                                            "id": "border-radius-large",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.roundedCorners.options.border-radius-large",
+                                            "default": "6px",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "border-radius-small",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.roundedCorners.options.border-radius-small",
+                                            "default": "0",
+                                            "group": "bootstrap"
+                                        },
+                                        {
+                                            "id": "gx-wrapper-border-radius",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.roundedCorners.options.gx-wrapper-border-radius",
+                                            "default": "0"
+                                        },
+                                        {
+                                            "id": "gx-cat-navbar-border-radius",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.roundedCorners.options.gx-cat-navbar-border-radius",
+                                            "default": "0"
+                                        },
+                                        {
+                                            "id": "gx-cart-border-radius",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.roundedCorners.options.gx-cart-border-radius",
+                                            "default": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "pageUpButton",
+                            "title": "malibu.areas.general.pageUpButton.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.pageUpButton.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-pageup-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.pageUpButton.options.gx-pageup-color",
+                                            "default": "$brand-primary"
+                                        },
+                                        {
+                                            "id": "gx-pageup-hover-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.pageUpButton.options.gx-pageup-hover-color",
+                                            "default": "$brand-primary"
+                                        },
+                                        {
+                                            "id": "gx-pageup-bg-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.pageUpButton.options.gx-pageup-bg-color",
+                                            "default": "#ffffff"
+                                        },
+                                        {
+                                            "id": "gx-pageup-hover-bg-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.pageUpButton.options.gx-pageup-hover-bg-color",
+                                            "default": "#ffffff"
+                                        },
+                                        {
+                                            "id": "gx-pageup-align-left",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.pageUpButton.options.gx-pageup-align-left",
+                                            "default": false
+                                        },
+                                        {
+                                            "id": "gx-pageup-vertical-space-bottom",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.pageUpButton.options.gx-pageup-vertical-space-bottom",
+                                            "default": "25px"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "buttons",
+                            "title": "malibu.areas.general.buttons.title",
+                            "fieldsets": [
+                                {
+                                    "id": "buttons-general",
+                                    "title": "malibu.areas.general.buttons.general",
+                                    "options": [
+                                        {
+                                            "id": "gx-btn-rounded",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-rounded",
+                                            "default": true,
+                                            "values": {
+                                                "checked": true,
+                                                "unchecked": false
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-btn-borderless",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-borderless",
+                                            "default": false,
+                                            "values": {
+                                                "checked": true,
+                                                "unchecked": false
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-btn-border-radius",
+                                            "type": "text",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-border-radius",
+                                            "default": "0px",
+                                            "visible": {
+                                                "id": "gx-btn-rounded",
+                                                "value": false,
+                                                "comparison_type": "=="
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-btn-text-transform",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-text-transform",
+                                            "default": "uppercase",
+                                            "options": [
+                                                "none",
+                                                "uppercase",
+                                                "lowercase",
+                                                "capitalize"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "malibu.areas.general.buttons.primary-fieldset.title",
+                                    "id": "buttons-primary",
+                                    "options": [
+                                        {
+                                            "id": "gx-btn-primary-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-primary-color",
+                                            "default": "$btn-primary-color"
+                                        },
+                                        {
+                                            "id": "gx-btn-primary-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-primary-bg",
+                                            "default": {
+                                                "color": "$btn-primary-bg",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-btn-primary-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-primary-border",
+                                            "default": "$btn-primary-bg"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "malibu.areas.general.buttons.default-fieldset.title",
+                                    "id": "buttons-default",
+                                    "options": [
+                                        {
+                                            "id": "gx-btn-default-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-default-color",
+                                            "default": "$btn-default-color"
+                                        },
+                                        {
+                                            "id": "gx-btn-default-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-default-bg",
+                                            "default": {
+                                                "color": "$btn-default-bg",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-btn-default-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-default-border",
+                                            "default": "$btn-default-bg"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "malibu.areas.general.buttons.add-to-cart-fieldset.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-btn-calltoaction-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-calltoaction-color",
+                                            "default": "#ffffff"
+                                        },
+                                        {
+                                            "id": "gx-btn-calltoaction-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-calltoaction-bg",
+                                            "default": {
+                                                "color": "#2eae06",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-btn-calltoaction-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.buttons.options.gx-btn-calltoaction-border",
+                                            "default": "#2eae06"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "borders",
+                            "title": "malibu.areas.general.borders.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.borders.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-headline-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.borders.options.gx-headline-border-color",
+                                            "default": "$brand-primary"
+                                        },
+                                        {
+                                            "id": "gx-footer-boxes-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.borders.options.gx-footer-boxes-border-color",
+                                            "default": "#bbbbbb"
+                                        },
+                                        {
+                                            "id": "gx-checkout-headline-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.borders.options.gx-checkout-headline-border-color",
+                                            "default": "$brand-primary"
+                                        },
+                                        {
+                                            "id": "gx-pagination-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.borders.options.gx-pagination-border-color",
+                                            "default": "#e7e7e7"
+                                        },
+                                        {
+                                            "id": "gx-product-list-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.borders.options.gx-product-list-border-color",
+                                            "default": "#eeeeee"
+                                        },
+                                        {
+                                            "id": "gx-product-info-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.borders.options.gx-product-info-border-color",
+                                            "default": "darken($gray-lighter, 10%)"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "alerts",
+                            "title": "malibu.areas.general.alerts.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.alerts.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-alert-danger-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-danger-color",
+                                            "default": "$alert-danger-text"
+                                        },
+                                        {
+                                            "id": "gx-alert-success-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-success-color",
+                                            "default": "$alert-success-text"
+                                        },
+                                        {
+                                            "id": "gx-alert-info-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-info-color",
+                                            "default": "$alert-info-text"
+                                        },
+                                        {
+                                            "id": "gx-alert-warning-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-warning-color",
+                                            "default": "$alert-warning-text"
+                                        },
+                                        {
+                                            "id": "gx-alert-danger-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-danger-border",
+                                            "default": "$alert-danger-border"
+                                        },
+                                        {
+                                            "id": "gx-alert-success-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-success-border",
+                                            "default": "$alert-success-border"
+                                        },
+                                        {
+                                            "id": "gx-alert-info-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-info-border",
+                                            "default": "$alert-info-border"
+                                        },
+                                        {
+                                            "id": "gx-alert-warning-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-warning-border",
+                                            "default": "$alert-warning-border"
+                                        },
+                                        {
+                                            "id": "gx-alert-danger-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-danger-bg",
+                                            "default": {
+                                                "color":"$alert-danger-bg",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment":"scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-alert-success-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-success-bg",
+                                            "default": {
+                                                "color": "$alert-success-bg",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment":"scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-alert-warning-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-warning-bg",
+                                            "default": {
+                                                "color": "$alert-warning-bg",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-alert-info-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.alerts.options.gx-alert-info-bg",
+                                            "default": {
+                                                "color": "$alert-info-bg",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "qrCodes",
+                            "title": "malibu.areas.general.qrCodes.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.qrCodes.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-qr-code-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.qrCodes.options.gx-qr-code-color",
+                                            "default": "#337AB7",
+                                            "requiresReload": true
+                                        },
+                                        {
+                                            "id": "gx-qr-code-bg-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.general.qrCodes.options.gx-qr-code-bg-color",
+                                            "default": "#FFFFFF",
+                                            "requiresReload": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "modals",
+                            "title": "malibu.areas.general.modals.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.modals.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-modal-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.general.modals.options.gx-modal-bg",
+                                            "default": {
+                                                "color": "#ffffff",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "id": "header",
+                    "title": "malibu.areas.header.title",
+                    "selector": "#header",
+                    "basic": true,
+                    "categories": [
+                        {
+                            "id": "header-variant-category",
+                            "title": "malibu.areas.header.variants.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.header.variants.title",
+                                    "options": [
+                                        {
+                                            "id": "header-variant",
+                                            "type": "variant",
+                                            "options": [
+                                                {
+                                                    "id": "default",
+                                                    "title": "malibu.areas.header.variants.default.title"
+                                                },
+                                                {
+                                                    "id": "header1",
+                                                    "title": "malibu.areas.header.variants.header1.title"
+                                                },
+                                                {
+                                                    "id": "header2",
+                                                    "title": "malibu.areas.header.variants.header2.title"
+                                                }
+                                            ],
+                                            "default": {
+                                                "id": "default",
+                                                "title": "malibu.areas.header.variants.default.title"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "id": "layout",
+                    "title": "malibu.areas.layout.title",
+                    "selector": "#layout",
+                    "basic": true,
+                    "categories": [
+                        {
+                            "id": "layout-variant-category",
+                            "title": "malibu.areas.variants.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.variants.title",
+                                    "options": [
+                                        {
+                                            "id": "layout-variant",
+                                            "type": "variant",
+                                            "options": [
+                                                {
+                                                    "id": "fullscreen",
+                                                    "title": "malibu.areas.layout.variants.fullscreen.title"
+                                                },
+                                                {
+                                                    "id": "boxed",
+                                                    "title": "malibu.areas.layout.variants.boxed.title"
+                                                },
+                                                {
+                                                    "id": "hero",
+                                                    "title": "malibu.areas.layout.variants.hero.title"
+                                                }
+                                            ],
+                                            "default": {
+                                                "id": "fullscreen",
+                                                "title": "malibu.areas.header.variants.fullscreen.title"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "id": "slider",
+                    "title": "malibu.areas.slider.title",
+                    "selector": "#stage",
+                    "basic": true,
+                    "categories": [
+                        {
+                            "id": "slider-variant",
+                            "title": "malibu.areas.slider.variants.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.slider.variants.title",
+                                    "options": [
+                                        {
+                                            "id": "slider",
+                                            "type": "variant",
+                                            "options": [
+                                                {
+                                                    "id": "default",
+                                                    "title": "malibu.areas.slider.variants.default.title"
+                                                },
+                                                {
+                                                    "id": "slider1",
+                                                    "title": "malibu.areas.slider.variants.slider1.title"
+                                                },
+                                                {
+                                                    "id": "slider2",
+                                                    "title": "malibu.areas.slider.variants.slider2.title"
+                                                }
+                                            ],
+                                            "default": {
+                                                "id": "default",
+                                                "title": "malibu.areas.slider.variants.default.title"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "slider-general",
+                            "title": "malibu.areas.slider.variants.general.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.slider.variants.general.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-use-content-zone-for-hero",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-use-content-zone-for-hero",
+                                            "default": false,
+                                            "requiresReload": true
+                                        },
+                                        {
+                                            "id": "gx-display-teaser-slider-xs",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.teaserSlider.gx-display-teaser-slider-xs",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-display-teaser-slider-sm",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.teaserSlider.gx-display-teaser-slider-sm",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-display-teaser-slider-md",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.teaserSlider.gx-display-teaser-slider-md",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-display-teaser-slider-lg",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.teaserSlider.gx-display-teaser-slider-lg",
+                                            "default": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "id": "columnDistribution",
+                    "title": "malibu.areas.columnDistribution.title",
+                    "categories": [
+                        {
+                            "type": "category",
+                            "id": "desktops",
+                            "title": "malibu.areas.columnDistribution.desktops.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.columnDistribution.desktops.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-left-col-lg",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.desktops.options.gx-left-col-lg",
+                                            "default": "3",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-right-col-lg",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.desktops.options.gx-right-col-lg",
+                                            "default": "0",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-main-col-lg",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.desktops.options.gx-main-col-lg",
+                                            "default": "9",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "medium",
+                            "title": "malibu.areas.columnDistribution.medium.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.columnDistribution.medium.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-left-col-md",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.medium.options.gx-left-col-md",
+                                            "default": "4",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-right-col-md",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.medium.options.gx-right-col-md",
+                                            "default": "0",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-main-col-md",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.medium.options.gx-main-col-md",
+                                            "default": "8",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "small",
+                            "title": "malibu.areas.columnDistribution.small.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.columnDistribution.small.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-left-col-sm",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.small.options.gx-left-col-sm",
+                                            "default": "4",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-right-col-sm",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.small.options.gx-right-col-sm",
+                                            "default": "0",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-main-col-sm",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.small.options.gx-main-col-sm",
+                                            "default": "8",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "subCategories",
+                            "title": "malibu.areas.columnDistribution.subCategories.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.columnDistribution.subCategories.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-sub-cat-col-sm",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.subCategories.options.gx-sub-cat-col-sm",
+                                            "default": "6",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-sub-cat-col-md",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.subCategories.options.gx-sub-cat-col-md",
+                                            "default": "6",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-sub-cat-col-lg",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.columnDistribution.subCategories.options.gx-sub-cat-col-lg",
+                                            "default": "6",
+                                            "options": [
+                                                "0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+                                                "5",
+                                                "6",
+                                                "7",
+                                                "8",
+                                                "9",
+                                                "10",
+                                                "11",
+                                                "12"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "id": "footer",
+                    "title": "malibu.areas.footer.title",
+                    "basic": true,
+                    "selector": "#footer",
+                    "categories": [
+                        {
+                            "id": "footer-variant-category",
+                            "title": "malibu.areas.footer.variants.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.footer.variants.title",
+                                    "options": [
+                                        {
+                                            "id": "footer-variant",
+                                            "type": "variant",
+                                            "options": [
+                                                {
+                                                    "id": "default",
+                                                    "title": "malibu.areas.footer.variants.default.title"
+                                                },
+                                                {
+                                                    "id": "no-columns",
+                                                    "title": "malibu.areas.footer.variants.no-columns.title"
+                                                },
+                                                {
+                                                    "id": "individual",
+                                                    "title": "malibu.areas.footer.variants.individual.title"
+                                                }
+                                            ],
+                                            "default": {
+                                                "id": "default",
+                                                "title": "malibu.areas.footer.variants.default.title"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "footer-general",
+                            "title": "malibu.areas.general.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.general.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-footer-wrap",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.general.layout.options.gx-footer-wrap",
+                                            "default": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "id": "product",
+                    "title": "malibu.areas.product.title",
+                    "selector": "#product",
+                    "basic": true,
+                    "pageNamespace": "PRODUCT_INFO",
+                    "categories": [
+                        {
+                            "id": "product-variant-category",
+                            "title": "malibu.areas.variants.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.variants.title",
+                                    "options": [
+                                        {
+                                            "id": "product-variant",
+                                            "type": "variant",
+                                            "options": [
+                                                {
+                                                    "id": "classic",
+                                                    "title": "malibu.areas.product.variants.classic.title"
+                                                },
+                                                {
+                                                    "id": "default",
+                                                    "title": "malibu.areas.product.variants.default.title"
+                                                }
+                                            ],
+                                            "default": {
+                                                "id": "classic",
+                                                "title": "malibu.areas.product.variants.productVariant.options.classic"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "id": "product-modifiers",
+                    "title": "malibu.areas.product-modifiers.title",
+                    "selector": "#product",
+                    "basic": true,
+                    "pageNamespace": "PRODUCT_INFO_WITH_MODIFIERS",
+                    "categories": [
+                        {
+                            "id": "product-modifiers-variant-category",
+                            "title": "malibu.areas.variants.title",
+                            "basic": true,
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.variants.title",
+                                    "options": [
+                                        {
+                                            "id": "product-modifiers",
+                                            "type": "variant",
+                                            "options": [
+                                                {
+                                                    "id": "default",
+                                                    "title": "malibu.areas.product-modifiers.square.title"
+                                                },
+                                                {
+                                                    "id": "rounded",
+                                                    "title": "malibu.areas.product-modifiers.rounded.title"
+                                                }
+                                            ],
+                                            "default": {
+                                                "id": "default",
+                                                "title": "Square"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "title": "malibu.areas.products.title",
+                    "id": "products",
+                    "categories": [
+                        {
+                            "type": "category",
+                            "id": "articleImage",
+                            "title": "malibu.areas.products.articleImage.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.products.articleImage.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-product-info-stage-height",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.articleImage.options.gx-product-info-stage-height",
+                                            "default": "500px"
+                                        },
+                                        {
+                                            "id": "gx-product-info-stage-height-mobile",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.articleImage.options.gx-product-info-stage-height-mobile",
+                                            "default": "300px"
+                                        },
+                                        {
+                                            "id": "gx-product-info-layer-stage-height",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.articleImage.options.gx-product-info-layer-stage-height",
+                                            "default": "650px"
+                                        },
+                                        {
+                                            "id": "gx-product-info-layer-stage-height-mobile",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.articleImage.options.gx-product-info-layer-stage-height-mobile",
+                                            "default": "300px"
+                                        },
+                                        {
+                                            "id": "gx-product-info-thumbnail-width",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.articleImage.options.gx-product-info-thumbnail-width",
+                                            "default": "100px"
+                                        },
+                                        {
+                                            "id": "gx-product-info-thumbnail-width-mobile",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.articleImage.options.gx-product-info-thumbnail-width-mobile",
+                                            "default": "50px"
+                                        },
+                                        {
+                                            "id": "gx-product-info-img-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.products.articleImage.options.gx-product-info-img-bg",
+                                            "default": {
+                                                "color": "transparent",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "productlist",
+                            "title": "malibu.areas.products.productList.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.products.productList.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-product-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.products.productList.options.gx-product-bg",
+                                            "default": {
+                                                "color": "#ffffff",
+                                                "image": {
+                                                    "enabled": false,
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                },
+                                                "gradient": {
+                                                    "enabled": false
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-gallery-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.products.productList.options.gx-gallery-bg",
+                                            "default": {
+                                                "color": "#ffffff",
+                                                "image": {
+                                                    "enabled": false,
+                                                    "url": "",
+                                                    "position":"50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                },
+                                                "gradient": {
+                                                    "enabled": false
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-product-listing-col-xs",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.products.productList.options.gx-product-listing-col-xs",
+                                            "default": "6",
+                                            "requiresReload": true,
+                                            "options": [
+                                                {
+                                                    "value": "1",
+                                                    "text": "12"
+                                                },
+                                                {
+                                                    "value": "2",
+                                                    "text": "6"
+                                                },
+                                                {
+                                                    "value": "3",
+                                                    "text": "4"
+                                                },
+                                                {
+                                                    "value": "4",
+                                                    "text": "3"
+                                                },
+                                                {
+                                                    "value": "6",
+                                                    "text": "2"
+                                                },
+                                                {
+                                                    "value": "12",
+                                                    "text": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-product-listing-col-sm",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.products.productList.options.gx-product-listing-col-sm",
+                                            "default": "6",
+                                            "requiresReload": true,
+                                            "options": [
+                                                {
+                                                    "value": "1",
+                                                    "text": "12"
+                                                },
+                                                {
+                                                    "value": "2",
+                                                    "text": "6"
+                                                },
+                                                {
+                                                    "value": "3",
+                                                    "text": "4"
+                                                },
+                                                {
+                                                    "value": "4",
+                                                    "text": "3"
+                                                },
+                                                {
+                                                    "value": "6",
+                                                    "text": "2"
+                                                },
+                                                {
+                                                    "value": "12",
+                                                    "text": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-product-listing-col-md",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.products.productList.options.gx-product-listing-col-md",
+                                            "default": "4",
+                                            "requiresReload": true,
+                                            "options": [
+                                                {
+                                                    "value": "1",
+                                                    "text": "12"
+                                                },
+                                                {
+                                                    "value": "2",
+                                                    "text": "6"
+                                                },
+                                                {
+                                                    "value": "3",
+                                                    "text": "4"
+                                                },
+                                                {
+                                                    "value": "4",
+                                                    "text": "3"
+                                                },
+                                                {
+                                                    "value": "6",
+                                                    "text": "2"
+                                                },
+                                                {
+                                                    "value": "12",
+                                                    "text": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-product-listing-col-lg",
+                                            "type": "dropdownselect",
+                                            "label": "malibu.areas.products.productList.options.gx-product-listing-col-lg",
+                                            "default": "3",
+                                            "requiresReload": true,
+                                            "options": [
+                                                {
+                                                    "value": "1",
+                                                    "text": "12"
+                                                },
+                                                {
+                                                    "value": "2",
+                                                    "text": "6"
+                                                },
+                                                {
+                                                    "value": "3",
+                                                    "text": "4"
+                                                },
+                                                {
+                                                    "value": "4",
+                                                    "text": "3"
+                                                },
+                                                {
+                                                    "value": "6",
+                                                    "text": "2"
+                                                },
+                                                {
+                                                    "value": "12",
+                                                    "text": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "gx-products-name-height",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.productList.options.gx-products-name-height",
+                                            "default": "65px"
+                                        },
+                                        {
+                                            "id": "gx-products-price-height",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.productList.options.gx-products-price-height",
+                                            "default": "80px"
+                                        },
+                                        {
+                                            "id": "gx-ribbons-padding",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.productList.options.gx-ribbons-padding",
+                                            "default": "0"
+                                        },
+                                        {
+                                            "id": "gx-product-listing-image-height",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.productList.options.gx-product-listing-image-height",
+                                            "default": "180px"
+                                        },
+                                        {
+                                            "id": "gx-product-listing-image-height-mobile",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.productList.options.gx-product-listing-image-height-mobile",
+                                            "default": "130px"
+                                        },
+                                        {
+                                            "id": "gx-product-listing-gallery-image-height",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.productList.options.gx-product-listing-gallery-image-height",
+                                            "default": "75px"
+                                        },
+                                        {
+                                            "id": "gx-product-listing-gallery-width",
+                                            "type": "textbox",
+                                            "label": "malibu.areas.products.productList.options.gx-product-listing-gallery-width",
+                                            "default": "95px"
+                                        },
+                                        {
+                                            "id": "gx-show-shipping-in-tile",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.products.productList.options.gx-show-shipping-in-tile",
+                                            "default": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "tabs",
+                            "title": "malibu.areas.products.tabs.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.products.tabs.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-tab-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.tabs.options.gx-tab-color",
+                                            "default": "#777777"
+                                        },
+                                        {
+                                            "id": "gx-tab-color-active",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.tabs.options.gx-tab-color-active",
+                                            "default": "#333333"
+                                        },
+                                        {
+                                            "id": "gx-tab-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.tabs.options.gx-tab-border-color",
+                                            "default": "transparent"
+                                        },
+                                        {
+                                            "id": "gx-tab-border-color-active",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.tabs.options.gx-tab-border-color-active",
+                                            "default": "$brand-primary"
+                                        },
+                                        {
+                                            "id": "gx-tab-container-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.tabs.options.gx-tab-container-border-color",
+                                            "default": "transparent"
+                                        },
+                                        {
+                                            "id": "gx-tab-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.products.tabs.options.gx-tab-bg",
+                                            "default": {
+                                                "color": "transparent",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-tab-bg-active",
+                                            "type": "background",
+                                            "label": "malibu.areas.products.tabs.options.gx-tab-bg-active",
+                                            "default": {
+                                                "color": "transparent",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "ribbons",
+                            "title": "malibu.areas.products.ribbons.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.products.ribbons.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-ribbon-new-active",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-new-active",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-ribbon-new-bg",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-new-bg",
+                                            "default": "#515151"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-new-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-new-color",
+                                            "default": "#ffffff"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-special-active",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-special-active",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-ribbon-special-bg",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-special-bg",
+                                            "default": "#f1544d"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-special-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-special-color",
+                                            "default": "#ffffff"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-available-active",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-available-active",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-ribbon-available-bg",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-available-bg",
+                                            "default": "#79a70a"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-available-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-available-color",
+                                            "default": "#ffffff"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-recommendation-active",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-recommendation-active",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-ribbon-recommendation-bg",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-recommendation-bg",
+                                            "default": "#337ab7"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-recommendation-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-recommendation-color",
+                                            "default": "#ffffff"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-sold-out-active",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-sold-out-active",
+                                            "default": true
+                                        },
+                                        {
+                                            "id": "gx-ribbon-sold-out-bg",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-sold-out-bg",
+                                            "default": "#C20400"
+                                        },
+                                        {
+                                            "id": "gx-ribbon-sold-out-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.products.ribbons.options.gx-ribbon-sold-out-color",
+                                            "default": "#ffffff"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "title": "malibu.areas.checkout.title",
+                    "id": "checkout",
+                    "categories": [
+                        {
+                            "type": "category",
+                            "id": "general",
+                            "title": "malibu.areas.checkout.general.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.checkout.general.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-checkout-headline-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.general.gx-checkout-headline-color",
+                                            "default": "$brand-primary"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "shoppingCartTable",
+                            "title": "malibu.areas.checkout.shoppingCart.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.checkout.shoppingCart.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-cart-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.shoppingCart.options.gx-cart-border-color",
+                                            "default": "#e7e7e7"
+                                        },
+                                        {
+                                            "id": "gx-cart-table-head-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.shoppingCart.options.gx-cart-table-head-color",
+                                            "default": "#999999"
+                                        },
+                                        {
+                                            "id": "gx-cart-table-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.shoppingCart.options.gx-cart-table-color",
+                                            "default": "$text-color"
+                                        },
+                                        {
+                                            "id": "gx-cart-table-info-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.shoppingCart.options.gx-cart-table-info-color",
+                                            "default": "$gray"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "shoppingCartTotalBox",
+                            "title": "malibu.areas.checkout.shoppingCartTotalBox.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.checkout.shoppingCartTotalBox.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-total-box-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.shoppingCartTotalBox.options.gx-total-box-color",
+                                            "default": "$text-color"
+                                        },
+                                        {
+                                            "id": "gx-total-box-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.shoppingCartTotalBox.options.gx-total-box-border-color",
+                                            "default": "#e7e7e7"
+                                        },
+                                        {
+                                            "id": "gx-total-box-top-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.checkout.shoppingCartTotalBox.options.gx-total-box-top-bg",
+                                            "default": {
+                                                "color": "$gx-panel-bg-color",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-total-box-bottom-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.checkout.shoppingCartTotalBox.options.gx-total-box-bottom-bg",
+                                            "default": {
+                                                "color": "#eee",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "shoppingCartTotalTable",
+                            "title": "malibu.areas.checkout.checkoutTotalTable.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.checkout.checkoutTotalTable.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-checkout-table-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.checkoutTotalTable.options.gx-checkout-table-color",
+                                            "default": "$text-color"
+                                        },
+                                        {
+                                            "id": "gx-checkout-table-header-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.checkoutTotalTable.options.gx-checkout-table-header-color",
+                                            "default": "#999999"
+                                        },
+                                        {
+                                            "id": "gx-checkout-table-additional-info-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.checkoutTotalTable.options.gx-checkout-table-additional-info-color",
+                                            "default": "$gray"
+                                        },
+                                        {
+                                            "id": "gx-checkout-table-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.checkoutTotalTable.options.gx-checkout-table-border-color",
+                                            "default": "#e7e7e7"
+                                        },
+                                        {
+                                            "id": "gx-checkout-table-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.checkout.checkoutTotalTable.options.gx-checkout-table-bg",
+                                            "default": {
+                                                "color": "#f3f3f3",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "listGroupItems",
+                            "title": "malibu.areas.checkout.listGroupItems.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.checkout.listGroupItems.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-list-group-item-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-list-group-item-color",
+                                            "default": "$text-color"
+                                        },
+                                        {
+                                            "id": "gx-list-group-item-color-active",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-list-group-item-color-active",
+                                            "default": "$text-color"
+                                        },
+                                        {
+                                            "id": "gx-list-group-item-link-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-list-group-item-link-color",
+                                            "default": "$brand-primary"
+                                        },
+                                        {
+                                            "id": "gx-list-group-item-link-color-active",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-list-group-item-link-color-active",
+                                            "default": "$brand-primary"
+                                        },
+                                        {
+                                            "id": "gx-list-group-item-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-list-group-item-border-color",
+                                            "default": "$gray-lighter"
+                                        },
+                                        {
+                                            "id": "gx-list-group-item-border-color-active",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-list-group-item-border-color-active",
+                                            "default": "#cccccc"
+                                        },
+                                        {
+                                            "id": "gx-list-group-item-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-list-group-item-bg",
+                                            "default": {
+                                                "color": "transparent",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-list-group-item-bg-active",
+                                            "type": "background",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-list-group-item-bg-active",
+                                            "default": {
+                                                "color": "#eeeeee",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-checkout-form-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.checkout.listGroupItems.gx-checkout-form-bg",
+                                            "default": {
+                                                "color": "#cccccc",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "checkboxes",
+                            "title": "malibu.areas.checkout.checkboxes.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.checkout.checkboxes.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-checkbox-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.checkboxes.options.gx-checkbox-color",
+                                            "default": "$alert-warning-text"
+                                        },
+                                        {
+                                            "id": "gx-checkbox-active-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.checkboxes.options.gx-checkbox-active-color",
+                                            "default": "$alert-success-text"
+                                        },
+                                        {
+                                            "id": "gx-checkbox-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.checkboxes.options.gx-checkbox-border",
+                                            "default": "$alert-warning-border"
+                                        },
+                                        {
+                                            "id": "gx-checkbox-active-border",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.checkout.checkboxes.options.gx-checkbox-active-border",
+                                            "default": "$alert-success-border"
+                                        },
+                                        {
+                                            "id": "gx-checkbox-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.checkout.checkboxes.options.gx-checkbox-bg",
+                                            "default": {
+                                                "color": "$alert-warning-bg",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-checkbox-active-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.checkout.checkboxes.options.gx-checkbox-active-bg",
+                                            "default": {
+                                                "color": "$alert-success-bg",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "title": "malibu.areas.menuBoxes.title",
+                    "id": "menuboxes",
+                    "categories": [
+                        {
+                            "type": "category",
+                            "id": "headline",
+                            "title": "malibu.areas.menuBoxes.panelHeader.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.menuBoxes.panelHeader.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-panel-header-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.menuBoxes.panelHeader.options.gx-panel-header-color",
+                                            "default": "$text-color"
+                                        },
+                                        {
+                                            "id": "gx-panel-header-bg",
+                                            "type": "background",
+                                            "label": "malibu.areas.menuBoxes.panelHeader.options.gx-panel-header-bg",
+                                            "default": {
+                                                "color":"$brand-primary",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "contentarea",
+                            "title": "malibu.areas.menuBoxes.panelBody.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.menuBoxes.panelBody.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-panel-bg",
+                                            "type": "background",
+                                            "group": "bootstrap",
+                                            "label": "malibu.areas.menuBoxes.panelBody.options.gx-panel-bg",
+                                            "default": {
+                                                "color": "#ffffff",
+                                                "image": {
+                                                    "url": "",
+                                                    "position": "50% 50%",
+                                                    "repeat": "no-repeat",
+                                                    "size": "auto",
+                                                    "attachment": "scroll"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-panel-border-color",
+                                            "type": "colorpicker",
+                                            "label": "malibu.areas.menuBoxes.panelBody.options.gx-panel-border-color",
+                                            "default": "#dddddd"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "activeMenuboxesAt",
+                            "title": "malibu.areas.menuBoxes.activeAt.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.menuBoxes.activeAt.title",
+                                    "options": [
+                                        {
+                                            "id": "gx-index-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-index-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "INDEX",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-advanced-search-result-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-advanced-search-result-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "SEARCH",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-shop-content-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-shop-content-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "CONTENT",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-product-info-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-product-info-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "PRODUCT_INFO",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-product-listing-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-product-listing-full-width",
+                                            "default": false,
+                                            "requiresReload": true,
+                                            "pageNamespace": "CAT",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-shopping-cart-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-shopping-cart-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "CART",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-wishlist-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-wishlist-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "WISH_LIST",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-checkout-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-checkout-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "CHECKOUT",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-account-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-account-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "ACCOUNT",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-create-account-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-create-account-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "pageNamespace": "ACCOUNT",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-newsletter-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-newsletter-full-width",
+                                            "default": true,
+                                            "requiresReload": true,
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        },
+                                        {
+                                            "id": "gx-logoff-full-width",
+                                            "type": "checkbox",
+                                            "label": "malibu.areas.menuBoxes.activeAt.options.gx-logoff-full-width",
+                                            "default": false,
+                                            "requiresReload": true,
+                                            "pageNamespace": "LOGOFF",
+                                            "values": {
+                                                "checked": false,
+                                                "unchecked": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "category",
+                            "id": "menuBoxesPosition",
+                            "title": "malibu.areas.menuBoxesPosition.title",
+                            "fieldsets": [
+                                {
+                                    "title": "malibu.areas.menuBoxesPosition.title",
+                                    "options": [
+                                        {
+                                            "id": "menu-box-ordained-list",
+                                            "type": "ordainedlist",
+                                            "label": "malibu.areas.menuBoxesPosition.title",
+                                            "group": "box",
+                                            "requiresReload": true,
+                                            "default": [
+                                                {
+                                                    "id": "categories",
+                                                    "label": "malibu.areas.menuBoxesPosition.category.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 0
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "filter",
+                                                    "label": "malibu.areas.menuBoxesPosition.filter.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 1
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "admin",
+                                                    "label": "malibu.areas.menuBoxesPosition.admin.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 2
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "bestsellers",
+                                                    "label": "malibu.areas.menuBoxesPosition.bestseller.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 3
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "menu-box-more-about",
+                                                    "label": "malibu.areas.menuBoxesPosition.moreAbout.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 4
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "order_history",
+                                                    "label": "malibu.areas.menuBoxesPosition.orderHistory.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 5
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "gm_trusted_shops_widget",
+                                                    "label": "malibu.areas.menuBoxesPosition.trustedShopsWidget.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 6
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "newsletter",
+                                                    "label": "malibu.areas.menuBoxesPosition.newsletter.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 7
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "specials",
+                                                    "label": "malibu.areas.menuBoxesPosition.specials.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 8
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "manufacturers",
+                                                    "label": "malibu.areas.menuBoxesPosition.manufacturer.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 9
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "manufacturers_info",
+                                                    "label": "malibu.areas.menuBoxesPosition.manufacturerInfo.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 10
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "search",
+                                                    "label": "malibu.areas.menuBoxesPosition.search.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 11
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "add_quickie",
+                                                    "label": "malibu.areas.menuBoxesPosition.addQuickie.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 12
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "whatsnew",
+                                                    "label": "malibu.areas.menuBoxesPosition.whatsNew.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 13
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "last_viewed",
+                                                    "label": "malibu.areas.menuBoxesPosition.lastViewed.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 14
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "login",
+                                                    "label": "malibu.areas.menuBoxesPosition.login.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 15
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "gm_trusted_shops_widget",
+                                                    "label": "malibu.areas.menuBoxesPosition.trustedShops.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 16
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "information",
+                                                    "label": "malibu.areas.menuBoxesPosition.information.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 17
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "paypal",
+                                                    "label": "malibu.areas.menuBoxesPosition.paypal.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 18
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "ekomi",
+                                                    "label": "malibu.areas.menuBoxesPosition.ekomi.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 19
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "mailbeez_shopvoting",
+                                                    "label": "malibu.areas.menuBoxesPosition.mailbeezShopvoting.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": true,
+                                                        "position": 20
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox1",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox1.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 21
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox2",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox2.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 22
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox3",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox3.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 23
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox4",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox4.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 24
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox5",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox5.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 25
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox6",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox6.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 26
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox7",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox7.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 27
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox8",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox8.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 28
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                },
+                                                {
+                                                    "id": "extrabox9",
+                                                    "label": "malibu.areas.menuBoxesPosition.extrabox9.title",
+                                                    "requiresReload": true,
+                                                    "default": {
+                                                        "status": false,
+                                                        "position": 29
+                                                    },
+                                                    "type": "ordainedlistitem",
+                                                    "group": "box"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "category",
+                    "title": "malibu.areas.cookieConsentPanel.title",
+                    "id": "cookieconsentpanel",
+                    "fieldsets": [
+                        {
+                            "title": "malibu.areas.cookieConsentPanel.title.general",
+                            "options": [
+                                {
+                                    "id": "cookie-consent-panel-background-color",
+                                    "type": "colorpicker",
+                                    "label": "malibu.areas.cookieConsentPanel.options.panel.background.color",
+                                    "group": "bootstrap",
+                                    "default": "#f9f9f9"
+                                },
+                                {
+                                    "id": "cookie-consent-panel-opacity",
+                                    "type": "text",
+                                    "label": "malibu.areas.cookieConsentPanel.options.panel.opacity",
+                                    "default": "0.97"
+                                },
+                                {
+                                    "id": "cookie-consent-panel-buttons-color",
+                                    "type": "colorpicker",
+                                    "label": "malibu.areas.cookieConsentPanel.options.panel.buttons.color",
+                                    "group": "bootstrap",
+                                    "default": "$brand-primary"
+                                },
+                                {
+                                    "id": "cookie-consent-panel-buttons-color-hover",
+                                    "type": "colorpicker",
+                                    "label": "malibu.areas.cookieConsentPanel.options.panel.buttons.color.hover",
+                                    "group": "bootstrap",
+                                    "default": "$brand-primary"
+                                },
+                                {
+                                    "id": "cookie-consent-panel-box-shadow",
+                                    "type": "text",
+                                    "label": "malibu.areas.cookieConsentPanel.options.panel.boxshadow",
+                                    "group": "bootstrap",
+                                    "default": "0 -8px 20px 0 rgba(0,0,0,.2)"
+                                },
+                                {
+                                    "id": "cookie-consent-panel-headline-font-size",
+                                    "type": "textbox",
+                                    "default": "18px",
+                                    "group": "bootstrap",
+                                    "label": "malibu.areas.cookieConsentPanel.options.panel.headline.font-size"
+                                },
+                                {
+                                    "id": "cookie-consent-panel-description-font-size",
+                                    "type": "textbox",
+                                    "default": "13px",
+                                    "group": "bootstrap",
+                                    "label": "malibu.areas.cookieConsentPanel.options.panel.description.font-size"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "contents": {
+        "infoElements": [
+            {
+                "id": 4311000,
+                "type": "content",
+                "position": "styleedit",
+                "status": "1",
+                "title": {
+                    "de": "StyleEdit-13882d",
+                    "en": "StyleEdit-13882d"
+                },
+                "heading": {
+                    "de": "",
+                    "en": ""
+                },
+                "text": {
+                    "de": "<img alt=\"\" src=\"https:\/\/via.placeholder.com\/1200\" class=\"img-responsive\">",
+                    "en": ""
+                }
+            },
+            {
+                "id": 4311001,
+                "type": "content",
+                "position": "styleedit",
+                "status": "1",
+                "title": {
+                    "de": "StyleEdit-cbf7bd",
+                    "en": "StyleEdit-cbf7bd"
+                },
+                "heading": {
+                    "de": "",
+                    "en": ""
+                },
+                "text": {
+                    "de": "<div class=\"row\"> <div class=\"col-md-6\"> <h1>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<\/h1> <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.<\/p> <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.<\/p> <\/div> <div class=\"col-md-6\"> <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.<\/p> <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. <\/p> <\/div> <\/div>",
+                    "en": "<div class=\"row\"> <div class=\"col-md-6\"> <h1>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<\/h1> <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.<\/p> <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.<\/p> <\/div> <div class=\"col-md-6\"> <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.<\/p> <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. <\/p> <\/div> <\/div>"
+                }
+            },
+            {
+                "id": 4311002,
+                "type": "content",
+                "position": "styleedit",
+                "status": "1",
+                "title": {
+                    "de": "StyleEdit-8f8dce",
+                    "en": "StyleEdit-8f8dce"
+                },
+                "heading": {
+                    "de": "",
+                    "en": ""
+                },
+                "text": {
+                    "de": "<p><strong>Lorem<\/strong><br><strong>Ipsum dolor<\/strong><br><strong>sit amet<\/strong><\/p>",
+                    "en": "<p><strong>Lorem<\/strong><br><strong>Ipsum dolor<\/strong><br><strong>sit amet<\/strong><\/p>"
+                }
+            },
+            {
+                "id": 4311003,
+                "type": "content",
+                "position": "styleedit",
+                "status": "1",
+                "title": {
+                    "de": "StyleEdit-1ef6ff",
+                    "en": "StyleEdit-1ef6ff"
+                },
+                "heading": {
+                    "de": "",
+                    "en": ""
+                },
+                "text": {
+                    "de": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                    "en": "<p><a href=\"#\">Shop now<\/a><\/p>"
+                }
+            },
+            {
+                "id": 4311004,
+                "type": "content",
+                "position": "styleedit",
+                "status": "1",
+                "title": {
+                    "de": "StyleEdit-a4e9d5",
+                    "en": "StyleEdit-a4e9d5"
+                },
+                "heading": {
+                    "de": "",
+                    "en": ""
+                },
+                "text": {
+                    "de": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                    "en": "<p><a href=\"#\">Shop now<\/a><\/p>"
+                }
+            },
+            {
+                "id": 4311005,
+                "type": "content",
+                "position": "styleedit",
+                "status": "1",
+                "title": {
+                    "de": "StyleEdit-a4e9d5",
+                    "en": "StyleEdit-a4e9d5"
+                },
+                "heading": {
+                    "de": "",
+                    "en": ""
+                },
+                "text": {
+                    "de": "<p><a href=\"#\">Shop now<\/a><\/p>",
+                    "en": "<p><a href=\"#\">Shop now<\/a><\/p>"
+                }
+            },
+            {
+                "id": 4311006,
+                "type": "content",
+                "position": "styleedit",
+                "status": "1",
+                "title": {
+                    "de": "StyleEdit-7df417",
+                    "en": "StyleEdit-7df417"
+                },
+                "heading": {
+                    "de": "",
+                    "en": ""
+                },
+                "text": {
+                    "de": "<div class=\"content vertical-align-center horizontal-align-center text-center\">\n  <p>Lorem<br>Ipsum<\/p>\n<\/div>",
+                    "en": "<div class=\"content vertical-align-center horizontal-align-center text-center\">\n  <p>Lorem<br>Ipsum<\/p>\n<\/div>"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,50 @@
+#stage {
+	#slider {
+		.swiper-container, .swiper-wrapper {
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #fff;
+
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			min-height: 100vh;
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				height: 100%;
+				max-width: none;
+			}
+		}
+	}
+}
+
+#replace-teaser-slider-for-hero {
+	position: relative;
+	z-index: 30;
+}
+
+body {
+	&.page-index {
+		padding-top: 0 !important;
+		#outer-wrapper {
+			overflow: hidden;
+		}
+	}
+}

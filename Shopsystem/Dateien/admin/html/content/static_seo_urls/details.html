@@ -1,0 +1,55 @@
+{*
+	Static Seo Urls page layout
+	==========================
+*}
+
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="static_seo_urls" name="txt"}
+
+	{block name="admin_static_seo_urls_details"}
+		<div class="static-seo-urls-details breakpoint-small">
+			{block name="admin_static_seo_urls_details_form"}
+				<form
+					class="form-horizontal"
+					action="admin.php?do=StaticSeoUrl/save"
+					enctype="multipart/form-data"
+					data-gx-controller="static_seo_urls/static_seo_urls_details"
+				    data-static_seo_urls_details-redirect-url="admin.php?do=StaticSeoUrl"
+				    data-id="{$content.id}"
+				>
+					{include file="get_usermod:static_seo_urls/details/master_data_panel.html"}
+					{include file="get_usermod:static_seo_urls/details/static_seo_url_contents_container.html"}
+				</form>
+			{/block}
+		</div>
+	{/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	{load_language_text section="buttons" name="btn"}
+
+	{block name="admin_static_seo_urls_details_toolbar"}
+		{block name="admin_static_seo_urls_details_toolbar_dropdown"}
+		<div class="btn-group submit-button-group dropup pull-right">
+			{block name="admin_static_seo_urls_details_toolbar_dropdown_buttons"}
+			<button type="button" class="btn btn-primary btn-margin save">{$btn.save}</button>
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			{/block}
+			{block name="admin_static_seo_urls_details_toolbar_dropdown_ul"}
+			<ul class="dropdown-menu">
+				<li class="refresh"><a>{$btn.refresh}</a></li>
+			</ul>
+			{/block}
+		</div>
+		{/block}
+
+		{block name="admin_static_seo_urls_details_toolbar_abort"}
+			<a href="admin.php?do=StaticSeoUrl" class="btn abort pull-right">{$btn.abort}</a>
+		{/block}
+	{/block}
+{/block}

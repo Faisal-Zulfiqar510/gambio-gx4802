@@ -1,0 +1,67 @@
+{
+	"categories": [
+		{
+			"id": "shop",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_SHOP"
+			}
+		},
+		{
+			"id": "customers",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_CUSTOMERS"
+			}
+		},
+		{
+			"id": "products",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_PRODUCTS"
+			}
+		},
+		{
+			"id": "design",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_DESIGN"
+			}
+		},
+		{
+			"id": "laws",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_LAWS"
+			}
+		},
+		{
+			"id": "delivery",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_DELIVERY"
+			}
+		},
+		{
+			"id": "seo",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_SEO"
+			}
+		},
+		{
+			"id": "countries",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_COUNTRIES"
+			}
+		},
+		{
+			"id": "system",
+			"label": {
+				"section": "configuration_categories",
+				"phrase": "CONFIGURATIONS_CATEGORY_SYSTEM"
+			}
+		}
+	]
+}

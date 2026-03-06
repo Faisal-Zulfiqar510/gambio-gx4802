@@ -1,0 +1,9 @@
+<div class="form-group visibility_switcher">
+	<label class="col-sm-11 control-label" for="{$field}">{$config.label}</label>
+	<span class="col-sm-1" data-gx-widget="tooltip_icon" data-tooltip_icon-type="{$config.tooltip.type}">{$config.tooltip.text}</span>
+	<textarea style="max-width: inherit" rows="10" id="{$field}"
+	          class="col-sm-12 form-control"
+	          name="{$field}"
+	          {if $config.readonly == true}readonly="readonly"{/if}
+	>{$config.default_value}</textarea>
+</div>

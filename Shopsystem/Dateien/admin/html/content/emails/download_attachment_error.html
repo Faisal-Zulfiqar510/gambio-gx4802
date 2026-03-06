@@ -1,0 +1,10 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+    {load_language_text section="emails"}
+    
+    <div class="gx-container">
+        <h3 class="page-header">{$txt.message_download_attachment_error}</h3>
+        <pre>{$content.path}</pre>
+    </div>
+{/block}

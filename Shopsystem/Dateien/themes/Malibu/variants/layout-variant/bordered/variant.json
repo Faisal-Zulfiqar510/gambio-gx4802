@@ -1,0 +1,54 @@
+{
+	"type": "category",
+	"title": "malibu.areas.layout.variants.bordered.title",
+	"id": "layout-bordered-variant",
+	"basic": true,
+	"fieldsets": [
+		{
+			"title": "gx-body-wrap",
+			"hidden": true,
+			"options": [
+				{
+					"id": "gx-body-wrap",
+					"type": "checkbox",
+					"label": "malibu.areas.general.layout.options.gx-body-wrap",
+					"default": false
+				}
+			]
+		},
+		{
+			"title": "gx-stage-below-header",
+			"options": [
+				{
+					"id": "gx-stage-below-header",
+					"type": "checkbox",
+					"label": "malibu.areas.header.general.options.gx-header-bg",
+					"default": false
+				},
+				{
+					"id": "gx-use-content-zone-for-hero",
+					"type": "checkbox",
+					"label": "malibu.areas.general.layout.options.gx-use-content-zone-for-hero",
+					"default": false
+				}
+			]
+		},
+		{
+			"title": "gx-index-full-width",
+			"hidden": true,
+			"options": [
+				{
+					"id": "gx-index-full-width",
+					"type": "checkbox",
+					"label": "malibu.areas.menuBoxes.activeAt.options.gx-index-full-width",
+					"default": true,
+					"requiresReload": true,
+					"values": {
+						"checked": false,
+						"unchecked": true
+					}
+				}
+			]
+		}
+	]
+}

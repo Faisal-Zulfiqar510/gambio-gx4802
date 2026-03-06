@@ -1,0 +1,79 @@
+/* 
+	Google AdWords Campaign Overview
+    ========================================================================== 
+
+	Contains specific styling for the overview page.
+	
+*/
+
+.loading {
+    opacity: .5;
+}
+
+.campaigns-overview .adwords-date-range-container {
+    width: 100%;
+}
+
+.campaigns-overview .adwords-date-range-container select {
+    float: right;
+    max-width: 180px;
+}
+
+.campaigns-overview table thead tr th.campaign-actions {
+    text-align: right;
+    padding-right: 12px;
+}
+
+.campaigns-overview table thead tr th.numeric {
+    text-align: right;
+    padding-right: 12px;
+}
+
+.campaigns-overview table thead tr th.campaign-actions .daterangepicker-wrapper {
+    display: inline-block;
+    max-width: 170px;
+}
+
+.campaigns-overview table thead tr th.campaign-actions .daterangepicker-wrapper .comiseo-daterangepicker-triggerbutton {
+    right: 0;
+}
+
+.campaigns-overview table tbody tr {
+    height: 48px;
+}
+
+.campaigns-overview table tbody tr td.sorting_1 {
+    padding-left: 18px;
+}
+
+.campaigns-overview table tfoot tr.total-row {
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #DDDDDD;
+    height: 48px;
+}
+
+.campaigns-overview table tfoot tr.total-row td {
+    text-align: right;
+    padding: 15px 10px;
+}
+
+.campaigns-overview table.dataTable tfoot tr td {
+    border-bottom: 1px solid #DDDDDD;
+    border-top: 2px solid #CCCCCC;
+}
+
+.campaigns-overview table tfoot tr.total-row td:first-child {
+    text-align: left;
+    padding-left: 24px;
+}
+
+.campaigns-overview table tbody .btn-save,
+.campaigns-overview table tbody .btn-cancel {
+    display: none;
+}
+
+.campaigns-overview .daily-budget-input {
+    display: inline-block;
+    max-width: 70px;
+    text-align: right;
+}

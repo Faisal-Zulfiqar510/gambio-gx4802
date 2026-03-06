@@ -1,0 +1,73 @@
+{extends file="get_usermod:layouts/main/layout.html"}
+
+{block name="content"}
+	{load_language_text section="image_processing"}
+	{load_language_text section="buttons" name="button"}
+	{load_language_text section="admin_general" name="general"}
+	
+	{block name="admin_image_processing"}
+		{block name="admin_image_processing_content"}
+			<div class="gx-compatibility">
+				<div class="shop-key-configuration gx-container breakpoint-small">
+					{block name="admin_image_processing_content_title"}
+						<h2 class="section-header">{$txt.image_processing_label}</h2>
+					{/block}
+					
+					{block name="admin_image_processing_content_form"}
+						<form data-gx-controller="image_processing/image_processing" data-gx-extension="visibility_switcher" class="shop-key-form">
+							<div class="grid">
+								{block name="admin_image_processing_content_start_with_imagenr"}
+									<div class="span12 visibility_switcher">
+										<div class="control-group">
+											<label>{$txt.image_processing_startimage_nr}</label>
+											<input id="image-processing-startimage-nr" type="text" value="1" />
+											<span class="tooltip-icon add-padding-left-24" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.image_processing_startimage_nr_info}</span>
+										</div>
+									</div>
+								{/block}
+							</div>
+							<div class="grid">
+								<div class="span12 visibility_switcher">
+									{block name="admin_image_processing_content_start_with_filename"}
+										<div class="control-group">
+											<label>{$txt.image_processing_startimage_file}</label>
+											<input id="image-processing-startimage-file" type="text" value="" />
+											<span class="tooltip-icon add-padding-left-24" data-gx-widget="tooltip_icon" data-tooltip_icon-type="info">{$txt.image_processing_startimage_file_info}</span>
+										</div>
+									{/block}
+								</div>
+							</div>
+							
+							{block name="admin_image_processing_content_buttons"}
+								<div class="button-container grid">
+									<div class="span12">
+										{block name="admin_image_processing_content_buttons_modal"}
+											<div class="process-modal hidden">
+												<p>{$txt.image_processing_current_file}: <span id="image-processing-file"></span></p>
+												
+												<div class="progress progress-striped active">
+													<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+														0 / 0
+													</div>
+												</div>
+												
+												<p>{$txt.image_processing_text_info}</p>
+											</div>
+										{/block}
+									</div>
+								</div>
+							{/block}
+						</form>
+					{/block}
+				</div>
+			</div>
+		{/block}
+	{/block}
+{/block}
+
+{block name="bottom_save_bar"}
+	<span data-gx-controller="image_processing/image_processing">
+		<button type="button"
+				class="btn btn-primary js-process pull-right">{$button.execute}</button>
+	</span>
+{/block}

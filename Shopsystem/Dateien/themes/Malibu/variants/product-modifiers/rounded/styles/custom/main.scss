@@ -1,0 +1,45 @@
+.modifier-group {
+	&.modifier-type {
+		&__dropdown {
+			&.form-group-big-select {
+				.form-control {
+					border-radius: $product-modifier-dropdown-border-radius;
+				}
+			}
+		}
+		&__image {
+			.modifiers-list {
+				.modifier-item {
+					border-radius: $product-modifier-image-border-radius;
+					overflow: hidden;
+				}
+			}
+		}
+		&__radio {
+			.radio {
+				.radio-wrapper {
+					.checkmark {
+						border-radius: $product-modifier-radio-border-radius;
+						&:after {
+							border-radius: $product-modifier-radio-border-radius;
+						}
+					}
+				}
+			}
+		}
+		&__square-text {
+			.modifiers-list {
+				.modifier-item {
+					border-radius: $product-modifier-boxed-text-border-radius;
+				}
+			}
+		}
+		&__text {
+			.modifiers-list {
+				.modifier-item {
+					border-radius: $product-modifier-text-border-radius;
+				}
+			}
+		}
+	}
+}

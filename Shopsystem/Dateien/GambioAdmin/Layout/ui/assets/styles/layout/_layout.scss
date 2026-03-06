@@ -1,0 +1,41 @@
+@import "../variables";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+.gx-admin {
+	display: grid !important;
+	width: 100%;
+	min-height: 100vh;
+	grid-template-columns: $menu-width 1fr;
+	grid-template-rows: $header-height auto $footer-height;
+	grid-template-areas:
+    "header header"
+    "menu main-content"
+    "footer footer";
+	
+	.gx-admin-header {
+		grid-area: header;
+	}
+	
+	.gx-admin-menu {
+		grid-area: menu;
+		border-right: 1px solid $border-color;
+	}
+	
+	.gx-admin-content {
+		grid-area: main-content;
+		display: flex;
+	}
+	
+	.gx-admin-footer {
+		grid-area: footer;
+	}
+	
+	
+	&.collapse {
+		grid-template-columns: $menu-collapsed-width 1fr;
+	}
+	
+	&:not(.collapse) {
+		grid-template-columns: $menu-width 1fr;
+	}
+}

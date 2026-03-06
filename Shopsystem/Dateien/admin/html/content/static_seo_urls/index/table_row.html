@@ -1,0 +1,30 @@
+{*
+	Static seo urls Overview Table Row
+
+	Represents a static seo url data table row.
+
+	Parameters:
+		- $staticSeoUrl {Array} (Static seo url data)
+*}
+
+{block name="admin_static_seo_urls_index_table_row"}
+	<tr class="visibility_switcher"
+		data-static-seo-url-id="{$staticSeoUrl.static_seo_url_id}"
+		data-static-seo-url-name="{$staticSeoUrl.name}">
+		{block name="admin_static_seo_urls_index_table_row_tds"}
+			<td>{$staticSeoUrl.name}</td>
+			<td>
+				<input type="checkbox" name="sitemap_entry" {if $staticSeoUrl.sitemap_entry}checked{/if} />
+			</td>
+			<td>
+				<input type="checkbox" name="robots_disallow_entry" {if $staticSeoUrl.robots_disallow_entry}checked{/if} />
+			</td>
+			<td class="actions">
+				<div class="action-list pull-right visible-on-hover" data-gx-extension="toolbar_icons">
+					<a href="admin.php?do=StaticSeoUrl/details&id={$staticSeoUrl.static_seo_url_id}" class="btn-edit"></a>
+					<a href="#" class="btn-delete"></a>
+				</div>
+			</td>
+		{/block}
+	</tr>
+{/block}

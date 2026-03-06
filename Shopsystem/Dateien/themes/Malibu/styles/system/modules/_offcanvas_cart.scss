@@ -1,0 +1,204 @@
+
+
+/* Offcanvas Cart
+   ========================================================================== */
+
+@if ($gx-offcanvas-cart) {
+    #offcanvas-cart-toggle {
+        display: block;
+        position: fixed;
+        z-index: 2000;
+        right: 0;
+        top: (($gx-header-height - 50px) / 2);
+        width: 50px;
+        height: 50px;
+        padding: 11px 12px;
+        margin-right: 5px;
+        svg, img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cart-products-count {
+            background-color: $brand-primary;
+            height:           20px;
+            width:            20px;
+            padding:          1px;
+            text-decoration:  none;
+            display:          block;
+            color:            #FFFFFF;
+            font-weight:      700;
+            font-size:        11px;
+            position:         absolute;
+            left:             auto;
+            border:           2px solid #FFFFFF;
+            text-align:       center;
+            @include border-radius(50%);
+            right: 0 !important;
+            top: 5px !important;
+        }
+    }
+    #offcanvas-cart-overlay {
+        position: fixed;
+        z-index: 2001;
+        display: none;
+        background: rgba(#000, .8);
+        opacity: 0;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        @include transition(500ms ease all);
+
+        // menu visible
+        body.show-cart & {
+            opacity: 1;
+        }
+    }
+    #offcanvas-cart-content {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        overflow-y: auto;
+        background: $gx-dropdown-footer-bg;
+        .offcanvas-cart-close {
+            position: absolute;
+            z-index: 3001;
+            right: 0;
+            top: -4px;
+            &.c-hamburger--htx span {
+                background: none !important;
+            }
+            &.c-hamburger--htx span::before {
+                top: 0;
+                transform: rotate(45deg);
+            }
+            &.c-hamburger--htx span::after {
+                bottom: 0;
+                transform: rotate(-45deg);
+            }
+            &.c-hamburger--htx span::before,
+            &.c-hamburger--htx span::after {
+                transition-delay: 0s, $button-transistion-duration;
+                background-color: #000;
+            }
+            &.c-hamburger--htx:hover span {
+                &:before,
+                &:after {
+                    background-color: #000 !important;
+                }
+            }
+        }
+
+        ul.dropdown-menu {
+
+            top: 0;
+            left: auto;
+            right: auto;
+            display: block;
+            float: none;
+            position: relative;
+            margin-top: 0;
+            margin-right: 0;
+            padding: 0;
+            width: 300px;
+            @include box-shadow(none);
+
+            > .cart-dropdown-inside {
+                
+                font-size: $font-size-small;
+                
+                // list of products
+                
+                ul.products-list {
+                    @include reset-list();
+                    max-height: 400px;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    border-top: 1px solid $gx-dropdown-border-color;
+                    > li {
+                        @include clearfix();
+                        display:    block;
+                        margin:     0;
+                        border-top: 1px solid $gx-dropdown-border-color;
+                        &:first-of-type {
+                            border-top: none;
+                        }
+                        > a {
+                            @include clearfix();
+                            display: block;
+                            padding: 5px 0;
+                            color:   $gx-dropdown-color;
+                            .img {
+                                .no-pic {
+                                    font-size: 42px;
+                                }
+                            }
+                            
+                            .products-vpe {
+                                color:     $gx-dropdown-info-color;
+                                display:   inline;
+                                font-size: 11px;
+                                padding:   0;
+                            }
+                            .price {
+                                font-weight: 700;
+                                text-align:  right;
+                            }
+                        }
+                    }
+                    
+                    
+                }
+
+                .cart-empty {
+                    padding: 140px 15px;
+                }
+
+                // dropdown footer with totals and button
+                
+                .total {
+                    @include clearfix();
+                    font-weight: bold;
+                    .col-xs-8 {
+                        text-align: right;
+                        font-size:  $font-size-h2;
+                    }
+                    .col-xs-4 {
+                        padding-top:    $font-size-small;
+                        text-transform: uppercase;
+                    }
+                }
+                .tax {
+                    font-size:      11px;
+                    color:          $gx-dropdown-info-color;
+                    padding-bottom: ($grid-gutter-width / 2);
+                    text-align:     right;
+                    > a > span {
+                        display: inline;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+    body {
+        @include transition(ease 300ms transform);
+        &.show-cart {
+            transform: translateX(-300px);
+            overflow-y: hidden;
+    
+            &.ie11 {
+                #header {
+                    transform: translateX(-300px);
+                }
+        
+                #offcanvas-cart-content {
+                    right: 0px;
+                    z-index: 9999;
+                }
+            }
+        }
+    }
+}

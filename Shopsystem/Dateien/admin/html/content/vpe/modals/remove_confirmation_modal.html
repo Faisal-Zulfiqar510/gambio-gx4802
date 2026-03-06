@@ -1,0 +1,25 @@
+<div class="modal fade remove-confirmation-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">{$vpe.TEXT_INFO_HEADING_DELETE_PRODUCTS_VPE}</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="vpe-modal text-danger">{$vpe.TEXT_INFO_DELETE_INTRO}</p>
+						<p class="vpe-modal-remove-info">{* Data is provided by vpe/overview.js *}</p>
+						<input type="hidden" class="vpe-remove-id">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+			 	<button type="button" class="btn btn-default" data-dismiss="modal">{$button.abort}</button>
+				<button id="remove-vpe" type="button" class="btn btn-danger">{$button.delete}</button>
+			</div>
+		</div>
+	</div>
+</div>

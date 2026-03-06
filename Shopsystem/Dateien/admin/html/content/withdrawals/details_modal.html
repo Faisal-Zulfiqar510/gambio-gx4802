@@ -1,0 +1,104 @@
+{literal}
+<script type="text/x-template" id="details-modal">
+	<div class="details-modal modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" :aria-label="lang.close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					
+					<h4 class="modal-title">{{lang.title}}</h4>
+				</div>
+				
+				<div class="modal-body" v-if="withdrawal !== undefined">
+					<div class="row">
+						<div class="col-md-6 customer-details">
+							<div class="panel panel-default">
+								<div class="panel-heading">{{ lang.labels.customerDetails }}</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-3"><b>{{ lang.labels.address }}:</b></div>
+										<div class="col-md-9">
+											<span v-if="withdrawal.customer.gender === 'm'">{{ lang.male }}</span>
+											<span v-if="withdrawal.customer.gender === 'f'">{{ lang.female }}</span>
+											{{ withdrawal.customer.firstName }}
+                                            {{ withdrawal.customer.lastName }}<br/>
+											{{ withdrawal.customer.address.street }}<br/>
+											{{ withdrawal.customer.address.postcode }}
+                                            {{ withdrawal.customer.address.city }}<br/>
+											{{ withdrawal.customer.address.country }}<br/>
+										</div>
+									</div>
+									<br/>
+									<div class="row">
+										<div class="col-md-3"><b>{{ lang.labels.email }}:</b></div>
+										<div class="col-md-9">{{ withdrawal.customer.email }}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 order-details">
+							<div class="panel panel-default">
+								<div class="panel-heading">{{ lang.labels.orderDetails }}</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-3"><b>{{ lang.labels.orderDate }}:</b></div>
+										<div class="col-md-9">{{ withdrawal.order.creationDate }}</div>
+									</div>
+									<div class="row">
+										<div class="col-md-3"><b>{{ lang.labels.deliveryDate }}:</b></div>
+										<div class="col-md-9">{{ withdrawal.order.deliveryDate }}</div>
+									</div>
+									<br/>
+									<div class="row">
+										<div class="col-md-3"><b>{{ lang.labels.withdrawalDate }}:</b></div>
+										<div class="col-md-9">
+											{{ withdrawal.date }}
+											( {{ lang.labels.createdOn }} {{ withdrawal.createdOn }}
+											<span v-if="withdrawal.createdByAdmin">
+												{{ lang.labels.createdByAdmin }}</span>
+											<span v-if="!withdrawal.createdByAdmin">
+												{{ lang.labels.createdByCustomer }}</span>)
+										</div>
+									</div>
+									<br/>
+									<div class="row">
+										<div class="col-md-3">
+											<label for="orderId">{{ lang.labels.orderId }}:</label>
+										</div>
+										<div class="col-md-9">
+											<div class="form-group">
+												<div class="row">
+													<div class="col-md-6">
+														<input id="orderId" v-model="orderId" @keyup="checkOrderId"
+														       :class="'form-control ' + (orderIdOk? '' : 'invalid')"
+														       :placeholder="withdrawal.order.id"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 withdrawal">
+							<div class="panel panel-default">
+								<div class="panel-heading">{{ lang.labels.withdrawal }}</div>
+								<div class="panel-body">{{ withdrawal.content }}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">{{lang.close}}</button>
+					<button type="button" class="btn btn-primary" @click="confirm">{{lang.confirm}}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+{/literal}
