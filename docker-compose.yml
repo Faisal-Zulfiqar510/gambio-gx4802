@@ -1,0 +1,34 @@
+services:
+  web:
+    image: webdevops/php-apache:8.0
+    container_name: gambio4802-web
+    depends_on:
+      - db
+    environment:
+      WEB_DOCUMENT_ROOT: /app
+      WEB_DOCUMENT_INDEX: index.php
+      PHP_MAX_EXECUTION_TIME: 300
+      PHP_MEMORY_LIMIT: 512M
+    volumes:
+      - ./Shopsystem/Dateien:/app
+      - ./.docker/apache-codespaces-https.conf:/opt/docker/etc/httpd/conf.d/99-codespaces-https.conf:ro
+    ports:
+      - "8080:80"
+
+  db:
+    image: mariadb:10.6
+    container_name: gambio4802-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gambio
+      MYSQL_USER: gambio
+      MYSQL_PASSWORD: gambio
+      MARIADB_CHARACTER_SET_SERVER: utf8mb4
+      MARIADB_COLLATION_SERVER: utf8mb4_unicode_ci
+    volumes:
+      - gambio4802_db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  gambio4802_db_data:

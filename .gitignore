@@ -1,0 +1,29 @@
+# Gambio runtime artifacts
+Shopsystem/Dateien/cache/*
+!Shopsystem/Dateien/cache/.htaccess
+!Shopsystem/Dateien/cache/cronjobs/
+!Shopsystem/Dateien/cache/sessions/
+!Shopsystem/Dateien/cache/smarty/
+Shopsystem/Dateien/cache/sessions/**
+Shopsystem/Dateien/cache/smarty/**
+
+Shopsystem/Dateien/logfiles/*.log
+Shopsystem/Dateien/logfiles/*.txt
+Shopsystem/Dateien/logfiles/*.json
+
+Shopsystem/Dateien/GProtector/cache/*
+
+Shopsystem/Dateien/config/.env.php
+Shopsystem/Dateien/media/gprotector_token_*
+Shopsystem/Dateien/media/session_name_postfix_*
+
+Shopsystem/Dateien/uploads/attachments/email_*.html
+
+# Generated image derivatives
+Shopsystem/Dateien/images/product_images/gallery_images/*
+Shopsystem/Dateien/images/product_images/info_images/*
+Shopsystem/Dateien/images/product_images/popup_images/*
+Shopsystem/Dateien/images/product_images/thumbnail_images/*
+
+# Generated storefront theme build output
+Shopsystem/Dateien/public/theme/*
